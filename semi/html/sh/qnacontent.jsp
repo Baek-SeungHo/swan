@@ -65,7 +65,7 @@
                             ?> 
                         </select>일 
                     </td> 
-                </tr> 
+                </tr>  
 
                 <?php include_once(G5_PLUGIN_PATH.'/jquery-ui/datepicker.php'); ?> 
                 <script> 
