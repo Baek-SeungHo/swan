@@ -11,6 +11,6 @@
 </head>
 <body>
 <h2>에러 발생 : <%= message %></h2>
-<a href="/semi/index.html">첫페이지로 이동</a>
+<a href="/semi/index.jsp">첫페이지로 이동</a>
 </body>
 </html>
