@@ -125,8 +125,9 @@ public class UserDao {
 			pstmt.setString(4, user.getUserGender());
 			pstmt.setInt(5, user.getUserAge());
 			pstmt.setString(6, user.getUserEmail());
-			pstmt.setString(7, user.getUserPhone());
-			pstmt.setString(8, user.getAdministrator());
+			pstmt.setString(7, user.getUserPhone());			
+			//pstmt.setString(8, user.getAdministrator());
+			
 			
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
