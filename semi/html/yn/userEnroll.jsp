@@ -81,7 +81,7 @@ button {
   text-align: center;
   font-style: normal;
   border-radius: 5px;
-  width: 45%;
+  width: 50%;
   border: 1px solid rgb(180,180,180);
   border-width: 1px 1px 3px;
   box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
@@ -232,8 +232,8 @@ $(function(){
 <h1>Sign Up</h1>
 <fieldset>
 <label for="name">ID:</label>
-<input type="text" id="userid" name="userid" style="width:50%;" required > &nbsp;
-<button onclick="return checkId();" style="align:right">중복확인</button>
+<input type="text" id="userid" name="userid" style="width:65%;" required > &nbsp;
+<button onclick="return checkId();" style="align:right; width:30%">중복확인</button>
 
 <label for="name">NAME:</label>
 <input type="text" id="username" name="username" required>
@@ -265,7 +265,7 @@ $(function(){
 <label for="name">ADMINISTRATOR:</label>
 <input type="text" id="administrator" name="administrator">
 
-<button type="submit">Sign Up</button> &nbsp; <a href="/semi/index.jsp">첫 페이지로</a>
+<button type="submit" style="width:100%;">Sign Up</button>
 </fieldset>
 </form>	
 				</div>
