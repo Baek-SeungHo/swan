@@ -182,8 +182,8 @@ form {
     </div>
   </form>
   <div class="form-footer">
-    <p><a href="/semi/html/yn/userEnroll.jsp">Create an account</a></p>
-    <p><a href="#">Forgot password?</a></p>
+    <p><a href="/semi/html/yn/userEnroll.jsp">회원가입</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#">비밀번호 찾기</a></p>
   </div>
 </div>
 </div>
