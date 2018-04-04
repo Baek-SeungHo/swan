@@ -262,9 +262,6 @@ $(function(){
 <label for="name">PHONE:</label>
 <input type="tel" id="userphone" name="userphone" required>
 
-<label for="name">ADMINISTRATOR:</label>
-<input type="text" id="administrator" name="administrator">
-
 <button type="submit" id="submit" style="width:100%;">회원가입</button>
 </fieldset>
 </form>	

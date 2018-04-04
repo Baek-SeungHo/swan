@@ -41,7 +41,7 @@ public class UserInsertServlet extends HttpServlet {
 		user.setUserAge(Integer.parseInt(request.getParameter("userage")));
 		user.setUserEmail(request.getParameter("useremail"));
 		user.setUserPhone(request.getParameter("userphone"));
-		user.setAdministrator(request.getParameter("administrator"));
+		//user.setAdministrator(request.getParameter("administrator"));
 		
 		System.out.println(user);
 		
