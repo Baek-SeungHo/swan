@@ -159,11 +159,12 @@ $(function(){
 		var pwd2 = $("#upwd2").val();
 		
 		if(pwd1 == pwd2 ){
-			$("#confirm").css("display", "true");
-			$("#confirm").val("");
+			/* $("#confirm").css("display", "true");
+			$("#confirm").val(""); */
 		}else{
-			$("#confirm").css("display", "block");
-			$("#confirm").val("비밀번호가 일치하지 않습니다");
+			/* $("#confirm").css("display", "block");
+			$("#confirm").val("비밀번호가 일치하지 않습니다"); */
+			$("#submit").alert("비밀번호가 일치하지 않습니다");
 		}
 	});
 });
@@ -265,7 +266,7 @@ $(function(){
 <label for="name">ADMINISTRATOR:</label>
 <input type="text" id="administrator" name="administrator">
 
-<button type="submit" style="width:100%;">Sign Up</button>
+<button type="submit" id="submit" style="width:100%;">Sign Up</button>
 </fieldset>
 </form>	
 				</div>
