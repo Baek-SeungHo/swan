@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>회원가입</title>
 <script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
 <meta name="description" content="website description" />
@@ -32,8 +32,9 @@ form {
 }
 
 h1 {
-  margin: 0 0 30px 0;
+  margin: 0 0 20px 0;
   text-align: center;
+  color: rgb(190,190,190);
 }
 
 input[type="text"],
@@ -229,7 +230,7 @@ $(function(){
 			<!--내용-->
 			<div id="content">
 <form action="<%= request.getContextPath() %>/uinsert.me" method="post">
-<h1>Sign Up</h1>
+<h1>회원가입</h1>
 <fieldset>
 <label for="name">ID:</label>
 <input type="text" id="userid" name="userid" style="width:65%;" required > &nbsp;
@@ -264,7 +265,7 @@ $(function(){
 <label for="name">ADMINISTRATOR:</label>
 <input type="text" id="administrator" name="administrator">
 
-<button type="submit" id="submit" style="width:100%;">Sign Up</button>
+<button type="submit" id="submit" style="width:100%;">회원가입</button>
 </fieldset>
 </form>	
 				</div>

@@ -35,8 +35,9 @@ form {
 }
 
 h1 {
-  margin: 0 0 30px 0;
+  margin: 0 0 20px 0;
   text-align: center;
+  color: rgb(190,190,190);
 }
 
 input[type="text"],
