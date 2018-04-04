@@ -86,7 +86,7 @@ form {
 }
 
 .button:hover {
-  background: #ee3e52;
+  background: rgb(180,180,180);
 }
 
 .form-footer {

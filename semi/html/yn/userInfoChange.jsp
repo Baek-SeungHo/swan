@@ -222,7 +222,7 @@ $(function(){
 <input type="password" name="userpwd" id="upwd1" required>
 
 <label for="name">CONFIRM PASSWORD:</label>
-<input type="password" name="userpwd" id="upwd2" style="margin-bottom:5px"required>
+<input type="password" name="userpwd" id="upwd2" style="margin-bottom:5px" required>
 
 <div style="height:25px;"><input type="text" id="confirm" style="display:none; background:#f4f7f8; box-shadow:none; font-size:12px; height:12px; padding-left:0;" readonly></div>
 
