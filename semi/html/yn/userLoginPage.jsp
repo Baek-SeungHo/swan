@@ -28,7 +28,7 @@
 /* Form Layout */
 .form-wrapper {
   background: #fff;
-  margin: 3em auto;
+  margin-left: 50px;
   padding: 0 1em;
   max-width: 370px;
 }
@@ -71,7 +71,7 @@ form {
 }
 
 .button-panel .button {
-  background: #f16272;
+  background: rgb(200,200,200);
   border: none;
   color: #fff;
   cursor: pointer;
