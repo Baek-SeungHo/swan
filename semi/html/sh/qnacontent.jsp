@@ -1,6 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	pageEncoding="UTF-8" %>
+<%@	page import="qna.model.vo.QNA, user.model.vo.User, java.util.ArrayList"
+%>
+
+<% 
+/* 	ArrayList<QNA> list = (ArrayList<QNA>)request.getAttribute("list");
+	int listCount = ((Integer)request.getAttribute("listCount")).intValue();
+	int startPage = ((Integer)request.getAttribute("startPage")).intValue();
+	int endPage = ((Integer)request.getAttribute("endPage")).intValue();
+	int maxPage = ((Integer)request.getAttribute("maxPage")).intValue();			
+	int currentPage = ((Integer)request.getAttribute("currentPage")).intValue();
+
+	User loginUser = (User)session.getAttribute("loginUser"); */
+%>
+
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -49,9 +63,9 @@
 	<table style="width: 100%; background: red; height: 50px;">
 		<%-- <% for(QNA q : list){ %>
 			<tr>
-				<td><b class="b_slide"><%= q.qna_question %> </b>
+				<td><b class="b_slide"><%= q.getQna_question() %> </b>
 					<ul class="ul_slide" style="list-style: none;">
-						<b><%= q.qna_answer %></b>
+						<b><%= q.getQna_answer() %></b>
 					</ul>
 				</td>
 			</tr>
