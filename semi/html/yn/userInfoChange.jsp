@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원정보수정</title>
+<script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"
@@ -132,6 +133,22 @@ label.light {
 
 }
 </style>
+<script type="text/javascript">
+$(function(){
+	$('input[type=password]').blur(function(){
+		var pwd1 = $("#upwd1").val();
+		var pwd2 = $("#upwd2").val();
+		
+		if(pwd1 == pwd2 ){
+			$("#confirm").css("display", "true");
+			$("#confirm").val("");
+		}else {
+			$("#confirm").css("display", "block");
+			$("#confirm").val("비밀번호가 일치하지 않습니다");
+		}
+	});
+});
+</script>
 </head>
 <body>
 	<div id="main">
@@ -193,7 +210,7 @@ label.light {
 			<!--내용-->
 			<div id="content">
 <form action="<%= request.getContextPath() %>/uupdate" method="post">
-<h1>내 정보보기</h1>
+<h1>회원정보수정</h1>
 <fieldset>
 <label for="name">ID:</label>
 <input type="text" name="userid" value="<%= user.getUserId() %>" readonly>
@@ -202,10 +219,12 @@ label.light {
 <input type="text" name="username" value="<%= user.getUserName() %>" readonly>
 
 <label for="name">PASSWORD:</label>
-<input type="password" name="userpwd" id="upwd1">
+<input type="password" name="userpwd" id="upwd1" required>
 
 <label for="name">CONFIRM PASSWORD:</label>
-<input type="password" name="userpwd" id="upwd2">
+<input type="password" name="userpwd" id="upwd2" style="margin-bottom:5px"required>
+
+<div style="height:25px;"><input type="text" id="confirm" style="display:none; background:#f4f7f8; box-shadow:none; font-size:12px; height:12px; padding-left:0;" readonly></div>
 
 <label for="job">GENDER:</label>
   <select id="usergender" name="usergender">
