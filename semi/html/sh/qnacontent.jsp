@@ -8,24 +8,24 @@
 <script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$(".b_slide").click(function() {
+/* 		$(".b_slide").click(function() {
 			if ($(".ul_slide").is(":visible")) {
 
 				$(".ul_slide").slideUp();
 			} else {
 				$(".ul_slide").slideDown();
 			}
-		});
+		}); */
 	});
 </script>
 <style type="text/css">
-.b_slide {
+/* .b_slide {
 	cursor: pointer;	
-}
+} */
 </style>
 </head>
 <body>
-	<h1>Q & A</h1>
+	<!-- <h1>Q & A</h1>
 	<p>자주 묻는 사항들을 게시한 페이지 입니다.</p>
 	<table style="width: 600px;">
 		<tbody>
@@ -44,11 +44,19 @@
 						<b>222</b>
 					</ul></td>
 			</tr>
-
 		</tbody>
-
+	</table> -->
+	<table style="width: 100%; background: red; height: 50px;">
+		<%-- <% for(QNA q : list){ %>
+			<tr>
+				<td><b class="b_slide"><%= q.qna_question %> </b>
+					<ul class="ul_slide" style="list-style: none;">
+						<b><%= q.qna_answer %></b>
+					</ul>
+				</td>
+			</tr>
+		<% } %> --%>
 	</table>
 	
-
 </body>
 </html>
