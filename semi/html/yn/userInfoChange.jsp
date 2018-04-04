@@ -83,7 +83,7 @@ button {
   text-align: center;
   font-style: normal;
   border-radius: 5px;
-  width: 45%;
+  width: 48%;
   border: 1px solid rgb(180,180,180);
   border-width: 1px 1px 3px;
   box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
@@ -202,10 +202,10 @@ label.light {
 <input type="text" name="username" value="<%= user.getUserName() %>" readonly>
 
 <label for="name">PASSWORD:</label>
-<input type="password" name="userpwd" id="upwd1" value="<%= user.getUserPwd() %>">
+<input type="password" name="userpwd" id="upwd1">
 
 <label for="name">CONFIRM PASSWORD:</label>
-<input type="password" name="userpwd" id="upwd2" value="<%= user.getUserPwd() %>">
+<input type="password" name="userpwd" id="upwd2">
 
 <label for="job">GENDER:</label>
   <select id="usergender" name="usergender">
@@ -226,8 +226,7 @@ label.light {
 <input type="tel" name="userphone" value="<%= user.getUserPhone() %>">
 
 <button type="submit">수정하기</button> &nbsp;
-<a href="/semi/udelete?userid=<%= user.getUserId() %>">탈퇴하기</a>&nbsp; 
-<a href="/semi/index.jsp">이전페이지로</a>
+<a href="/semi/udelete?userid=<%= user.getUserId() %>"><button type="button">탈퇴하기</button></a>
 </fieldset>
 </form>	
 				</div>
