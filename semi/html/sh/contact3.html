@@ -2,12 +2,32 @@
 <html>
 <meta charset="UTF-8">
 <head>
-<title>simplestyle_blue_trees - contact us</title>
+<title>contact us</title>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"
 	content="text/html; charset=windows-1252" />
 <link rel="stylesheet" type="text/css" href="/semi/style/style.css" />
+<script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		/* alert('aaa');
+		$(".b_slide").click(function() {
+
+			if ($(".ul_slide").is(":visible")) {
+
+				$(".ul_slide").slideUp();
+			} else {
+				$(".ul_slide").slideDown();
+			}
+
+		}) */
+		$("#content").load("qnacontent.jsp");
+		
+		
+	});
+</script>
 </head>
 
 <body>
@@ -47,9 +67,7 @@
 						<h3>Memu</h3>
 						<ul>
 							<li><a href="/semi/html/sh/contact.html">1:1상담</a></li>
-							<li><a href="/semi/qnalist?page=1">자주묻는질문</a></li>
-
-							<!-- /semi/html/sh/contact2.html -->
+							<li><a href="/semi/html/sh/contact2.jsp">자주묻는질문</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
@@ -70,29 +88,35 @@
 					<!-- <div class="sidebar_base"></div> -->
 				</div>
 			</div>
-			<div id="content">
+			<div id="content">				
 				<!-- insert the page content here -->
-				<h1>1:1 문의</h1>
-				<p>관리자에게 질문사항에 대하여 문의합니다.</p>
-				<div class="form_settings">
-					<p>
-						<span>Name</span><input class="contact" type="text"
-							name="your_name" value="" />
-					</p>
-					<p>
-						<span>Email Address</span><input class="contact" type="text"
-							name="your_email" value="" />
-					</p>
-					<p>
-						<span>Message</span>
-						<textarea class="contact textarea" rows="8" cols="50"
-							name="your_enquiry"></textarea>
-					</p>
-					<p style="padding-top: 15px">
-						<span>&nbsp;</span><input class="submit" type="submit"
-							name="contact_submitted" value="submit" />
-					</p>
-				</div>
+<!-- 				<h1>Q & A</h1>
+				<p>자주 묻는 사항들을 게시한 페이지 입니다.</p>
+					<table>
+						<tbody>
+								<tr>
+									<td>
+										item1
+									</td>
+								</tr>
+								<tr>
+									<td>Item2</td>
+								</tr>
+								<tr>
+									<td>Q.만들기 너무 기차나여</td>
+								</tr>
+								<tr>
+									<td>
+										<b class="b_slide">Q . 111</b>
+										<ul class="ul_slide" style="list-style: none;">
+											<a>222<a>
+										</ul>
+									</td>
+								</tr>
+
+							</tbody>
+					
+					</table> -->
 				<p>
 					<br />
 				</p>

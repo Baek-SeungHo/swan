@@ -1,26 +1,14 @@
 package user.model.dao;
 
-import java.io.FileReader;
 import java.sql.*;
-import java.util.Properties;
 
 import user.model.vo.User;
 
 import static common.JDBCTemplate.*;
 
 public class UserDao {
-	private Properties prop;
 	
-	public UserDao() {
-		prop = new Properties();
-		
-		try {
-			prop.load(new FileReader(
-					UserDao.class.getResource("/dbresource/user.properties").getPath()));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	public UserDao() {}
 
 	public User loginCheck(Connection con, String userId, String userPwd) {
 		
@@ -28,8 +16,10 @@ public class UserDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
+		String query="select * from user_info where user_id = ? and user_pwd = ?";
+		
 		try {
-			pstmt = con.prepareStatement(prop.getProperty("loginCheck"));
+			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, userId);
 			pstmt.setString(2, userPwd);
 			
@@ -63,8 +53,10 @@ public class UserDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
+		String query="select * from user_info where user_id=?";
+		
 		try {
-			pstmt = con.prepareStatement(prop.getProperty("selectUser"));
+			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, userId);
 			
 			rset = pstmt.executeQuery();
@@ -95,8 +87,10 @@ public class UserDao {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
+		String query="update user_info set user_pwd = ?, user_gender = ?, user_age = ?, user_email = ?, user_phone = ? where user_id=?";
+		
 		try {
-			pstmt = con.prepareStatement(prop.getProperty("updateUser"));
+			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, user.getUserPwd());
 			pstmt.setString(2, user.getUserGender());
 			pstmt.setInt(3, user.getUserAge());
@@ -117,8 +111,10 @@ public class UserDao {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
+		String query="insert into user_info values (?, ?, ?, ?, ?, ?, ?, default)";
+		
 		try {
-			pstmt = con.prepareStatement(prop.getProperty("insertUser"));
+			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, user.getUserId());
 			pstmt.setString(2, user.getUserPwd());
 			pstmt.setString(3, user.getUserName());			
@@ -142,8 +138,10 @@ public class UserDao {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
+		String query="delete from user_info where user_id = ?";
+		
 		try {
-			pstmt = con.prepareStatement(prop.getProperty("deleteUser"));
+			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, userId);
 			
 			result = pstmt.executeUpdate();
@@ -160,8 +158,10 @@ public class UserDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
+		String query="select count(user_id) from user_info where user_id = ?";
+		
 		try {
-			pstmt = con.prepareStatement(prop.getProperty("selectCheckId"));
+			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, userId);
 			
 			rset = pstmt.executeQuery();

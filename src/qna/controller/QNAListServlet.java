@@ -63,7 +63,7 @@ public class QNAListServlet extends HttpServlet {
 				response.setContentType("text/html; charset=utf-8");
 				RequestDispatcher view = null;
 				if(list.size() > 0) {
-					view = request.getRequestDispatcher("/semi/html/sh/qnacontent.jsp");
+					view = request.getRequestDispatcher("/semi/html/sh/contact2.jsp");
 					request.setAttribute("list", list);
 					request.setAttribute("currentPage", currentPage);
 					request.setAttribute("maxPage", maxPage);
@@ -72,7 +72,7 @@ public class QNAListServlet extends HttpServlet {
 					request.setAttribute("listCount", listCount);
 					view.forward(request, response);
 				}else {
-					view = request.getRequestDispatcher("/semi/index.jsp");
+					view = request.getRequestDispatcher("index.jsp");
 					/*request.setAttribute("message", currentPage + "에 대한 목록 조회 실패!");*/
 					view.forward(request, response);
 				}
