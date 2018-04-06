@@ -1,7 +1,5 @@
 package user.model.dao;
 
-import java.io.FileReader;
-
 import java.sql.*;
 
 import user.model.vo.User;
@@ -18,7 +16,7 @@ public class UserDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String query="loginCheck=select * from user_info where user_id = ? and user_pwd = ?";
+		String query="select * from user_info where user_id = ? and user_pwd = ?";
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -55,7 +53,7 @@ public class UserDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String query="selectUser=select * from user_info where user_id=?";
+		String query="select * from user_info where user_id=?";
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -89,7 +87,7 @@ public class UserDao {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
-		String query="updateUser=update user_info set user_pwd = ?, user_gender = ?, user_age = ?, user_email = ?, user_phone = ? where user_id=?";
+		String query="update user_info set user_pwd = ?, user_gender = ?, user_age = ?, user_email = ?, user_phone = ? where user_id=?";
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -113,7 +111,7 @@ public class UserDao {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
-		String query="insertUser=insert into user_info values (?, ?, ?, ?, ?, ?, ?, default)";
+		String query="insert into user_info values (?, ?, ?, ?, ?, ?, ?, default)";
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -140,7 +138,7 @@ public class UserDao {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
-		String query="deleteUser=delete from user_info where user_id = ?";
+		String query="delete from user_info where user_id = ?";
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -160,7 +158,7 @@ public class UserDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String query="selectCheckId=select count(user_id) from user_info where user_id = ?";
+		String query="select count(user_id) from user_info where user_id = ?";
 		
 		try {
 			pstmt = con.prepareStatement(query);
