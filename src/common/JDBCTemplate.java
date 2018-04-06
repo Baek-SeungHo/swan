@@ -9,7 +9,31 @@ import java.util.Properties;
 
 public class JDBCTemplate {
 	
-	public static Connection getConnection() {
+public static Connection getConnection() {
+		
+		Connection con = null;		
+		
+		try {			
+			
+			String driver = "oracle.jdbc.driver.OracleDriver";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String user = "swan";
+			String pwd = "swan";
+			
+			Class.forName(driver);
+			con = DriverManager.getConnection(url, user, pwd);
+			con.setAutoCommit(false);
+			
+		} catch (Exception e) {			
+			e.printStackTrace();
+		}		
+		return con;		
+	}
+	
+	
+	
+	
+	/*public static Connection getConnection() {
 		System.out.println("getConnection()들어옴");
 		Connection con = null;
 		Properties prop = new Properties();
@@ -38,7 +62,7 @@ public class JDBCTemplate {
 			e.printStackTrace();
 		}
 		return con;
-	}
+	}*/
 	
 	public static void commit(Connection con) {
 		try {
