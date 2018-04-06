@@ -10,6 +10,7 @@ import java.util.Properties;
 public class JDBCTemplate {
 	
 	public static Connection getConnection() {
+		System.out.println("getConnection()들어옴");
 		Connection con = null;
 		Properties prop = new Properties();
 		
@@ -19,16 +20,21 @@ public class JDBCTemplate {
 		System.out.println("url : " + JDBCTemplate.class.getResource("/").toString());
 		
 		try {
+			System.out.println("getConnection() try");
 			prop.load(new FileReader(fileName));
-			
+			System.out.println("getConnection() load");
 			Class.forName(prop.getProperty("driver"));
+			System.out.println("getConnection() Class");
 			con = DriverManager.getConnection(
 					prop.getProperty("url"),
 					prop.getProperty("user"),
 					prop.getProperty("passwd"));
+			System.out.println("getConnection() GetConnection");
 			
 			con.setAutoCommit(false);
 		} catch (Exception e) {
+			System.out.println("getConnection() catch");
+
 			e.printStackTrace();
 		}
 		return con;
