@@ -34,6 +34,7 @@ public class QNAListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 페이지별로 출력되는 게시글 전체 조회 처리용 컨트롤러
 		//페이지 기본값 지정
+		System.out.println("QNAListServlet 들어옴");
 		int currentPage = 1;
 		//전달된 페이지값 추출
 		if(request.getParameter("page") != null) {

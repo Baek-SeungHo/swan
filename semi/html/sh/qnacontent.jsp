@@ -4,14 +4,14 @@
 %>
 
 <% 
-/* 	ArrayList<QNA> list = (ArrayList<QNA>)request.getAttribute("list");
+	ArrayList<QNA> list = (ArrayList<QNA>)request.getAttribute("list");
 	int listCount = ((Integer)request.getAttribute("listCount")).intValue();
 	int startPage = ((Integer)request.getAttribute("startPage")).intValue();
 	int endPage = ((Integer)request.getAttribute("endPage")).intValue();
 	int maxPage = ((Integer)request.getAttribute("maxPage")).intValue();			
 	int currentPage = ((Integer)request.getAttribute("currentPage")).intValue();
 
-	User loginUser = (User)session.getAttribute("loginUser"); */
+	User loginUser = (User)session.getAttribute("loginUser");
 %>
 
 <!DOCTYPE html>
@@ -61,7 +61,7 @@
 		</tbody>
 	</table> -->
 	<table style="width: 100%; background: red; height: 50px;">
-		<%-- <% for(QNA q : list){ %>
+		<% for(QNA q : list){ %>
 			<tr>
 				<td><b class="b_slide"><%= q.getQna_question() %> </b>
 					<ul class="ul_slide" style="list-style: none;">
@@ -69,7 +69,7 @@
 					</ul>
 				</td>
 			</tr>
-		<% } %> --%>
+		<% } %>
 	</table>
 	
 </body>
