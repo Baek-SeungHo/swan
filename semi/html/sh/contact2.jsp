@@ -91,7 +91,7 @@
 			</div>
 			<div id="content">			
 			
-				aaaa	
+				aaaa	bbbbb
 				<!-- insert the page content here -->
 <!-- 				<h1>Q & A</h1>
 				<p>자주 묻는 사항들을 게시한 페이지 입니다.</p>
