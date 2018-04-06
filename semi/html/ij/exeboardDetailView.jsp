@@ -1,4 +1,13 @@
-<!DOCTYPE HTML>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page
+	import=" exeboard.model.vo.ExeBoard, java.util.*, java.sql.Date"%>
+<%
+	ExeBoard  board = (ExeBoard) request.getAttribute("board");
+	 int currentPage = ((Integer) request.getAttribute("currentPage")).intValue(); 
+%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <meta charset="UTF-8">
 <head>
@@ -70,7 +79,22 @@
 			</div>
 			<!--내용-->
 			<div id="content">
-				
+				<table align="center" cellpadding="10" cellspacing="0" border="1"
+					width="500">
+					 <tr align="center" valign="middle">
+						<td colspan="1">운동부위</td>
+						<td><%=board.getSportbody()%></td>
+					</tr> 
+					<tr>
+						<td height="15" width="100">운동명</td>
+						<td><%=board.getSportname()%></td>
+					</tr>
+					<tr>
+						<td>영상</td>
+						<td><%=board.getSporturl() %></td>
+								
+					</tr>
+				</table>
 			</div>
 			<!--내용끝-->
 		</div>

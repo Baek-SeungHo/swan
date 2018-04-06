@@ -1,4 +1,6 @@
-<!DOCTYPE HTML>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <meta charset="UTF-8">
 <head>
@@ -70,7 +72,35 @@
 			</div>
 			<!--내용-->
 			<div id="content">
-				
+				<h2 align="center">운동게시글업데이트</h2>
+				<form action="/first/binsert.ss" method="post"
+					enctype="multipart/form-data">
+					<table align="center">
+						<tr>
+							<td colspan="1">운동부위</td>
+							<td><select>
+									<option value="chest">가슴</option>
+									<option value="shoulder">어깨</option>
+									<option value="etc">등</option>
+									<option value="abs">복근</option>
+									<option value=lowerbody">하체</option>
+									<option value="arm">팔</option>
+							</select></td>
+							<td>운동명</td>
+							<td><input type="text" name="sport_name"></td>
+							<td>운동코드</td>
+							<td><input type="text" name="sport_code"></td>
+						</tr>
+						<tr>
+							<td>동영상url</td>
+							<td colspan="5">  <input type="text" name="sport_url" style="width: 99%"></td>
+						</tr>
+						<tr>
+							<td colspan="6	" align="center" style="text-align: right"><input type="submit"
+								value="업데이트"> &nbsp; <a href="/semi/blist?page=1">목록으로</a></td>
+						</tr>
+					</table>
+				</form>
 			</div>
 			<!--내용끝-->
 		</div>
