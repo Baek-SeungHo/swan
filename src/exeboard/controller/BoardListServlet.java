@@ -35,6 +35,8 @@ public class BoardListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		System.out.println("BoardListServlet 들어옴");
 		// 페이지 기본값 지정
 		int currentPage = 1;
 		// 전달된 페이지값 추출

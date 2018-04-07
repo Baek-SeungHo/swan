@@ -1,8 +1,10 @@
-<!DOCTYPE HTML>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
-<meta charset="UTF-8">
 <head>
-<title>simplestyle_blue_trees - contact us</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>contact us</title>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"
@@ -23,13 +25,12 @@
 			}
 
 		}) */
-		$("#content").load("qnacontent.jsp");
-		
+		/* $("#content").load("qnacontent.jsp");
+		 */
 		
 	});
 </script>
 </head>
-
 <body>
 	<div id="main">
 		<div id="header">
@@ -88,7 +89,9 @@
 					<!-- <div class="sidebar_base"></div> -->
 				</div>
 			</div>
-			<div id="content">				
+			<div id="content">			
+			
+				aaaa	bbbbb
 				<!-- insert the page content here -->
 <!-- 				<h1>Q & A</h1>
 				<p>자주 묻는 사항들을 게시한 페이지 입니다.</p>

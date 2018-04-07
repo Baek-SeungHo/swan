@@ -14,9 +14,10 @@ public class QNADao {
 		Statement stmt = null;
 		ResultSet rset = null;
 
-		String query = "select count(*) from qna";
-
+		String query = "select count(*) from q_n_a";
+		
 		try {
+			System.out.println("try");
 			stmt = con.createStatement();
 			rset = stmt.executeQuery(query);
 
