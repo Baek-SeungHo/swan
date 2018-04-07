@@ -15,10 +15,33 @@
 <meta charset="UTF-8">
 <head>
 <title>simplestyle_blue_trees - examples</title>
+<script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 	function showWriteForm() {
 		location.href = "/semi/html/ij/exeboardWriteForm.jsp";
 	}
+
+	$(function() {
+
+		/*셀렉트박스 검색기능에 ajax */
+
+		$("#sportbodyseach").change(function() {
+
+			$.ajax({
+				url : "ebox",
+				type : "post",
+				data : {
+					selectbox : $("#sportbodyseach  option:selected").text()
+				},
+				success : function() {
+					alert("sportbodyseah ajax 값 전달 성공");
+				}
+
+			});
+		});
+
+		/*셀렉트박스 검색기능에 ajax close  */
+	});
 </script>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
@@ -92,19 +115,23 @@
 				<h4 align="center">
 					총 게시글 갯수 :
 					<%=listCount%></h4>
-					
-					<select>
-					<option>가슴</option>
-					<option>등</option>
-					<option>어깨</option>
-					<option>복근</option>
-					<option>하체</option>
-					<option>팔</option>				
-					</select>
+				<!--게시판 검색기능-->
+				<form action="" method="post">
 
-				
+					<select id="sportbodyseach">
+						<option value="seach">부위검색</option>
+						<option value="chest">가슴</option>
+						<option value="shoulder"">등</option>
+						<option value="etc">어깨</option>
+						<option value="abs">복근</option>
+						<option value=lowerbody>하체</option>
+						<option value="arm">팔</option>
+					</select> <input type="text" placeholder="검색어입력하세요"> <input
+						type="submit" value="검색">
+				</form>
+
 				<br>
-
+				<!--게시판 리스트조회-->
 				<table align="center" border="1" cellspacing="0" width="700">
 					<tr>
 						<th>운동부위</th>
@@ -117,8 +144,9 @@
 					%>
 					<tr>
 						<td align="center"><%=b.getSportbody()%></td>
-						<td align="center"><a href="/semi/bdetail?ecode=<%=b.getSportcode()%>&page=<%=currentPage%>">
-									<%=b.getSportname() %></a></td>
+						<td align="center"><a
+							href="/semi/bdetail?ecode=<%=b.getSportcode()%>&page=<%=currentPage%>">
+								<%=b.getSportname()%></a></td>
 						<td align="center"><%=b.getSportlook()%></td>
 						<td align="center"><%=b.getSportdate()%></td>
 					</tr>
@@ -152,6 +180,7 @@
 						}
 					%>
 					<!-- 현재 페이지가 포함된 그룹의 페이지 숫자 출력 -->
+					
 					<%
 						for (int p = startPage; p <= endPage; p++) {
 							if (p == currentPage) {
@@ -190,11 +219,11 @@
 					<%
 						}
 					%>
-				</div>	
-				<br>	
+				</div>
+				<br>
 				<div style="align: center; text-align: center;">
 					<button onclick="showWriteForm();">글쓰기</button>
-				</div>	
+				</div>
 			</div>
 			<!--내용끝-->
 		</div>

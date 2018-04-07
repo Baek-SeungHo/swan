@@ -41,7 +41,7 @@ public class BoardListServlet extends HttpServlet {
 		if (request.getParameter("page") != null) {
 			currentPage = Integer.parseInt(request.getParameter("page"));
 		}
-
+		
 		// 한 페이지당 출력할 목록 갯수 지정
 		int limit = 10;
 

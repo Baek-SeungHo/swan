@@ -10,7 +10,8 @@ import static common.JDBCTemplate.*;
 public class ExeBoardDao {
 	public ExeBoardDao() {
 	}
-	//게시판 갯수조회
+
+	// 게시판 갯수조회
 	public int getListCount(Connection con) {
 
 		int listCount = 0;
@@ -35,7 +36,8 @@ public class ExeBoardDao {
 
 		return listCount;
 	}
-	//게시판전체조회
+
+	// 게시판전체조회
 	public ArrayList<ExeBoard> selectList(Connection con, int currentPage, int limit) {
 		ArrayList<ExeBoard> list = new ArrayList<ExeBoard>();
 		PreparedStatement pstmt = null;
@@ -75,7 +77,8 @@ public class ExeBoardDao {
 
 		return list;
 	}
-	//게시판자료넣기
+
+	// 게시판자료넣기
 	public int insertExeBoard(Connection con, ExeBoard b) {
 		int result = 0;
 		PreparedStatement pstmt = null;
@@ -99,7 +102,8 @@ public class ExeBoardDao {
 
 		return result;
 	}
-	//게시판 조회수 증가
+
+	// 게시판 조회수 증가
 	public int addReadCount(Connection con, String ecode) {
 		int result = 0;
 		PreparedStatement pstmt = null;
@@ -120,7 +124,8 @@ public class ExeBoardDao {
 
 		return result;
 	}
-	//게시판 상세보기
+
+	// 게시판 상세보기
 	public ExeBoard selectBoard(Connection con, String ecode) {
 		ExeBoard exeboard = null;
 		PreparedStatement pstmt = null;
@@ -151,6 +156,7 @@ public class ExeBoardDao {
 
 		return exeboard;
 	}
+	
 
 	/*
 	 * public int updateReplySeq(Connection con, Board replyBoard) { int result = 0;

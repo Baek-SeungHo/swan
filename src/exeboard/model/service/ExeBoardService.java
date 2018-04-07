@@ -46,13 +46,14 @@ public class ExeBoardService {
 		close(con);
 		return;
 	}
-	
+
 	public ExeBoard selectBoard(String ecode) {
 		Connection con = getConnection();
 		ExeBoard b = new ExeBoardDao().selectBoard(con, ecode);
 		close(con);
 		return b;
 	}
+
 }
 
 // public void updateReplySeq(ExeBoard replyBoard) {
