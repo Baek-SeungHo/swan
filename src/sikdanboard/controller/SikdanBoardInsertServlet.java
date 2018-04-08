@@ -2,9 +2,7 @@ package sikdanboard.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,18 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 import sikdanboard.model.service.SikdanBoardService;
 import sikdanboard.model.vo.SikdanBorad;
 
-
 /**
- * Servlet implementation class SikdanBoradListServlet
+ * Servlet implementation class SikdanBoardInsertServlet
  */
-@WebServlet("/SikdanBoradListServlet")
-public class SikdanBoradListServlet extends HttpServlet {
+@WebServlet("/SikdanBoardInsertServlet")
+public class SikdanBoardInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SikdanBoradListServlet() {
+    public SikdanBoardInsertServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,38 +33,19 @@ public class SikdanBoradListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-				int currentPage = 1;
+				SikdanBorad sb = new SikdanBorad();
+				sb.setBoard_write(request.getParameter("board_write"));
+				sb.setBoard_title(request.getParameter("board_title"));
+				sb.setBoard_content(request.getParameter("board_content"));
+			
+
 				
-				if (request.getParameter("page") != null) {
-					currentPage = Integer.parseInt(request.getParameter("page"));
-				}
-
-				int limit = 10;
-
-				SikdanBoardService sbservice = new SikdanBoardService();
-				int listCount = sbservice.getListCount();
-
-				ArrayList<SikdanBorad> list = sbservice.selectList(currentPage, limit);
-
-				int maxPage = (int) ((double) listCount / limit + 0.9);
-				int startPage = (((int) ((double) currentPage / limit + 0.9)) - 1) * limit + 1;
-				int endPage = startPage + limit - 1;
-
-				if (maxPage < endPage)
-					endPage = maxPage;
-
 				response.setContentType("text/html; charset=utf-8");
-				RequestDispatcher view = null;
-				if (list.size() > 0) {
-					view = request.getRequestDispatcher("html/jh/sikdan3.jsp");
-					request.setAttribute("list", list);
-					request.setAttribute("currentPage", currentPage);
-					request.setAttribute("maxPage", maxPage);
-					request.setAttribute("startPage", startPage);
-					request.setAttribute("endPage", endPage);
-					request.setAttribute("listCount", listCount);
-					view.forward(request, response);
+
+				if (new SikdanBoardService().insertBoard(sb) > 0) {
+					response.sendRedirect("/semi/SikdanBoradListServlet?page=1");
 				} else {
+
 					PrintWriter out = response.getWriter();
 
 					out.println("ㅇㅇ");

@@ -1,10 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page
+	import="sikdanboard.model.vo.SikdanBorad, java.util.ArrayList, java.sql.Date"%>
+<%
+	ArrayList<SikdanBorad> list = (ArrayList<SikdanBorad>) request.getAttribute("list");
+	int listCount = ((Integer) request.getAttribute("listCount")).intValue();
+	int startPage = ((Integer) request.getAttribute("startPage")).intValue();
+	int endPage = ((Integer) request.getAttribute("endPage")).intValue();
+	int maxPage = ((Integer) request.getAttribute("maxPage")).intValue();
+	int currentPage = ((Integer) request.getAttribute("currentPage")).intValue();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <meta charset="UTF-8">
 <head>
 <title>simplestyle_blue_trees - a page</title>
+
+<!-- 자바스크립트 영역 -->
+
+    <script type="text/javascript">
+
+        function goUrl(url) {
+
+           location.href=url;
+
+        }
+
+    </script>
+
+<!-- //자바스크립트 영역 -->
+
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"
@@ -209,7 +234,7 @@
 
                <tr>
 
-                    <td align="center">1</td>
+                    <!-- <td align="center">1</td>
 
                     <td><a href="boardView.jsp">고기만 먹고 살이 빠진다고? 황제 다이어트!</a></td>
 
@@ -217,8 +242,22 @@
 
                     <td align="center">2018.04.05</td>
 
-                    <td align="center">10</td>
-
+                    <td align="center">10</td> -->
+                    
+                    <%
+						for (SikdanBorad sb : list) {
+					%>
+					
+                    <td align="center"><%=sb.getBoard_num()%></td>
+					<td align="center"><a href="/semi/SikdanBoardDetailViewServlet?board_num=<%=sb.getBoard_num()%>&page=<%=currentPage%>">
+									<%=sb.getBoard_title()%></a></td>
+					<td align="center"><%=sb.getBoard_write()%></td>
+					<td align="center"><%=sb.getBoard_date()%></td>
+					<td align="center">getBoard_look()</td>
+					
+					<%
+						} //for closed
+					%>
                </tr>
 
            </tbody>
@@ -241,9 +280,9 @@
 
        <p>
 
-           <input type="button" value="목록" onclick="goUrl('boardList.jsp');" />
+           <input type="button" value="목록" onclick="goUrl('/semi/html/jh/sikdan3.jsp');" />
 
-           <input type="button" value="글쓰기" onclick="goUrl('boardWriteForm.jsp');" />
+           <input type="button" value="글쓰기" onclick="goUrl('/semi/html/jh/boardWriteForm.jsp');" />
 
        </p>
 
