@@ -1,5 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%@	page import="qna.model.vo.QNA, user.model.vo.User, java.util.*"%>
+<%
+	ArrayList<QNA> list = (ArrayList<QNA>) request.getAttribute("list");
+	int listCount = ((Integer) request.getAttribute("listCount")).intValue();
+	int startPage = ((Integer) request.getAttribute("startPage")).intValue();
+	int endPage = ((Integer) request.getAttribute("endPage")).intValue();
+	int maxPage = ((Integer) request.getAttribute("maxPage")).intValue();
+	int currentPage = ((Integer) request.getAttribute("currentPage")).intValue();
+
+	User loginUser = (User) session.getAttribute("loginUser");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -89,11 +101,41 @@
 					<!-- <div class="sidebar_base"></div> -->
 				</div>
 			</div>
-			<div id="content">			
-			
-				aaaa	bbbbb
-				<!-- insert the page content here -->
-<!-- 				<h1>Q & A</h1>
+			<div id="content">
+				<div style="text-align: center;">
+					<% if (currentPage <= 1) { %>
+					[맨처음]&nbsp;
+					<% } else { %>
+					<a href="/semi/qnalist?page=1">[맨처음]</a>
+					<% } %>
+					<% if ((currentPage - 10) < startPage && (currentPage - 10) > 1) { %>
+					<a href="/semi/qnalist?page=<%=startPage - 10%>">[prev]</a>
+					<% } else { %>
+					[prev]&nbsp;
+					<% } %>
+					<!-- 현재 페이지가 포함된 그룹의 페이지 숫자 출력 -->
+					<% for (int p = startPage; p <= endPage; p++) {
+							if (p == currentPage) { %>
+					<font color="red" size="4"><b>[<%=p%>]
+					</b></font>
+					<% } else { %>
+					<a href="/semi/qnalist?page=<%=p%>"><%=p%></a>
+					<% } } %>
+
+					<% if ((currentPage + 10) > endPage && (currentPage + 10) < maxPage) { %>
+					<a href="/semi/qnalist?page=<%=endPage + 10%>">[next]</a>
+					<% } else { %>
+					[next]&nbsp;
+					<% } %>
+
+					<% if (currentPage >= maxPage) { %>
+					[맨끝]&nbsp;
+					<% } else { %>
+					<a href="/semi/qnalist?page=<%=maxPage%>">[맨끝]</a>
+					<% } %>
+				</div>
+					<!-- insert the page content here -->
+					<!-- 				<h1>Q & A</h1>
 				<p>자주 묻는 사항들을 게시한 페이지 입니다.</p>
 					<table>
 						<tbody>
@@ -120,11 +162,12 @@
 							</tbody>
 					
 					</table> -->
-				<p>
-					<br />
-				</p>
+
+					<p>
+						<br />
+					</p>
+				</div>
 			</div>
-		</div>
 		<div id="content_footer"></div>
 		<div id="footer">
 			<p>
