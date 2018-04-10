@@ -44,6 +44,29 @@ public class BoardnameserachServlet extends HttpServlet {
 
 		ArrayList<ExeBoard> list = new ExeBoardService().namesearch(name);
 
+		JSONObject json = new JSONObject();
+		JSONArray jarr = new JSONArray();
+
+		for (ExeBoard b : list) {
+
+			JSONObject job = new JSONObject();
+
+			job.put("sportcode", b.getSportcode());
+			job.put("sportbody", b.getSportbody());
+			job.put("sportname", b.getSportname());
+			job.put("sportdate", b.getSportdate().toString());
+
+			jarr.add(job);
+		}
+		json.put("list", jarr);
+		System.out.println("json :" + json.toJSONString());
+
+		response.setContentType("application/json; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.print(json.toJSONString());
+		out.flush();
+		out.close();
+
 	}
 
 	/**

@@ -20,7 +20,7 @@ import exeboard.model.vo.ExeBoard;
 /**
  * Servlet implementation class BoardInsertServlet
  */
-@WebServlet("/binsert.ss")
+@WebServlet("/einsert")
 public class BoardInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -45,9 +45,7 @@ public class BoardInsertServlet extends HttpServlet {
 		b.setSportbody(request.getParameter("sport_body"));
 		b.setSportname(request.getParameter("sport_name"));
 		b.setSporturl(request.getParameter("sport_url"));
-	
 
-		
 		response.setContentType("text/html; charset=utf-8");
 
 		if (new ExeBoardService().insertBoard(b) > 0) {

@@ -41,7 +41,6 @@ public class BoardserachServlet extends HttpServlet {
 
 		String body = request.getParameter("body");
 
-
 		ArrayList<ExeBoard> list = new ExeBoardService().search(body);
 
 		// 운동부위로 검색하는 ajax
@@ -61,14 +60,13 @@ public class BoardserachServlet extends HttpServlet {
 		}
 		json.put("list", jarr);
 		System.out.println("json :" + json.toJSONString());
-		
+
 		response.setContentType("application/json; charset=utf-8");
 		PrintWriter out = response.getWriter();
 		out.print(json.toJSONString());
 		out.flush();
 		out.close();
 
-	
 	}
 
 	/**

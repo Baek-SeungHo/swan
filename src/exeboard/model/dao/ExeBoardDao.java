@@ -190,6 +190,7 @@ public class ExeBoardDao {
 		return list;
 	}
 
+	// 운동명으로 검색기능
 	public ArrayList<ExeBoard> namesearch(Connection con, String name) {
 		ArrayList<ExeBoard> list = new ArrayList<ExeBoard>();
 		PreparedStatement pstmt = null;
@@ -199,14 +200,14 @@ public class ExeBoardDao {
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "%"+name+"%");
+			pstmt.setString(1, "%" + name + "%");
 			rset = pstmt.executeQuery();
 
 			while (rset.next()) {
 				ExeBoard board = new ExeBoard();
-				board.setSportbody(name);
+				board.setSportname(name);
 				board.setSportcode(rset.getString("sport_code"));
-				board.setSportname(rset.getString("sport_name"));
+				board.setSportbody(rset.getString("sport_body"));
 				board.setSporturl(rset.getString("sport_url"));
 				board.setSportdate(rset.getDate("sport_date"));
 				list.add(board);

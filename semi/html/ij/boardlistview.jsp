@@ -52,21 +52,48 @@
 							$("#sportlist").empty();
 						});
 		/* 운동명으로 검색 ajax */
-		$("#namesearch").click(function() {
+		$("#namesearch")
+				.click(
+						function() {
 
-			var name = $("#sportname").val();
+							var name = $("#sportname").val();
 
-			$.ajax({
-				url : "/semi/ensearch",
-				type : "post",
-				data : {
-					name : name
-				},
-				success : function(data) {
-						
-				}
-			});
-		});
+							$
+									.ajax({
+										url : "/semi/ensearch",
+										type : "post",
+										data : {
+											name : name
+										},
+										success : function(data) {
+
+											var jsonstr = JSON.stringify(data);
+											var json = JSON.parse(jsonstr);
+											var sport = "";
+
+											for ( var i in json.list) {
+												sport += "<tr><td>	"
+														+ json.list[i].sportbody
+														+ "</td><td><a href='/semi//edetail?ecode="
+														+ json.list[i].sportcode
+														+ "'>"
+														+ json.list[i].sportname
+														+ "</a></td>"
+														+ "<td>"
+														+ json.list[i].sportdate
+														+ "</td>"
+														+ json.list[i].sportlook
+														+ "</td></tr>";
+											}
+											$("#sportlist").append(sport);
+
+										},
+										error : function(a, b, c) {
+											console.log("error:" + a + b + c)
+										}
+									});
+							$("#sportlist").empty();
+						});
 	});
 </script>
 <style type="text/css">
@@ -323,9 +350,10 @@ label.light {
 					<option value="shoulder">등</option>
 					<option value="etc">어깨</option>
 					<option value="abs">복근</option>
-					<option value=lowerbody>하체</option>
+					<option value="lowerbody">하체</option>
 					<option value="Thigh">허벅지</option>
 					<option value="Bridge">다리</option>
+					<option value="arm">팔</option>
 				</select>
 				<!--게시판 운동명 검색기능-->
 				<input type="text" placeholder="검색어입력" id="sportname"> <input
