@@ -198,4 +198,28 @@ public class ExeBoardDao {
 
 	}
 
+	// 운동정보 삭제
+	public int deleteBoard(Connection con, String code) {
+
+		int result = 0;
+		PreparedStatement pstmt = null;
+
+		String query = "delete from EXE_RECOMMEND where sport_code = ?";
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, code);
+
+			result = pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		System.out.println("hi");
+		return result;
+
+	}
+
 }

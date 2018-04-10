@@ -1,13 +1,6 @@
 package exeboard.controller;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,19 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import exeboard.model.service.ExeBoardService;
-import exeboard.model.vo.ExeBoard;
 
 /**
- * Servlet implementation class BoardInsertServlet
+ * Servlet implementation class BoardDetailDeleteServlet
  */
-@WebServlet("/einsert")
-public class BoardInsertServlet extends HttpServlet {
+@WebServlet("/edelete")
+public class BoardDetailDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public BoardInsertServlet() {
+	public BoardDetailDeleteServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -38,17 +30,14 @@ public class BoardInsertServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("hi");
 
-		//운동목록 업데이트
-		ExeBoard b = new ExeBoard();
-		b.setSportbody(request.getParameter("select"));
-		b.setSportname(request.getParameter("sportname"));
-		b.setSportcode(request.getParameter("sportcode"));
-		b.setSporturl(request.getParameter("sporturl"));
+		String code = request.getParameter("sportcode");
 
-		int result = new ExeBoardService().insertBoard(b);
+
+		int result = new ExeBoardService().deleteBoard(code);
+
 	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)

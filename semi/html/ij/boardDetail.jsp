@@ -12,7 +12,28 @@
 <title>simplestyle_blue_trees - examples</title>
 <script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-	
+	$(function() {
+
+		$("#delete").click(function() {
+			var sportcode = $("#sportcode").val();
+
+			$.ajax({
+				url : "/semi/edelete",
+				type : "post",
+				data : {
+					sportcode : sportcode
+				},
+				success : function(data) {
+					alert("게시물삭제성공");
+					
+
+				}
+
+			});
+
+		});
+
+	});
 </script>
 <style type="text/css">
 body {
@@ -22,7 +43,7 @@ body {
 
 form {
 	max-width: 300px;
-	margin: 10px auto;
+	margin: 10px auto; F
 	padding: 10px 20px;
 	background: #f4f7f8;
 	border-radius: 8px;
@@ -260,6 +281,9 @@ label.light {
 			</div>
 			<!--내용-->
 			<div id="content">
+				<!--게시글 상세보기-->
+				<input type="hidden" value="<%=board.getSportcode()%>"
+					id="sportcode">
 				<table>
 					<tr>
 						<td>운동부위</td>
@@ -278,6 +302,8 @@ label.light {
 						<td><%=board.getSporturl()%></td>
 					</tr>
 				</table>
+				<!--게시글 삭제 -->
+				<input type="button" value="목록삭제" id="delete">
 			</div>
 			<!--내용끝-->
 		</div>

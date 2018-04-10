@@ -15,10 +15,6 @@
 			var sportcode = $("#sportcode").val();
 			var sporturl = $("#sporturl").val();
 
-			alert(sportname);
-			alert(sportcode);
-			alert(sporturl);
-
 			$.ajax({
 				url : "/semi/einsert",
 				type : "post",
