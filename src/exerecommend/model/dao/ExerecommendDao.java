@@ -15,7 +15,7 @@ public class ExerecommendDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String query="select * from exe_recommend where sport_body = ?";
+		String query="select * from exe_recommend1 where sport_body = ?";
 		
 		try {
 			
