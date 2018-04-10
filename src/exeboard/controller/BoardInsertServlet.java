@@ -38,25 +38,17 @@ public class BoardInsertServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("hi");
 
-		// 글쓰기
+		// 글쓰기 서블릿
 		ExeBoard b = new ExeBoard();
-		b.setSportcode(request.getParameter("sport_code"));
-		b.setSportbody(request.getParameter("sport_body"));
-		b.setSportname(request.getParameter("sport_name"));
-		b.setSporturl(request.getParameter("sport_url"));
+		b.setSportbody(request.getParameter("select"));
+		b.setSportname(request.getParameter("sportname"));
+		b.setSportcode(request.getParameter("sportcode"));
+		b.setSporturl(request.getParameter("sporturl"));
 
-		response.setContentType("text/html; charset=utf-8");
+		int result = new ExeBoardService().insertBoard(b);
 
-		if (new ExeBoardService().insertBoard(b) > 0) {
-			response.sendRedirect("/semi/blist?page=1");
-		} else {
-
-			PrintWriter out = response.getWriter();
-
-			out.println("게시글등록실패");
-			out.close();
-		}
 	}
 
 	/**

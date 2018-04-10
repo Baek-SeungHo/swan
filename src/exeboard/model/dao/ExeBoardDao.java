@@ -11,32 +11,6 @@ public class ExeBoardDao {
 	public ExeBoardDao() {
 	}
 
-	// 게시판 갯수조회
-	public int getListCount(Connection con) {
-
-		int listCount = 0;
-		Statement stmt = null;
-		ResultSet rset = null;
-
-		String query = "select count(*) from EXE_RECOMMEND";
-
-		try {
-			stmt = con.createStatement();
-			rset = stmt.executeQuery(query);
-
-			if (rset.next()) {
-				listCount = rset.getInt(1);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(stmt);
-		}
-
-		return listCount;
-	}
-
 	// 게시판전체조회
 	public ArrayList<ExeBoard> selectList(Connection con, int currentPage, int limit) {
 		ArrayList<ExeBoard> list = new ArrayList<ExeBoard>();
@@ -82,14 +56,14 @@ public class ExeBoardDao {
 	public int insertExeBoard(Connection con, ExeBoard b) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-
-		String query = "insert into EXE_RECOMMEND values (?,?,?,sysdate,?)";
+		System.out.println("hi2");
+		String query = "insert into EXE_RECOMMEND values (?,?,?,default,sysdate,?)";
 
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, b.getSportcode());
-			pstmt.setString(2, b.getSportbody());
-			pstmt.setString(3, b.getSportname());
+			pstmt.setString(2, b.getSportname());
+			pstmt.setString(3, b.getSportbody());
 			pstmt.setString(4, b.getSporturl());
 
 			result = pstmt.executeUpdate();
@@ -99,7 +73,7 @@ public class ExeBoardDao {
 		} finally {
 			close(pstmt);
 		}
-
+		System.out.println("hi43434");
 		return result;
 	}
 

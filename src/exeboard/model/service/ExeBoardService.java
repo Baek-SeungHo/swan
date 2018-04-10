@@ -25,7 +25,8 @@ public class ExeBoardService {
 		return list;
 	}
 
-	public int insertBoard(ExeBoard b) {
+	// 운동정보 입력
+		public int insertBoard(ExeBoard b) {
 		Connection con = getConnection();
 		int result = new ExeBoardDao().insertExeBoard(con, b);
 		if (result > 0)
@@ -36,6 +37,7 @@ public class ExeBoardService {
 		return result;
 	}
 
+	// 운동정보 조회수 증가
 	public void addReadCount(String ecode) {
 		Connection con = getConnection();
 		int result = new ExeBoardDao().addReadCount(con, ecode);
@@ -47,6 +49,7 @@ public class ExeBoardService {
 		return;
 	}
 
+	// 운동정보 상세보기
 	public ExeBoard selectBoard(String ecode) {
 		Connection con = getConnection();
 		ExeBoard b = new ExeBoardDao().selectBoard(con, ecode);
@@ -54,12 +57,14 @@ public class ExeBoardService {
 		return b;
 	}
 
+	// 운동부위검색
 	public ArrayList<ExeBoard> search(String body) {
 		Connection con = getConnection();
 		ArrayList<ExeBoard> list = new ExeBoardDao().search(con, body);
 		return list;
 	}
 
+	// 운동명검색
 	public ArrayList<ExeBoard> namesearch(String name) {
 
 		Connection con = getConnection();
