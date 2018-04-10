@@ -57,7 +57,7 @@
 						<h4><%= loginUser.getUserName() %>님 환영합니다</h4>
 						<a href="/semi/udetail?userid=<%= loginUser.getUserId() %>">회원정보수정</a>
 						<a href="/semi/ulogout"><input type="button" value="로그아웃"></a>
-						<a href="/semi/html/yn/input.jsp"></a>
+						<a href="/semi/html/yn/input.jsp">운동기록</a>
 						<% } %>
 					</div>
 					<!--메뉴바부분-->
