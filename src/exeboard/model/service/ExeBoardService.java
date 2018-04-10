@@ -54,68 +54,18 @@ public class ExeBoardService {
 		return b;
 	}
 
-}
+	public ArrayList<ExeBoard> search(String body) {
+		Connection con = getConnection();
+		ArrayList<ExeBoard> list = new ExeBoardDao().search(con, body);
+		return list;
+	}
 
-// public void updateReplySeq(ExeBoard replyBoard) {
-// Connection con = getConnection();
-// int result = new ExeBoardDao().updateReplySeq(con, replyBoard);
-// if (result > 0)
-// commit(con);
-// else
-// rollback(con);
-// close(con);
-// return;
-// }
-//
-// public int insertReply(ExeBoard replyBoard) {
-// Connection con = getConnection();
-// int result = new ExeBoardDao().insertReply(con, replyBoard);
-// if (result > 0)
-// commit(con);
-// else
-// rollback(con);
-// close(con);
-// return result;
-// }
-//
-// public int deleteBoard(int boardNum) {
-// Connection con = getConnection();
-// int result = new ExeBoardDao().deleteBoard(con, boardNum);
-// if (result > 0)
-// commit(con);
-// else
-// rollback(con);
-// close(con);
-// return result;
-// }
-//
-// public int updateReply(Board board) {
-// Connection con = getConnection();
-// int result = new BoardDao().updateReply(con, board);
-// if (result > 0)
-// commit(con);
-// else
-// rollback(con);
-// close(con);
-// return result;
-// }
-//
-// public int updateBoard(ExeBoard board) {
-// // 원글 수정 처리용
-// Connection con = getConnection();
-// int result = new ExeBoardDao().updateBoard(con, board);
-// if (result > 0)
-// commit(con);
-// else
-// rollback(con);
-// close(con);
-// return result;
-// }
-// //Top3 조회수 게시글
-// public ArrayList<ExeBoard> selectTop3() {
-//
-// Connection con = getConnection();
-// ArrayList<ExeBoard> list = new ExeBoardDao().selectTop3(con);
-// close(con);
-// return list;
-// }
+	public ArrayList<ExeBoard> namesearch(String name) {
+
+		Connection con = getConnection();
+		ArrayList<ExeBoard> list = new ExeBoardDao().namesearch(con, name);
+		return list;
+
+	}
+
+}

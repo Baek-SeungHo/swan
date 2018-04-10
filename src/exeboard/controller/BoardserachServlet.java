@@ -2,29 +2,32 @@ package exeboard.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import exeboard.model.service.ExeBoardService;
 import exeboard.model.vo.ExeBoard;
 
 /**
- * Servlet implementation class BoardDetailServlet
+ * Servlet implementation class BoardserachServlet
  */
-@WebServlet("/edetail")
-public class BoardDetailServlet extends HttpServlet {
+@WebServlet("/esearch")
+public class BoardserachServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public BoardDetailServlet() {
+	public BoardserachServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -35,29 +38,37 @@ public class BoardDetailServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// 게시글 상세보기 처리용 컨트롤러
 
-		String ecode = request.getParameter("ecode");
-		ExeBoardService bservice = new ExeBoardService();
+		String body = request.getParameter("body");
 
-		bservice.addReadCount(ecode);
 
-		// 해당 게시글의 조회수 1 증가 처리
-		ExeBoard board = new ExeBoardService().selectBoard(ecode);
+		ArrayList<ExeBoard> list = new ExeBoardService().search(body);
 
-		response.setContentType("text/html; charset=utf-8");
-		RequestDispatcher view = null;
-		if (board != null) {
-			view = request.getRequestDispatcher("html/ij/boardDetail.jsp");
-			request.setAttribute("board", board);
+		// 운동부위로 검색하는 ajax
+		JSONObject json = new JSONObject();
+		JSONArray jarr = new JSONArray();
 
-			view.forward(request, response);
-		} else {
-			PrintWriter out = response.getWriter();
+		for (ExeBoard b : list) {
 
-			out.println("게시글상세보기실패");
-			out.close();
+			JSONObject job = new JSONObject();
+
+			job.put("sportcode", b.getSportcode());
+			job.put("sportbody", b.getSportbody());
+			job.put("sportname", b.getSportname());
+			job.put("sportdate", b.getSportdate().toString());
+
+			jarr.add(job);
 		}
+		json.put("list", jarr);
+		System.out.println("json :" + json.toJSONString());
+		
+		response.setContentType("application/json; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.print(json.toJSONString());
+		out.flush();
+		out.close();
+
+	
 	}
 
 	/**

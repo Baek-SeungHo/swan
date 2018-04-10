@@ -156,146 +156,71 @@ public class ExeBoardDao {
 
 		return exeboard;
 	}
-	
 
-	/*
-	 * public int updateReplySeq(Connection con, Board replyBoard) { int result = 0;
-	 * PreparedStatement pstmt = null;
-	 * 
-	 * String query = "update board " + "set board_reply_seq = board_reply_seq + 1 "
-	 * + "where board_ref = ? " + "and board_level = ? " +
-	 * "and board_reply_ref = ?";
-	 * 
-	 * try { pstmt = con.prepareStatement(query); pstmt.setInt(1,
-	 * replyBoard.getBoardRef()); pstmt.setInt(2, replyBoard.getBoardLevel());
-	 * pstmt.setInt(3, replyBoard.getBoardReplyRef());
-	 * 
-	 * result = pstmt.executeUpdate();
-	 * 
-	 * } catch (Exception e) { e.printStackTrace(); } finally { close(pstmt); }
-	 * 
-	 * return result; }
-	 */
+	// 운동부위로 검색
+	public ArrayList<ExeBoard> search(Connection con, String body) {
+		ArrayList<ExeBoard> list = new ArrayList<ExeBoard>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		System.out.println(body);
+		String sql = "select * from EXE_RECOMMEND where sport_body = ?";
 
-	/*
-	 * public int insertReply(Connection con, Board replyBoard) { int result = 0;
-	 * PreparedStatement pstmt = null;
-	 * 
-	 * String query = null;
-	 * 
-	 * // 원글의 댓글일 때 if (replyBoard.getBoardLevel() == 1) { query =
-	 * "insert into board values (" + "(select max(board_num) + 1 from board), " +
-	 * "?, ?, ?, NULL, NULL, sysdate, ?, ?, " +
-	 * "(select max(board_num) + 1 from board), " + "1, default)"; }
-	 * 
-	 * // 댓글의 댓글일 때 if (replyBoard.getBoardLevel() == 2) { query =
-	 * "insert into board values (" + "(select max(board_num) + 1 from board), " +
-	 * "?, ?, ?, NULL, NULL, sysdate, ?, ?, ?," + "1, default)"; }
-	 * 
-	 * try { pstmt = con.prepareStatement(query); pstmt.setString(1,
-	 * replyBoard.getBoardTitle()); pstmt.setString(2, replyBoard.getBoardWriter());
-	 * pstmt.setString(3, replyBoard.getBoardContent()); pstmt.setInt(4,
-	 * replyBoard.getBoardLevel()); pstmt.setInt(5, replyBoard.getBoardRef());
-	 * 
-	 * if (replyBoard.getBoardLevel() == 2) pstmt.setInt(6,
-	 * replyBoard.getBoardReplyRef());
-	 * 
-	 * result = pstmt.executeUpdate();
-	 * 
-	 * } catch (Exception e) { e.printStackTrace(); } finally { close(pstmt); }
-	 * 
-	 * return result; }
-	 */
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, body);
+			rset = pstmt.executeQuery();
 
-	/*
-	 * public int deleteBoard(Connection con, int boardNum) { int result = 0;
-	 * PreparedStatement pstmt = null;
-	 * 
-	 * String query = "delete from board " + "where board_num = ?";
-	 * 
-	 * try { pstmt = con.prepareStatement(query); pstmt.setInt(1, boardNum);
-	 * 
-	 * result = pstmt.executeUpdate();
-	 * 
-	 * } catch (Exception e) { e.printStackTrace(); } finally { close(pstmt); }
-	 * 
-	 * return result; }
-	 */
-	/*
-	 * public int updateReply(Connection con, Board board) { int result = 0;
-	 * PreparedStatement pstmt = null;
-	 * 
-	 * String query = "update board " + "set board_title = ?, " +
-	 * "board_content = ? " + "where board_num = ?";
-	 * 
-	 * try { pstmt = con.prepareStatement(query); pstmt.setString(1,
-	 * board.getBoardTitle()); pstmt.setString(2, board.getBoardContent());
-	 * pstmt.setInt(3, board.getBoardNum());
-	 * 
-	 * result = pstmt.executeUpdate();
-	 * 
-	 * } catch (Exception e) { e.printStackTrace(); } finally { close(pstmt); }
-	 * 
-	 * return result; }
-	 */
+			while (rset.next()) {
+				ExeBoard board = new ExeBoard();
+				board.setSportbody(body);
+				board.setSportcode(rset.getString("sport_code"));
+				board.setSportname(rset.getString("sport_name"));
+				board.setSporturl(rset.getString("sport_url"));
+				board.setSportdate(rset.getDate("sport_date"));
+				list.add(board);
+			}
 
-	/*
-	 * public int updateBoard(Connection con, Board board) { int result = 0;
-	 * PreparedStatement pstmt = null;
-	 * 
-	 * String query = "update board " + "set board_title = ?, " +
-	 * "board_content = ?, " + "BOARD_ORIGINAL_FILENAME = ?, " +
-	 * "BOARD_RENAME_FILENAME = ? " + "where board_num = ?";
-	 * 
-	 * try { pstmt = con.prepareStatement(query); pstmt.setString(1,
-	 * board.getBoardTitle()); pstmt.setString(2, board.getBoardContent());
-	 * pstmt.setString(3, board.getBoardOriginalFileName()); pstmt.setString(4,
-	 * board.getBoardRenameFileName()); pstmt.setInt(5, board.getBoardNum());
-	 * 
-	 * result = pstmt.executeUpdate();
-	 * 
-	 * } catch (Exception e) { e.printStackTrace(); } finally { close(pstmt); }
-	 * 
-	 * return result; }
-	 */
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
 
-	/*
-	 * public ArrayList<Board> selectTop3(Connection con){ ArrayList<Board> list =
-	 * new ArrayList<Board>(); Statement stmt = null; ResultSet rset = null;
-	 * 
-	 * String query = "select * from " + "(select rownum rnum, board_num, " +
-	 * "board_title, board_writer, board_content, " +
-	 * "board_original_filename, board_rename_filename, " +
-	 * "board_date, board_readcount, board_level, " +
-	 * "board_ref, board_reply_ref, board_reply_seq " + "from (select * from board "
-	 * + "where board_level = 0 " + "order by board_readcount desc)) " +
-	 * "where rnum >= 1 and rnum <= 3";
-	 * 
-	 * try { stmt = con.createStatement();
-	 * 
-	 * rset = stmt.executeQuery(query);
-	 * 
-	 * while (rset.next()) { Board b = new Board();
-	 * b.setBoardNum(rset.getInt("board_num"));
-	 * b.setBoardTitle(rset.getString("board_title"));
-	 * b.setBoardWriter(rset.getString("board_writer"));
-	 * b.setBoardContent(rset.getString("board_content"));
-	 * b.setBoardDate(rset.getDate("board_date"));
-	 * b.setBoardReadCount(rset.getInt("board_readcount"));
-	 * b.setBoardOriginalFileName(rset.getString("board_original_filename"));
-	 * b.setBoardRenameFileName(rset.getString("board_rename_filename"));
-	 * b.setBoardLevel(rset.getInt("board_level"));
-	 * b.setBoardRef(rset.getInt("board_ref"));
-	 * b.setBoardReplyRef(rset.getInt("board_reply_ref"));
-	 * b.setBoardReplySeq(rset.getInt("board_reply_seq"));
-	 * 
-	 * list.add(b); }
-	 * 
-	 * 
-	 * } catch (Exception e) { e.printStackTrace(); } finally { close(rset);
-	 * close(stmt); }
-	 * 
-	 * return list; }
-	 */
+		return list;
+	}
+
+	public ArrayList<ExeBoard> namesearch(Connection con, String name) {
+		ArrayList<ExeBoard> list = new ArrayList<ExeBoard>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		System.out.println(name);
+		String sql = "select * from EXE_RECOMMEND where sport_name like ?";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, "%"+name+"%");
+			rset = pstmt.executeQuery();
+
+			while (rset.next()) {
+				ExeBoard board = new ExeBoard();
+				board.setSportbody(name);
+				board.setSportcode(rset.getString("sport_code"));
+				board.setSportname(rset.getString("sport_name"));
+				board.setSporturl(rset.getString("sport_url"));
+				board.setSportdate(rset.getDate("sport_date"));
+				list.add(board);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+
+		return list;
+
+	}
 
 }

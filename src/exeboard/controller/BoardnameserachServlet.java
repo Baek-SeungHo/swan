@@ -4,27 +4,29 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import exeboard.model.service.ExeBoardService;
 import exeboard.model.vo.ExeBoard;
 
 /**
- * Servlet implementation class BoardDetailServlet
+ * Servlet implementation class BoardnameserachServlet
  */
-@WebServlet("/edetail")
-public class BoardDetailServlet extends HttpServlet {
+@WebServlet("/ensearch")
+public class BoardnameserachServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public BoardDetailServlet() {
+	public BoardnameserachServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -35,29 +37,13 @@ public class BoardDetailServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// 게시글 상세보기 처리용 컨트롤러
 
-		String ecode = request.getParameter("ecode");
-		ExeBoardService bservice = new ExeBoardService();
+		String name = request.getParameter("name");
 
-		bservice.addReadCount(ecode);
+		System.out.println(name);
 
-		// 해당 게시글의 조회수 1 증가 처리
-		ExeBoard board = new ExeBoardService().selectBoard(ecode);
+		ArrayList<ExeBoard> list = new ExeBoardService().namesearch(name);
 
-		response.setContentType("text/html; charset=utf-8");
-		RequestDispatcher view = null;
-		if (board != null) {
-			view = request.getRequestDispatcher("html/ij/boardDetail.jsp");
-			request.setAttribute("board", board);
-
-			view.forward(request, response);
-		} else {
-			PrintWriter out = response.getWriter();
-
-			out.println("게시글상세보기실패");
-			out.close();
-		}
 	}
 
 	/**
