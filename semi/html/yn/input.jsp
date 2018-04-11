@@ -242,8 +242,12 @@ select{
 <select id="sportbody" style="width:100px;">
    <option value="" style="align:center">- 선택 -</option>
    <option value="01">가슴</option>
-   <option value="02">팔</option>
-   <option value="03">복근</option>
+   <option value="02">어깨</option>
+   <option value="03">팔</option>
+   <option value="04">복근</option>
+   <option value="05">등</option>
+   <option value="06">하체</option>
+   <option value="07">허벅지</option>
 </select>
 
 <select id="sportname2" style="width:200px;">

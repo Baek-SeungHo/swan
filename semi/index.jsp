@@ -58,6 +58,7 @@
 						<a href="/semi/udetail?userid=<%= loginUser.getUserId() %>">회원정보수정</a>
 						<a href="/semi/ulogout"><input type="button" value="로그아웃"></a>
 						<a href="/semi/html/yn/input.jsp">운동기록</a>
+						<a href="/semi/html/yn/goal.jsp">추가입력</a>
 						<% } %>
 					</div>
 					<!--메뉴바부분-->
