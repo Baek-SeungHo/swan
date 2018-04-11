@@ -25,7 +25,7 @@
 				},
 				success : function(data) {
 					alert("게시물삭제성공");
-					
+					location.href = "/semi/html/ij/boardlistview.jsp";
 
 				}
 
@@ -298,8 +298,7 @@ label.light {
 						<td><%=board.getSportdate()%></td>
 					</tr>
 					<tr>
-						<td>동영상</td>
-						<td><%=board.getSporturl()%></td>
+						<td colspan="2"><%=board.getSporturl()%></td>
 					</tr>
 				</table>
 				<!--게시글 삭제 -->

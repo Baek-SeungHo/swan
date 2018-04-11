@@ -94,6 +94,12 @@
 									});
 							$("#sportlist").empty();
 						});
+		/*글쓰기 주소*/
+		$("#wirte").click(function() {
+
+			location.href = "/semi/html/ij/boardinsert.jsp";
+
+		});
 	});
 </script>
 <style type="text/css">
@@ -358,11 +364,11 @@ label.light {
 				<!--게시판 운동명 검색기능-->
 				<input type="text" placeholder="검색어입력" id="sportname"> <input
 					type="button" value="검색" id="namesearch">
-
-
 				<!--게시판 리스트 출력-->
 				<table id="sportlist" border="1">
 				</table>
+				<!--게시글 등록-->
+				<input type="button" value="글쓰기" id="wirte">
 			</div>
 			<!--내용끝-->
 		</div>

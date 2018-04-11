@@ -26,6 +26,7 @@
 				},
 				success : function(data) {
 					alert("게시물등록성공");
+					location.href = "/semi/html/ij/boardlistview.jsp";
 				}
 
 			});
@@ -292,7 +293,6 @@ label.light {
 								<option value="abs">복근</option>
 								<option value="lowerbody">하체</option>
 								<option value="Thigh">허벅지</option>
-								<option value="Bridge">다리</option>
 								<option value="arm">팔</option>
 						</select></td>
 					</tr>
