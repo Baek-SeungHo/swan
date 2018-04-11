@@ -26,22 +26,120 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 
-		/* alert('aaa');
 		$(".b_slide").click(function() {
 
-			if ($(".ul_slide").is(":visible")) {
+			var currentId = $(this).attr('id');
+				/* alert(currentId); */
+			if ($("#ul" + currentId).is(":visible")) {
 
-				$(".ul_slide").slideUp();
+				$("#ul" + currentId).slideUp();
 			} else {
-				$(".ul_slide").slideDown();
+				$("#ul" + currentId).slideDown();
 			}
-
-		}) */
-		/* $("#content").load("qnacontent.jsp");
-		 */
+		});
+		
+		
+		/* $(".a_update").click(function() {
+			//var currentId = $(this).attr('id');
+			//alert(currentId);
+			var currentId = $(this).next('id');
+			alert(currentId);
+			
+			//모달창 띄우자
+		}); */
+		
+		 // Get the modal
+        var modal = document.getElementById('myModal');
+		var modal1 = document.getElementById('myModal1');
+		
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+        var btn1 = document.getElementById("myBtn1");
+        
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];                                          
+ 
+        // When the user clicks on the button, open the modal 
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+        
+        btn1.onclick = function() {
+            modal1.style.display = "block";
+        }
+ 
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+            modal1.style.display = "none";
+        }
+ 
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }else if (event.target == modal1) {
+                modal1.style.display = "none";
+            }
+        }
+      
+		
 		
 	});
 </script>
+<style type="text/css">
+.b_slide {
+	cursor: pointer;
+}
+
+.ul_slide {
+	display: none;
+}
+
+
+
+
+/* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+	background-color: #fefefe;
+	margin: 15% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */ 
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover, .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+
+
+
+</style>
 </head>
 <body>
 	<div id="main">
@@ -102,8 +200,35 @@
 				</div>
 			</div>
 			<div id="content">
+				<table style="width: 100%">
+					<tbody>
+						<%-- <% for(QNA q: list) { %>
+						<tr>
+							<td><b class="b_slide"><%=q.getQna_question()%></b>
+								<ul class="ul_slide" style="list-style: none;">
+									<%=q.getQna_answer()%>
+								</ul></td>
+						</tr>
+						<% } %> --%>
+						<% int i=1; %>
+						<% for(QNA q: list) { %>
+						<tr>
+							<td><b class="b_slide" id="id<%=i%>"><%=q.getQna_question()%></b>
+								<%-- <a class="a_delete" id="deleteid<%=i%>" style="float: right; text-decoration: none;" href="">제거</a>
+								<a class="a_update" id="updateid<%=i%>" style="float: right; text-decoration: none;" href="">수정&nbsp;</a> --%>
+								<ul class="ul_slide" id="ulid<%=i%>" style="list-style: none;">
+									<%=q.getQna_answer()%>
+								</ul></td>
+						</tr>
+						<% i++; %>
+						<% } %>
+					</tbody>
+				</table>
+
 				<div style="text-align: center;">
-					<% if (currentPage <= 1) { %>
+					<%
+						if (currentPage <= 1) {
+					%>
 					[맨처음]&nbsp;
 					<% } else { %>
 					<a href="/semi/qnalist?page=1">[맨처음]</a>
@@ -133,8 +258,82 @@
 					<% } else { %>
 					<a href="/semi/qnalist?page=<%=maxPage%>">[맨끝]</a>
 					<% } %>
+					<!-- <a style="float: right; text-decoration: none;" href="">추가</a> -->
+					<!-- Trigger/Open The Modal -->
+					<button id="myBtn1" style="float: right;">제거하기</button>
+					<button id="myBtn" style="float: right; margin-right: 5px; ">추가하기</button>
+					
 				</div>
-					<!-- insert the page content here -->
+
+				
+				
+
+				<!-- The Modal -->
+				<div id="myModal" class="modal">
+				
+					<!-- Modal content -->
+					<div class="modal-content">
+						<span class="close">&times;</span>
+						
+						<div id ="modal-header">
+						<b>추가하기애오.</b>
+						<p></p>
+						
+						</div>
+						
+						<div id ="modal-center">
+						&nbsp;질문 제목을 입력하새오.<br>
+						<input style="width: 85%;" type="text">
+						<p></p>
+						&nbsp;답변 내용을 입력해요.<br>
+						<input style="width: 85%;" type="text">
+						<p></p>
+						</div>
+						
+						<div id ="modal-footer">
+						
+						<button style="float: right;">입력하기</button>
+						<p></p>
+						
+						</div>
+						
+						<!-- <p>Some text in the Modal-Content..</p> -->
+					</div>
+
+				</div>
+				
+				<!-- The Modal -->
+				<div id="myModal1" class="modal">
+				
+					<!-- Modal content -->
+					<div class="modal-content">
+						<span class="close">&times;</span>
+						
+						<div id ="modal-header">
+						<p>헤더입니다.</p>
+						
+						</div>
+						
+						<div id ="modal-center">
+						<p>Some text in the Modal Center..</p>
+						
+						</div>
+						
+						<div id ="modal-footer">
+						<p>Some text in the Modal Footer..</p>
+						
+						</div>
+						
+						<p>Some text in the Modal-Content..</p>
+					</div>
+
+				</div>
+				
+				
+
+
+
+				<!-- insert the page content here -->
 					<!-- 				<h1>Q & A</h1>
 				<p>자주 묻는 사항들을 게시한 페이지 입니다.</p>
 					<table>
