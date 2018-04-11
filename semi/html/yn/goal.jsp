@@ -163,7 +163,7 @@ $(function(){
 			</div>
 			<!--내용-->
 			<div id="content">
-  <form action="<%= request.getContextPath() %>/einsert" method="post">			
+  <form action="<%= request.getContextPath() %>/exeinsert" method="post">			
   <div class="billing">
     <h2>추가 입력사항</h2><br><br><br>
     <input type="text" id="userid" name="userid" value="<%= loginUser.getUserId() %>">

@@ -17,7 +17,7 @@ import oracle.sql.DATE;
 /**
  * Servlet implementation class ExeInfoInsertServlet
  */
-@WebServlet("/einsert")
+@WebServlet("/exeinsert")
 public class ExeInfoInsertServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

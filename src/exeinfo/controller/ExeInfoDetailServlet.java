@@ -15,7 +15,7 @@ import exeinfo.model.vo.ExeInfo;
 /**
  * Servlet implementation class ExeInfoDetailServlet
  */
-@WebServlet("/edetail")
+@WebServlet("/exedetail")
 public class ExeInfoDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
