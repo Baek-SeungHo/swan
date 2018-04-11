@@ -111,7 +111,7 @@ $(function(){
 				<div id="logo_text">
 					<!-- class="logo_colour", allows you to change the colour of the text -->
 					<h1>
-						<a href="/semi/index.html"><span class="logo_colour">Swan</span></a>
+						<a href="/semi/index.jsp"><span class="logo_colour">Swan</span></a>
 					</h1>
 				</div>
 			</div>
@@ -166,7 +166,7 @@ $(function(){
   <form action="<%= request.getContextPath() %>/exeinsert" method="post">			
   <div class="billing">
     <h2>추가 입력사항</h2><br><br><br>
-    <input type="text" id="userid" name="userid" value="<%= loginUser.getUserId() %>">
+    <input type="hidden" id="userid" name="userid" value="<%= loginUser.getUserId() %>">
      <p style="padding-bottom:2px;">신장</p>
     <input type="text" id="userheight" name="userheight" placeholder="cm">
      <p style="padding-bottom:2px;">체중</p>
@@ -190,7 +190,7 @@ $(function(){
 		<div id="content_footer"></div>
 		<div id="footer">
 			<p>
-				<a href="/semi/index.html">메인</a> | <a href="/semi/html/ij/examples.html">운동정보</a> | <a
+				<a href="/semi/index.jsp">메인</a> | <a href="/semi/html/ij/examples.html">운동정보</a> | <a
 					href="/semi/html/jh/page.html">식단정보</a> | <a href="/semi/html/sh/contact.html">고객센터</a>
 			</p>
 			<p>

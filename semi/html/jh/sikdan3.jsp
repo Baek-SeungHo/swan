@@ -226,15 +226,17 @@
 
            <tbody>
 
-           <!--     <tr>
+						<!--     <tr>
 
                     <td align="center" colspan="5">등록된 게시물이 없습니다.</td>
 
                </tr> -->
+						<%
+							for (SikdanBorad sb : list) {
+						%>
+						<tr>
 
-               <tr>
-
-                    <!-- <td align="center">1</td>
+							<!-- <td align="center">1</td>
 
                     <td><a href="boardView.jsp">고기만 먹고 살이 빠진다고? 황제 다이어트!</a></td>
 
@@ -243,24 +245,23 @@
                     <td align="center">2018.04.05</td>
 
                     <td align="center">10</td> -->
-                    
-                    <%
-						for (SikdanBorad sb : list) {
-					%>
-					
-                    <td align="center"><%=sb.getBoard_num()%></td>
-					<td align="center"><a href="/semi/SikdanBoardDetailViewServlet?board_num=<%=sb.getBoard_num()%>&page=<%=currentPage%>">
-									<%=sb.getBoard_title()%></a></td>
-					<td align="center"><%=sb.getBoard_write()%></td>
-					<td align="center"><%=sb.getBoard_date()%></td>
-					<td align="center"><%=sb.getBoard_look()%></td>
-					
-					<%
-						} //for closed
-					%>
-               </tr>
 
-           </tbody>
+
+
+							<td align="center"><%=sb.getBoard_num()%></td>
+							<td align="center"><a
+								href="/semi/SikdanBoardDetailViewServlet?board_num=<%=sb.getBoard_num()%>&page=<%=currentPage%>">
+									<%=sb.getBoard_title()%></a></td>
+							<td align="center"><%=sb.getBoard_write()%></td>
+							<td align="center"><%=sb.getBoard_date()%></td>
+							<td align="center"><%=sb.getBoard_look()%></td>
+
+
+						</tr>
+						<%
+							} //for closed
+						%>
+					</tbody>
 
            <tfoot>
 
@@ -280,9 +281,9 @@
 
        <p>
 
-           <input type="button" value="목록" onclick="goUrl('/semi/html/jh/sikdan3.jsp');" />
+           <input type="button" value="목록" onclick="goUrl('/semi/SikdanBoradListServlet?page=1');" />
 
-           <input type="button" value="글쓰기" onclick="goUrl('/semi/html/jh/sikdanboardWriteForm.jsp');" />
+           <input type="button" value="글쓰기" onclick="goUrl('/semi/html/jh/sikdanboardWriteForm.jsp');" /> 
 
        </p>
 

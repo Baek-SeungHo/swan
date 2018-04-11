@@ -3,6 +3,7 @@ package sikdanboard.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,18 +33,20 @@ public class SikdanBoardInsertServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+				
 				SikdanBorad sb = new SikdanBorad();
+				
 				sb.setBoard_write(request.getParameter("board_write"));
 				sb.setBoard_title(request.getParameter("board_title"));
 				sb.setBoard_content(request.getParameter("board_content"));
-			
 
 				
 				response.setContentType("text/html; charset=utf-8");
 
 				if (new SikdanBoardService().insertBoard(sb) > 0) {
+					//RequestDispatcher view = request.getRequestDispatcher("html/jh/sikdanboardWriteForm.jsp");
 					response.sendRedirect("/semi/SikdanBoradListServlet?page=1");
+					//view.forward(request, response);
 				} else {
 
 					PrintWriter out = response.getWriter();

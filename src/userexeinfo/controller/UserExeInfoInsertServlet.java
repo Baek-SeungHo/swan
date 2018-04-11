@@ -36,7 +36,7 @@ public class UserExeInfoInsertServlet extends HttpServlet {
 		
 		UserExeInfo userexeinfo = new UserExeInfo();
 		userexeinfo.setUserId(request.getParameter("userid"));
-		userexeinfo.setSportCode(request.getParameter("sportcode"));
+		userexeinfo.setSportCode(request.getParameter("sportname"));
 		userexeinfo.setSportNum(request.getParameter("sportnum"));
 		userexeinfo.setSportDate(Date.valueOf(request.getParameter("sportdate")));
 		
