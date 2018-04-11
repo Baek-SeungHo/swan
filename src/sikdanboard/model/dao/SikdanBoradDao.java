@@ -12,7 +12,7 @@ import sikdanboard.model.vo.SikdanBorad;
 
 public class SikdanBoradDao {
 
-	//°Ô½ÃÆÇ °³¼ö Á¶È¸
+	//ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸
 		public int getListCount(Connection con) {
 
 			int listCount = 0;
@@ -38,13 +38,13 @@ public class SikdanBoradDao {
 			return listCount;
 		}
 	
-	//°Ô½ÃÆÇ ÀüÃ¼ Á¶È¸
+	//ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½È¸
 		public ArrayList<SikdanBorad> selectList(Connection con, int currentPage, int limit) {
 			ArrayList<SikdanBorad> list = new ArrayList<SikdanBorad>();
 			PreparedStatement pstmt = null;
 			ResultSet rset = null;
 			
-			String query = "select * from (select rownum rnum, board_num, board_write, board_title, board_date from food_recommend) "
+			String query = "select * from (select rownum rnum, board_num, board_write, board_title, board_date, board_look from food_recommend) "
 					+ "where rnum >= ? and rnum <= ?";
 
 			int startRow = (currentPage - 1) * limit + 1;
@@ -64,6 +64,7 @@ public class SikdanBoradDao {
 					sb.setBoard_write(rset.getString("board_write"));
 					sb.setBoard_title(rset.getString("board_title"));
 					sb.setBoard_date(rset.getDate("board_date"));
+					sb.setBoard_look(rset.getInt("board_look"));
 
 					list.add(sb);
 				}
@@ -78,12 +79,12 @@ public class SikdanBoradDao {
 			return list;
 		}
 	
-	//°Ô½ÃÆÇ µî·Ï
+	//ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 		public int insertSikdanBorad(Connection con, SikdanBorad sb) {
 			int result = 0;
 			PreparedStatement pstmt = null;
 
-			String query = "insert into FOOD_RECOMMEND values (FOOD_SEQ.nextval, ?, ?, ?, sysdate)";
+			String query = "insert into FOOD_RECOMMEND values (FOOD_SEQ.nextval, ?, ?, ?, sysdate, 0)";
 
 			try {
 				pstmt = con.prepareStatement(query);
@@ -102,7 +103,7 @@ public class SikdanBoradDao {
 			return result;
 		}
 		
-	//°Ô½ÃÆÇ »ó¼¼ º¸±â
+	//ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		public SikdanBorad selectBoard(Connection con, int board_num) {
 			SikdanBorad sb = null;
 			PreparedStatement pstmt = null;
@@ -136,7 +137,7 @@ public class SikdanBoradDao {
 			return sb;
 		}
 		
-		//°Ô½ÃÆÇ Á¶È¸¼ö Áõ°¡
+		//ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		public int addReadCount(Connection con, int board_num) {
 			int result = 0;
 			PreparedStatement pstmt = null;

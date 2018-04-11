@@ -253,7 +253,7 @@
 									<%=sb.getBoard_title()%></a></td>
 					<td align="center"><%=sb.getBoard_write()%></td>
 					<td align="center"><%=sb.getBoard_date()%></td>
-					<td align="center">getBoard_look()</td>
+					<td align="center"><%=sb.getBoard_look()%></td>
 					
 					<%
 						} //for closed
@@ -282,7 +282,7 @@
 
            <input type="button" value="목록" onclick="goUrl('/semi/html/jh/sikdan3.jsp');" />
 
-           <input type="button" value="글쓰기" onclick="goUrl('/semi/html/jh/boardWriteForm.jsp');" />
+           <input type="button" value="글쓰기" onclick="goUrl('/semi/html/jh/sikdanboardWriteForm.jsp');" />
 
        </p>
 

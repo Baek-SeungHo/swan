@@ -22,6 +22,22 @@
            location.href=url;
 
         }
+        
+     // 등록 폼 체크
+    	function boardWriteCheck() {
+    		var form = document.boardWriteForm;
+    		if (form.subject.value == '') {
+    			alert('제목을 입력하세요.');
+    			form.subject.focus();
+    			return false;
+    		}
+    		if (form.writer.value == '') {
+    			alert('작성자을 입력하세요');
+    			form.writer.focus();
+    			return false;
+    		}
+    		return true;
+    	}
 
     </script>
 
@@ -95,9 +111,10 @@
 			</div>
 			<!--내용-->
 			<div id="content">
-				<form name="boardWriteForm" action="boardProcess.jsp" method="post"
+				<form name="boardWriteForm" action="/semi/SikdanBoardInsertServlet" method="post"
 					onsubmit="return boardWriteCheck();">
-					<input type="hidden" name="mode" value="W" />
+					<!-- <input type="hidden" name="mode" value="W" /> -->
+					<input type="hidden" name="board_write" value="<%= user.getUserId() %>" />
 					<table border="1" summary="게시판 등록 폼">
 						<caption>게시판 등록 폼</caption>
 						<colgroup>
@@ -107,14 +124,14 @@
 						<tbody>
 							<tr>
 								<th align="center">제목</th>
-								<td><input type="text" /></td>
+								<td><input type="text" name="board_title" size="80" maxlength="100" /></td>
 							</tr>
 							<tr>
 								<th align="center">작성자</th>
 								<td><%=user.getUserId()%></td>
 							</tr>
 							<tr>
-								<td colspan="2"><textarea rows="" cols=""></textarea></td>
+								<td colspan="2"><textarea name="board_content" cols="80" rows="10"></textarea></td>
 							</tr>
 						</tbody>
 					</table>

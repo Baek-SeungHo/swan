@@ -10,18 +10,21 @@ public class SikdanBorad implements java.io.Serializable{
 	private String board_title;
 	private String board_content;
 	private Date board_date;
+	private int board_look;
 	
 	public SikdanBorad() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public SikdanBorad(int board_num, String board_write, String board_title, String board_content, Date board_date) {
+	public SikdanBorad(int board_num, String board_write, String board_title, String board_content, Date board_date,
+			int board_look) {
 		super();
 		this.board_num = board_num;
 		this.board_write = board_write;
 		this.board_title = board_title;
 		this.board_content = board_content;
 		this.board_date = board_date;
+		this.board_look = board_look;
 	}
 
 	public int getBoard_num() {
@@ -64,5 +67,14 @@ public class SikdanBorad implements java.io.Serializable{
 		this.board_date = board_date;
 	}
 
+	public int getBoard_look() {
+		return board_look;
+	}
+
+	public void setBoard_look(int board_look) {
+		this.board_look = board_look;
+	}
+
+	
 
 }
