@@ -167,9 +167,6 @@ select{
         $("#sportnum").val(td33);
         console.log("sportnum:"+$("#sportnum").val());
         
-        $("#sportname").append("hello");
-        console.log("append:"+$("#sportname").html());
-        
         $("#sportbody").val("");
 		$("#sportname2").val("");
 		$("input[name=sportnum2]").val("");
