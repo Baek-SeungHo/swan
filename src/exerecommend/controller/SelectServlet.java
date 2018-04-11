@@ -1,4 +1,4 @@
-package userexeinfo.controller;
+package exerecommend.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
