@@ -56,7 +56,7 @@ public class ExeBoardDao {
 	public int insertExeBoard(Connection con, ExeBoard b) {
 		int result = 0;
 		PreparedStatement pstmt = null;
-		System.out.println("hi2");
+
 		String query = "insert into EXE_RECOMMEND values (?,?,?,default,sysdate,?)";
 
 		try {
