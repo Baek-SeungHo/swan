@@ -283,7 +283,7 @@
 
            <input type="button" value="목록" onclick="goUrl('/semi/SikdanBoradListServlet?page=1');" />
 
-           <input type="button" value="글쓰기" onclick="goUrl('/semi/html/jh/sikdanboardWriteForm.jsp');" />
+           <input type="button" value="글쓰기" onclick="goUrl('/semi/html/jh/sikdanboardWriteForm.jsp');" /> 
 
        </p>
 
