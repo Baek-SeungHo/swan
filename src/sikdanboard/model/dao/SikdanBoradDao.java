@@ -49,14 +49,15 @@ public class SikdanBoradDao {
 
 			int startRow = (currentPage - 1) * limit + 1;
 			int endRow = startRow + limit - 1;
-
+			
+			
 			try {
 				pstmt = con.prepareStatement(query);
 				pstmt.setInt(1, startRow);
 				pstmt.setInt(2, endRow);
 
 				rset = pstmt.executeQuery();
-
+				
 				while (rset.next()) {
 
 					SikdanBorad sb = new SikdanBorad();
@@ -68,7 +69,7 @@ public class SikdanBoradDao {
 
 					list.add(sb);
 				}
-				System.out.println(list);
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
