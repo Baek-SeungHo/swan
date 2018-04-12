@@ -3,6 +3,7 @@
 
 <%@	page import="qna.model.vo.QNA, user.model.vo.User, java.util.*"%>
 <%
+	ArrayList<QNA> listAll = (ArrayList<QNA>) request.getAttribute("listAll");
 	ArrayList<QNA> list = (ArrayList<QNA>) request.getAttribute("list");
 	int listCount = ((Integer) request.getAttribute("listCount")).intValue();
 	int startPage = ((Integer) request.getAttribute("startPage")).intValue();
@@ -272,31 +273,36 @@
 				<div id="myModal" class="modal">
 				
 					<!-- Modal content -->
+					
 					<div class="modal-content">
-						<span class="close">&times;</span>
-						
-						<div id ="modal-header">
-						<b>추가하기애오.</b>
-						<p></p>
-						
-						</div>
-						
-						<div id ="modal-center">
-						&nbsp;질문 제목을 입력하새오.<br>
-						<input style="width: 85%;" type="text">
-						<p></p>
-						&nbsp;답변 내용을 입력해요.<br>
-						<input style="width: 85%;" type="text">
-						<p></p>
-						</div>
-						
-						<div id ="modal-footer">
-						
-						<button style="float: right;">입력하기</button>
-						<p></p>
-						
-						</div>
-						
+						<form action="/semi/qnainsert" method="post">
+							<span class="close">&times;</span>
+
+							<div id="modal-header">
+
+								<b>추가하기애오.</b>
+								<p></p>
+
+							</div>
+
+							<div id="modal-center">
+								&nbsp;질문 제목을 입력하새오.<br> 
+								<input name="qnaquestion" style="width: 85%;" type="text">
+								<p></p>
+								&nbsp;답변 내용을 입력해요.<br> 
+								<input name="qnaanswer" style="width: 85%;" type="text">
+								<p></p>
+							</div>
+
+							<div id="modal-footer">
+								<input type="submit" value="입력하기">
+								
+								<!-- <button style="float: right;">입력하기</button> -->
+								<p></p>
+
+							</div>
+							
+						</form>
 						<!-- <p>Some text in the Modal-Content..</p> -->
 					</div>
 
@@ -307,24 +313,34 @@
 				
 					<!-- Modal content -->
 					<div class="modal-content">
-						<span class="close">&times;</span>
-						
-						<div id ="modal-header">
-						<p>헤더입니다.</p>
-						
-						</div>
-						
-						<div id ="modal-center">
-						<p>Some text in the Modal Center..</p>
-						
-						</div>
-						
-						<div id ="modal-footer">
-						<p>Some text in the Modal Footer..</p>
-						
-						</div>
-						
-						<p>Some text in the Modal-Content..</p>
+						<form action="/semi/qnadelete" method="post">
+							<span class="close">&times;</span>
+
+							<div id="modal-header">
+								<p>제거하기에염!!ㅎㅎㅎㅎ.</p>
+
+							</div>
+
+							<div id="modal-center">
+								&nbsp;질문 제목을 선택하새오.<br> 	
+								<select name="selectqnanum" style="width: 85%;">
+									<% for(QNA q : listAll) { %>
+										<option value="<%=q.getQna_num()%>"><%=q.getQna_question() %></option>
+									<% } %> 
+								</select>
+								<p></p>
+							</div>
+
+							<div id="modal-footer">
+								<input type="submit" value="제거하기">
+
+								<!-- <button style="float: right;">입력하기</button> -->
+								<p></p>
+
+							</div>
+
+							<!-- <p>Some text in the Modal-Content..</p> -->
+						</form>
 					</div>
 
 				</div>
