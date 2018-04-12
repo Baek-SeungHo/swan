@@ -254,7 +254,7 @@ $(function(){
         </select>
 
 <label for="name">AGE:</label>
-<input type="number" id="userage" name="userage" min="20" max="100" placeholder="20" required>
+<input type="number" id="userage" name="userage" min="20" max="100" required>
 
 <label for="name">EMAIL:</label>
 <input type="email" id="useremail" name="useremail" required>
