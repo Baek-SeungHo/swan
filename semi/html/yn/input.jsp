@@ -173,7 +173,7 @@ select{
 				<div id="logo_text">
 					<!-- class="logo_colour", allows you to change the colour of the text -->
 					<h1>
-						<a href="/semi/index.html"><span class="logo_colour">Swan</span></a>
+						<a href="/semi/index.jsp"><span class="logo_colour">Swan</span></a>
 					</h1>
 				</div>
 			</div>
@@ -267,7 +267,7 @@ select{
 		<div id="footer">
 			<p>
 				<a href="/semi/index.html">메인</a> | <a href="/semi/html/ij/examples.html">운동정보</a> | <a
-					href="/semi/html/jh/page.html">식단정보</a> | <a href="/semi/html/sh/contact.html">고객센터</a>
+					href="/semi/html/jh/page.jsp">식단정보</a> | <a href="/semi/html/sh/contact.html">고객센터</a>
 			</p>
 			<p>
 				세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a>
