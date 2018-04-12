@@ -132,8 +132,7 @@ form {
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
 						<!-- insert your sidebar items here -->
-						<h4>관리자님 환영합니다</h4>
-						<a href="/semi/html/yn/another_page.html">마이페이지</a>
+						<a href="/semi/html/yn/userLoginPage.jsp">로그인</a>
 					</div>
 					<div class="sidebar_base"></div>
 				</div>
