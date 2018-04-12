@@ -203,8 +203,8 @@ $(function(){
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
 						<ul>
-							<li><a href="#">회원정보수정</a></li>
-							<li><a href="#">운동기록</a></li>
+							<!-- <li><a href="#">회원정보수정</a></li>
+							<li><a href="#">운동기록</a></li> -->
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
