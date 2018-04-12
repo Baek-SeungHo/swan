@@ -237,7 +237,7 @@ $(function(){
         </select>
 
 <label for="name">AGE:</label>
-<input type="number" id="userage" name="userage" min="20" max="100" value="<%= user.getUserAge() %>" placeholder="20" required>
+<input type="number" id="userage" name="userage" min="20" max="100" value="<%= user.getUserAge() %>" required>
 
 <label for="name">EMAIL:</label>
 <input type="email" name="useremail" value="<%= user.getUserEmail() %>">
