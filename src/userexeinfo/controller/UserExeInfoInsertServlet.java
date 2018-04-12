@@ -46,7 +46,7 @@ public class UserExeInfoInsertServlet extends HttpServlet {
 		
 		response.setContentType("text/html; charset=utf-8");
 		if(result > 0) {
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("/semi/html/yn/input.jsp");
 		}else {
 			RequestDispatcher view = request.getRequestDispatcher("html/yn/userExeInfoError.jsp");
 			request.setAttribute("message", "운동기록실패");
