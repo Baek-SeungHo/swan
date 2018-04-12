@@ -59,6 +59,7 @@
 						<a href="/semi/ulogout"><input type="button" value="로그아웃"></a>
 						<a href="/semi/html/yn/input.jsp">운동기록</a>
 						<a href="/semi/html/yn/goal.jsp">추가입력</a>
+						<a href="/semi/html/yn/mypage.jsp">마이페이지</a>
 						<% } %>
 					</div>
 					<!--메뉴바부분-->
