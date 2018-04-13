@@ -41,7 +41,7 @@ public class ExeInfoDetailServlet extends HttpServlet {
 			request.setAttribute("exeinfo", exeinfo);
 			view.forward(request, response);
 		}else {
-			view = request.getRequestDispatcher("html/yn/userError.jsp");
+			view = request.getRequestDispatcher("html/yn/goal.jsp");
 			/*request.setAttribute("message", "추가상세정보를 먼저 입력하세요");*/
 			view.forward(request, response);
 		}
