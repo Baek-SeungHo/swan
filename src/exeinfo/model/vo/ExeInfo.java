@@ -9,14 +9,14 @@ public class ExeInfo implements java.io.Serializable{
 	private String userGrade;
 	private int userHeight;
 	private int userWeight;
-	private int userBmi;
+	private Double userBmi;
 	private int userGoal;
 	private Date userStartdate;
 	private Date userEnddate;
 	
 	public ExeInfo() {}	
 	
-	public ExeInfo(String userId, String userGrade, int userHeight, int userWeight, int userBmi, int userGoal,
+	public ExeInfo(String userId, String userGrade, int userHeight, int userWeight, Double userBmi, int userGoal,
 			Date userStartdate, Date userEnddate) {
 		super();
 		this.userId = userId;
@@ -61,11 +61,11 @@ public class ExeInfo implements java.io.Serializable{
 		this.userWeight = userWeight;
 	}
 
-	public int getUserBmi() {
+	public Double getUserBmi() {
 		return userBmi;
 	}
 
-	public void setUserBmi(int userBmi) {
+	public void setUserBmi(Double userBmi) {
 		this.userBmi = userBmi;
 	}
 

@@ -19,7 +19,7 @@ public class ExeInfoDao {
 			pstmt.setString(1, exeinfo.getUserId());
 			pstmt.setInt(2, exeinfo.getUserHeight());
 			pstmt.setInt(3, exeinfo.getUserWeight());
-			pstmt.setInt(4, exeinfo.getUserBmi());
+			pstmt.setDouble(4, exeinfo.getUserBmi());
 			pstmt.setInt(5, exeinfo.getUserGoal());
 			pstmt.setDate(6, exeinfo.getUserStartdate());
 			pstmt.setDate(7, exeinfo.getUserEnddate());
@@ -53,7 +53,7 @@ public class ExeInfoDao {
 				exeinfo.setUserGrade(rset.getString("user_grade"));
 				exeinfo.setUserHeight(rset.getInt("user_height"));
 				exeinfo.setUserWeight(rset.getInt("user_weight"));
-				exeinfo.setUserBmi(rset.getInt("user_bmi"));
+				exeinfo.setUserBmi(rset.getDouble("user_bmi"));
 				exeinfo.setUserGoal(rset.getInt("user_goal"));
 				exeinfo.setUserStartdate(rset.getDate("user_startdate"));
 				exeinfo.setUserEnddate(rset.getDate("user_enddate"));
