@@ -13,7 +13,7 @@
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"
 	content="text/html; charset=windows-1252" />
-<link rel="stylesheet" type="text/css" href="/semi/style/style.css" />
+<link rel="stylesheet" type="text/css" href="/semi/style/style.css?ver=1" />
  
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
@@ -31,21 +31,7 @@
 						<a href="/semi/index.jsp"><span class="logo_colour">Swan</span></a>
 					</h1>
 				</div>
-			</div>
-			<div id="menubar">
-				<ul id="menu">
-
-					<li><a href="/semi/html/ij/exercise.jsp">운동정보</a></li>
-					<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
-					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
-				</ul>
-			</div>        
-		</div>
-		<div id="content_header"></div>
-		<div id="site_content">
-			<!--       <div id="banner"></div> -->
-			<img id="banner" src="/semi/style/banner.jpg">
-			<div id="sidebar_container">
+				<div id="sidebar_container" style="float:right;">
 				<div class="sidebar">
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
@@ -89,6 +75,22 @@
 					</div>
 					<div class="sidebar_base"></div>
 				</div>
+			</div>
+			
+			<div id="menubar">
+				<ul id="menu">
+
+					<li><a href="/semi/html/ij/exercise.jsp">운동정보</a></li>
+					<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
+					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
+				</ul>
+			</div>        
+		</div>
+		<div id="content_header"></div>
+		<div id="site_content">
+			<!--       <div id="banner"></div> -->
+			<img id="banner" src="/semi/style/banner.jpg">
+			
 			</div>
 			<!--내용시작-->
 			<div id="content">
