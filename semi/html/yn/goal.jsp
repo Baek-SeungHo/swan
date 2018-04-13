@@ -141,7 +141,6 @@ $(function(){
 					<div class="sidebar_item">
 						<ul>
 							<li><a href="/semi/udetail?userid=<%= loginUser.getUserId() %>">회원정보수정</a></li>
-							<li><a href="/semi/html/yn/input.jsp">운동기록</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
@@ -167,6 +166,7 @@ $(function(){
   <form action="<%= request.getContextPath() %>/exeinsert" method="post">			
   <div class="billing">
     <h2>추가 입력사항</h2><br><br><br>
+    <h4>*먼저 추가사항을 입력해주시기 바랍니다</h4>
     <input type="hidden" id="userid" name="userid" value="<%= loginUser.getUserId() %>">
      <p style="padding-bottom:2px;">신장</p>
     <input type="text" id="userheight" name="userheight" placeholder="cm">
