@@ -103,9 +103,6 @@
 	display: none;
 }
 
-
-
-
 /* The Modal (background) */
 .modal {
 	display: none; /* Hidden by default */
