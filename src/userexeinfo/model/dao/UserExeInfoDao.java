@@ -13,7 +13,7 @@ public class UserExeInfoDao {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
-		String query = "insert into user_exe_info values (?, ?, ?, ?)";
+		String query = "insert into user_exe_info values (?, ?, ?, ?, ?)";
 		
 		try {
 			pstmt = con.prepareStatement(query);
@@ -21,6 +21,7 @@ public class UserExeInfoDao {
 			pstmt.setString(2, userexeinfo.getSportCode());
 			pstmt.setString(3, userexeinfo.getSportNum());
 			pstmt.setDate(4, userexeinfo.getSportDate());
+			pstmt.setString(5, userexeinfo.getSportBody());
 			
 			result = pstmt.executeUpdate();
 			
@@ -54,6 +55,7 @@ public class UserExeInfoDao {
 				e.setSportCode(rset.getString("sport_code"));
 				e.setSportNum(rset.getString("sport_num"));
 				e.setSportDate(rset.getDate("sport_date"));
+				e.setSportBody(rset.getString("sport_body"));
 				
 				sportTable.add(e);
 			}			

@@ -132,7 +132,6 @@ form {
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
 						<!-- insert your sidebar items here -->
-						<a href="/semi/html/yn/userLoginPage.jsp">로그인</a>
 					</div>
 					<div class="sidebar_base"></div>
 				</div>

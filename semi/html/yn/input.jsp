@@ -131,7 +131,8 @@ select{
 				data: { userid:$("#userid").val(),
 						sportname:$("#sportname2 option:selected").text(),
 						sportnum:$("#sportnum2").val(),
-						sportdate:$("#sportdate").val()},
+						sportdate:$("#sportdate").val(),
+						sportbody:$("#sportbody option:selected").text()},
 				
 				success: function(data){					
 					 
@@ -154,8 +155,8 @@ select{
 					
 					console.log(data.sportTable);
 					 $.each(data.sportTable, function(i){
-						 $("#insertTable").append("<tr><td>"+$("#sportname2 option:selected").text()+"</td><td>"+decodeURIComponent(data.sportTable[i].sportName)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportNum)+"</td></tr>");
-										 
+						 $("#insertTable").append("<tr><td>"+decodeURIComponent(data.sportTable[i].sportBody)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportName)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportNum)+"</td></tr>");
+						 				 
 					 });
 				} 		
 			});						
@@ -230,7 +231,7 @@ select{
 <input type="hidden" id="sportnum" name="sportnum" value="">
 <input type="date" id="sportdate" name="sportdate">
 <div id="sportc">			
-<select id="sportbody" style="width:100px;">
+<select id="sportbody" name="sportbody" style="width:100px;">
    <option value="" style="align:center">- 선택 -</option>
    <option value="01">가슴</option>
    <option value="02">어깨</option>
