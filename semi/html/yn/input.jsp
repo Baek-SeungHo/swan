@@ -144,18 +144,21 @@ select{
 		
 		}); //chuga
 		
-		$("#sportdate").change(function(){			
+		$("#rere").click(function(){			
 			$.ajax({
 				url: "/semi/uesearch",
 				type: "get",
 				data: { userid:$("#userid").val(),
 						sportdate:$("#sportdate").val()},
-						
+				
 				success: function(data){
-					 console.log("제대로 출력됨");					
-					/*  $("#insertTable").append("<tr><td>"+decodeURIComponent(data.sportTable[i].sportBody)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportName)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportNum)+"</td></tr>");				 									 
-				 */
-				}	
+					
+					console.log(data.sportTable);
+					 $.each(data.sportTable, function(i){
+						 $("#insertTable").append("<tr><td>"+$("#sportname2 option:selected").text()+"</td><td>"+decodeURIComponent(data.sportTable[i].sportName)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportNum)+"</td></tr>");
+										 
+					 });
+				} 		
 			});						
 		
 		}); //rere	
