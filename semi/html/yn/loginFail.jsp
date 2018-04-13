@@ -4,7 +4,7 @@
 <html>
 <meta charset="UTF-8">
 <head>
-<title>simplestyle_blue_trees - another page</title>
+<title>로그인 실패</title>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"

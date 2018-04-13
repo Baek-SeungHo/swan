@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>simplestyle_blue_trees - another page</title>
+<title>추가 입력</title>
 <script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
 <script src="calendar2/jquery.number.min.js"></script>
 <meta name="description" content="website description" />

@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>운동 기록</title>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"
@@ -155,12 +155,12 @@ select{
 					console.log(data.sportTable);
 					console.log("fffff" + data.sportTable[i].sportDate);
 					 $.each(data.sportTable, function(i){
-						 if(data.sportTable[i].sportDate == $("#sportdate").val()){
-							 console.log("제대로 작동");
+						 /* if(data.sportTable[i].sportDate == $("#sportdate").val()){
+							 console.log("제대로 작동"); */
 						 $("#insertTable").append("<tr><td>"+decodeURIComponent(data.sportTable[i].sportBody)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportName)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportNum)+"</td></tr>");
-						 }else{
+						 /* }else{
 							 $("#insertTable").remove();
-						 }				 
+						 }	 */			 
 					 });
 				} 		
 			});						
