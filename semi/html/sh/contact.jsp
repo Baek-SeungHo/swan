@@ -13,6 +13,18 @@
 <meta http-equiv="content-type"
 	content="text/html; charset=windows-1252" />
 <link rel="stylesheet" type="text/css" href="/semi/style/style.css" />
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script type="text/javascript">
+function initialize() {
+  var mapProp = {
+    center:new google.maps.LatLng(37.4988994, 127.03257649999998),
+    zoom:18,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 </head>
 <body>
 	<div id="main">
@@ -29,7 +41,7 @@
 				<ul id="menu">
 				
 					<li><a href="/semi/html/ij/exercise.html">운동정보</a></li>
-					<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
+					<li><a href="/semi/html/jh/page.html">식단정보</a></li>
 					<li><a href="/semi/html/sh/contact.html">고객센터</a></li>
 				</ul>
 			</div>
@@ -60,7 +72,7 @@
 					<div class="sidebar_item">
 						<h3>Memu</h3>
 						<ul>
-							<li><a href="/semi/html/sh/contact.jsp">1:1상담</a></li>
+							<li><a href="/semi/html/sh/contact.jsp">Contact to Us</a></li>
 							<li><a href="/semi/qnalist?page=1">자주묻는질문</a></li>
 
 							<!-- /semi/html/sh/contact2.html -->
@@ -86,26 +98,16 @@
 			</div>
 			<div id="content">
 				<!-- insert the page content here -->
-				<h1>1:1 문의</h1>
-				<p>관리자에게 질문사항에 대하여 문의합니다.</p>
+				<h1>Contact to Us</h1>
+				<div>
+					<div id="googleMap" style="width:500px; height:380px;"></div>
+				</div>
 				<div class="form_settings">
-					<p>
-						<span>Name</span><input class="contact" type="text"
-							name="your_name" value="" />
-					</p>
-					<p>
-						<span>Email Address</span><input class="contact" type="text"
-							name="your_email" value="" />
-					</p>
-					<p>
-						<span>Message</span>
-						<textarea class="contact textarea" rows="8" cols="50"
-							name="your_enquiry"></textarea>
-					</p>
-					<p style="padding-top: 15px">
-						<span>&nbsp;</span><input class="submit" type="submit"
-							name="contact_submitted" value="submit" />
-					</p>
+					<form method=get action="Mailto:hi_back@naver.com" enctype="text/plain">
+						<p style="padding-top: 15px">
+							<span>&nbsp;</span><input class="submit" type="submit" name="contact_submitted" value="Mail to Amdin" />
+						</p>
+					</form>
 				</div>
 				<p>
 					<br />
@@ -117,7 +119,7 @@
 			<p>
 				<a href="/semi/index.jsp">메인</a> | <a
 					href="/semi/html/ij/exercise.html">운동정보</a> | <a
-					href="/semi/html/jh/sikdan.html">식단정보</a> | <a
+					href="/semi/html/jh/page.html">식단정보</a> | <a
 					href="/semi/html/sh/contact.jsp">고객센터</a>
 			</p>
 			<p>
