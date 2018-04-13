@@ -121,11 +121,11 @@ form {
 		</div>
 		<div id="content_header"></div>
 		<div id="site_content">
-			<div id="sidebar_container">
+			<!-- <div id="sidebar_container">
 				<div class="sidebar">
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
-						<!-- insert your sidebar items here -->
+						insert your sidebar items here
 					</div>
 					<div class="sidebar_base"></div>
 				</div>
@@ -133,14 +133,14 @@ form {
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
 						<ul>
-							<!-- <li><a href="#">회원정보수정</a></li>
-							<li><a href="#">운동기록</a></li> -->
+							<li><a href="#">회원정보수정</a></li>
+							<li><a href="#">운동기록</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
 				</div>
 				<div class="sidebar">
-					<!-- <div class="sidebar_top"></div>
+					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
 						<h3>검색</h3>
 						<form method="post" action="#" id="search_form">
@@ -152,9 +152,9 @@ form {
 							</p>
 						</form>
 					</div>
-					<div class="sidebar_base"></div> -->
+					<div class="sidebar_base"></div>
 				</div>
-			</div>
+			</div> -->
 			<!--내용-->
 			<div id="content">
 			
