@@ -1,15 +1,16 @@
-<!DOCTYPE HTML>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html >
 <html>
-<meta charset="UTF-8">
 <head>
-<title>simplestyle_blue_trees - contact us</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Contact us</title>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"
 	content="text/html; charset=windows-1252" />
 <link rel="stylesheet" type="text/css" href="/semi/style/style.css" />
 </head>
-
 <body>
 	<div id="main">
 		<div id="header">
@@ -101,11 +102,15 @@
 		<div id="content_footer"></div>
 		<div id="footer">
 			<p>
-				<a href="/semi/index.jsp">메인</a> | <a href="/semi/html/ij/examples.html">운동정보</a> | <a
-					href="/semi/html/jh/page.html">식단정보</a> | <a href="/semi/html/sh/contact.html">고객센터</a>
+				<a href="/semi/index.jsp">메인</a> | <a
+					href="/semi/html/ij/examples.html">운동정보</a> | <a
+					href="/semi/html/jh/page.html">식단정보</a> | <a
+					href="/semi/html/sh/contact.html">고객센터</a>
 			</p>
 			<p>
-				 <p>세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a></p>
+			<p>
+				세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a>
+			</p>
 			</p>
 		</div>
 	</div>

@@ -17,7 +17,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>contact us</title>
+<title>QNA Page</title>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"
@@ -196,8 +196,8 @@
 					<div class="sidebar_item">
 						<h3>Memu</h3>
 						<ul>
-							<li><a href="/semi/html/sh/contact.html">1:1상담</a></li>
-							<li><a href="/semi/html/sh/contact2.html">자주묻는질문</a></li>
+							<li><a href="/semi/html/sh/contact.jsp">1:1상담</a></li>
+							<li><a href="/semi/qnalist?page=1">자주묻는질문</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
