@@ -176,7 +176,7 @@ function drawBasic() {
 			
 			<table style="border: 1px solid #FFF;">
 			<tr><th width="150">신장</th><th width="80">BMI</th></tr>
-			<tr><td><font size="5" style="color: rgb(29,182,235);"><%= exeinfo.getUserHeight() %>cm</font></td><td><font size="5" style="color: rgb(29,182,235);"></font><%= exeinfo.getUserBmi() %></td></tr>
+			<tr><td><font size="5" style="color: rgb(29,182,235);"><%= exeinfo.getUserHeight() %>cm</font></td><td><font size="5" style="color: rgb(29,182,235);"><%= exeinfo.getUserBmi() %></font></td></tr>
 			</table>
 			
 			<table>
