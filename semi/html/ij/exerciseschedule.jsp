@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@page import="schedule.model.vo.Schedule, java.util.*"%>
 <%
-	ArrayList<Schedule> list = (ArrayList<Schedule>)request.getAttribute("list");
+	ArrayList<Schedule> list = (ArrayList<Schedule>) request.getAttribute("list");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,7 +11,6 @@
 <title>simplestyle_blue_trees - examples</title>
 <script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-	/*오늘의 운동스케쥴 조회하기*/
 </script>
 <style type="text/css">
 </style>
@@ -70,18 +69,21 @@
 			<!--내용-->
 			<div id="content">
 				<h2 align="center">운동스케쥴</h2>
-				<input type="date" id="userstartdate" name="sportdate">				
+				<input type="date" id="userstartdate" name="sportdate">
+
+				<%
+					for (Schedule s : list) {
+				%>
 				<table border="1">
 					<tr>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
+						<td><%=s.getSchedulename()%></td>
+						<td><%=s.getScheduleurl()%></td>
+						<td><%=s.getSchedulenum()%>개</td>
 					</tr>
 				</table>
+				<%
+					}
+				%>
 			</div>
 			<!--내용끝-->
 		</div>

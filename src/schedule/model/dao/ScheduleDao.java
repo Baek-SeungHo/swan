@@ -27,7 +27,7 @@ public class ScheduleDao {
 			pstmt.setString(2, usergrade);
 
 			rset = pstmt.executeQuery();
-			if (rset.next()) {
+			while (rset.next()) {
 
 				Schedule s = new Schedule();
 
