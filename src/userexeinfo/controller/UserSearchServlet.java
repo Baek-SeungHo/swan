@@ -52,9 +52,11 @@ public class UserSearchServlet extends HttpServlet {
 		for(UserExeInfo e : sportTable) {
 			JSONObject job = new JSONObject();
 			
+			job.put("userId", e.getUserId());
 			job.put("sportName", URLEncoder.encode(e.getSportCode(), "utf-8"));
 			job.put("sportNum", URLEncoder.encode(e.getSportNum(), "utf-8"));
 			job.put("sportBody", URLEncoder.encode(e.getSportBody(), "utf-8"));
+			job.put("sportDate", e.getSportDate());
 			
 			jarr.add(job);
 		}
