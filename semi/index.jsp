@@ -34,11 +34,8 @@
 			</div>
 			<div id="menubar">
 				<ul id="menu">
-<<<<<<< HEAD
+
 					<li><a href="/semi/html/ij/exercise.jsp">운동정보</a></li>
-=======
-					<li><a href="/semi/html/ij/exercise.html">운동정보</a></li>
->>>>>>> branch 'master' of https://github.com/Baek-SeungHo/swan.git
 					<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
 					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
 				</ul>
