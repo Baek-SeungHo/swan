@@ -53,6 +53,7 @@
 						<ul>
 							<li><a href="/semi/udetail?userid=<%= loginUser.getUserId() %>">회원정보수정</a></li>
 							<li><a href="/semi/html/yn/input.jsp">운동기록</a></li>
+							<li><a href="/semi/html/yn/goal.jsp">추가입력</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
