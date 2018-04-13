@@ -31,7 +31,7 @@ public class ExeBoardService {
 	}
 
 	// 운동정보 조회수 증가
-	public void addReadCount(String ecode) {
+	public int addReadCount(String ecode) {
 		Connection con = getConnection();
 		int result = new ExeBoardDao().addReadCount(con, ecode);
 		if (result > 0)
@@ -39,7 +39,7 @@ public class ExeBoardService {
 		else
 			rollback(con);
 		close(con);
-		return;
+		return result;
 	}
 
 	// 운동정보 상세보기

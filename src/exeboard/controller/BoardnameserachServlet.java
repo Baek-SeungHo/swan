@@ -55,6 +55,7 @@ public class BoardnameserachServlet extends HttpServlet {
 			job.put("sportbody", b.getSportbody());
 			job.put("sportname", b.getSportname());
 			job.put("sportdate", b.getSportdate().toString());
+			job.put("sportlook", b.getSportlook());
 
 			jarr.add(job);
 		}

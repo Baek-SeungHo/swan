@@ -73,7 +73,7 @@ public class ExeBoardDao {
 		} finally {
 			close(pstmt);
 		}
-		System.out.println("hi43434");
+		
 		return result;
 	}
 
@@ -151,6 +151,7 @@ public class ExeBoardDao {
 				board.setSportname(rset.getString("sport_name"));
 				board.setSporturl(rset.getString("sport_url"));
 				board.setSportdate(rset.getDate("sport_date"));
+				board.setSportlook(rset.getInt("sport_look"));
 				list.add(board);
 			}
 
@@ -184,6 +185,7 @@ public class ExeBoardDao {
 				board.setSportbody(rset.getString("sport_body"));
 				board.setSporturl(rset.getString("sport_url"));
 				board.setSportdate(rset.getDate("sport_date"));
+				board.setSportlook(rset.getInt("sport_look"));
 				list.add(board);
 			}
 
@@ -217,7 +219,6 @@ public class ExeBoardDao {
 		} finally {
 			close(pstmt);
 		}
-		System.out.println("hi");
 		return result;
 
 	}

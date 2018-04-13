@@ -41,7 +41,7 @@
 														+ "</a></td>"
 														+ "<td>"
 														+ json.list[i].sportdate
-														+ "</td>"
+														+ "</td><td>"
 														+ json.list[i].sportlook
 														+ "</td></tr>";
 											}
