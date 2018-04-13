@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="user.model.vo.User"%>
+<%
+	User loginUser = (User) session.getAttribute("loginUser");
+%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -36,9 +39,18 @@
 				<div class="sidebar">
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
-						<!-- insert your sidebar items here -->
-						<h4>관리자님 환영합니다</h4>
-						<a href="/semi/html/yn/another_page.html">마이페이지</a>
+						<%   
+   							if(loginUser == null) {   
+   						 %>
+						<a href="/semi/html/yn/userLoginPage.jsp">로그인</a>
+						<% } else {%>
+						<h4><%= loginUser.getUserName() %>님 환영합니다</h4>
+						<a href="/semi/udetail?userid=<%= loginUser.getUserId() %>">회원정보수정</a>
+						<a href="/semi/ulogout"><input type="button" value="로그아웃"></a>
+						<a href="/semi/html/yn/input.jsp">운동기록</a>
+						<a href="/semi/html/yn/goal.jsp">추가입력</a>
+						<a href="/semi/exedetail?userid=<%= loginUser.getUserId() %>">마이페이지</a>
+						<% } %>
 					</div>
 					<div class="sidebar_base"></div>
 				</div>
@@ -47,7 +59,7 @@
 					<div class="sidebar_item">
 						<h3>Memu</h3>
 						<ul>
-							<li><a href="/semi/html/sh/contact.html">1:1상담</a></li>
+							<li><a href="/semi/html/sh/contact.jsp">1:1상담</a></li>
 							<li><a href="/semi/qnalist?page=1">자주묻는질문</a></li>
 
 							<!-- /semi/html/sh/contact2.html -->
