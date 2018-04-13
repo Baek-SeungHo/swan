@@ -42,19 +42,7 @@
 					<h1>
 						<a href="/semi/index.jsp"><span class="logo_colour">Swan</span></a>
 					</h1>
-				</div>
-			</div>
-			<div id="menubar">
-				<ul id="menu">
-					<li><a href="/semi/html/ij/examples.html">운동정보</a></li>
-					<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
-					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
-				</ul>
-			</div>
-		</div>
-		<div id="content_header"></div>
-		<div id="site_content">
-			<div id="sidebar_container">
+				</div><div id="sidebar_container">
 				<div class="sidebar">
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
@@ -92,6 +80,18 @@
 					<div class="sidebar_base"></div> -->
 				</div>
 			</div>
+			</div>
+			<div id="menubar">
+				<ul id="menu">
+					<li><a href="/semi/html/ij/examples.html">운동정보</a></li>
+					<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
+					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="content_header"></div>
+		<div id="site_content">
+			
 			<!--내용-->
 			<div id="content">
 				<form name="boardModifyForm" action="boardProcess.jsp" method="post"
