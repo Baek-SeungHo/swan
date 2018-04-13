@@ -1,4 +1,10 @@
-<!DOCTYPE HTML>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="user.model.vo.User"%>
+<%
+	User loginUser = (User) session.getAttribute("loginUser");
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <meta charset="UTF-8">
 <head>
@@ -50,7 +56,8 @@
 						<ul>
 							<li><a href="/semi/html/ij/exercisequestionnaire.jsp">몸상태설문조사</a></li>
 							<li><a href="/semi/html/ij/boardlistview.jsp">운동검색기</a></li>
-							<li><a href="/semi/">운동스케쥴</a></li>
+							<li><a
+								href="/semi/todayschedule?grade=<%=loginUser.getUsergrade()%>">운동스케쥴</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>

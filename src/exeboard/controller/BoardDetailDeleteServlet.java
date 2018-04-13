@@ -32,8 +32,6 @@ public class BoardDetailDeleteServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String code = request.getParameter("sportcode");
-
-
 		int result = new ExeBoardService().deleteBoard(code);
 
 	}

@@ -11,6 +11,46 @@
 <title>simplestyle_blue_trees - examples</title>
 <script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
+	$(function() {
+
+		$("#sportdate").on(
+				"change",
+				function() {
+					$("#schedule").empty();
+					var date = (this.value);
+					var grade = $("#grade").val();
+					alert(grade);
+					alert(date);
+					$.ajax({
+						url : "/semi/dateserach",
+						type : "post",
+						data : {
+							date : date,
+							grade : grade
+						},
+						datatype : "JSON",
+						success : function(data) {
+							var jsonstr = JSON.stringify(data);
+							var json = JSON.parse(jsonstr);
+							var sport = "";
+
+							for ( var i in json.list) {
+								sport += "<tr><td>	"
+										+ json.list[i].schedulename
+										+ "</td><td>"
+										+ json.list[i].schedulenurl
+										+ "</td><td>"
+										+ json.list[i].schedulenum
+										+ "개</td></tr>"
+							}
+							$("#schedule").append(sport);
+
+						}
+					});
+
+				});
+
+	});
 </script>
 <style type="text/css">
 </style>
@@ -68,22 +108,22 @@
 			</div>
 			<!--내용-->
 			<div id="content">
-				<h2 align="center">운동스케쥴</h2>
-				<input type="date" id="userstartdate" name="sportdate">
-
-				<%
-					for (Schedule s : list) {
-				%>
-				<table border="1">
+				<h2 align="center">오늘의운동스케쥴</h2>
+				<input type="date" id="sportdate"> <input type="hidden"
+					value="<%=list.get(0).getGrade()%>" id="grade">
+				<table border="1" id="schedule">
+					<%
+						for (Schedule s : list) {
+					%>
 					<tr>
 						<td><%=s.getSchedulename()%></td>
 						<td><%=s.getScheduleurl()%></td>
 						<td><%=s.getSchedulenum()%>개</td>
 					</tr>
+					<%
+						}
+					%>
 				</table>
-				<%
-					}
-				%>
 			</div>
 			<!--내용끝-->
 		</div>

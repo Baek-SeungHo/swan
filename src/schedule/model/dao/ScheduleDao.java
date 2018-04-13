@@ -14,7 +14,8 @@ public class ScheduleDao {
 
 	public ScheduleDao() {
 	}
-	//날짜를 조회로 운동스케쥴
+
+	// 날짜를 조회로 운동스케쥴
 	public ArrayList<Schedule> todaySchedule(Connection con, String usergrade, Date sqlDate) {
 		ArrayList<Schedule> list = new ArrayList<Schedule>();
 		PreparedStatement pstmt = null;
@@ -36,9 +37,9 @@ public class ScheduleDao {
 				s.setSchedulenum(rset.getInt("schedule_num"));
 				s.setScheduleurl(rset.getString("schedule_url"));
 				s.setScheduledate(rset.getString("schedule_date"));
-				
+
 				list.add(s);
-				
+
 			}
 
 		} catch (Exception e) {
@@ -50,5 +51,42 @@ public class ScheduleDao {
 
 		return list;
 	}
+	//선택한 날짜 스케쥴 조회
+	public ArrayList<Schedule> dateselet(Connection con, String grade, String selectdate) {
 
+		ArrayList<Schedule> list = new ArrayList<Schedule>();
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String query = "select * from exe_schedule where SCHEDULE_DATE = ? and User_grade =?";
+			System.out.println(selectdate);
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, selectdate);
+			pstmt.setString(2, grade);
+
+			rset = pstmt.executeQuery();
+			while (rset.next()) {
+
+				Schedule s = new Schedule();
+
+				s.setGrade(grade);
+				s.setSchedulename(rset.getString("schedule_name"));
+				s.setSchedulenum(rset.getInt("schedule_num"));
+				s.setScheduleurl(rset.getString("schedule_url"));
+				s.setScheduledate(rset.getString("schedule_date"));
+
+				list.add(s);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rset);
+		}
+
+		return list;
+
+	}
 }

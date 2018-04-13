@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ page import="user.model.vo.User"%>
+<%
+	User loginUser = (User) session.getAttribute("loginUser");
+%>
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
@@ -27,6 +31,9 @@
 				success : function(data) {
 					alert("게시물등록성공");
 					location.href = "/semi/html/ij/boardlistview.jsp";
+				},
+				error : function(a, b, c) {
+					console.log("error:" + a + b + c)
 				}
 
 			});
@@ -82,7 +89,8 @@
 						<ul>
 							<li><a href="/semi/html/ij/exercisequestionnaire.jsp">몸상태설문조사</a></li>
 							<li><a href="/semi/html/ij/boardlistview.jsp">운동검색기</a></li>
-							<li><a href="/semi/html/ij/exerciseschedule.jsp">운동스케쥴</a></li>
+							<li><a
+								href="/semi/todayschedule?grade=<%=loginUser.getUsergrade()%>">운동스케쥴</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
