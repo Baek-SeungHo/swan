@@ -54,6 +54,7 @@ public class UserSearchServlet extends HttpServlet {
 			
 			job.put("sportName", URLEncoder.encode(e.getSportCode(), "utf-8"));
 			job.put("sportNum", URLEncoder.encode(e.getSportNum(), "utf-8"));
+			job.put("sportBody", URLEncoder.encode(e.getSportBody(), "utf-8"));
 			
 			jarr.add(job);
 		}
