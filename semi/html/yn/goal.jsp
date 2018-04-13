@@ -10,6 +10,7 @@
 <meta charset="UTF-8">
 <title>simplestyle_blue_trees - another page</title>
 <script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
+<script src="calendar2/jquery.number.min.js"></script>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"
@@ -94,7 +95,7 @@ $(function(){
 		console.log(height);
 		console.log(weight);
 		
-		$("#userbmi").val((1.1*weight)-(128*(weight/height)));
+		$("#userbmi").val(weight/(height/100)**2).number(true, 2);
 		/* if(loginUser.getUserGender().equals("M") ){
 			$("#userbmi").val((1.1*weight)-[128*(weight/height)]);
 		}else {

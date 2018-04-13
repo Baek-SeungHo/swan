@@ -17,7 +17,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
 
 /* Simple Reset */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0;}
 
 /* Form Layout */
 .form-wrapper {
@@ -51,7 +51,7 @@ form {
   font-size: 1em;
   height: 50px;
   transition: border-color 0.3s;
-  width: 100%;
+  width: 295px;
 }
 
 .form-item input:focus {
@@ -157,28 +157,32 @@ form {
 			</div> -->
 			<!--내용-->
 			<div id="content">
-			
-			<div class="form-wrapper">
-  <h1>Login</h1>
-  <form action="<%= request.getContextPath() %>/ulogin.me" method="post">
-    <div class="form-item">
-      <label for="email"></label>
-      <input type="text" name="userid" required="required" placeholder="ID">
-    </div>
-    <div class="form-item">
-      <label for="password"></label>
-      <input type="password" name="userpwd" required="required" placeholder="Password">
-    </div>
-    <div class="button-panel">
-      <input type="submit" class="button" value="Login"></input>
-    </div>
-  </form>
-  <div class="form-footer">
-    <p><a href="/semi/html/yn/userEnroll.jsp">회원가입</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="#">비밀번호 찾기</a></p>
-  </div>
-</div>
-</div>
+				<p></p>
+				<div class="form-wrapper">
+					<h1 style="color: rgb(29,182,235);">Login</h1>
+					<form action="<%=request.getContextPath()%>/ulogin.me"
+						method="post">
+						<div class="form-item">
+							<label for="email"></label> <input type="text" name="userid"
+								required="required" placeholder="ID">
+						</div>
+						<div class="form-item">
+							<label for="password"></label> <input type="password"
+								name="userpwd" required="required" placeholder="Password">
+						</div>
+						<div class="button-panel">
+							<input type="submit" class="button" value="Login"></input>
+						</div>
+					</form>
+					<div class="form-footer">
+						<p>
+							<a href="/semi/html/yn/userEnroll.jsp">회원가입</a>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="#">비밀번호 찾기</a>
+						</p>
+					</div>
+				</div>
+			</div>
 			<!--내용끝-->
 		</div>
 		<div id="content_footer"></div>

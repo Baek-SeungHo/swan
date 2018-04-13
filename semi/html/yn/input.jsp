@@ -144,7 +144,7 @@ select{
 		
 		}); //chuga
 		
-		$("#rere").click(function(){			
+		$("#sportdate").change(function(){			
 			$.ajax({
 				url: "/semi/uesearch",
 				type: "get",
@@ -152,11 +152,15 @@ select{
 						sportdate:$("#sportdate").val()},
 				
 				success: function(data){
-					
 					console.log(data.sportTable);
+					console.log("fffff" + data.sportTable[i].sportDate);
 					 $.each(data.sportTable, function(i){
+						 if(data.sportTable[i].sportDate == $("#sportdate").val()){
+							 console.log("제대로 작동");
 						 $("#insertTable").append("<tr><td>"+decodeURIComponent(data.sportTable[i].sportBody)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportName)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportNum)+"</td></tr>");
-						 				 
+						 }else{
+							 $("#insertTable").remove();
+						 }				 
 					 });
 				} 		
 			});						

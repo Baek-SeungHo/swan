@@ -12,11 +12,11 @@
 	content="text/html; charset=windows-1252" />
 <link rel="stylesheet" type="text/css" href="/semi/style/style.css" />
 <style type="text/css">
-*, *:before, *:after {
+/* *, *:before, *:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-}
+} */
 
 body {
   font-family: 'Nunito', sans-serif;
@@ -24,7 +24,7 @@ body {
 }
 
 form {
-  max-width: 300px;
+  max-width: 280px;
   margin: 10px auto;
   padding: 10px 20px;
   background: #f4f7f8;
@@ -56,7 +56,7 @@ select {
   margin: 0;
   outline: 0;
   padding: 10px;
-  width: 100%;
+  width: 420px;
   background-color: #e8eeef;
   color: #8a97a0;
   box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
@@ -72,6 +72,7 @@ select {
   padding: 6px;
   height: 32px;
   border-radius: 2px;
+  width: 100%;
 }
 
 button {
@@ -123,10 +124,10 @@ label.light {
   border-radius: 100%;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 440px) {
 
   form {
-    max-width: 480px;
+    max-width: 440px;
   }
 
 }
@@ -193,21 +194,21 @@ $(function(){
 		<div id="site_content">
 			<div id="sidebar_container">
 				<div class="sidebar">
-					<div class="sidebar_top"></div>
+					<!-- <div class="sidebar_top"></div> -->
 					<div class="sidebar_item">
 						<!-- insert your sidebar items here -->
 					</div>
-					<div class="sidebar_base"></div>
+					<!-- <div class="sidebar_base"></div> -->
 				</div>
 				<div class="sidebar">
-					<div class="sidebar_top"></div>
+					<!-- <div class="sidebar_top"></div> -->
 					<div class="sidebar_item">
 						<ul>
 							<!-- <li><a href="#">회원정보수정</a></li>
 							<li><a href="#">운동기록</a></li> -->
 						</ul>
 					</div>
-					<div class="sidebar_base"></div>
+					<!-- <div class="sidebar_base"></div> -->
 				</div>
 				<div class="sidebar">
 					<!-- <div class="sidebar_top"></div>
@@ -231,7 +232,7 @@ $(function(){
 <h1>회원가입</h1>
 <fieldset>
 <label for="name">ID:</label>
-<input type="text" id="userid" name="userid" style="width:65%;" required > &nbsp;
+<input type="text" id="userid" name="userid" style="width:60%;" required > &nbsp;
 <button onclick="return checkId();" style="align:right; width:30%">중복확인</button>
 
 <label for="name">NAME:</label>
@@ -241,11 +242,11 @@ $(function(){
 <input type="password" name="userpwd" id="upwd1" required>
 
 <label for="name">CONFIRM PASSWORD:</label>
-<input type="password" name="userpwd" id="upwd2" style="margin-bottom:5px"required>
+<input type="password" name="userpwd" id="upwd2" style="margin-bottom:0px" required>
 
-<div style="height:25px;"><input type="text" id="confirm" style="display:none; background:#f4f7f8; box-shadow:none; font-size:12px; height:12px; padding-left:0;" readonly></div>
+<div style="height:25px;"><input type="text" id="confirm" style="display:none; background:#f4f7f8; box-shadow:none; font-size:13px; height:16px; padding-left:0; margin-bottom:10px" readonly></div>
 
-<label for="job">GENDER:</label>
+<label for="job" style="margin-top:7px;">GENDER:</label>
         <select id="usergender" name="usergender">
             <option value="M">M</option>
             <option value="F">F</option>
