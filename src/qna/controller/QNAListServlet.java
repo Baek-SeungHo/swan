@@ -53,6 +53,8 @@ public class QNAListServlet extends HttpServlet {
 		// System.out.println("총 게시글 수 : " + listCount);
 		// 현재 페이지에 출력할 목록 조회
 		ArrayList<QNA> list = qservice.selectList(currentPage, limit);
+		ArrayList<QNA> listAll = qservice.selectListAll();
+		
 		// System.out.println("list : " + list);
 		// 총 페이지수 계산 : 목록이 1개일 때 1페이지로 처리
 		int maxPage = (int) ((double) listCount / limit + 0.9);
@@ -67,6 +69,7 @@ public class QNAListServlet extends HttpServlet {
 		RequestDispatcher view = null;
 		if (list.size() > 0) {
 			view = request.getRequestDispatcher("/html/sh/contact2.jsp");
+			request.setAttribute("listAll", listAll);
 			request.setAttribute("list", list);
 			request.setAttribute("currentPage", currentPage);
 			request.setAttribute("maxPage", maxPage);

@@ -1,11 +1,16 @@
-package userexeinfo.model.service;
+ package userexeinfo.model.service;
 
 import userexeinfo.model.dao.UserExeInfoDao;
+
 import userexeinfo.model.vo.UserExeInfo;
 
 import static common.JDBCTemplate.*;
 
 import java.sql.*;
+import java.util.ArrayList;
+
+import exerecommend.model.dao.ExerecommendDao;
+import exerecommend.model.vo.Exerecommend;
 
 public class UserExeInfoService {
 
@@ -19,6 +24,13 @@ public class UserExeInfoService {
 		}
 		close(con);
 		return result;
+	}
+
+	public ArrayList<UserExeInfo> searchTable(String userid, String sportdate) {
+		Connection con = getConnection();
+		ArrayList<UserExeInfo> sportTable = new UserExeInfoDao().searchTable(con, userid, sportdate);
+		close(con);
+		return sportTable;
 	}
 
 }

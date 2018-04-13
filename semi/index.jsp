@@ -36,7 +36,7 @@
 				<ul id="menu">
 					<li><a href="/semi/html/ij/main.html">운동정보</a></li>
 					<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
-					<li><a href="/semi/html/sh/contact.html">고객센터</a></li>
+					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
 				</ul>
 			</div>        
 		</div>
@@ -59,6 +59,7 @@
 						<a href="/semi/ulogout"><input type="button" value="로그아웃"></a>
 						<a href="/semi/html/yn/input.jsp">운동기록</a>
 						<a href="/semi/html/yn/goal.jsp">추가입력</a>
+						<a href="/semi/exedetail?userid=<%= loginUser.getUserId() %>">마이페이지</a>
 						<% } %>
 					</div>
 					<!--메뉴바부분-->

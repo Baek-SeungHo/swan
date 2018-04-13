@@ -123,55 +123,48 @@ select{
 				} 		
 			}); 	
 		});	//change	
-	});
+		
+		$("#chuga").click(function(){			
+			$.ajax({
+				url: "/semi/ueinsert",
+				type: "get",
+				data: { userid:$("#userid").val(),
+						sportname:$("#sportname2 option:selected").text(),
+						sportnum:$("#sportnum2").val(),
+						sportdate:$("#sportdate").val(),
+						sportbody:$("#sportbody option:selected").text()},
+				
+				success: function(data){					
+					 
+					$("#sportbody").val("");
+					$("#sportname2").val("");
+					$("input[name=sportnum2]").val("");					 									 
+				} 		
+			});						
+		
+		}); //chuga
+		
+		$("#rere").click(function(){			
+			$.ajax({
+				url: "/semi/uesearch",
+				type: "get",
+				data: { userid:$("#userid").val(),
+						sportdate:$("#sportdate").val()},
+				
+				success: function(data){
+					
+					console.log(data.sportTable);
+					 $.each(data.sportTable, function(i){
+						 $("#insertTable").append("<tr><td>"+decodeURIComponent(data.sportTable[i].sportBody)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportName)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportNum)+"</td></tr>");
+						 				 
+					 });
+				} 		
+			});						
+		
+		}); //rere	
 
-	$(function(){
-		$('#chuga').click(function() {
-        var table1 = document.getElementById("insertTable");
-        
-        var tr = document.createElement("tr");
-        tr.setAttribute("bgColor", "#FFFFCC");
-        tr.setAttribute("height", "30");
-         
-        var td1 = document.createElement("td");
-        td1.setAttribute("width", "95");
-        td1.innerText = $("#sportbody option:selected").text();
-        var td2 = document.createElement("td");
-        td2.setAttribute("width", "195");
-        td2.setAttribute("name", "sportname2");
-        td2.innerText = $("#sportname2 option:selected").val();
-        var td3 = document.createElement("td");
-        td3.setAttribute("width", "95");
-        td3.setAttribute("name", "sportnum2");
-        td3.innerText = $("input[name=sportnum2]").val();
- 
-        tr.appendChild(td1);
-        tr.appendChild(td2);
-        tr.appendChild(td3);
-        
-        // 초기에 보여주는' 내용이 없습니다' 행을 지운다.
-        /* if (table1.firstChild.lastChild.childNodes.length == 1)
-            table1.firstChild.removeChild(table1.firstChild.lastChild); */ 
-      	
-        table1.appendChild(tr);        
-        
-        var td22 = td2.innerText;
-        console.log("td22:"+td22);
-        
-        var td33 = td3.innerText;
-        console.log("td33:"+td33);        
-        
-        $("#sportname").val(td22);
-        console.log("sportname:"+$("#sportname").val());
-        
-        $("#sportnum").val(td33);
-        console.log("sportnum:"+$("#sportnum").val());
-        
-        $("#sportbody").val("");
-		$("#sportname2").val("");
-		$("input[name=sportnum2]").val("");
-    })
-	});
+	}); 
+	 
 </script>
 </head> 
 <body>
@@ -181,7 +174,7 @@ select{
 				<div id="logo_text">
 					<!-- class="logo_colour", allows you to change the colour of the text -->
 					<h1>
-						<a href="/semi/index.html"><span class="logo_colour">Swan</span></a>
+						<a href="/semi/index.jsp"><span class="logo_colour">Swan</span></a>
 					</h1>
 				</div>
 			</div>
@@ -200,8 +193,8 @@ select{
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
 						<!-- insert your sidebar items here -->
-						<h4>관리자님 환영합니다</h4>
-						<a href="/semi/html/yn/another_page.html">마이페이지</a>
+						<h4><%= loginUser.getUserName() %>님 환영합니다</h4>
+						<a href="/semi/exedetail?userid=<%= loginUser.getUserId() %>">마이페이지</a>
 					</div>
 					<div class="sidebar_base"></div>
 				</div>
@@ -209,8 +202,8 @@ select{
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
 						<ul>
-							<li><a href="#">회원정보수정</a></li>
-							<li><a href="#">운동기록</a></li>
+							<li><a href="/semi/udetail?userid=<%= loginUser.getUserId() %>">회원정보수정</a></li>
+							<li><a href="/semi/html/yn/input.jsp">운동기록</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
@@ -233,13 +226,12 @@ select{
 			</div>
 			<!--내용-->
 			<div id="content">
-<form action="<%= request.getContextPath() %>/ueinsert" method="post">
 <input type="hidden" id="userid" name="userid" value="<%= loginUser.getUserId() %>">
 <input type="hidden" id="sportname" name="sportname" value="">
 <input type="hidden" id="sportnum" name="sportnum" value="">
-<input type="date" id="userstartdate" name="sportdate">
+<input type="date" id="sportdate" name="sportdate">
 <div id="sportc">			
-<select id="sportbody" style="width:100px;">
+<select id="sportbody" name="sportbody" style="width:100px;">
    <option value="" style="align:center">- 선택 -</option>
    <option value="01">가슴</option>
    <option value="02">어깨</option>
@@ -261,14 +253,13 @@ select{
 <div id="sporttable">
 <table id="insertTable">
 	<tr>
-		<td style="width:95px; background-color: #eee; color: rgb(35,146,173);">스포츠코드</td>
-		<td style="width:195px; background-color: #eee; color: rgb(35,146,173);">스포츠이름</td>
+		<td style="width:95px; background-color: #eee; color: rgb(35,146,173);">부위</td>
+		<td style="width:195px; background-color: #eee; color: rgb(35,146,173);">이름</td>
 		<td style="width:95px; background-color: #eee; color: rgb(35,146,173); word-break:break-all;">횟수</td>
 	</tr>
 </table>
-<input type="submit" id="submit" value="확인" style="width:150px; align:center">
+<input type="button" value="갱신" id="rere">
 </div>
-</form>
 
 			</div>
 			<!--내용끝-->
@@ -277,7 +268,7 @@ select{
 		<div id="footer">
 			<p>
 				<a href="/semi/index.html">메인</a> | <a href="/semi/html/ij/examples.html">운동정보</a> | <a
-					href="/semi/html/jh/page.html">식단정보</a> | <a href="/semi/html/sh/contact.html">고객센터</a>
+					href="/semi/html/jh/page.jsp">식단정보</a> | <a href="/semi/html/sh/contact.html">고객센터</a>
 			</p>
 			<p>
 				세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a>

@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" %>
 
 <%@	page import="qna.model.vo.QNA, user.model.vo.User, java.util.*"%>
 <%
+	ArrayList<QNA> listAll = (ArrayList<QNA>) request.getAttribute("listAll");
 	ArrayList<QNA> list = (ArrayList<QNA>) request.getAttribute("list");
 	int listCount = ((Integer) request.getAttribute("listCount")).intValue();
 	int startPage = ((Integer) request.getAttribute("startPage")).intValue();
@@ -12,11 +13,12 @@
 
 	User loginUser = (User) session.getAttribute("loginUser");
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>contact us</title>
+<title>QNA Page</title>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"
@@ -57,7 +59,8 @@
         var btn1 = document.getElementById("myBtn1");
         
         // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];                                          
+        var span = document.getElementsByClassName("close")[0];   
+        var span1 = document.getElementsByClassName("close1")[0];   
  
         // When the user clicks on the button, open the modal 
         btn.onclick = function() {
@@ -70,8 +73,12 @@
  
         // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
-            modal.style.display = "none";
-            modal1.style.display = "none";
+        	modal.style.display = "none";
+        	          
+        }
+        span1.onclick = function() {
+        	
+        	modal1.style.display = "none";            
         }
  
         // When the user clicks anywhere outside of the modal, close it
@@ -136,6 +143,19 @@
 	cursor: pointer;
 }
 
+.close1 {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close1:hover, .close1:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
 
 
 
@@ -166,9 +186,18 @@
 				<div class="sidebar">
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
-						<!-- insert your sidebar items here -->
-						<h4>관리자님 환영합니다</h4>
-						<a href="/semi/html/yn/another_page.html">마이페이지</a>
+						<%   
+   							if(loginUser == null) {   
+   						 %>
+						<a href="/semi/html/yn/userLoginPage.jsp">로그인</a>
+						<% } else {%>
+						<h4><%= loginUser.getUserName() %>님 환영합니다</h4>
+						<a href="/semi/udetail?userid=<%= loginUser.getUserId() %>">회원정보수정</a>
+						<a href="/semi/ulogout"><input type="button" value="로그아웃"></a>
+						<a href="/semi/html/yn/input.jsp">운동기록</a>
+						<a href="/semi/html/yn/goal.jsp">추가입력</a>
+						<a href="/semi/exedetail?userid=<%= loginUser.getUserId() %>">마이페이지</a>
+						<% } %>
 					</div>
 					<div class="sidebar_base"></div>
 				</div>
@@ -177,8 +206,8 @@
 					<div class="sidebar_item">
 						<h3>Memu</h3>
 						<ul>
-							<li><a href="/semi/html/sh/contact.html">1:1상담</a></li>
-							<li><a href="/semi/html/sh/contact2.html">자주묻는질문</a></li>
+							<li><a href="/semi/html/sh/contact.jsp">1:1상담</a></li>
+							<li><a href="/semi/qnalist?page=1">자주묻는질문</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
@@ -200,6 +229,7 @@
 				</div>
 			</div>
 			<div id="content">
+				<p><h2>자주 묻는 사항들을 게시한 페이지 입니다.</h2></p>
 				<table style="width: 100%">
 					<tbody>
 						<%-- <% for(QNA q: list) { %>
@@ -272,31 +302,36 @@
 				<div id="myModal" class="modal">
 				
 					<!-- Modal content -->
+					
 					<div class="modal-content">
-						<span class="close">&times;</span>
-						
-						<div id ="modal-header">
-						<b>추가하기애오.</b>
-						<p></p>
-						
-						</div>
-						
-						<div id ="modal-center">
-						&nbsp;질문 제목을 입력하새오.<br>
-						<input style="width: 85%;" type="text">
-						<p></p>
-						&nbsp;답변 내용을 입력해요.<br>
-						<input style="width: 85%;" type="text">
-						<p></p>
-						</div>
-						
-						<div id ="modal-footer">
-						
-						<button style="float: right;">입력하기</button>
-						<p></p>
-						
-						</div>
-						
+						<form action="/semi/qnainsert" method="post">
+							<span class="close">&times;</span>
+
+							<div id="modal-header">
+
+								<b>추가하기애오.</b>
+								<p></p>
+
+							</div>
+
+							<div id="modal-center">
+								&nbsp;질문 제목을 입력하새오.<br> 
+								<input name="qnaquestion" style="width: 85%;" type="text">
+								<p></p>
+								&nbsp;답변 내용을 입력해요.<br> 
+								<input name="qnaanswer" style="width: 85%;" type="text">
+								<p></p>
+							</div>
+
+							<div id="modal-footer">
+								<input type="submit" value="입력하기">
+								
+								<!-- <button style="float: right;">입력하기</button> -->
+								<p></p>
+
+							</div>
+							
+						</form>
 						<!-- <p>Some text in the Modal-Content..</p> -->
 					</div>
 
@@ -304,34 +339,40 @@
 				
 				<!-- The Modal -->
 				<div id="myModal1" class="modal">
-				
 					<!-- Modal content -->
 					<div class="modal-content">
-						<span class="close">&times;</span>
-						
-						<div id ="modal-header">
-						<p>헤더입니다.</p>
-						
-						</div>
-						
-						<div id ="modal-center">
-						<p>Some text in the Modal Center..</p>
-						
-						</div>
-						
-						<div id ="modal-footer">
-						<p>Some text in the Modal Footer..</p>
-						
-						</div>
-						
-						<p>Some text in the Modal-Content..</p>
+						<form action="/semi/qnadelete" method="post">
+							<span class="close1">&times;</span>
+							<div id="modal-header">
+								<p>제거하기에염!!ㅎㅎㅎㅎ.</p>
+							</div>
+							<div id="modal-center">
+								&nbsp;질문 제목을 선택하새오.<br> <select name="selectqnanum"
+									style="width: 85%;">
+									<%
+										for (QNA q : listAll) {
+									%>
+									<option value="<%=q.getQna_num()%>"><%=q.getQna_question()%></option>
+									<%
+										}
+									%>
+								</select>
+								<p></p>
+							</div>
+
+							<div id="modal-footer">
+								<input type="submit" value="제거하기">
+
+								<!-- <button style="float: right;">입력하기</button> -->
+								<p></p>
+
+							</div>
+
+							<!-- <p>Some text in the Modal-Content..</p> -->
+						</form>
 					</div>
 
 				</div>
-				
-				
-
-
 
 				<!-- insert the page content here -->
 					<!-- 				<h1>Q & A</h1>

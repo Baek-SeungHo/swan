@@ -196,8 +196,6 @@ $(function(){
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
 						<!-- insert your sidebar items here -->
-						<h4>관리자님 환영합니다</h4>
-						<a href="/semi/html/yn/another_page.html">마이페이지</a>
 					</div>
 					<div class="sidebar_base"></div>
 				</div>
@@ -205,8 +203,8 @@ $(function(){
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
 						<ul>
-							<li><a href="#">회원정보수정</a></li>
-							<li><a href="#">운동기록</a></li>
+							<!-- <li><a href="#">회원정보수정</a></li>
+							<li><a href="#">운동기록</a></li> -->
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
@@ -254,7 +252,7 @@ $(function(){
         </select>
 
 <label for="name">AGE:</label>
-<input type="number" id="userage" name="userage" min="20" max="100" placeholder="20" required>
+<input type="number" id="userage" name="userage" min="20" max="100" required>
 
 <label for="name">EMAIL:</label>
 <input type="email" id="useremail" name="useremail" required>
