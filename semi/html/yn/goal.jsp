@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <title>추가 입력</title>
 <script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
-<script src="calendar2/jquery.number.min.js"></script>
+<script type="text/javascript" src="/semi/html/yn/calendar2/jquery.number.min.js"></script>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"

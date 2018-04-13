@@ -1,114 +1,112 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import ="user.model.vo.User, exeinfo.model.vo.ExeInfo" %>
+<%@ page import ="user.model.vo.User" %>
 <%
-	ExeInfo exeinfo = (ExeInfo)request.getAttribute("exeinfo");
 	User loginUser = (User)session.getAttribute("loginUser");
-	
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>마이페이지</title>
+<title>추가 입력</title>
+<script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="/semi/html/yn/calendar2/jquery.number.min.js"></script>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"
 	content="text/html; charset=windows-1252" />
 <link rel="stylesheet" type="text/css" href="/semi/style/style.css" />
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 <style type="text/css">
 
-.graph {
-  position: relative;
-  width: 150px;
-  height: 150px;
+@import url(https://fonts.googleapis.com/css?family=Oxygen:400,700);
+@import url(https://fonts.googleapis.com/css?family=Knewave);
+@import url(https://fonts.googleapis.com/css?family=Luckiest+Guy);
+
+.shipping{
+  float: left;
+  text-align: center;
+  width: 300px;
+}
+.billing{
+  float: left;
+  width: 300px;
 }
 
-.graph svg {
-  width: 100%;
-  height: 100%;
+h2{
+  color: #0082C5;
+  padding: 0px;
+  float: left;
 }
 
-.graph svg text {
-  font-family: helvetica;
-  font-weight: bold;
-  font-size: 1.5em;
-  fill: #AEB8B8;
-}
-
-.graph svg .background {
-  fill: #264A60;
-}
-
-.graph svg .visual {
-  fill: #EFC100;
-}
-
-table
-{ margin: 10px 0 30px 0;
-  border: 1px solid rgb(127,127,127);
-  border-spacing:0px; padding:0; border:0; border-collapse:collapse;
-  }
-
-table tr th, table tr td
-{ background: #FFF;
-  color: rgb(127,127,127);
-  border: 1px solid rgb(127,127,127);
-  border-spacing:0px; padding:0; border:0; border-collapse:collapse;}
+input{
+  background-color: #f2f2f2;
+  border: 1px solid #c8c8c8;
+  font-family: 'Oxygen', sans-serif;
   
-table tr td
-{ background: #FFF;
-  color: rgb(127,127,127);
-  border: 1px solid rgb(127,127,127);
-  border-spacing:0px; padding:0; border:0; border-collapse:collapse;}
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  
+  margin: 0px 0px 10px 0px;
+  padding: 8px;
+  width: 90%;
+}
+select{
+  background-color: #f2f2f2;
+  border: 1px solid #c8c8c8;
+  font-family: 'Oxygen', sans-serif;
+  
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  
+  margin: 0px 0px 10px 0px;
+  padding: 8px;
+  width: 90%;
+}
+.checkBox{
+  clear: left;
+  float: left;
+  height: 13px;
+  margin: 13px 0px 0px 15px;
+  width: 13px;
+}
+.checkBoxText{
+  float: left;
+  margin: 10px 0px 10px 15px;
+  padding: 0px;
+}
+
 </style>
-
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
 <script type="text/javascript">
-google.charts.load('current', {packages: ['corechart', 'line']});
-google.charts.setOnLoadCallback(drawBasic);
-
-function drawBasic() {
-
-      var data = new google.visualization.DataTable();
-      data.addColumn('number', 'day');
-      data.addColumn('number', 'kg');
-
-      data.addRows([
-        [0, 80],   [1, 80],  [2, 83],  [3, 77],  [4, 78],  [5, 79],
-        [6, 71],  [7, 77],  [8, 73],  [9, 70],  [10, 72], [11, 75],
-        [12, 70], [13, 70], [14, 72], [15, 77], [16, 74], [17, 78],
-        [18, 72], [19, 74], [20, 72], [21, 75], [22, 76], [23, 77],
-        [24, 70], [25, 70], [26, 72], [27, 71], [28, 69], [29, 73],
-        [30, 65], [31, 60], [32, 61], [33, 59], [34, 62], [35, 65],
-        [36, 72], [37, 68], [38, 65], [39, 61], [40, 64], [41, 65],
-        [42, 63], [43, 66], [44, 67], [45, 69], [46, 69], [47, 70],
-        [48, 62], [49, 68], [50, 66], [51, 65], [52, 67], [53, 70],
-        [54, 71], [55, 72], [56, 73], [57, 75], [58, 70], [59, 68],
-        [60, 64], [61, 60], [62, 65], [63, 67], [64, 68], [65, 69],
-        [66, 70], [67, 72], [68, 70], [69, 68]
-      ]);
-
-      var options = {
-        hAxis: {
-          title: '일수'
-        },
-        vAxis: {
-          title: '몸무게'
-        }
-      };
-
-      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-
-      chart.draw(data, options);
-    }
+$(function(){
+	$('input[type=text]').blur(function(){
+		var height = $("#userheight").val();
+		var weight = $("#userweight").val();
+		
+		console.log(height);
+		console.log(weight);
+		
+		$("#userbmi").val(weight/(height/100)**2).number(true, 2);
+		/* if(loginUser.getUserGender().equals("M") ){
+			$("#userbmi").val((1.1*weight)-[128*(weight/height)]);
+		}else {
+			$("#userbmi").val("(1.07*weight)-[128*(weight/height)]");
+		} */
+	});
+});
 </script>
 </head>
 <body>
-<body>
-	<div id="main">
+<div id="main">
 		<div id="header">
 			<div id="logo">
 				<div id="logo_text">
@@ -117,7 +115,18 @@ function drawBasic() {
 						<a href="/semi/index.jsp"><span class="logo_colour">Swan</span></a>
 					</h1>
 				</div>
-				<div id="sidebar_container">
+			</div>
+			<div id="menubar">
+				<ul id="menu">
+					<li><a href="/semi/html/ij/examples.html">운동정보</a></li>
+					<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
+					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="content_header"></div>
+		<div id="site_content">
+			<div id="sidebar_container">
 				<div class="sidebar">
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
@@ -132,7 +141,6 @@ function drawBasic() {
 					<div class="sidebar_item">
 						<ul>
 							<li><a href="/semi/udetail?userid=<%= loginUser.getUserId() %>">회원정보수정</a></li>
-							<li><a href="/semi/html/yn/input.jsp">운동기록</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
@@ -153,116 +161,30 @@ function drawBasic() {
 					<div class="sidebar_base"></div> -->
 				</div>
 			</div>
-			</div>
-			<div id="menubar">
-				<ul id="menu">
-					<li><a href="/semi/html/ij/examples.html">운동정보</a></li>
-					<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
-					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
-				</ul>
-			</div>
-		</div>
-		<div id="content_header"></div>
-		<div id="site_content">
-			
-			<!--내용-->			
+			<!--내용-->
 			<div id="content">
-			<div id="myinfo2" class="4u" style="border: 6px solid rgb(242,242,242); width: 250px; height: 350px; padding: 10pt; margin: 10pt; float: left;">
-			<h2>시작세부 정보 및 목표</h2>
-			<hr>
-			<table>
-			<tr><th width="150">시작 날짜</th><th width="80">시작체중</th></tr>
-			<tr><td><font size="5"><%= exeinfo.getUserStartdate() %></font></td><td align="right"><font size="5"><%= exeinfo.getUserWeight() %>kg</font></td></tr>
-			</table>
-			
-			<table style="border: 1px solid #FFF;">
-			<tr><th width="150">신장</th><th width="80">BMI</th></tr>
-			<tr><td><font size="5" style="color: rgb(29,182,235);"><%= exeinfo.getUserHeight() %>cm</font></td><td><font size="5" style="color: rgb(29,182,235);"><%= exeinfo.getUserBmi() %></font></td></tr>
-			</table>
-			
-			<table>
-			<tr><th width="150">목표체중</th><th width="70">기간</th></tr>
-			<tr><td><font size="5"><%= exeinfo.getUserGoal() %>kg</font></td><td><font size="5">8개월</font></td></tr>
-			</table>
-			
-			<table style="border: 1px solid #FFF;">
-			<tr><th width="150">목표날짜</th><th width="80">총일수</th></tr>
-			<tr><td><font size="5" style="color: rgb(29,182,235);"><%= exeinfo.getUserEnddate() %></font></td><td><font size="5" style="color: rgb(29,182,235);">240</font></td></tr>
-			</table>
-			</div>
-			
-			<div id="myinfo2" class="4u" style="border: 6px solid rgb(242,242,242); width: 200px; height: 350px; padding: 10pt; margin: 10pt; float: left;">
-			<h2>목표달성 진행상황</h2>
-			<hr>
-				<div class="graph"></div>
-			<script type="text/javascript">
-function donutGraph(selector, percentage){
-
-    'use strict';
-
-    var height, width, radius, data, color, svg, g, bgArc, visArc, pie, path, vis;
-
-    height = 150;
-    width = 150;
-    radius = Math.min(width, height) / 2;
-
-    svg = d3.select(selector)
-        .append('svg')
-        .attr('viewBox', '0 0 ' + width + ' ' + height)
-        .attr('preserveAspectRatio', 'none');
-
-    g = svg.append('g')
-        .attr('transform', 'translate(' + (width / 2) + ',' + (height / 2) + ')');
-  
-    g.append('text')
-        .text(percentage + '%')
-        .attr('alignment-baseline', 'middle')
-        .attr('text-anchor', 'middle');
-  
-    bgArc = d3.svg.arc()
-        .innerRadius(radius / 1.25)
-        .outerRadius(radius)
-        .startAngle(0) //converting from degs to radians
-        .endAngle(degTOrad(perTOdeg(100))); //just radians
-
-    visArc = d3.svg.arc()
-        .innerRadius(radius / 1.18)
-        .outerRadius(radius)
-        .cornerRadius(20)
-        .startAngle(0) //converting from degs to radians
-        .endAngle(degTOrad(perTOdeg(percentage))); //just radians
-
-    g.append("path")
-        .attr("d", bgArc)
-        .attr('class', 'background');
-
-    g.append("path")
-        .attr("d", visArc)
-        .attr('class', 'visual');
-
-    function perTOdeg(per) {
-        'use strict';
-        return 360 * per / 100;
-    }
-
-    function degTOrad(deg) {
-        'use strict';
-        return deg * (Math.PI / 180);
-    }
-
-}
-
-donutGraph('.graph', 30);
-</script><br>
-<font size="15" style="color: rgb(29,182,235); align: center">30%</font><br>
-<font style="align: center">진행율</font>
-</div>
-
-<div id="myinfo2" class="4u" style="border: 6px solid rgb(242,242,242); width: 500px; height: 350px; padding: 10pt; margin: 10pt; float: left;">
-<h2>몸무게 변화</h2>
-<hr>
-			<div id="chart_div"></div>
-</div>			
+  <form action="<%= request.getContextPath() %>/exeinsert" method="post">			
+  <div class="billing">
+    <h2>추가 입력사항</h2><br><br><br>
+    <h4>*먼저 추가사항을 입력해주시기 바랍니다</h4>
+    <input type="hidden" id="userid" name="userid" value="<%= loginUser.getUserId() %>">
+     <p style="padding-bottom:2px;">신장</p>
+    <input type="text" id="userheight" name="userheight" placeholder="cm">
+     <p style="padding-bottom:2px;">체중</p>
+    <input type="text" id="userweight" name="userweight" placeholder="kg">
+     <p style="padding-bottom:2px;">BMI</p>  
+    <input type="text" id="userbmi" name="userbmi">
+     <p style="padding-bottom:2px;">목표체중</p>
+    <input type="text" id="usergoal" name="usergoal" placeholder="kg">
+    <p style="padding-bottom:2px;">시작날짜</p>
+    <input type="date" id="userstartdate" name="userstartdate">
+    <p style="padding-bottom:2px;">목표날짜</p>
+    <input type="date" id="userenddate" name="userenddate">
+    <br><br>
+    <p><input type="submit" value="submit"></p>
+  </div>
+  </form>
+				 
 				</div>
 			<!--내용끝-->
 		</div>
