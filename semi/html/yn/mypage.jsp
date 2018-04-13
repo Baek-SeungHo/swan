@@ -105,6 +105,37 @@ function count(){
 	alert("총일수는 " +(days+1)+ "일 입니다");
 }
 
+function count2(){
+	
+	var enddate = new Date("<%= exeinfo.getUserEnddate() %>");
+	
+	console.log("출력" + "<%= exeinfo.getUserEnddate() %>");
+	
+	var now = new Date();
+	
+	var eyear = enddate.getFullYear();
+	var emonth = enddate.getMonth()+1;
+	var eday = enddate.getDate();
+	
+	var nyear = now.getFullYear();
+	var nmonth = now.getMonth()+1;
+	var nday = now.getDate();
+	
+	enddate.setMonth(emonth-1);
+	enddate.setDate(eday);
+	
+	now.setMonth(nmonth-1);
+	now.setDate(nday);
+	
+	var ms2 = enddate.getTime() - now.getTime();
+	
+	var days2 = ms2/(24*60*60*1000);
+	
+	days2 = Math.ceil(days2);
+	
+	alert("남은일수는 " +(days2+1)+ "일 입니다");
+}
+
 
 
 google.charts.load('current', {packages: ['corechart', 'line']});
@@ -220,13 +251,13 @@ function drawBasic() {
 			</table>
 			
 			<table>
-			<tr><th width="150">목표체중</th><th width="70">기간</th></tr>
-			<tr><td><font size="5"><%= exeinfo.getUserGoal() %>kg</font></td><td><font size="5">8개월</font></td></tr>
+			<tr><th width="150">목표체중</th><th width="70">총일수</th></tr>
+			<tr><td><font size="5"><%= exeinfo.getUserGoal() %>kg</font></td><td><font size="5"><button onclick="count()">총일수</button></font></td></tr>
 			</table>
 			
 			<table style="border: 1px solid #FFF;">
-			<tr><th width="150">목표날짜</th><th width="80">총일수</th></tr>
-			<tr><td><font size="5" style="color: rgb(29,182,235);"><%= exeinfo.getUserEnddate() %></font></td><td><font size="5" style="color: rgb(29,182,235);"><button onclick="count()">총일수</button></font></td></tr>
+			<tr><th width="150">목표날짜</th><th width="80">남은일수</th></tr>
+			<tr><td><font size="5" style="color: rgb(29,182,235);"><%= exeinfo.getUserEnddate() %></font></td><td><font size="5" style="color: rgb(29,182,235);"><button onclick="count2()">남은일수</button></font></td></tr>
 			</table>
 			</div>
 			
