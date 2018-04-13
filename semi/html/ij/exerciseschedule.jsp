@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="schedule.model.vo.Schedule, java.util.*"%>
+<%
+	ArrayList<Schedule> list = (ArrayList<Schedule>)request.getAttribute("list");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <meta charset="UTF-8">
@@ -7,26 +11,7 @@
 <title>simplestyle_blue_trees - examples</title>
 <script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-	$(function() {
-		$("#poll").click(function() {
-			var yes = $('input:checkbox[name="yes"]:checked').length;
-			var no = $('input:checkbox[name="no"]:checked').length;
-
-			$.ajax({
-				url : "/semi/poll",
-				type : "post",
-				data : {
-					yes : yes,
-					no : no
-				},
-				success : function(data) {
-					alert("설문조사완료");
-				}
-
-			});
-
-		});
-	});
+	/*오늘의 운동스케쥴 조회하기*/
 </script>
 <style type="text/css">
 </style>
@@ -82,62 +67,21 @@
 				</div>
 				<div class="sidebar"></div>
 			</div>
-
 			<!--내용-->
 			<div id="content">
-				<h2 align="center">운동설문조사</h2>
-				<table>
+				<h2 align="center">운동스케쥴</h2>
+				<input type="date" id="userstartdate" name="sportdate">				
+				<table border="1">
 					<tr>
-						<th>질문</th>
-						<th>내용</th>
+						<td></td>
 					</tr>
 					<tr>
-						<td>일주일에 3번이상 운동을 하시나요?</td>
-						<td><input type="checkbox" name="yes" value="예">예 <input
-							type="checkbox" name="no" value="아니오">아니오</td>
+						<td></td>
 					</tr>
 					<tr>
-						<td>야식을 자주 하시나요?</td>
-						<td><input type="checkbox" name="yes" value="예">예 <input
-							type="checkbox" name="no" value="아니오">아니오</td>
-					</tr>
-					<tr>
-						<td>슬로우푸드보단 패스트푸드를 좋아하시나요?</td>
-						<td><input type="checkbox" name="yes" value="예">예 <input
-							type="checkbox" name="no" value="아니오">아니오</td>
-					</tr>
-					<tr>
-						<td>근육량보단 체지방이 많나요?</td>
-						<td><input type="checkbox" name="yes" value="예">예 <input
-							type="checkbox" name="no" value="아니오">아니오</td>
-					</tr>
-					<tr>
-						<td>운동을 하실때 즐거움을 느끼시나요?</td>
-						<td><input type="checkbox" name="yes" value="예">예 <input
-							type="checkbox" name="no" value="아니오">아니오</td>
-					</tr>
-					<tr>
-						<td>운동스케쥴에 따라올 자신있나요?</td>
-						<td><input type="checkbox" name="yes" value="예">예 <input
-							type="checkbox" name="no" value="아니오">아니오</td>
-					</tr>
-					<tr>
-						<td>푸쉬업을 30개이상 쉬지 않고 할수 있나요?</td>
-						<td><input type="checkbox" name="yes" value="예">예 <input
-							type="checkbox" name="no" value="아니오">아니오</td>
-					</tr>
-					<tr>
-						<td>식사를 하시고 바로 누우시나요?</td>
-						<td><input type="checkbox" name="yes" value="예">예 <input
-							type="checkbox" name="no" value="아니오">아니오</td>
-					</tr>
-					<tr>
-						<td>마지막으로 뭍습니다 다이어트에 모든것을 걸 자신있나요?</td>
-						<td><input type="checkbox" name="yes" value="예">예 <input
-							type="checkbox" name="no" value="아니오">아니오</td>
+						<td></td>
 					</tr>
 				</table>
-				<input type="button" value="작성완료" id="poll">
 			</div>
 			<!--내용끝-->
 		</div>

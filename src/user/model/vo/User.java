@@ -1,21 +1,33 @@
 package user.model.vo;
 
-public class User implements java.io.Serializable{
+import java.sql.*;
+
+public class User implements java.io.Serializable {
 	private final static long serialVersionUID = 7L;
-	
+
 	private String userId;
 	private String userPwd;
-	private String userName;	
+	private String userName;
 	private String userGender;
 	private int userAge;
 	private String userEmail;
 	private String userPhone;
 	private String administrator;
+	private String usergrade;
 
-	public User() {}
+	public String getUsergrade() {
+		return usergrade;
+	}
+
+	public void setUsergrade(String usergrade) {
+		this.usergrade = usergrade;
+	}
+
+	public User() {
+	}
 
 	public User(String userId, String userPwd, String userName, String userGender, int userAge, String userEmail,
-			String userPhone, String administrator) {
+			String userPhone, String administrator, String usergrade, Date date) {
 		super();
 		this.userId = userId;
 		this.userPwd = userPwd;
@@ -25,8 +37,10 @@ public class User implements java.io.Serializable{
 		this.userEmail = userEmail;
 		this.userPhone = userPhone;
 		this.administrator = administrator;
+		this.usergrade = usergrade;
+
 	}
-	
+
 	public String getUserId() {
 		return userId;
 	}
@@ -97,9 +111,8 @@ public class User implements java.io.Serializable{
 
 	@Override
 	public String toString() {
-		return this.userId + ", " + this.userPwd+ ", " + this.userName 
-				+ ", " + this.userGender + ", "  + this.userAge + ", " 
-				+ this.userEmail + ", " + this.userPhone + ", "  + this.administrator;
+		return this.userId + ", " + this.userPwd + ", " + this.userName + ", " + this.userGender + ", " + this.userAge
+				+ ", " + this.userEmail + ", " + this.userPhone + ", " + this.administrator;
 	}
-	
+
 }

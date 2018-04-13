@@ -35,6 +35,7 @@ public class UserLoginServlet extends HttpServlet {
 		
 		String userId = request.getParameter("userid");
 		String userPwd = request.getParameter("userpwd");
+
 		
 		User loginUser = new UserService().loginCheck(userId, userPwd);
 		

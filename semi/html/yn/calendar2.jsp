@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +14,7 @@
 <link href="calendar2/calendarorganizer.min.css" rel="stylesheet">
 </head>
 <body>
-<div id="main">
+	<div id="main">
 		<div id="header">
 			<div id="logo">
 				<div id="logo_text">
@@ -70,74 +70,69 @@
 					<div class="sidebar_base"></div> -->
 				</div>
 			</div>
-			<!--내용-->			
+			<!--내용-->
 			<div id="content">
-			<h2>운동계획표</h2>
-		
-		<div id="calendarContainer" align="center"></div>
-		<div id="organizerContainer" align="center"></div>
-				
-		<script src="calendar2/calendarorganizer.min.js"></script>
-		<script>
-			"use strict";
+				<h2>운동계획표</h2>
 
-			// function that creates dummy data for demonstration
-			function createDummyData() {
-				var yy = 2018;
-				var mm = 4;
-				var dd = 11;
-				
-				var date = new Date();
-				var data = {
-					    2018: {
-					        4: {
-					            11: [
-					                {
-					                    startTime: "00:00",
-					                    endTime: "24:00",
-					                    text: "Christmas"
-					                }
-					            ]
-					        }
-					    }
+				<div id="calendarContainer" align="center"></div>
+				<div id="organizerContainer" align="center"></div>
+
+				<script src="calendar2/calendarorganizer.min.js"></script>
+				<script>
+					"use strict";
+
+					// function that creates dummy data for demonstration
+					function createDummyData() {
+						var yy = 2018;
+						var mm = 4;
+						var dd = 11;
+
+						var date = new Date();
+						var data = {
+							2018 : {
+								4 : {
+									11 : [ {
+										startTime : "00:00",
+										endTime : "24:00",
+										text : "Christmas"
+									} ]
+								}
+							}
+						}
+						return data;
 					}
-				return data;
-			}
 
-			// creating the dummy static data
-			var data = createDummyData();
+					// creating the dummy static data
+					var data = createDummyData();
 
-			// initializing a new calendar object, that will use an html container to create itself
-			var calendar = new Calendar("calendarContainer", // id of html container for calendar
-				"small", // size of calendar, can be small | medium | large
-				[
-					"Sunday", // left most day of calendar labels
+					// initializing a new calendar object, that will use an html container to create itself
+					var calendar = new Calendar("calendarContainer", // id of html container for calendar
+					"small", // size of calendar, can be small | medium | large
+					[ "Sunday", // left most day of calendar labels
 					7 // maximum length of the calendar labels
-				], [
-					"rgb(210,210,210)", // primary color
+					], [ "rgb(210,210,210)", // primary color
 					"rgb(195,195,195)", // primary dark color
 					"#ffffff", // text color
 					"#ffecb3" // text dark color
-				]
-			);
+					]);
 
-			// initializing a new organizer object, that will use an html container to create itself
-			var organizer = new Organizer("organizerContainer", // id of html container for calendar
-				calendar, // defining the calendar that the organizer is related to
-				data // giving the organizer the static data that should be displayed
-			);
-			
-			
-		</script>
-		
-	</div>
+					// initializing a new organizer object, that will use an html container to create itself
+					var organizer = new Organizer("organizerContainer", // id of html container for calendar
+					calendar, // defining the calendar that the organizer is related to
+					data // giving the organizer the static data that should be displayed
+					);
+				</script>
+
+			</div>
 			<!--내용끝-->
 		</div>
 		<div id="content_footer"></div>
 		<div id="footer">
 			<p>
-				<a href="/semi/index.html">메인</a> | <a href="/semi/html/ij/examples.html">운동정보</a> | <a
-					href="/semi/html/jh/page.html">식단정보</a> | <a href="/semi/html/sh/contact.html">고객센터</a>
+				<a href="/semi/index.html">메인</a> | <a
+					href="/semi/html/ij/examples.html">운동정보</a> | <a
+					href="/semi/html/jh/page.html">식단정보</a> | <a
+					href="/semi/html/sh/contact.html">고객센터</a>
 			</p>
 			<p>
 				세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a>

@@ -34,7 +34,7 @@
 			</div>
 			<div id="menubar">
 				<ul id="menu">
-					<li><a href="/semi/html/ij/examples.html">운동정보</a></li>
+					<li><a href="/semi/html/ij/main.html">운동정보</a></li>
 					<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
 					<li><a href="/semi/html/sh/contact.html">고객센터</a></li>
 				</ul>
