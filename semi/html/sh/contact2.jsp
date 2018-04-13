@@ -58,7 +58,8 @@
         var btn1 = document.getElementById("myBtn1");
         
         // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];                                          
+        var span = document.getElementsByClassName("close")[0];   
+        var span1 = document.getElementsByClassName("close1")[0];   
  
         // When the user clicks on the button, open the modal 
         btn.onclick = function() {
@@ -71,8 +72,12 @@
  
         // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
-            modal.style.display = "none";
-            modal1.style.display = "none";
+        	modal.style.display = "none";
+        	          
+        }
+        span1.onclick = function() {
+        	
+        	modal1.style.display = "none";            
         }
  
         // When the user clicks anywhere outside of the modal, close it
@@ -132,6 +137,19 @@
 }
 
 .close:hover, .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.close1 {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close1:hover, .close1:focus {
 	color: black;
 	text-decoration: none;
 	cursor: pointer;
@@ -310,23 +328,23 @@
 				
 				<!-- The Modal -->
 				<div id="myModal1" class="modal">
-				
 					<!-- Modal content -->
 					<div class="modal-content">
 						<form action="/semi/qnadelete" method="post">
-							<span class="close">&times;</span>
-
+							<span class="close1">&times;</span>
 							<div id="modal-header">
 								<p>제거하기에염!!ㅎㅎㅎㅎ.</p>
-
 							</div>
-
 							<div id="modal-center">
-								&nbsp;질문 제목을 선택하새오.<br> 	
-								<select name="selectqnanum" style="width: 85%;">
-									<% for(QNA q : listAll) { %>
-										<option value="<%=q.getQna_num()%>"><%=q.getQna_question() %></option>
-									<% } %> 
+								&nbsp;질문 제목을 선택하새오.<br> <select name="selectqnanum"
+									style="width: 85%;">
+									<%
+										for (QNA q : listAll) {
+									%>
+									<option value="<%=q.getQna_num()%>"><%=q.getQna_question()%></option>
+									<%
+										}
+									%>
 								</select>
 								<p></p>
 							</div>
@@ -344,10 +362,6 @@
 					</div>
 
 				</div>
-				
-				
-
-
 
 				<!-- insert the page content here -->
 					<!-- 				<h1>Q & A</h1>
