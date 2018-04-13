@@ -43,13 +43,12 @@
 						<a href="/semi/index.jsp"><span class="logo_colour">Swan</span></a>
 					</h1>
 				</div>
-				
 			</div>
 			<div id="menubar">
 				<ul id="menu">
 					<li><a href="/semi/html/ij/examples.html">운동정보</a></li>
 					<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
-					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
+					<li><a href="/semi/html/sh/contact.html">고객센터</a></li>
 				</ul>
 			</div>
 		</div>
@@ -72,7 +71,7 @@
 						<ul>
 							<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
 							<li><a href="/semi/html/jh/sikdan2.html">체형별 식단</a></li>
-							<li><a href="/semi/html/jh/sikdan3.jsp">건강 노하우</a></li>
+							<li><a href="/semi/SikdanBoradListServlet?page=1">건강 노하우</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
@@ -108,16 +107,17 @@
 						</tr>
 						<tr>
 							<th align="center">작성자/조회수</th>
-							<td><%=sb.getBoard_write()%> / getBoard_look</td>
+							<td><%=sb.getBoard_write()%> / <%=sb.getBoard_look()%></td>
 						</tr>
 						<tr>
+							<th align="center">내용</th>
 							<td colspan="2"><%=sb.getBoard_content()%></td>
 						</tr>
 					</tbody>
 				</table>
 				<p>
-					<input type="button" value="목록" onclick="goUrl('/semi/html/jh/sikdan3.jsp');" />
-					<input type="button" value="수정" /><!-- onclick="goUrl('/semi/html/jh/sikdanboardModifyForm.jsp');" -->  
+					<input type="button" value="목록" onclick="goUrl('/semi/SikdanBoradListServlet?page=1');" />
+					<input type="button" value="수정" onclick="goUrl('/semi/SikdanBoardModifyViewServlet?board_num=<%=sb.getBoard_num()%>&page=<%=currentPage%>');" /> 
 					<input type="button" value="삭제"/>
 				</p>
 			</div>
@@ -127,7 +127,7 @@
 		<div id="footer">
 			<p>
 				<a href="/semi/index.jsp">메인</a> | <a href="/semi/html/ij/examples.html">운동정보</a> | <a
-					href="/semi/html/jh/sikdan.html">식단정보</a> | <a href="/semi/html/sh/contact.jsp">고객센터</a>
+					href="/semi/html/jh/sikdan.html">식단정보</a> | <a href="/semi/html/sh/contact.html">고객센터</a>
 			</p>
 			<p>
 				세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a>

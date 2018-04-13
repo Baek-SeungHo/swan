@@ -35,7 +35,6 @@ public class SikdanBoradListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-				System.out.println("hi");
 				int currentPage = 1;
 				
 				if (request.getParameter("page") != null) {

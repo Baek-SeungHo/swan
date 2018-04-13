@@ -24,14 +24,14 @@
      // 등록 폼 체크
     	function boardWriteCheck() {
     		var form = document.boardWriteForm;
-    		if (form.subject.value == '') {
+    		if (form.board_title.value == '') {
     			alert('제목을 입력하세요.');
-    			form.subject.focus();
+    			form.board_title.focus();
     			return false;
     		}
-    		if (form.writer.value == '') {
-    			alert('작성자을 입력하세요');
-    			form.writer.focus();
+    		if (form.board_content.value == '') {
+    			alert('내용을 입력하세요');
+    			form.board_content.focus();
     			return false;
     		}
     		return true;
@@ -58,13 +58,12 @@
 						<a href="/semi/index.jsp"><span class="logo_colour">Swan</span></a>
 					</h1>
 				</div>
-				
 			</div>
 			<div id="menubar">
 				<ul id="menu">
 					<li><a href="/semi/html/ij/examples.html">운동정보</a></li>
 					<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
-					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
+					<li><a href="/semi/html/sh/contact.html">고객센터</a></li>
 				</ul>
 			</div>
 		</div>
@@ -87,7 +86,7 @@
 						<ul>
 							<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
 							<li><a href="/semi/html/jh/sikdan2.html">체형별 식단</a></li>
-							<li><a href="/semi/html/jh/sikdan3.jsp">건강 노하우</a></li>
+							<li><a href="/semi/SikdanBoradListServlet?page=1">건강 노하우</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
@@ -113,7 +112,7 @@
 				<form name="boardWriteForm" action="/semi/SikdanBoardInsertServlet" method="post"
 					onsubmit="return boardWriteCheck();">
 					<!-- <input type="hidden" name="mode" value="W" /> -->
-					<input type="hidden" name="board_write" value="user.getUserId()" />
+				<!-- 	<input type="hidden" name="board_write" value="user.getUserId()" /> -->
 					<table border="1" summary="게시판 등록 폼">
 						<caption>게시판 등록 폼</caption>
 						<colgroup>
@@ -127,7 +126,7 @@
 							</tr>
 							<tr>
 								<th align="center">작성자</th>
-								<td>user.getUserId()</td>
+								<td><input type="text" name="board_write" value="아이디" readonly /></td> <% //user.getUserId() %>
 							</tr>
 							<tr>
 								<th align="center">내용</th>
@@ -147,7 +146,7 @@
 		<div id="footer">
 			<p>
 				<a href="/semi/index.jsp">메인</a> | <a href="/semi/html/ij/examples.html">운동정보</a> | <a
-					href="/semi/html/jh/sikdan.html">식단정보</a> | <a href="/semi/html/sh/contact.jsp">고객센터</a>
+					href="/semi/html/jh/sikdan.html">식단정보</a> | <a href="/semi/html/sh/contact.html">고객센터</a>
 			</p>
 			<p>
 				세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a>

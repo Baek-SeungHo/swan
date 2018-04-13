@@ -37,6 +37,17 @@ public class SikdanBoardService {
 		close(con);
 		return result;
 	}
+	
+	public int updateBoard(SikdanBorad sb) {
+		Connection con = getConnection();
+		int result = new SikdanBoradDao().updateSikdanBorad(con, sb);
+		if (result > 0)
+			commit(con);
+		else
+			rollback(con);
+		close(con);
+		return result;
+	}
 
 	public SikdanBorad selectBoard(int board_num) {
 		Connection con = getConnection();

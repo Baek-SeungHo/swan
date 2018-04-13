@@ -14,16 +14,16 @@ import sikdanboard.model.service.SikdanBoardService;
 import sikdanboard.model.vo.SikdanBorad;
 
 /**
- * Servlet implementation class SikdanBoardInsertServlet
+ * Servlet implementation class SikdanBoardModifyViewServlet
  */
-@WebServlet("/SikdanBoardInsertServlet")
-public class SikdanBoardInsertServlet extends HttpServlet {
+@WebServlet("/SikdanBoardModifyViewServlet")
+public class SikdanBoardModifyViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SikdanBoardInsertServlet() {
+    public SikdanBoardModifyViewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,27 +33,28 @@ public class SikdanBoardInsertServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-				request.setCharacterEncoding("utf-8");
-				SikdanBorad sb = new SikdanBorad();
-				
-				sb.setBoard_write(request.getParameter("board_write"));
-				sb.setBoard_title(request.getParameter("board_title"));
-				sb.setBoard_content(request.getParameter("board_content"));
+		String board_num = request.getParameter("board_num");
+		int currentPage = Integer.parseInt(request.getParameter("page"));
 
-				
-				response.setContentType("text/html; charset=utf-8");
+		SikdanBoardService sbs = new SikdanBoardService();
 
-				if (new SikdanBoardService().insertBoard(sb) > 0) {
-					//RequestDispatcher view = request.getRequestDispatcher("html/jh/sikdanboardWriteForm.jsp");
-					response.sendRedirect("/semi/SikdanBoradListServlet?page=1");
-					//view.forward(request, response);
-				} else {
+//		sbs.addReadCount(Integer.parseInt(board_num));
+		SikdanBorad sb = new SikdanBoardService().selectBoard(Integer.parseInt(board_num));
 
-					PrintWriter out = response.getWriter();
+		response.setContentType("text/html; charset=utf-8");
+		RequestDispatcher view = null;
+		if (sb != null) {
+			view = request.getRequestDispatcher("html/jh/sikdanboardModifyForm.jsp");
+			request.setAttribute("board", sb);
+			request.setAttribute("currentPage", currentPage);
 
-					out.println("ㅇㅇ");
-					out.close();
-				}
+			view.forward(request, response);
+		} else {
+			PrintWriter out = response.getWriter();
+
+			out.println("����");
+			out.close();
+		}
 	}
 
 	/**
