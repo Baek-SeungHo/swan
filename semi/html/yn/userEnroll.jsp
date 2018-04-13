@@ -1,14 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="user.model.vo.User"%>
-<%
-	User user = (User)request.getAttribute("user");
-	User loginUser = (User)session.getAttribute("loginUser");
-%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원정보수정</title>
+<title>회원가입</title>
 <script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
@@ -137,6 +133,28 @@ label.light {
 }
 </style>
 <script type="text/javascript">
+function checkId(){
+	$.ajax({
+		url : "/semi/idchk",
+		type: "post",
+		data: {userid : $('#userid').val()},
+		success:function(data){			
+			if(data == "ok"){
+				alert("사용 가능한 아이디입니다");
+				$('#username').focus();
+			}else{
+				alert("이미 존재하는 아이디입니다. \n다시 입력하십시오");
+				$('#userid').select();
+			}
+			},
+			error : function(jqXHR, textstatus, errorthrown){
+				console.log("error : " + jqXHR + ", " + textstatus + ", " + errorthrown);
+			}
+		});
+		
+		return false;
+}
+
 $(function(){
 	$('input[type=password]').blur(function(){
 		var pwd1 = $("#upwd1").val();
@@ -154,7 +172,7 @@ $(function(){
 </script>
 </head>
 <body>
-	<div id="main">
+<div id="main">
 		<div id="header">
 			<div id="logo">
 				<div id="logo_text">
@@ -176,23 +194,21 @@ $(function(){
 		<div id="site_content">
 			<div id="sidebar_container">
 				<div class="sidebar">
-					<div class="sidebar_top"></div>
+					<!-- <div class="sidebar_top"></div> -->
 					<div class="sidebar_item">
 						<!-- insert your sidebar items here -->
-						<h4><%= loginUser.getUserName() %>님 환영합니다</h4>
-						<a href="/semi/exedetail?userid=<%= loginUser.getUserId() %>">마이페이지</a>
 					</div>
-					<div class="sidebar_base"></div>
+					<!-- <div class="sidebar_base"></div> -->
 				</div>
 				<div class="sidebar">
-					<div class="sidebar_top"></div>
+					<!-- <div class="sidebar_top"></div> -->
 					<div class="sidebar_item">
 						<ul>
-							<li><a href="/semi/udetail?userid=<%= loginUser.getUserId() %>">회원정보수정</a></li>
-							<li><a href="/semi/html/yn/input.jsp">운동기록</a></li>
+							<!-- <li><a href="#">회원정보수정</a></li>
+							<li><a href="#">운동기록</a></li> -->
 						</ul>
 					</div>
-					<div class="sidebar_base"></div>
+					<!-- <div class="sidebar_base"></div> -->
 				</div>
 				<div class="sidebar">
 					<!-- <div class="sidebar_top"></div>
@@ -212,14 +228,15 @@ $(function(){
 			</div>
 			<!--내용-->
 			<div id="content">
-<form action="<%= request.getContextPath() %>/uupdate.me" method="post">
-<h1>회원정보수정</h1>
+<form action="<%= request.getContextPath() %>/uinsert.me" method="post">
+<h1>회원가입</h1>
 <fieldset>
 <label for="name">ID:</label>
-<input type="text" name="userid" value="<%= user.getUserId() %>" readonly>
+<input type="text" id="userid" name="userid" style="width:60%;" required > &nbsp;
+<button onclick="return checkId();" style="align:right; width:30%">중복확인</button>
 
 <label for="name">NAME:</label>
-<input type="text" name="username" value="<%= user.getUserName() %>" readonly>
+<input type="text" id="username" name="username" required>
 
 <label for="name">PASSWORD:</label>
 <input type="password" name="userpwd" id="upwd1" required>
@@ -230,25 +247,21 @@ $(function(){
 <div style="height:25px;"><input type="text" id="confirm" style="display:none; background:#f4f7f8; box-shadow:none; font-size:13px; height:16px; padding-left:0; margin-bottom:10px" readonly></div>
 
 <label for="job" style="margin-top:7px;">GENDER:</label>
-  <select id="usergender" name="usergender">
-  <% if(user.getUserGender().equals("M")) { %>
-            <option value="M" selected>M</option>
-            <option value="F">F</option> <% }else{ %>
+        <select id="usergender" name="usergender">
             <option value="M">M</option>
-             <option value="F" selected>F</option> <% } %>
+            <option value="F">F</option>
         </select>
 
 <label for="name">AGE:</label>
-<input type="number" id="userage" name="userage" min="20" max="100" value="<%= user.getUserAge() %>" required>
+<input type="number" id="userage" name="userage" min="20" max="100" required>
 
 <label for="name">EMAIL:</label>
-<input type="email" name="useremail" value="<%= user.getUserEmail() %>">
+<input type="email" id="useremail" name="useremail" required>
 
 <label for="name">PHONE:</label>
-<input type="tel" name="userphone" value="<%= user.getUserPhone() %>">
+<input type="tel" id="userphone" name="userphone" required>
 
-<button type="submit" style="width:48%;">수정하기</button> &nbsp;
-<a href="/semi/udelete?userid=<%= user.getUserId() %>"><button type="button" style="width:48%;">탈퇴하기</button></a>
+<button type="submit" id="submit" style="width:100%;">회원가입</button>
 </fieldset>
 </form>	
 				</div>
