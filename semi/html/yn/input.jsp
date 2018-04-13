@@ -272,8 +272,8 @@ select{
 		<div id="content_footer"></div>
 		<div id="footer">
 			<p>
-				<a href="/semi/index.html">메인</a> | <a href="/semi/html/ij/examples.html">운동정보</a> | <a
-					href="/semi/html/jh/page.jsp">식단정보</a> | <a href="/semi/html/sh/contact.jsp">고객센터</a>
+				<a href="/semi/index.html">메인</a> | <a href="/semi/html/ij/examples.html">운동정보</a> |
+				<a href="/semi/html/jh/page.jsp">식단정보</a> | <a href="/semi/html/sh/contact.jsp">고객센터</a>
 			</p>
 			<p>
 				세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a>
