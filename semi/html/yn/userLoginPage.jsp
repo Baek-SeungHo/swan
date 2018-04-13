@@ -17,7 +17,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
 
 /* Simple Reset */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0;}
 
 /* Form Layout */
 .form-wrapper {
@@ -51,7 +51,7 @@ form {
   font-size: 1em;
   height: 50px;
   transition: border-color 0.3s;
-  width: 100%;
+  width: 295px;
 }
 
 .form-item input:focus {
@@ -159,7 +159,7 @@ form {
 			<div id="content">
 				<p></p>
 				<div class="form-wrapper">
-					<h1>Login</h1>
+					<h1 style="color: rgb(29,182,235);">Login</h1>
 					<form action="<%=request.getContextPath()%>/ulogin.me"
 						method="post">
 						<div class="form-item">
