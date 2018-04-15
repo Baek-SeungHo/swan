@@ -146,7 +146,6 @@ select{
 		
 		$("#sportdate").on("change", function(){
 			//$("#insertTable").empty();
-			alert($("#sportdate").val());
 			
 			$.ajax({
 				url: "/semi/uesearch",
@@ -162,7 +161,7 @@ select{
 					
 					for (var i in data.sportTable) {
 						sport += "<tr><td>"
-								+ $("#sportname2 option:selected").text()
+								+ decodeURIComponent(data.sportTable[i].sportBody)
 								+ "</td><td>"
 								+ decodeURIComponent(data.sportTable[i].sportName)
 								+ "</td><td>"
