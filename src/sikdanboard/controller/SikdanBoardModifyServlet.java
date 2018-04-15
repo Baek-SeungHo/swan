@@ -16,17 +16,16 @@ import sikdanboard.model.vo.SikdanBorad;
 /**
  * Servlet implementation class SikdanBoardInsertServlet
  */
-@WebServlet("/SikdanBoardInsertServlet")
-public class SikdanBoardInsertServlet extends HttpServlet {
+@WebServlet("/SikdanBoardModifyServlet")
+public class SikdanBoardModifyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SikdanBoardInsertServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+    public SikdanBoardModifyServlet() {
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -36,14 +35,14 @@ public class SikdanBoardInsertServlet extends HttpServlet {
 				request.setCharacterEncoding("utf-8");
 				SikdanBorad sb = new SikdanBorad();
 				
-				sb.setBoard_write(request.getParameter("board_write"));
 				sb.setBoard_title(request.getParameter("board_title"));
 				sb.setBoard_content(request.getParameter("board_content"));
+				sb.setBoard_num(Integer.parseInt(request.getParameter("board_num")));
 
 				
 				response.setContentType("text/html; charset=utf-8");
 
-				if (new SikdanBoardService().insertBoard(sb) > 0) {
+				if (new SikdanBoardService().updateBoard(sb) > 0) {
 					//RequestDispatcher view = request.getRequestDispatcher("html/jh/sikdanboardWriteForm.jsp");
 					response.sendRedirect("/semi/SikdanBoradListServlet?page=1");
 					//view.forward(request, response);

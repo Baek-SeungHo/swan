@@ -17,8 +17,7 @@ public class UserDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 
-		String query = "select *  from user_info , exe_info where user_info.user_id = exe_info.user_id "
-				+ "and user_info.user_id = ? and user_info.user_pwd = ? ";
+		String query = "select *  from user_info where user_id = ? and user_pwd = ? ";
 
 		try {
 			pstmt = con.prepareStatement(query);
@@ -29,6 +28,7 @@ public class UserDao {
 
 			if (rset.next()) {
 				loginUser = new User();
+
 				loginUser.setUserId(rset.getString("user_id"));
 				loginUser.setUserPwd(rset.getString("user_pwd"));
 				loginUser.setUserName(rset.getString("user_name"));
@@ -37,7 +37,6 @@ public class UserDao {
 				loginUser.setUserEmail(rset.getString("user_email"));
 				loginUser.setUserPhone(rset.getString("user_phone"));
 				loginUser.setAdministrator(rset.getString("administrator"));
-				loginUser.setUsergrade(rset.getString("user_grade"));
 
 			}
 

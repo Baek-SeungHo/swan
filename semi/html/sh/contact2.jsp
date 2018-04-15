@@ -103,9 +103,6 @@
 	display: none;
 }
 
-
-
-
 /* The Modal (background) */
 .modal {
 	display: none; /* Hidden by default */
@@ -155,10 +152,6 @@
 	text-decoration: none;
 	cursor: pointer;
 }
-
-
-
-
 </style>
 </head>
 <body>
@@ -171,6 +164,7 @@
 						<a href="/semi/index.jsp"><span class="logo_colour">Swan</span></a>
 					</h1>
 				</div>
+
 			</div>
 			<div id="menubar">
 				<ul id="menu">
@@ -191,12 +185,13 @@
    						 %>
 						<a href="/semi/html/yn/userLoginPage.jsp">로그인</a>
 						<% } else {%>
-						<h4><%= loginUser.getUserName() %>님 환영합니다</h4>
+						<h4><%= loginUser.getUserName() %>님 환영합니다
+						</h4>
 						<a href="/semi/udetail?userid=<%= loginUser.getUserId() %>">회원정보수정</a>
 						<a href="/semi/ulogout"><input type="button" value="로그아웃"></a>
-						<a href="/semi/html/yn/input.jsp">운동기록</a>
-						<a href="/semi/html/yn/goal.jsp">추가입력</a>
-						<a href="/semi/exedetail?userid=<%= loginUser.getUserId() %>">마이페이지</a>
+						<a href="/semi/html/yn/input.jsp">운동기록</a> <a
+							href="/semi/html/yn/goal.jsp">추가입력</a> <a
+							href="/semi/exedetail?userid=<%= loginUser.getUserId() %>">마이페이지</a>
 						<% } %>
 					</div>
 					<div class="sidebar_base"></div>
@@ -206,7 +201,7 @@
 					<div class="sidebar_item">
 						<h3>Memu</h3>
 						<ul>
-							<li><a href="/semi/html/sh/contact.jsp">1:1상담</a></li>
+							<li><a href="/semi/html/sh/contact.jsp">Contact to Us</a></li>
 							<li><a href="/semi/qnalist?page=1">자주묻는질문</a></li>
 						</ul>
 					</div>
@@ -291,15 +286,15 @@
 					<!-- <a style="float: right; text-decoration: none;" href="">추가</a> -->
 					<!-- Trigger/Open The Modal -->
 					<button id="myBtn1" style="float: right;">제거하기</button>
-					<button id="myBtn" style="float: right; margin-right: 5px; ">추가하기</button>
-					
+					<button id="myBtn" style="float: right; margin-right: 5px;">추가하기</button>
+
 				</div>
 
 				<!-- The Modal -->
 				<div id="myModal" class="modal">
-				
+
 					<!-- Modal content -->
-					
+
 					<div class="modal-content">
 						<form action="/semi/qnainsert" method="post">
 							<span class="close">&times;</span>
@@ -312,28 +307,28 @@
 							</div>
 
 							<div id="modal-center">
-								&nbsp;질문 제목을 입력하새오.<br> 
-								<input name="qnaquestion" style="width: 85%;" type="text">
+								&nbsp;질문 제목을 입력하새오.<br> <input name="qnaquestion"
+									style="width: 85%;" type="text">
 								<p></p>
-								&nbsp;답변 내용을 입력해요.<br> 
-								<input name="qnaanswer" style="width: 85%;" type="text">
+								&nbsp;답변 내용을 입력해요.<br> <input name="qnaanswer"
+									style="width: 85%;" type="text">
 								<p></p>
 							</div>
 
 							<div id="modal-footer">
 								<input type="submit" value="입력하기">
-								
+
 								<!-- <button style="float: right;">입력하기</button> -->
 								<p></p>
 
 							</div>
-							
+
 						</form>
 						<!-- <p>Some text in the Modal-Content..</p> -->
 					</div>
 
 				</div>
-				
+
 				<!-- The Modal -->
 				<div id="myModal1" class="modal">
 					<!-- Modal content -->
@@ -372,7 +367,7 @@
 				</div>
 
 				<!-- insert the page content here -->
-					<!-- 				<h1>Q & A</h1>
+				<!-- 				<h1>Q & A</h1>
 				<p>자주 묻는 사항들을 게시한 페이지 입니다.</p>
 					<table>
 						<tbody>
@@ -400,11 +395,11 @@
 					
 					</table> -->
 
-					<p>
-						<br />
-					</p>
-				</div>
+				<p>
+					<br />
+				</p>
 			</div>
+		</div>
 		<div id="content_footer"></div>
 		<div id="footer">
 			<p>
@@ -414,7 +409,9 @@
 					href="/semi/html/sh/contact.jsp">고객센터</a>
 			</p>
 			<p>
-				 <p>세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a></p>
+			<p>
+				세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a>
+			</p>
 			</p>
 		</div>
 	</div>

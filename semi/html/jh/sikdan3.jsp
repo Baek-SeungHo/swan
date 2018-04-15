@@ -75,7 +75,7 @@
 						<ul>
 							<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
 							<li><a href="/semi/html/jh/sikdan2.html">체형별 식단</a></li>
-							<li><a href="/semi/html/jh/sikdan3.jsp">건강 노하우</a></li>
+							<li><a href="/semi/SikdanBoradListServlet?page=1">건강 노하우</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
@@ -111,6 +111,7 @@
 					있는 건강한 다이어트 식단은 바로 한식기반의 형태로 아침, 점심, 저녁 규칙적으로 드시는 것입니다.
 				</section>
 				<!-- Section -->
+				<br>
 				<h4>Swan 건강 노하우</h4>
 <!-- 				<div class="table-wrapper">
 					<table>
@@ -281,7 +282,7 @@
 
        <p>
 
-           <input type="button" value="목록" onclick="goUrl('/semi/SikdanBoradListServlet?page=1');" />
+          <!--  <input type="button" value="목록" onclick="goUrl('/semi/SikdanBoradListServlet?page=1');" /> -->
 
            <input type="button" value="글쓰기" onclick="goUrl('/semi/html/jh/sikdanboardWriteForm.jsp');" /> 
 

@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>마이페이지</title>
+<title>simplestyle_blue_trees - another page</title>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"
@@ -67,6 +67,77 @@ table tr td
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <script type="text/javascript">
+
+function count(){
+	
+	var startdate= new Date("<%= exeinfo.getUserStartdate() %>");
+	
+	console.log("출력" + "<%= exeinfo.getUserStartdate() %>");
+	
+	var enddate = new Date("<%= exeinfo.getUserEnddate() %>");
+	
+	console.log("출력" + "<%= exeinfo.getUserEnddate() %>");
+	
+	var syear = startdate.getFullYear();
+	var smonth = startdate.getMonth()+1;
+	var sday = startdate.getDate();
+	
+	var eyear = enddate.getFullYear();
+	var emonth = enddate.getMonth()+1;
+	var eday = enddate.getDate();
+	
+	console.log(syear);
+	console.log(smonth);
+	console.log(sday);
+	
+	startdate.setMonth(smonth-1);
+	startdate.setDate(sday);
+	
+	enddate.setMonth(emonth-1);
+	enddate.setDate(eday);
+	
+	var ms = enddate.getTime() - startdate.getTime();
+	
+	var days = ms/(24*60*60*1000);
+	
+	days = Math.ceil(days);
+	
+	alert("총일수는 " +(days+1)+ "일 입니다");
+}
+
+function count2(){
+	
+	var enddate = new Date("<%= exeinfo.getUserEnddate() %>");
+	
+	console.log("출력" + "<%= exeinfo.getUserEnddate() %>");
+	
+	var now = new Date();
+	
+	var eyear = enddate.getFullYear();
+	var emonth = enddate.getMonth()+1;
+	var eday = enddate.getDate();
+	
+	var nyear = now.getFullYear();
+	var nmonth = now.getMonth()+1;
+	var nday = now.getDate();
+	
+	enddate.setMonth(emonth-1);
+	enddate.setDate(eday);
+	
+	now.setMonth(nmonth-1);
+	now.setDate(nday);
+	
+	var ms2 = enddate.getTime() - now.getTime();
+	
+	var days2 = ms2/(24*60*60*1000);
+	
+	days2 = Math.ceil(days2);
+	
+	alert("남은일수는 " +(days2+1)+ "일 입니다");
+}
+
+
+
 google.charts.load('current', {packages: ['corechart', 'line']});
 google.charts.setOnLoadCallback(drawBasic);
 
@@ -133,8 +204,8 @@ function drawBasic() {
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
 						<!-- insert your sidebar items here -->
-						<h4><%= loginUser.getUserName() %>님 환영합니다</h4>
-						<a href="/semi/exedetail?userid=<%= loginUser.getUserId() %>">마이페이지</a>
+						<li><a href="/semi/udetail?userid=<%= loginUser.getUserId() %>">회원정보수정</a></li>
+							<li><a href="/semi/html/yn/input.jsp">운동기록</a></li>
 					</div>
 					<div class="sidebar_base"></div>
 				</div>
@@ -142,8 +213,8 @@ function drawBasic() {
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
 						<ul>
-							<li><a href="/semi/udetail?userid=<%= loginUser.getUserId() %>">회원정보수정</a></li>
-							<li><a href="/semi/html/yn/input.jsp">운동기록</a></li>
+							<li><a href="#">회원정보수정</a></li>
+							<li><a href="#">운동기록</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
@@ -167,7 +238,7 @@ function drawBasic() {
 			<!--내용-->			
 			<div id="content">
 			<div id="myinfo2" class="4u" style="border: 6px solid rgb(242,242,242); width: 250px; height: 350px; padding: 10pt; margin: 10pt; float: left;">
-			<h2>시작세부 정보 및 목표</h2>
+			<h2>시작세부 정보 및 목표</h2>			
 			<hr>
 			<table>
 			<tr><th width="150">시작 날짜</th><th width="80">시작체중</th></tr>
@@ -176,17 +247,17 @@ function drawBasic() {
 			
 			<table style="border: 1px solid #FFF;">
 			<tr><th width="150">신장</th><th width="80">BMI</th></tr>
-			<tr><td><font size="5" style="color: rgb(29,182,235);"><%= exeinfo.getUserHeight() %>cm</font></td><td><font size="5" style="color: rgb(29,182,235);">30</font></td></tr>
+			<tr><td><font size="5" style="color: rgb(29,182,235);"><%= exeinfo.getUserHeight() %>cm</font></td><td><font size="5" style="color: rgb(29,182,235);"><%= exeinfo.getUserBmi() %></font></td></tr>
 			</table>
 			
 			<table>
-			<tr><th width="150">목표체중</th><th width="70">기간</th></tr>
-			<tr><td><font size="5"><%= exeinfo.getUserGoal() %>kg</font></td><td><font size="5">8개월</font></td></tr>
+			<tr><th width="150">목표체중</th><th width="70">총일수</th></tr>
+			<tr><td><font size="5"><%= exeinfo.getUserGoal() %>kg</font></td><td><font size="5"><button onclick="count()">총일수</button></font></td></tr>
 			</table>
 			
 			<table style="border: 1px solid #FFF;">
-			<tr><th width="150">목표날짜</th><th width="80">총일수</th></tr>
-			<tr><td><font size="5" style="color: rgb(29,182,235);"><%= exeinfo.getUserEnddate() %></font></td><td><font size="5" style="color: rgb(29,182,235);">240</font></td></tr>
+			<tr><th width="150">목표날짜</th><th width="80">남은일수</th></tr>
+			<tr><td><font size="5" style="color: rgb(29,182,235);"><%= exeinfo.getUserEnddate() %></font></td><td><font size="5" style="color: rgb(29,182,235);"><button onclick="count2()">남은일수</button></font></td></tr>
 			</table>
 			</div>
 			
@@ -268,8 +339,8 @@ donutGraph('.graph', 30);
 		<div id="content_footer"></div>
 		<div id="footer">
 			<p>
-				<a href="/semi/index.jsp">메인</a> | <a href="/semi/html/ij/examples.html">운동정보</a> | <a
-					href="/semi/html/jh/sikdan.html">식단정보</a> | <a href="/semi/html/sh/contact.jsp">고객센터</a>
+				<a href="/semi/index.jsp">메인</a> | <a href="/semi/html/ij/examples.html">운동정보</a> |
+				<a href="/semi/html/jh/page.jsp">식단정보</a> | <a href="/semi/html/sh/contact.jsp">고객센터</a>
 			</p>
 			<p>
 				세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a>

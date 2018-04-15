@@ -189,32 +189,38 @@ ul#menu li a:hover
 #site_content
 { width: 880px;
   overflow: hidden;
+  background:#F5F5F5;
   margin: 20px auto 0 auto;
   padding: 0 0 10px 0;} 
 
 #sidebar_container
 { float: left;
+  background:#F5F5F5;
   width: 224px;}
 
 .sidebar_top
 { width: 222px;
   height: 14px;
-  background: transparent url(side_top.png) no-repeat;}
+  background:#F5F5F5;
+  /* background: transparent url(side_top.png) no-repeat; */}
 
 .sidebar_base
 { width: 222px;
   height: 14px;
-  background: url(side_base.png) no-repeat;}
+  background:#F5F5F5;
+  /* background: url(side_base.png) no-repeat; */}
 
 .sidebar
 { float: right;
   width: 222px;
   padding: 0;
+  background:#F5F5F5;
   margin: 0 0 16px 0;}
 
 .sidebar_item
 { background: url(side_back.png) repeat-y;
   padding: 0 15px;
+  background:#F5F5F5;
   width: 192px;}
 
 .sidebar li a.selected

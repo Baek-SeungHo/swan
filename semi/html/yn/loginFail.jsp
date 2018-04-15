@@ -21,6 +21,7 @@
 						<a href="/semi/index.jsp"><span class="logo_colour">Swan</span></a>
 					</h1>
 				</div>
+				
 			</div>
 			<div id="menubar">
 				<ul id="menu">

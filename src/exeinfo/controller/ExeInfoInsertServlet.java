@@ -40,7 +40,7 @@ public class ExeInfoInsertServlet extends HttpServlet {
 		//exeinfo.setUserGrade(request.getParameter("usergrade"));
 		exeinfo.setUserHeight(Integer.parseInt(request.getParameter("userheight")));
 		exeinfo.setUserWeight(Integer.parseInt(request.getParameter("userweight")));
-		//exeinfo.setUserBmi(Integer.parseInt(request.getParameter("userbmi")));
+		exeinfo.setUserBmi(Double.parseDouble(request.getParameter("userbmi")));
 		exeinfo.setUserGoal(Integer.parseInt(request.getParameter("usergoal")));
 		exeinfo.setUserStartdate(Date.valueOf(request.getParameter("userstartdate")));
 		exeinfo.setUserEnddate(Date.valueOf(request.getParameter("userenddate")));

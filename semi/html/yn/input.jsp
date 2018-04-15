@@ -144,7 +144,7 @@ select{
 		
 		}); //chuga
 		
-		$("#sportdate").change(function(){			
+		$("#rere").click(function(){			
 			$.ajax({
 				url: "/semi/uesearch",
 				type: "get",
@@ -152,15 +152,11 @@ select{
 						sportdate:$("#sportdate").val()},
 				
 				success: function(data){
+					
 					console.log(data.sportTable);
-					console.log("fffff" + data.sportTable[i].sportDate);
 					 $.each(data.sportTable, function(i){
-						 /* if(data.sportTable[i].sportDate == $("#sportdate").val()){
-							 console.log("제대로 작동"); */
-						 $("#insertTable").append("<tr><td>"+decodeURIComponent(data.sportTable[i].sportBody)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportName)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportNum)+"</td></tr>");
-						 /* }else{
-							 $("#insertTable").remove();
-						 }	 */			 
+						 $("#insertTable").append("<tr><td>"+$("#sportname2 option:selected").text()+"</td><td>"+decodeURIComponent(data.sportTable[i].sportName)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportNum)+"</td></tr>");
+										 
 					 });
 				} 		
 			});						
@@ -181,6 +177,7 @@ select{
 						<a href="/semi/index.jsp"><span class="logo_colour">Swan</span></a>
 					</h1>
 				</div>
+				
 			</div>
 			<div id="menubar">
 				<ul id="menu">
@@ -271,8 +268,8 @@ select{
 		<div id="content_footer"></div>
 		<div id="footer">
 			<p>
-				<a href="/semi/index.html">메인</a> | <a href="/semi/html/ij/examples.html">운동정보</a> | <a
-					href="/semi/html/jh/page.jsp">식단정보</a> | <a href="/semi/html/sh/contact.jsp">고객센터</a>
+				<a href="/semi/index.html">메인</a> | <a href="/semi/html/ij/examples.html">운동정보</a> |
+				<a href="/semi/html/jh/page.jsp">식단정보</a> | <a href="/semi/html/sh/contact.jsp">고객센터</a>
 			</p>
 			<p>
 				세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a>

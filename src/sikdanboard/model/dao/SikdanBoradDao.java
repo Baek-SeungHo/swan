@@ -86,12 +86,35 @@ public class SikdanBoradDao {
 			PreparedStatement pstmt = null;
 
 			String query = "insert into FOOD_RECOMMEND values (FOOD_SEQ.nextval, ?, ?, ?, sysdate, 0)";
-
+			
 			try {
 				pstmt = con.prepareStatement(query);
 				pstmt.setString(1, sb.getBoard_write());
 				pstmt.setString(2, sb.getBoard_title());
 				pstmt.setString(3, sb.getBoard_content());
+
+				result = pstmt.executeUpdate();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+
+			return result;
+		}
+		
+		public int updateSikdanBorad(Connection con, SikdanBorad sb) {
+			int result = 0;
+			PreparedStatement pstmt = null;
+
+			String query = "UPDATE FOOD_RECOMMEND set board_title=?, BOARD_CONTENT=? where board_num=?";
+			
+			try {
+				pstmt = con.prepareStatement(query);
+				pstmt.setString(1, sb.getBoard_title());
+				pstmt.setString(2, sb.getBoard_content());
+				pstmt.setInt(3, sb.getBoard_num());
 
 				result = pstmt.executeUpdate();
 

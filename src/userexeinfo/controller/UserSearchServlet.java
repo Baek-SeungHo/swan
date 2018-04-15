@@ -43,7 +43,7 @@ public class UserSearchServlet extends HttpServlet {
 		
 		ArrayList<UserExeInfo> sportTable = new UserExeInfoService().searchTable(userid, sportdate);
 		
-		System.out.println("sportTabe = " + sportTable);
+		System.out.println("sportTabe 1212 = " + sportTable);
 		
 		JSONObject json = new JSONObject();
 		
@@ -62,7 +62,7 @@ public class UserSearchServlet extends HttpServlet {
 		}
 		
 		json.put("sportTable", jarr);
-		System.out.println("json : " + json.toJSONString());
+		System.out.println("json 1212 : " + json.toJSONString());
 		
 		response.setContentType("application/json charset=utf-8");
 		PrintWriter out = response.getWriter();

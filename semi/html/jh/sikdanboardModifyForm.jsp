@@ -4,7 +4,7 @@
 	import="sikdanboard.model.vo.SikdanBorad, java.util.ArrayList, java.sql.Date"%>
 <%
 	SikdanBorad sb = (SikdanBorad) request.getAttribute("board");
-	 int currentPage = ((Integer) request.getAttribute("currentPage")).intValue(); 
+	int currentPage = ((Integer) request.getAttribute("currentPage")).intValue();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -22,6 +22,20 @@
 
         }
 
+    	function boardModifyCheck() {
+    		var form = document.boardModifyForm;
+    		if (form.board_title.value == '') {
+    			alert('제목을 입력하세요.');
+    			form.board_title.focus();
+    			return false;
+    		}
+    		if (form.board_content.value == '') {
+    			alert('내용을 입력하세요');
+    			form.board_content.focus();
+    			return false;
+    		}
+    		return true;
+    	}
     </script>
 
 <!-- //자바스크립트 영역 -->
@@ -71,7 +85,7 @@
 						<ul>
 							<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
 							<li><a href="/semi/html/jh/sikdan2.html">체형별 식단</a></li>
-							<li><a href="/semi/html/jh/sikdan3.jsp">건강 노하우</a></li>
+							<li><a href="/semi/SikdanBoradListServlet?page=1">건강 노하우</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
@@ -94,9 +108,9 @@
 			</div>
 			<!--내용-->
 			<div id="content">
-				<form name="boardModifyForm" action="boardProcess.jsp" method="post"
+				<form name="boardModifyForm" action="/semi/SikdanBoardModifyServlet" method="post"
 					onsubmit="return boardModifyCheck();">
-					<input type="hidden" name="mode" value="M" />
+					<input type="hidden" name="board_num" value=<%=sb.getBoard_num()%> />
 					<table border="1" summary="게시판 수정 폼">
 						<caption>게시판 수정 폼</caption>
 						<colgroup>
@@ -106,19 +120,19 @@
 						<tbody>
 							<tr>
 								<th align="center">제목</th>
-								<td><input type="text" /></td>
+								<td><input type="text" name="board_title" size="70" maxlength="100" value=<%=sb.getBoard_title()%> /></td>
 							</tr>
 							<tr>
 								<th align="center">작성자</th>
-								<td></td>
+								<td><input type="hidden" name="board_write" value=<%=sb.getBoard_write()%>/><%=sb.getBoard_write()%></td>
 							</tr>
 							<tr>
-								<td colspan="2"><textarea rows="" cols=""></textarea></td>
+								<td colspan="2"><textarea name="board_content" cols="70" rows="10"><%=sb.getBoard_content()%></textarea></td>
 							</tr>
 						</tbody>
 					</table>
 					<p>
-						<input type="button" value="목록" onclick="goUrl('/semi/html/jh/sikdan3.jsp');" />
+						<input type="button" value="목록" onclick="goUrl('/semi/SikdanBoradListServlet?page=1');" />
 						<input type="submit" value="글수정" />
 					</p>
 				</form>

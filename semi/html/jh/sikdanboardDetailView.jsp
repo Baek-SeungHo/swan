@@ -71,7 +71,7 @@
 						<ul>
 							<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
 							<li><a href="/semi/html/jh/sikdan2.html">체형별 식단</a></li>
-							<li><a href="/semi/html/jh/sikdan3.jsp">건강 노하우</a></li>
+							<li><a href="/semi/SikdanBoradListServlet?page=1">건강 노하우</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
@@ -107,16 +107,17 @@
 						</tr>
 						<tr>
 							<th align="center">작성자/조회수</th>
-							<td><%=sb.getBoard_write()%> / getBoard_look</td>
+							<td><%=sb.getBoard_write()%> / <%=sb.getBoard_look()%></td>
 						</tr>
 						<tr>
+							<th align="center">내용</th>
 							<td colspan="2"><%=sb.getBoard_content()%></td>
 						</tr>
 					</tbody>
 				</table>
 				<p>
-					<input type="button" value="목록" onclick="goUrl('/semi/html/jh/sikdan3.jsp');" />
-					<input type="button" value="수정" /><!-- onclick="goUrl('/semi/html/jh/sikdanboardModifyForm.jsp');" -->  
+					<input type="button" value="목록" onclick="goUrl('/semi/SikdanBoradListServlet?page=1');" />
+					<input type="button" value="수정" onclick="goUrl('/semi/SikdanBoardModifyViewServlet?board_num=<%=sb.getBoard_num()%>&page=<%=currentPage%>');" /> 
 					<input type="button" value="삭제"/>
 				</p>
 			</div>
