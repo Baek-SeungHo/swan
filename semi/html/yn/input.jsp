@@ -144,7 +144,10 @@ select{
 		
 		}); //chuga
 		
-		$("#rere").click(function(){			
+		$("#sportdate").on("change", function(){
+			//$("#insertTable").empty();
+			alert($("#sportdate").val());
+			
 			$.ajax({
 				url: "/semi/uesearch",
 				type: "get",
@@ -154,10 +157,26 @@ select{
 				success: function(data){
 					
 					console.log(data.sportTable);
-					 $.each(data.sportTable, function(i){
+					
+					var sport = "";
+					
+					for (var i in data.sportTable) {
+						sport += "<tr><td>"
+								+ $("#sportname2 option:selected").text()
+								+ "</td><td>"
+								+ decodeURIComponent(data.sportTable[i].sportName)
+								+ "</td><td>"
+								+ decodeURIComponent(data.sportTable[i].sportNum)
+								+ "</td></tr>"
+					}
+					
+					$("#insertTable").append(sport);
+					
+					
+					 /* $.each(data.sportTable, function(i){
 						 $("#insertTable").append("<tr><td>"+$("#sportname2 option:selected").text()+"</td><td>"+decodeURIComponent(data.sportTable[i].sportName)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportNum)+"</td></tr>");
 										 
-					 });
+					 }); */
 				} 		
 			});						
 		
@@ -259,7 +278,6 @@ select{
 		<td style="width:95px; background-color: #eee; color: rgb(35,146,173); word-break:break-all;">횟수</td>
 	</tr>
 </table>
-<input type="button" value="갱신" id="rere">
 </div>
 
 			</div>

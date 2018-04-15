@@ -102,7 +102,7 @@ function count(){
 	
 	days = Math.ceil(days);
 	
-	alert("총일수는 " +(days+1)+ "일 입니다");
+	alert("총일수 " +(days+1)+ "일");
 }
 
 function count2(){
@@ -133,7 +133,7 @@ function count2(){
 	
 	days2 = Math.ceil(days2);
 	
-	alert("남은일수는 " +(days2+1)+ "일 입니다");
+	alert("남은일수 " +(days2)+ "일");
 }
 
 
