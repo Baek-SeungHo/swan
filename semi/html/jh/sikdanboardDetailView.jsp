@@ -6,6 +6,10 @@
 	SikdanBorad sb = (SikdanBorad) request.getAttribute("board");
 	 int currentPage = ((Integer) request.getAttribute("currentPage")).intValue(); 
 %>
+<%@ page import="user.model.vo.User"%>
+<%
+	User loginUser = (User) session.getAttribute("loginUser");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <meta charset="UTF-8">
