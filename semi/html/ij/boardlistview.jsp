@@ -9,6 +9,30 @@
 <meta charset="UTF-8">
 <head>
 <title>simplestyle_blue_trees - examples</title>
+<style type="text/css">
+body {
+	margin: 10px;
+	font-size: 14px;
+}
+
+select {
+	width: 200px;
+	padding: .8em .5em;
+	font-family: inherit;
+	background:
+		url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg)
+		no-repeat 95% 50%;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: 1px solid #999;
+	border-radius: 0px;
+}
+
+select::-ms-expand {
+	display: none;
+}
+</style>
 <script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 	/*ajax를 통한 게시판 리스트 조회 */
@@ -128,9 +152,9 @@
 			</div>
 			<div id="menubar">
 				<ul id="menu">
-					<li><a href="/semi/html/ij/main.html">운동정보</a></li>
-					<li><a href="/semi/html/jh/page.html">식단정보</a></li>
-					<li><a href="/semi/html/sh/contact.html">고객센터</a></li>
+					<li><a href="/semi/html/ij/exercise.jsp">운동정보</a></li>
+					<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
+					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
 				</ul>
 			</div>
 		</div>
@@ -163,7 +187,6 @@
 			</div>
 			<!--내용-->
 			<div id="content">
-
 				<h2 align="center">운동검색기</h2>
 				<!--게시판 부위별 /  운동명 검색기능-->
 				<select id="bodysearch">
@@ -183,8 +206,15 @@
 				<!--게시판 리스트 출력-->
 				<table id="sportlist" border="1">
 				</table>
+				<!--관리자만 업데이트가능-->
+				<%
+					if (loginUser != null && loginUser.getUserId().equals("ganjiplay")) {
+				%>
 				<!--게시글 등록-->
-				<input type="button" value="글쓰기" id="wirte">
+				<input type="button" value="운동검색기업데이트" id="wirte">
+				<%
+					}
+				%>
 			</div>
 			<!--내용끝-->
 		</div>
@@ -193,8 +223,8 @@
 			<p>
 				<a href="/semi/index.jsp">메인</a> | <a
 					href="/semi/html/ij/examples.html">운동정보</a> | <a
-					href="/semi/html/jh/page.html">식단정보</a> | <a
-					href="/semi/html/sh/contact.html">고객센터</a>
+					href="/semi/html/jh/sikdan.html">식단정보</a> | <a
+					href="/semi/html/sh/contact.jsp">고객센터</a>
 			</p>
 			<p>
 				세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a>

@@ -11,16 +11,28 @@ public class Schedule implements Serializable {
 	private int schedulenum;
 	private String scheduleurl;
 	private String scheduledate;
-	
-	public Schedule() {};
-	
-	public Schedule(String grade, String schedulename, int schedulenum, String scheduleurl, String scheduledate) {
+	private String usergrade;
+
+	public String getUsergrade() {
+		return usergrade;
+	}
+
+	public void setUsergrade(String usergrade) {
+		this.usergrade = usergrade;
+	}
+
+	public Schedule() {
+	};
+
+	public Schedule(String grade, String schedulename, int schedulenum, String scheduleurl, String scheduledate,
+			String usergrade) {
 		super();
 		this.grade = grade;
 		this.schedulename = schedulename;
 		this.schedulenum = schedulenum;
 		this.scheduleurl = scheduleurl;
 		this.scheduledate = scheduledate;
+		this.usergrade = usergrade;
 	}
 
 	public String getGrade() {

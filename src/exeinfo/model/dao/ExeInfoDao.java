@@ -12,16 +12,17 @@ public class ExeInfoDao {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
-		String query = "insert into exe_info values (?, default, ?, ?, default, ?, ?, ?)";
+		String query = "insert into exe_info values (?, default, ?, ?, ?, ?, ?, ?)";
 		
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, exeinfo.getUserId());
 			pstmt.setInt(2, exeinfo.getUserHeight());
 			pstmt.setInt(3, exeinfo.getUserWeight());
-			pstmt.setInt(4, exeinfo.getUserGoal());
-			pstmt.setDate(5, exeinfo.getUserStartdate());
-			pstmt.setDate(6, exeinfo.getUserEnddate());
+			pstmt.setInt(4, exeinfo.getUserBmi());
+			pstmt.setInt(5, exeinfo.getUserGoal());
+			pstmt.setDate(6, exeinfo.getUserStartdate());
+			pstmt.setDate(7, exeinfo.getUserEnddate());
 			
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {

@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import schedule.model.vo.Schedule;
+import user.model.vo.User;
 
 public class ScheduleDao {
 
@@ -51,14 +52,15 @@ public class ScheduleDao {
 
 		return list;
 	}
-	//선택한 날짜 스케쥴 조회
+
+	// 선택한 날짜 스케쥴 조회
 	public ArrayList<Schedule> dateselet(Connection con, String grade, String selectdate) {
 
 		ArrayList<Schedule> list = new ArrayList<Schedule>();
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		String query = "select * from exe_schedule where SCHEDULE_DATE = ? and User_grade =?";
-			System.out.println(selectdate);
+		System.out.println(selectdate);
 		try {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, selectdate);
@@ -88,5 +90,34 @@ public class ScheduleDao {
 
 		return list;
 
+	}
+	//유저등급 조회
+	public Schedule usergrade(Connection con, String userid) {
+		Schedule s = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String query = "select *  from user_info , exe_info where user_info.user_id = exe_info.user_id "
+				+ "and user_info.user_id = ?";
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, userid);
+			rset = pstmt.executeQuery();
+
+			if (rset.next()) {
+				s = new Schedule();
+
+				s.setUsergrade(rset.getString("user_grade"));
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+
+		return s;
 	}
 }

@@ -171,11 +171,11 @@ public class ExeBoardDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		System.out.println(name);
-		String sql = "select * from EXE_RECOMMEND where sport_name like ?";
+		String sql = "select * from EXE_RECOMMEND where sport_name = ?";
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "%" + name + "%");
+			pstmt.setString(1,  name);
 			rset = pstmt.executeQuery();
 
 			while (rset.next()) {

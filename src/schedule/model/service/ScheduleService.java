@@ -27,5 +27,13 @@ public class ScheduleService {
 		close(con);
 		return list;
 	}
+	//유저등급조회
+	public Schedule usergrade(String userid) {
+		Connection con = getConnection();
+		Schedule s = new ScheduleDao().usergrade(con,userid);
+		close(con);
+		return s;
+	}
+	
 
 }

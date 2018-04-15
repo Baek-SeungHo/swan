@@ -29,7 +29,6 @@ public class UserDao {
 
 			if (rset.next()) {
 				loginUser = new User();
-
 				loginUser.setUserId(rset.getString("user_id"));
 				loginUser.setUserPwd(rset.getString("user_pwd"));
 				loginUser.setUserName(rset.getString("user_name"));
@@ -39,7 +38,6 @@ public class UserDao {
 				loginUser.setUserPhone(rset.getString("user_phone"));
 				loginUser.setAdministrator(rset.getString("administrator"));
 				loginUser.setUsergrade(rset.getString("user_grade"));
-				
 
 			}
 

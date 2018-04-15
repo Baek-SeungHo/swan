@@ -9,15 +9,18 @@
 <meta charset="UTF-8">
 <head>
 <title>simplestyle_blue_trees - examples</title>
+<script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+</script>
+<style type="text/css">
+</style>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"
 	content="text/html; charset=windows-1252" />
 <link rel="stylesheet" type="text/css" href="/semi/style/style.css" />
-<script type="text/javascript">
-	
-</script>
 </head>
+
 <body>
 	<div id="main">
 		<div id="header">
@@ -31,9 +34,9 @@
 			</div>
 			<div id="menubar">
 				<ul id="menu">
-					<li><a href="/semi/html/ij/exercise.html">운동정보</a></li>
-					<li><a href="/semi/html/jh/page.html">식단정보</a></li>
-					<li><a href="/semi/html/sh/contact.html">고객센터</a></li>
+					<li><a href="/semi/html/ij/exercise.jsp">운동정보</a></li>
+					<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
+					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
 				</ul>
 			</div>
 		</div>
@@ -52,7 +55,7 @@
 				<div class="sidebar">
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
-						<h3>Memu</h3>
+						<h3>메뉴</h3>
 						<ul>
 							<li><a href="/semi/html/ij/exercisequestionnaire.jsp">몸상태설문조사</a></li>
 							<li><a href="/semi/html/ij/boardlistview.jsp">운동검색기</a></li>
@@ -62,22 +65,9 @@
 					</div>
 					<div class="sidebar_base"></div>
 				</div>
-				<div class="sidebar">
-					<!-- <div class="sidebar_top"></div>
-					<div class="sidebar_item">
-						<h3>검색</h3>
-						<form method="post" action="#" id="search_form">
-							<p>
-								<input class="search" type="text" name="search_field"
-									value="Enter keywords....." /> <input name="search"
-									type="image" style="border: 0; margin: 0 0 -9px 5px;"
-									src="style/search.png" alt="Search" title="Search" />
-							</p>
-						</form>
-					</div>
-					<div class="sidebar_base"></div> -->
-				</div>
+				<div class="sidebar"></div>
 			</div>
+
 			<!--내용-->
 			<div id="content"></div>
 			<!--내용끝-->
@@ -87,8 +77,8 @@
 			<p>
 				<a href="/semi/index.jsp">메인</a> | <a
 					href="/semi/html/ij/examples.html">운동정보</a> | <a
-					href="/semi/html/jh/page.html">식단정보</a> | <a
-					href="/semi/html/sh/contact.html">고객센터</a>
+					href="/semi/html/jh/sikdan.html">식단정보</a> | <a
+					href="/semi/html/sh/contact.jsp">고객센터</a>
 			</p>
 			<p>
 				세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a>

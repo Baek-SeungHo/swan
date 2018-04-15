@@ -115,27 +115,22 @@ public class pollServlet extends HttpServlet {
 
 		int result = yescount + nocount;
 
-		if (10 <= result && result <=20) {
-
-			Rating = "E";
-
-		}
-		if (21 <= result && result <=40) {
+		if (0 <= result && result <= 25) {
 
 			Rating = "D";
 
 		}
-		if (41 <= result && result <=60) {
+		if (26 <= result && result <= 49) {
 
 			Rating = "C";
 
 		}
-		if (61 <= result && result <=80) {
+		if (50 <= result && result <= 74) {
 
 			Rating = "B";
 
 		}
-		if (81 <= result &&  result <= 100) {
+		if (75 <= result && result <= 100) {
 
 			Rating = "A";
 
