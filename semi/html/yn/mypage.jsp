@@ -281,8 +281,7 @@ function drawBasic() {
 			
 			<table style="margin-left:15pt;">
 			<tr><th width="150">목표체중</th><th width="70">총일수</th></tr>
-			<tr><td><font size="5"><%= exeinfo.getUserGoal() %>kg</font></td><%= days %><td id="days">
-			<% out.print("<script>alert('count')</script>"); %></td></tr>
+			<tr><td><font size="5"><%= exeinfo.getUserGoal() %>kg</font></td><td id="days"></td></tr>
 			</table>
 			
 			<table style="border: 1px solid #FFF; margin-left:15pt;">
