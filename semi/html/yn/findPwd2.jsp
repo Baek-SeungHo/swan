@@ -82,6 +82,14 @@ select{
 }
 
 </style>
+<script type="text/javascript">
+$(function(){
+	$('#sportbody').click(function(){
+		alert("회원님의 비밀번호가 이메일로 발송 되었습니다.");
+	});	//change
+
+}); 
+</script>
 </head>
 <body>
 <div id="main">
@@ -142,8 +150,19 @@ select{
 			<div id="content">
   <div class="billing">
     <h2>비밀번호 찾기</h2><br><br>
-    <p><h4>회원님의 임시 비밀번호가 이메일로 발송 되었습니다.</h4></p>
-    <a href="/semi/html/yn/userLoginPage.jsp"><h4>로그인 페이지로 이동</h4></a>
+    <form action="<%= request.getContextPath() %>/mailsend" method="post">			
+  <div class="billing">
+    <h4>비밀번호 메일로 전송받기</h4><br>
+    <input type="hidden" id="userid" name="userid" value="<%= user.getUserId() %>">
+    <input type="hidden" id="userid" name="userpwd" value="<%= user.getUserPwd() %>">
+    <input type="hidden" id="useremail" name="useremail" value="<%= user.getUserEmail() %>">
+    <input type="hidden" id="subtitle" name="subtitle" value="<%= user.getUserId() %>님의 비밀번호 ">
+    <input type="hidden" id="content" name="content" value="<%= user.getUserId() %>님의 비밀번호는 <%= user.getUserPwd() %> 입니다. ">
+    <input type="submit" id="submit" value="click">
+  </div>
+  </form>
+    <!-- <p><h4>회원님의 비밀번호가 이메일로 발송 되었습니다.</h4></p>
+    <a href="/semi/html/yn/userLoginPage.jsp"><h4>로그인 페이지로 이동</h4></a> -->
   </div>
 			</div>
 			<!--내용끝-->
