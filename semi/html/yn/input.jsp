@@ -147,6 +147,10 @@ select{
 		$("#sportdate").on("change", function(){
 			//$("#insertTable").empty();
 			
+			var sport = "";
+			
+			//$("#insertTable").remove(sport);
+			
 			$.ajax({
 				url: "/semi/uesearch",
 				type: "get",
@@ -157,7 +161,7 @@ select{
 					
 					console.log(data.sportTable);
 					
-					var sport = "";
+					//var sport = "";
 					
 					for (var i in data.sportTable) {
 						sport += "<tr><td>"
