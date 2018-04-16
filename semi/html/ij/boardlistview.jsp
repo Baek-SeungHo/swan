@@ -108,18 +108,18 @@
 		});
 	});
 </script>
-<script>
-	$(document).ready(function() {
-		$("#sportname").autocomplete(availableTags, {
-			matchContains : true,
-			selectFirst : false
+<script type="text/javascript">
+	$(function() {
+		var languages = [ '인클라인푸쉬업', '푸쉬업', '디클라인푸쉬업', '아처푸쉬업', '파이크푸쉬업',
+				'흰두푸쉬업', '러시안푸쉬업', '한팔푸쉬업', '플라이푸쉬업', '할로우보디플랭크', '백인스텐션',
+				'시티드로우', '인버티드로우', '마누스그립풀업', '턱걸이', '익스플로시브풀업', '크런치',
+				'사이드크런치', '레그레이즈', '바이시클크런치', '드래곤플래그', '행잉레그레이즈', '스쿼드',
+				'와이드스쿼드', '벤드데드리프트', '런지', '박스런지' ];
+
+		$("#sportname").autocomplete({
+			source : languages
 		});
 	});
-	var availableTags = [ '인클라인푸쉬업', '푸쉬업', '디클라인푸쉬업', '아처푸쉬업', '파이크푸쉬업',
-			'흰두푸쉬업', '러시안푸쉬업', '한팔푸쉬업', '플라이푸쉬업', '할로우보디플랭크', '백인스텐션', '시티드로우',
-			'인버티드로우', '마누스그립풀업', '턱걸이', '익스플로시브풀업', '크런치', '사이드크런치', '레그레이즈',
-			'바이시클크런치', '드래곤플래그', '행잉레그레이즈', '스쿼드', '와이드스쿼드', '벤드데드리프트', '런지',
-			'박스런지' ];
 </script>
 <style type="text/css">
 </style>
@@ -194,10 +194,10 @@
 					<option value="arm">팔</option>
 				</select>
 				<!--게시판 운동명 검색기능-->
-				<form name="form1" method="post" action="result.php">
-					<input type="text" placeholder="검색어입력" id="sportname"> <input
-						type="submit" value="검색" id="namesearch">
-				</form>
+
+				<input type="text" placeholder="검색어입력" id="sportname"> <input
+					type="submit" value="검색" id="namesearch">
+
 				<!--게시판 리스트 출력-->
 				<table id="sportlist" border="1">
 				</table>

@@ -10,11 +10,6 @@
 <head>
 <title>simplestyle_blue_trees - examples</title>
 <script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript">
-	
-</script>
-
-
 <style type="text/css">
 </style>
 <meta name="description" content="website description" />
@@ -74,7 +69,6 @@
 			</div>
 			<!--내용-->
 			<div id="content"></div>
-
 			<!--내용끝-->
 		</div>
 		<div id="content_footer"></div>
