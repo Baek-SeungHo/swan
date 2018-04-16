@@ -161,7 +161,7 @@
 				</div> -->
 	   <!-- 검색 폼 영역 -->
 
-       <form name="searchForm" action="" method="get">
+   <!--     <form name="searchForm" action="" method="get">
 
        <p>
 
@@ -183,7 +183,7 @@
 
        </p>
 
-       </form>
+       </form> -->
 
        <!-- //검색 폼 영역 -->
 
