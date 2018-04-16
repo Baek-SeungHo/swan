@@ -1,4 +1,6 @@
-<!DOCTYPE HTML>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <meta charset="UTF-8">
 <head>
@@ -35,9 +37,9 @@
 				<div class="sidebar">
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
-						<!-- insert your sidebar items here -->
+						<%-- <!-- insert your sidebar items here -->
 						<!-- <h4><%= loginUser.getUserName() %>님 환영합니다</h4>
-						<a href="/semi/exedetail?userid=<%= loginUser.getUserId() %>">마이페이지</a> -->
+						<a href="/semi/exedetail?userid=<%= loginUser.getUserId() %>">마이페이지</a> --> --%>
 					</div>
 					<div class="sidebar_base"></div>
 				</div>

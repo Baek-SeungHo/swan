@@ -28,7 +28,7 @@
 			<div id="menubar">
 				<ul id="menu">
 					<li><a href="/semi/html/ij/boardlistview.jsp">운동정보</a></li>
-					<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
+					<li><a href="/semi/html/jh/sikdanInfo.jsp">식단정보</a></li>
 					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
 				</ul>
 			</div>
@@ -132,7 +132,7 @@
 			<p>
 				<a href="/semi/index.html">메인</a> | <a
 					href="/semi/html/ij/examples.html">운동정보</a> | <a
-					href="/semi/html/jh/sikdan.html">식단정보</a> | <a
+					href="/semi/html/jh/sikdanInfo.jsp">식단정보</a> | <a
 					href="/semi/html/sh/contact.jsp">고객센터</a>
 			</p>
 			<p>

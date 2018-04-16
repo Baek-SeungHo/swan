@@ -58,7 +58,7 @@ public class SikdanBoradListServlet extends HttpServlet {
 				response.setContentType("text/html; charset=utf-8");
 				RequestDispatcher view = null;
 				if (list.size() > 0) {
-					view = request.getRequestDispatcher("html/jh/sikdan3.jsp");
+					view = request.getRequestDispatcher("html/jh/sikdanKnow_How.jsp");
 					request.setAttribute("list", list);
 					request.setAttribute("currentPage", currentPage);
 					request.setAttribute("maxPage", maxPage);
@@ -69,7 +69,7 @@ public class SikdanBoradListServlet extends HttpServlet {
 				} else {
 					PrintWriter out = response.getWriter();
 
-					out.println("ㅇㅇ");
+					out.println("�뀋�뀋");
 					out.close();
 				}
 	}

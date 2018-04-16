@@ -53,7 +53,7 @@
 			<div id="menubar">
 				<ul id="menu">
 					<li><a href="/semi/html/ij/exercise.jsp">운동정보</a></li>
-					<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
+					<li><a href="/semi/html/jh/sikdanInfo.jsp">식단정보</a></li>
 					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
 				</ul>
 			</div>
@@ -75,8 +75,8 @@
 					<div class="sidebar_item">
 						<h3>Memu</h3>
 						<ul>
-							<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
-							<li><a href="/semi/html/jh/sikdan2.html">체형별 식단</a></li>
+							<li><a href="/semi/html/jh/sikdanInfo.jsp">식단정보</a></li>
+							<li><a href="/semi/html/jh/sikdanBodyType.jsp">체형별 식단</a></li>
 							<li><a href="/semi/SikdanBoradListServlet?page=1">건강 노하우</a></li>
 						</ul>
 					</div>
@@ -133,7 +133,7 @@
 		<div id="footer">
 			<p>
 				<a href="/semi/index.jsp">메인</a> | <a href="/semi/html/ij/examples.html">운동정보</a> | <a
-					href="/semi/html/jh/sikdan.html">식단정보</a> | <a href="/semi/html/sh/contact.jsp">고객센터</a>
+					href="/semi/html/jh/sikdanInfo.jsp">식단정보</a> | <a href="/semi/html/sh/contact.jsp">고객센터</a>
 			</p>
 			<p>
 				세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a>
