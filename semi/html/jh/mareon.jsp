@@ -1,4 +1,9 @@
-<!DOCTYPE HTML>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" import="user.model.vo.User"%>
+<%
+	User loginUser = (User) session.getAttribute("loginUser");
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <meta charset="UTF-8">
 <head>
@@ -24,7 +29,7 @@
 			<div id="menubar">
 				<ul id="menu">
 					<li><a href="/semi/html/ij/boardlistview.jsp">운동정보</a></li>
-					<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
+					<li><a href="/semi/html/jh/sikdanInfo.jsp">식단정보</a></li>
 					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
 				</ul>
 			</div>
@@ -35,9 +40,23 @@
 				<div class="sidebar">
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
-						<!-- insert your sidebar items here -->
-						<!-- <h4><%= loginUser.getUserName() %>님 환영합니다</h4>
-						<a href="/semi/exedetail?userid=<%= loginUser.getUserId() %>">마이페이지</a> -->
+						<%
+							if (loginUser == null) {
+						%>
+						<a href="/semi/html/yn/userLoginPage.jsp">로그인</a>
+						<%
+							} else {
+						%>
+						<h4><%=loginUser.getUserName()%>님 환영합니다
+						</h4>
+						<a href="/semi/udetail?userid=<%=loginUser.getUserId()%>">회원정보수정</a>
+						<a href="/semi/ulogout"><input type="button" value="로그아웃"></a>
+						<a href="/semi/html/yn/input.jsp">운동기록</a> <a
+							href="/semi/html/yn/goal.jsp">추가입력</a> <a
+							href="/semi/exedetail?userid=<%=loginUser.getUserId()%>">마이페이지</a>
+						<%
+							}
+						%>
 					</div>
 					<div class="sidebar_base"></div>
 				</div>
@@ -46,8 +65,8 @@
 					<div class="sidebar_item">
 						<h3>Memu</h3>
 						<ul>
-							<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
-							<li><a href="/semi/html/jh/sikdan2.html">체형별 식단</a></li>
+							<li><a href="/semi/html/jh/sikdanInfo.jsp">식단정보</a></li>
+							<li><a href="/semi/html/jh/sikdanBodyType.jsp">체형별 식단</a></li>
 							<li><a href="/semi/SikdanBoradListServlet?page=1">건강 노하우</a></li>
 						</ul>
 					</div>
@@ -73,25 +92,26 @@
 			<div id="content">
 				<!-- Banner -->
 				<section>
-					<b>2. 근육형</b>
+					<b>3. 마른형</b>
 				</section>
 
 				<!-- Section -->
 				<section>
-					이 체형은 살이 단단한 근육형 지방 때문에 덩치가 큰 편입니다.<br> 양질의 탄수화물을 필요한 만큼 섭취해야
-					합니다.<br> 단백질은 몸에서 합성되어 근육이 되므로 과도하게 섭취하면<br> 지방으로 바뀌기 때문에
-					적당히 먹는 것이 좋습니다.
+					이 체형은 탄력과 볼륨이 부족합니다. 겉보기엔 날씬해보이고<br> 살이 안 찌는 체질이라 생각하실 수도 있겠지만
+					아닙니다!!<br> 언제 살이 갑자기 찔 지 모르는 위험한 체형입니다.<br> 꾸준한 운동과 양질의
+					식사로 근육량을 늘려야지 날씬하면서도 에너지 넘치는 체형이 될 수 있습니다!
 				</section>
 
 				<section>
-					추천 식단1<br> 주먹밥 2끼 + 과일 1끼<br> (주먹밥에 마른 멸치 or 마른 작은 새우
-					1스푼을 넣어 비벼먹습니다.<br> 이 때, 적당한 칼슘을 섭취하면서 단백질은 과하지 않게 보충이 됩니다.<br>
-					*과일은 포만감이 들 정도만 드시면 됩니다*)
+					추천 식단1<br> 아침, 점심 : 주먹밥 100g, 달걀 2개로 만든 스크램블 에그<br> 간식 :
+					사과 1개 or 바나나 1개<br> 저녁 : 고구마 100g + 저지방 부위 고기 100g or 흰살생선
+					150g + 구운 채소 1접시
 				</section>
 
 				<section>
-					추천 식단2<br> 주먹밥 1끼 + 과일 2끼<br> (단백질을 더한 주먹밥에 모짜렐라 치즈
-					1~2큰술을 넣은 후 전자레인지에 데워서 먹습니다.<br> *과일은 역시 포만감이 들 정도로만 섭취합니다*)
+					추천 식단2<br> 아침, 점심 : 주먹밥 100g, 흰살생선 100g, 채소 1접시, 오일 비니거 드레싱<br>
+					간식 : 저지방 우유 1잔 or 두유 1잔<br> 저녁 : 고구마 100g or 주먹밥 100g, 흰살생선
+					150~200g, 채소구이 1접시
 				</section>
 			</div>
 			<!--내용끝-->
@@ -99,8 +119,10 @@
 		<div id="content_footer"></div>
 		<div id="footer">
 			<p>
-				<a href="/semi/index.jsp">메인</a> | <a href="/semi/html/ij/examples.html">운동정보</a> | <a
-					href="/semi/html/jh/sikdan.html">식단정보</a> | <a href="/semi/html/sh/contact.jsp">고객센터</a>
+				<a href="/semi/index.jsp">메인</a> | <a
+					href="/semi/html/ij/examples.html">운동정보</a> | <a
+					href="/semi/html/jh/sikdanInfo.jsp">식단정보</a> | <a
+					href="/semi/html/sh/contact.jsp">고객센터</a>
 			</p>
 			<p>
 				세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a>

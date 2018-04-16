@@ -3,38 +3,11 @@
 <%
 	User loginUser = (User) session.getAttribute("loginUser");
 %>
-<%@ page
-	import="sikdanboard.model.vo.SikdanBorad, java.util.ArrayList, java.sql.Date"%>
-<%
-	SikdanBorad sb = (SikdanBorad) request.getAttribute("board");
-	 int currentPage = ((Integer) request.getAttribute("currentPage")).intValue(); 
-%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <meta charset="UTF-8">
 <head>
 <title>simplestyle_blue_trees - a page</title>
-
-<!-- 자바스크립트 영역 -->
-
-    <script type="text/javascript">
-
-        function goUrl(url) {
-
-           location.href=url;
-
-        }
-        
-        function Delete(url) {
-        	
-        	location.href=url;
-        	alert('게시글 삭제가 완료되었습니다!');
-        }
-
-    </script>
-
-<!-- //자바스크립트 영역 -->
-
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"
@@ -55,7 +28,7 @@
 			</div>
 			<div id="menubar">
 				<ul id="menu">
-					<li><a href="/semi/html/ij/exercise.jsp">운동정보</a></li>
+					<li><a href="/semi/html/ij/boardlistview.jsp">운동정보</a></li>
 					<li><a href="/semi/html/jh/sikdanInfo.jsp">식단정보</a></li>
 					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
 				</ul>
@@ -117,32 +90,50 @@
 			</div>
 			<!--내용-->
 			<div id="content">
-				<table border="1" summary="게시판 상세조회">
-					<caption>게시판 상세조회</caption>
-					<colgroup>
-						<col width="100" />
-						<col width="500" />
-					</colgroup>
-					<tbody>
-						<tr>
-							<th align="center">제목</th>
-							<td><%=sb.getBoard_title()%></td>
-						</tr>
-						<tr>
-							<th align="center">작성자/조회수</th>
-							<td><%=sb.getBoard_write()%> / <%=sb.getBoard_look()%></td>
-						</tr>
-						<tr>
-							<th align="center">내용</th>
-							<td colspan="2"><%=sb.getBoard_content()%></td>
-						</tr>
-					</tbody>
-				</table>
-				<p>
-					<input type="button" value="목록" onclick="goUrl('/semi/SikdanBoradListServlet?page=1');" />
-					<input type="button" value="수정" onclick="goUrl('/semi/SikdanBoardModifyViewServlet?board_num=<%=sb.getBoard_num()%>&page=<%=currentPage%>');" /> 
-					<input type="button" value="삭제" onclick="Delete('/semi/SikdanBoardDeleteServlet?board_num=<%=sb.getBoard_num()%>');"/>
-				</p>
+			<!-- Banner -->
+				<section>
+					<b>Swan 체형별 식단</b><br> <font size="2">해당하는 그림을 클릭해주세요!</font>
+				</section>
+
+				<!-- Section -->
+
+				<div class="box alt">
+					<div class="row 50% uniform">
+						<table border="0">
+
+							<tfoot>
+								<tr></tr>
+								<tr>
+
+									<td align="center">
+										<div class="9u">
+											<a href="jibang.jsp"><span class="image fit"><img
+													src="/semi/source/image/jibang.jpg" width="200" height="200"></span></a>
+										</div>
+									</td>
+
+									<td align="center">
+										<div class="9u">
+											<a href="gnyuk.jsp"><span class="image fit"><img
+													src="/semi/source/image/gnyuk.jpg" width="200" height="200"></span></a>
+										</div>
+									</td>
+									<td align="center">
+										<div class="9u">
+											<a href="mareon.jsp"><span class="image fit"><img
+													src="/semi/source/image/mareon.jpg" width="200" height="200"></span></a>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td align="center"><b>1. 지방형</b></td>
+									<td align="center"><b>2. 근육형</b></td>
+									<td align="center"><b>3. 마른형</b></td>
+								</tr>
+							</tfoot>
+						</table>
+					</div>
+				</div>
 			</div>
 			<!--내용끝-->
 		</div>

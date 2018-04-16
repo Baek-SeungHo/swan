@@ -13,5 +13,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="semi/WEB-INF/lib/javax.mail-1.6.1.jar"/>
 	<classpathentry kind="output" path="semi/WEB-INF/classes"/>
 </classpath>

@@ -1,4 +1,9 @@
-<!DOCTYPE HTML>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" import="user.model.vo.User"%>
+<%
+	User loginUser = (User) session.getAttribute("loginUser");
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <meta charset="UTF-8">
 <head>
@@ -24,7 +29,7 @@
 			<div id="menubar">
 				<ul id="menu">
 					<li><a href="/semi/html/ij/boardlistview.jsp">운동정보</a></li>
-					<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
+					<li><a href="/semi/html/jh/sikdanInfo.jsp">식단정보</a></li>
 					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
 				</ul>
 			</div>
@@ -35,9 +40,23 @@
 				<div class="sidebar">
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
-						<!-- insert your sidebar items here -->
-						<!-- <h4><%= loginUser.getUserName() %>님 환영합니다</h4>
-						<a href="/semi/exedetail?userid=<%= loginUser.getUserId() %>">마이페이지</a> -->
+						<%
+							if (loginUser == null) {
+						%>
+						<a href="/semi/html/yn/userLoginPage.jsp">로그인</a>
+						<%
+							} else {
+						%>
+						<h4><%=loginUser.getUserName()%>님 환영합니다
+						</h4>
+						<a href="/semi/udetail?userid=<%=loginUser.getUserId()%>">회원정보수정</a>
+						<a href="/semi/ulogout"><input type="button" value="로그아웃"></a>
+						<a href="/semi/html/yn/input.jsp">운동기록</a> <a
+							href="/semi/html/yn/goal.jsp">추가입력</a> <a
+							href="/semi/exedetail?userid=<%=loginUser.getUserId()%>">마이페이지</a>
+						<%
+							}
+						%>
 					</div>
 					<div class="sidebar_base"></div>
 				</div>
@@ -46,8 +65,8 @@
 					<div class="sidebar_item">
 						<h3>Memu</h3>
 						<ul>
-							<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
-							<li><a href="/semi/html/jh/sikdan2.html">체형별 식단</a></li>
+							<li><a href="/semi/html/jh/sikdanInfo.jsp">식단정보</a></li>
+							<li><a href="/semi/html/jh/sikdanBodyType.jsp">체형별 식단</a></li>
 							<li><a href="/semi/SikdanBoradListServlet?page=1">건강 노하우</a></li>
 						</ul>
 					</div>
@@ -71,50 +90,28 @@
 			</div>
 			<!--내용-->
 			<div id="content">
-			<!-- Banner -->
+				<!-- Banner -->
 				<section>
-					<b>Swan 체형별 식단</b><br> <font size="2">해당하는 그림을 클릭해주세요!</font>
+					<b>2. 근육형</b>
 				</section>
 
 				<!-- Section -->
+				<section>
+					이 체형은 살이 단단한 근육형 지방 때문에 덩치가 큰 편입니다.<br> 양질의 탄수화물을 필요한 만큼 섭취해야
+					합니다.<br> 단백질은 몸에서 합성되어 근육이 되므로 과도하게 섭취하면<br> 지방으로 바뀌기 때문에
+					적당히 먹는 것이 좋습니다.
+				</section>
 
-				<div class="box alt">
-					<div class="row 50% uniform">
-						<table border="0">
+				<section>
+					추천 식단1<br> 주먹밥 2끼 + 과일 1끼<br> (주먹밥에 마른 멸치 or 마른 작은 새우
+					1스푼을 넣어 비벼먹습니다.<br> 이 때, 적당한 칼슘을 섭취하면서 단백질은 과하지 않게 보충이 됩니다.<br>
+					*과일은 포만감이 들 정도만 드시면 됩니다*)
+				</section>
 
-							<tfoot>
-								<tr></tr>
-								<tr>
-
-									<td align="center">
-										<div class="9u">
-											<a href="jibang.html"><span class="image fit"><img
-													src="/semi/source/image/jibang.jpg" width="200" height="200"></span></a>
-										</div>
-									</td>
-
-									<td align="center">
-										<div class="9u">
-											<a href="gnyuk.html"><span class="image fit"><img
-													src="/semi/source/image/gnyuk.jpg" width="200" height="200"></span></a>
-										</div>
-									</td>
-									<td align="center">
-										<div class="9u">
-											<a href="mareon.html"><span class="image fit"><img
-													src="/semi/source/image/mareon.jpg" width="200" height="200"></span></a>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td align="center"><b>1. 지방형</b></td>
-									<td align="center"><b>2. 근육형</b></td>
-									<td align="center"><b>3. 마른형</b></td>
-								</tr>
-							</tfoot>
-						</table>
-					</div>
-				</div>
+				<section>
+					추천 식단2<br> 주먹밥 1끼 + 과일 2끼<br> (단백질을 더한 주먹밥에 모짜렐라 치즈
+					1~2큰술을 넣은 후 전자레인지에 데워서 먹습니다.<br> *과일은 역시 포만감이 들 정도로만 섭취합니다*)
+				</section>
 			</div>
 			<!--내용끝-->
 		</div>
@@ -122,7 +119,7 @@
 		<div id="footer">
 			<p>
 				<a href="/semi/index.jsp">메인</a> | <a href="/semi/html/ij/examples.html">운동정보</a> | <a
-					href="/semi/html/jh/sikdan.html">식단정보</a> | <a href="/semi/html/sh/contact.jsp">고객센터</a>
+					href="/semi/html/jh/sikdanInfo.jsp">식단정보</a> | <a href="/semi/html/sh/contact.jsp">고객센터</a>
 			</p>
 			<p>
 				세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a>

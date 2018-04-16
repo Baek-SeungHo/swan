@@ -70,4 +70,18 @@ public class UserService {
 		return result;
 	}
 
+	public User findId(String userName, String userEmail) {
+		Connection con = getConnection();
+		User user = new UserDao().findId(con, userName, userEmail);
+		close(con);
+		return user;
+	}
+
+	public User findPwd(String userId, String userName, String userEmail) {
+		Connection con = getConnection();
+		User user = new UserDao().findPwd(con, userId, userName, userEmail);
+		close(con);
+		return user;
+	}
+
 }

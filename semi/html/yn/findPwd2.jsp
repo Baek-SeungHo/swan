@@ -1,104 +1,95 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" %>    
-
+    pageEncoding="UTF-8"%>
+<%@ page import ="user.model.vo.User" %>
+<%
+	User user = (User)request.getAttribute("user");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그인</title>
-<title>simplestyle_blue_trees - another page</title>
+<title>비밀번호 찾기</title>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"
 	content="text/html; charset=windows-1252" />
 <link rel="stylesheet" type="text/css" href="/semi/style/style.css" />
 <style type="text/css">
-/* Fonts */
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
 
-/* Simple Reset */
-* { margin: 0; padding: 0;}
+@import url(https://fonts.googleapis.com/css?family=Oxygen:400,700);
+@import url(https://fonts.googleapis.com/css?family=Knewave);
+@import url(https://fonts.googleapis.com/css?family=Luckiest+Guy);
 
-/* Form Layout */
-.form-wrapper {
-  background: #fff;
-  margin-left: 50px;
-  padding: 0 1em;
-  max-width: 370px;
+.shipping{
+  float: left;
+  width: 300px;
+}
+.billing{
+  float: left;
+  width: 450px;
 }
 
-h1 {
-  text-align: center;
-  padding: 1em 0;
+h2{
+  color: #0082C5;
+  padding: 0px;
+  float: left;
 }
 
-form {
-  padding: 0 1.5em;
+input{
+  background-color: #f2f2f2;
+  border: 1px solid #c8c8c8;
+  font-family: 'Oxygen', sans-serif;
+  
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  
+  margin: 0px 0px 10px 0px;
+  padding: 8px;
+}
+select{
+  background-color: #f2f2f2;
+  border: 1px solid #c8c8c8;
+  font-family: 'Oxygen', sans-serif;
+  
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  
+  margin: 0px 0px 10px 0px;
+  padding: 8px;
+  width: 90%;
+}
+.checkBox{
+  clear: left;
+  float: left;
+  height: 13px;
+  margin: 13px 0px 0px 15px;
+  width: 13px;
+}
+.checkBoxText{
+  float: left;
+  margin: 10px 0px 10px 15px;
+  padding: 0px;
 }
 
-.form-item {
-  margin-bottom: 0.75em;
-  width: 100%;
-}
-
-.form-item input {
-  background: #fafafa;
-  padding: 0 1.5em;
-  border: none;
-  border-bottom: 2px solid #e9e9e9;
-  color: #666;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1em;
-  height: 50px;
-  transition: border-color 0.3s;
-  width: 295px;
-}
-
-.form-item input:focus {
-  border-bottom: 2px solid #c0c0c0;
-  outline: none;
-}
-
-.button-panel {
-  margin: 2em 0 0;
-  width: 100%;
-}
-
-.button-panel .button {
-  background: rgb(200,200,200);
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  height: 50px;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.2em;
-  letter-spacing: 0.05em;
-  text-align: center;
-  text-transform: uppercase;
-  transition: background 0.3s ease-in-out;
-  width: 100%;
-}
-
-.button:hover {
-  background: rgb(180,180,180);
-}
-
-.form-footer {
-  font-size: 1em;
-  padding: 2em 0;
-  text-align: center;
-}
-
-.form-footer a {
-  color: #8c8c8c;
-  text-decoration: none;
-  transition: border-color 0.3s;
-}
-
-.form-footer a:hover {
-  border-bottom: 1px dotted #8c8c8c;
-}
 </style>
+<script type="text/javascript">
+$(function(){
+	$('#sportbody').click(function(){
+		alert("회원님의 비밀번호가 이메일로 발송 되었습니다.");
+	});	//change
+
+}); 
+</script>
 </head>
 <body>
 <div id="main">
@@ -157,33 +148,22 @@ form {
 			</div> -->
 			<!--내용-->
 			<div id="content">
-				<p></p>
-				<div class="form-wrapper">
-					<h1 style="color: rgb(29,182,235);">Login</h1>
-					<form action="<%=request.getContextPath()%>/ulogin.me"
-						method="post">
-						<div class="form-item">
-							<label for="email"></label> <input type="text" name="userid"
-								required="required" placeholder="ID">
-						</div>
-						<div class="form-item">
-							<label for="password"></label> <input type="password"
-								name="userpwd" required="required" placeholder="Password">
-						</div>
-						<div class="button-panel">
-							<input type="submit" class="button" value="Login"></input>
-						</div>
-					</form>
-					<div class="form-footer">
-						<p>
-							<a href="/semi/html/yn/userEnroll.jsp">회원가입</a>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="/semi/html/yn/findId.jsp">아이디 찾기</a>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="/semi/html/yn/findPwd.jsp">비밀번호 찾기</a>
-						</p>
-					</div>
-				</div>
+  <div class="billing">
+    <h2>비밀번호 찾기</h2><br><br>
+    <form action="<%= request.getContextPath() %>/mailsend" method="post">			
+  <div class="billing">
+    <h4>비밀번호 메일로 전송받기</h4><br>
+    <input type="hidden" id="userid" name="userid" value="<%= user.getUserId() %>">
+    <input type="hidden" id="userid" name="userpwd" value="<%= user.getUserPwd() %>">
+    <input type="hidden" id="useremail" name="useremail" value="<%= user.getUserEmail() %>">
+    <input type="hidden" id="subtitle" name="subtitle" value="<%= user.getUserId() %>님의 비밀번호 ">
+    <input type="hidden" id="content" name="content" value="<%= user.getUserId() %>님의 비밀번호는 <%= user.getUserPwd() %> 입니다. ">
+    <input type="submit" id="submit" value="click">
+  </div>
+  </form>
+    <!-- <p><h4>회원님의 비밀번호가 이메일로 발송 되었습니다.</h4></p>
+    <a href="/semi/html/yn/userLoginPage.jsp"><h4>로그인 페이지로 이동</h4></a> -->
+  </div>
 			</div>
 			<!--내용끝-->
 		</div>

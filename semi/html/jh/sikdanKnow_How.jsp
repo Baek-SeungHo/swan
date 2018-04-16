@@ -1,8 +1,38 @@
-<!DOCTYPE HTML>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" import="user.model.vo.User"%>
+<%
+	User loginUser = (User) session.getAttribute("loginUser");
+%>
+<%@ page
+	import="sikdanboard.model.vo.SikdanBorad, java.util.ArrayList, java.sql.Date"%>
+<%
+	ArrayList<SikdanBorad> list = (ArrayList<SikdanBorad>) request.getAttribute("list");
+	int listCount = ((Integer) request.getAttribute("listCount")).intValue();
+	int startPage = ((Integer) request.getAttribute("startPage")).intValue();
+	int endPage = ((Integer) request.getAttribute("endPage")).intValue();
+	int maxPage = ((Integer) request.getAttribute("maxPage")).intValue();
+	int currentPage = ((Integer) request.getAttribute("currentPage")).intValue();
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <meta charset="UTF-8">
 <head>
 <title>simplestyle_blue_trees - a page</title>
+
+<!-- 자바스크립트 영역 -->
+
+    <script type="text/javascript">
+
+        function goUrl(url) {
+
+           location.href=url;
+
+        }
+
+    </script>
+
+<!-- //자바스크립트 영역 -->
+
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"
@@ -24,7 +54,7 @@
 			<div id="menubar">
 				<ul id="menu">
 					<li><a href="/semi/html/ij/boardlistview.jsp">운동정보</a></li>
-					<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
+					<li><a href="/semi/html/jh/sikdanInfo.jsp">식단정보</a></li>
 					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
 				</ul>
 			</div>
@@ -35,9 +65,23 @@
 				<div class="sidebar">
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
-						<!-- insert your sidebar items here -->
-						<!-- <h4><%= loginUser.getUserName() %>님 환영합니다</h4>
-						<a href="/semi/exedetail?userid=<%= loginUser.getUserId() %>">마이페이지</a> -->
+						<%
+							if (loginUser == null) {
+						%>
+						<a href="/semi/html/yn/userLoginPage.jsp">로그인</a>
+						<%
+							} else {
+						%>
+						<h4><%=loginUser.getUserName()%>님 환영합니다
+						</h4>
+						<a href="/semi/udetail?userid=<%=loginUser.getUserId()%>">회원정보수정</a>
+						<a href="/semi/ulogout"><input type="button" value="로그아웃"></a>
+						<a href="/semi/html/yn/input.jsp">운동기록</a> <a
+							href="/semi/html/yn/goal.jsp">추가입력</a> <a
+							href="/semi/exedetail?userid=<%=loginUser.getUserId()%>">마이페이지</a>
+						<%
+							}
+						%>
 					</div>
 					<div class="sidebar_base"></div>
 				</div>
@@ -46,8 +90,8 @@
 					<div class="sidebar_item">
 						<h3>Memu</h3>
 						<ul>
-							<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
-							<li><a href="/semi/html/jh/sikdan2.html">체형별 식단</a></li>
+							<li><a href="/semi/html/jh/sikdanInfo.jsp">식단정보</a></li>
+							<li><a href="/semi/html/jh/sikdanBodyType.jsp">체형별 식단</a></li>
 							<li><a href="/semi/SikdanBoradListServlet?page=1">건강 노하우</a></li>
 						</ul>
 					</div>
@@ -84,6 +128,7 @@
 					있는 건강한 다이어트 식단은 바로 한식기반의 형태로 아침, 점심, 저녁 규칙적으로 드시는 것입니다.
 				</section>
 				<!-- Section -->
+				<br>
 				<h4>Swan 건강 노하우</h4>
 <!-- 				<div class="table-wrapper">
 					<table>
@@ -133,7 +178,7 @@
 				</div> -->
 	   <!-- 검색 폼 영역 -->
 
-       <form name="searchForm" action="" method="get">
+   <!--     <form name="searchForm" action="" method="get">
 
        <p>
 
@@ -155,7 +200,7 @@
 
        </p>
 
-       </form>
+       </form> -->
 
        <!-- //검색 폼 영역 -->
 
@@ -199,15 +244,17 @@
 
            <tbody>
 
-               <tr>
+						<!--     <tr>
 
                     <td align="center" colspan="5">등록된 게시물이 없습니다.</td>
 
-               </tr>
+               </tr> -->
+						<%
+							for (SikdanBorad sb : list) {
+						%>
+						<tr>
 
-               <tr>
-
-                    <td align="center">1</td>
+							<!-- <td align="center">1</td>
 
                     <td><a href="boardView.jsp">고기만 먹고 살이 빠진다고? 황제 다이어트!</a></td>
 
@@ -215,19 +262,32 @@
 
                     <td align="center">2018.04.05</td>
 
-                    <td align="center">10</td>
+                    <td align="center">10</td> -->
 
-               </tr>
 
-           </tbody>
+
+							<td align="center"><%=sb.getBoard_num()%></td>
+							<td align="center"><a
+								href="/semi/SikdanBoardDetailViewServlet?board_num=<%=sb.getBoard_num()%>&page=<%=currentPage%>">
+									<%=sb.getBoard_title()%></a></td>
+							<td align="center"><%=sb.getBoard_write()%></td>
+							<td align="center"><%=sb.getBoard_date()%></td>
+							<td align="center"><%=sb.getBoard_look()%></td>
+
+
+						</tr>
+						<%
+							} //for closed
+						%>
+					</tbody>
 
            <tfoot>
 
-               <tr>
+          <!--      <tr>
 
                     <td align="center" colspan="5">1</td>
 
-               </tr>
+               </tr> -->
 
            </tfoot>
 
@@ -239,9 +299,9 @@
 
        <p>
 
-           <input type="button" value="목록" onclick="goUrl('boardList.jsp');" />
+          <!--  <input type="button" value="목록" onclick="goUrl('/semi/SikdanBoradListServlet?page=1');" /> -->
 
-           <input type="button" value="글쓰기" onclick="goUrl('boardWriteForm.jsp');" />
+           <input type="button" value="글쓰기" onclick="goUrl('/semi/html/jh/sikdanboardWriteForm.jsp');" /> 
 
        </p>
 
@@ -253,7 +313,7 @@
 		<div id="footer">
 			<p>
 				<a href="/semi/index.jsp">메인</a> | <a href="/semi/html/ij/examples.html">운동정보</a> | <a
-					href="/semi/html/jh/sikdan.html">식단정보</a> | <a href="/semi/html/sh/contact.jsp">고객센터</a>
+					href="/semi/html/jh/sikdanInfo.jsp">식단정보</a> | <a href="/semi/html/sh/contact.jsp">고객센터</a>
 			</p>
 			<p>
 				세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a>

@@ -119,7 +119,7 @@ $(function(){
 			<div id="menubar">
 				<ul id="menu">
 					<li><a href="/semi/html/ij/boardlistview.jsp">운동정보</a></li>
-					<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
+					<li><a href="/semi/html/jh/sikdanInfo.jsp">식단정보</a></li>
 					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
 				</ul>
 			</div>
@@ -167,9 +167,8 @@ $(function(){
   <div class="billing">
     <h2>추가 입력사항</h2><br><br><br>
     <h4>*먼저 추가사항을 입력해주시기 바랍니다</h4>
+    <h4><a href="/semi/html/ij/exercisequestionnaire.jsp">몸 상태 설문조사 하기</a></h4>
     <input type="hidden" id="userid" name="userid" value="<%= loginUser.getUserId() %>">
-     <p style="padding-bottom:2px;">등급</p>
-    <input type="text" id="usergrade" name="usergrade" value="qw">
      <p style="padding-bottom:2px;">신장</p>
     <input type="text" id="userheight" name="userheight" placeholder="cm">
      <p style="padding-bottom:2px;">체중</p>
@@ -194,7 +193,7 @@ $(function(){
 		<div id="footer">
 			<p>
 				<a href="/semi/index.jsp">메인</a> | <a href="/semi/html/ij/examples.html">운동정보</a> | <a
-					href="/semi/html/jh/sikdan.html">식단정보</a> | <a href="/semi/html/sh/contact.jsp">고객센터</a>
+					href="/semi/html/jh/sikdanInfo.jsp">식단정보</a> | <a href="/semi/html/sh/contact.jsp">고객센터</a>
 			</p>
 			<p>
 				세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a>
