@@ -128,6 +128,92 @@
 	});
 </script>
 <style type="text/css">
+table {
+	margin: 10px 0 30px 0;
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
+
+table tr th, table tr td {
+	background: #fff;
+	color: #fff;
+	padding: 7px 4px;
+	text-align: center;
+	font-size: 14px;
+}
+
+table tr td {
+	background: #fff;
+	color: #47433F;
+	border: 1px solid #ddd;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Oxygen:400,700);
+
+@import url(https://fonts.googleapis.com/css?family=Knewave);
+
+@import url(https://fonts.googleapis.com/css?family=Luckiest+Guy);
+
+.shipping {
+	float: left;
+	text-align: center;
+	width: 300px;
+}
+
+.billing {
+	float: left;
+	width: 100%;
+}
+
+h2 {
+	color: #0082C5;
+	padding: 0px;
+	float: left;
+}
+
+input {
+	background-color: #f2f2f2;
+	border: 1px solid #c8c8c8;
+	font-family: 'Oxygen', sans-serif;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0px 0px 10px 0px;
+	padding: 8px;
+}
+
+select {
+	background-color: #f2f2f2;
+	border: 1px solid #c8c8c8;
+	font-family: 'Oxygen', sans-serif;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0px 0px 10px 0px;
+	padding: 8px;
+	width: 90%;
+}
+
+.checkBox {
+	clear: left;
+	float: left;
+	height: 13px;
+	margin: 13px 0px 0px 15px;
+	width: 13px;
+}
+
+.checkBoxText {
+	float: left;
+	margin: 10px 0px 10px 15px;
+	padding: 0px;
+}
+}
 </style>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
@@ -188,7 +274,7 @@
 			<div id="content">
 				<h2 align="center">운동검색기</h2>
 				<!--게시판 부위별 /  운동명 검색기능-->
-				<select id="bodysearch">
+				<select id="bodysearch" class="box">
 					<option value="">부위선택</option>
 					<option value="chest">가슴</option>
 					<option value="shoulder">등</option>
@@ -201,8 +287,7 @@
 				</select>
 				<!--게시판 운동명 검색기능-->
 				<input type="text" placeholder="검색어입력" id="sportname"> <input
-					type="submit" value="검색" id="namesearch">
-
+					type="button" value="검색" id="namesearch">
 				<!--게시판 리스트 출력-->
 				<table id="sportlist" border="1">
 				</table>

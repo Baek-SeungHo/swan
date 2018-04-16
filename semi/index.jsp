@@ -63,10 +63,10 @@
 			position : place.geometry.location
 		});
 
-		google.maps.event.addListener(marker, 'click', function() {
+		 google.maps.event.addListener(marker, 'click', function() {
 			infowindow.setContent(place.name);
 			infowindow.open(map, this);
-		});
+		}); 
 	}
 </script>
 <style type="text/css">
