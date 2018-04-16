@@ -41,7 +41,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 			<div id="menubar">
 				<ul id="menu">
 				
-					<li><a href="/semi/html/ij/exercise.jsp">운동정보</a></li>
+					<li><a href="/semi/html/ij/boardlistview.jsp">운동정보</a></li>
 					<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
 					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
 				</ul>
