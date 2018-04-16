@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>추가 입력</title>
+<title>추가입력</title>
 <script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="/semi/html/yn/calendar2/jquery.number.min.js"></script>
 <meta name="description" content="website description" />

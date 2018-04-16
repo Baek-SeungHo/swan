@@ -177,23 +177,23 @@ $(function(){
 		<div id="site_content">
 			<div id="sidebar_container">
 				<div class="sidebar">
-					<div class="sidebar_top"></div>
+					<!-- <div class="sidebar_top"></div> -->
 					<div class="sidebar_item">
 						<!-- insert your sidebar items here -->
 						<%-- <h4><%= loginUser.getUserName() %>님 환영합니다</h4>
 						<a href="/semi/exedetail?userid=<%= loginUser.getUserId() %>">마이페이지</a> --%>
 					</div>
-					<div class="sidebar_base"></div>
+					<!-- <div class="sidebar_base"></div> -->
 				</div>
 				<div class="sidebar">
-					<div class="sidebar_top"></div>
+					<!-- <div class="sidebar_top"></div> -->
 					<div class="sidebar_item">
 						<%-- <ul>
 							<li><a href="/semi/udetail?userid=<%= loginUser.getUserId() %>">회원정보수정</a></li>
 							<li><a href="/semi/html/yn/input.jsp">운동기록</a></li>
 						</ul> --%>
 					</div>
-					<div class="sidebar_base"></div>
+					<!-- <div class="sidebar_base"></div> -->
 				</div>
 				<div class="sidebar">
 					<!-- <div class="sidebar_top"></div>
