@@ -127,6 +127,27 @@ public class SikdanBoradDao {
 			return result;
 		}
 		
+		public int deleteSikdanBorad(Connection con, SikdanBorad sb) {
+			int result = 0;
+			PreparedStatement pstmt = null;
+
+			String query = "DELETE FROM FOOD_RECOMMEND where board_num=?";
+			
+			try {
+				pstmt = con.prepareStatement(query);
+				pstmt.setInt(1, sb.getBoard_num());
+
+				result = pstmt.executeUpdate();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+
+			return result;
+		}
+		
 	//�Խ��� �� ����
 		public SikdanBorad selectBoard(Connection con, int board_num) {
 			SikdanBorad sb = null;
