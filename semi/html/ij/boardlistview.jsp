@@ -10,30 +10,13 @@
 <head>
 <title>simplestyle_blue_trees - examples</title>
 <style type="text/css">
-body {
-	margin: 10px;
-	font-size: 14px;
-}
-
-select {
-	width: 200px;
-	padding: .8em .5em;
-	font-family: inherit;
-	background:
-		url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg)
-		no-repeat 95% 50%;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	border: 1px solid #999;
-	border-radius: 0px;
-}
-
-select::-ms-expand {
-	display: none;
-}
 </style>
 <script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
 	/*ajax를 통한 게시판 리스트 조회 */
 	$(function() {
@@ -130,6 +113,20 @@ select::-ms-expand {
 		});
 	});
 </script>
+<script type="text/javascript">
+	//검색창 자동완성기능
+	$(function() {
+		var languages = [ "인클라인푸쉬업", '푸쉬업', '디클라인푸쉬업', '아처푸쉬업', '파이크푸쉬업',
+				'흰두푸쉬업', '러시안푸쉬업', '한팔푸쉬업', '플라이푸쉬업', '할로우보디플랭크', '백인스텐션',
+				'시티드로우', '인버티드로우', '마누스그립풀업', '턱걸이', '익스플로시브풀업', '크런치',
+				'사이드크런치', '레그레이즈', '바이시클크런치', '드래곤플래그', '행잉레그레이즈', '스쿼드',
+				'와이드스쿼드', '벤드데드리프트', '런지', '박스런지' ];
+
+		$("#sportname").autocomplete({
+			source : languages
+		});
+	});
+</script>
 <style type="text/css">
 </style>
 <meta name="description" content="website description" />
@@ -149,7 +146,7 @@ select::-ms-expand {
 						<a href="/semi/index.jsp"><span class="logo_colour">Swan</span></a>
 					</h1>
 				</div>
-				
+
 			</div>
 			<div id="menubar">
 				<ul id="menu">
@@ -166,8 +163,9 @@ select::-ms-expand {
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
 						<!-- insert your sidebar items here -->
-						<h4><%= loginUser.getUserName() %>님 환영합니다</h4>
-						<a href="/semi/exedetail?userid=<%= loginUser.getUserId() %>">마이페이지</a>
+						<h4><%=loginUser.getUserName()%>님 환영합니다
+						</h4>
+						<a href="/semi/exedetail?userid=<%=loginUser.getUserId()%>">마이페이지</a>
 					</div>
 					<div class="sidebar_base"></div>
 				</div>
@@ -203,7 +201,8 @@ select::-ms-expand {
 				</select>
 				<!--게시판 운동명 검색기능-->
 				<input type="text" placeholder="검색어입력" id="sportname"> <input
-					type="button" value="검색" id="namesearch">
+					type="submit" value="검색" id="namesearch">
+
 				<!--게시판 리스트 출력-->
 				<table id="sportlist" border="1">
 				</table>

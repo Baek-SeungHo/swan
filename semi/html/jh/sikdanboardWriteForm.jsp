@@ -3,7 +3,7 @@
 <%@ page
 	import="sikdanboard.model.vo.SikdanBorad, user.model.vo.User, java.util.ArrayList, java.sql.Date"%>
 <%
-	//User user = (User) request.getAttribute("loginUser");
+	User loginUser = (User) session.getAttribute("loginUser");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -34,6 +34,7 @@
     			form.board_content.focus();
     			return false;
     		}
+    		else alert('게시글 작성이 완료 되었습니다!');
     		return true;
     	}
 
@@ -126,7 +127,7 @@
 							</tr>
 							<tr>
 								<th align="center">작성자</th>
-								<td><input type="text" name="board_write" value="아이디" readonly /></td> <% //user.getUserId() %>
+								<td><input type="text" name="board_write" value=<%=loginUser.getUserId()%> readonly /></td> 
 							</tr>
 							<tr>
 								<th align="center">내용</th>

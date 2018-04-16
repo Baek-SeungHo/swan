@@ -21,6 +21,12 @@
            location.href=url;
 
         }
+        
+        function Delete(url) {
+        	
+        	location.href=url;
+        	alert('게시글 삭제가 완료되었습니다!');
+        }
 
     </script>
 
@@ -118,7 +124,7 @@
 				<p>
 					<input type="button" value="목록" onclick="goUrl('/semi/SikdanBoradListServlet?page=1');" />
 					<input type="button" value="수정" onclick="goUrl('/semi/SikdanBoardModifyViewServlet?board_num=<%=sb.getBoard_num()%>&page=<%=currentPage%>');" /> 
-					<input type="button" value="삭제"/>
+					<input type="button" value="삭제" onclick="Delete('/semi/SikdanBoardDeleteServlet?board_num=<%=sb.getBoard_num()%>');"/>
 				</p>
 			</div>
 			<!--내용끝-->
