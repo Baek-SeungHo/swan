@@ -275,8 +275,9 @@ select{
 <div id="sporttable">
 <table id="insertTable">
 	<tr>
+		<td style="width:95px; background-color: #eee; color: rgb(35,146,173);">날짜</td>
 		<td style="width:95px; background-color: #eee; color: rgb(35,146,173);">부위</td>
-		<td style="width:195px; background-color: #eee; color: rgb(35,146,173);">이름</td>
+		<td style="width:195px; background-color: #eee; color: rgb(35,146,173);">활동</td>
 		<td style="width:95px; background-color: #eee; color: rgb(35,146,173); word-break:break-all;">횟수</td>
 	</tr>
 </table>

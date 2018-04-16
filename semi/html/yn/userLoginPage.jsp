@@ -177,8 +177,10 @@ form {
 					<div class="form-footer">
 						<p>
 							<a href="/semi/html/yn/userEnroll.jsp">회원가입</a>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="#">비밀번호 찾기</a>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="/semi/html/yn/findId.jsp">아이디 찾기</a>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="/semi/html/yn/findPwd.jsp">비밀번호 찾기</a>
 						</p>
 					</div>
 				</div>

@@ -2,15 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ page import ="user.model.vo.User" %>
 <%
-	User loginUser = (User)session.getAttribute("loginUser");
+	User user = (User)request.getAttribute("user");
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>추가입력</title>
-<script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="/semi/html/yn/calendar2/jquery.number.min.js"></script>
+<title>아이디 찾기</title>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"
@@ -24,7 +22,6 @@
 
 .shipping{
   float: left;
-  text-align: center;
   width: 300px;
 }
 .billing{
@@ -53,7 +50,6 @@ input{
   
   margin: 0px 0px 10px 0px;
   padding: 8px;
-  width: 90%;
 }
 select{
   background-color: #f2f2f2;
@@ -86,24 +82,6 @@ select{
 }
 
 </style>
-<script type="text/javascript">
-$(function(){
-	$('input[type=text]').blur(function(){
-		var height = $("#userheight").val();
-		var weight = $("#userweight").val();
-		
-		console.log(height);
-		console.log(weight);
-		
-		$("#userbmi").val(weight/(height/100)**2).number(true, 2);
-		/* if(loginUser.getUserGender().equals("M") ){
-			$("#userbmi").val((1.1*weight)-[128*(weight/height)]);
-		}else {
-			$("#userbmi").val("(1.07*weight)-[128*(weight/height)]");
-		} */
-	});
-});
-</script>
 </head>
 <body>
 <div id="main">
@@ -126,13 +104,11 @@ $(function(){
 		</div>
 		<div id="content_header"></div>
 		<div id="site_content">
-			<div id="sidebar_container">
+			<!-- <div id="sidebar_container">
 				<div class="sidebar">
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
-						<!-- insert your sidebar items here -->
-						<h4><%= loginUser.getUserName() %>님 환영합니다</h4>
-						<a href="/semi/exedetail?userid=<%= loginUser.getUserId() %>">마이페이지</a>
+						insert your sidebar items here
 					</div>
 					<div class="sidebar_base"></div>
 				</div>
@@ -140,13 +116,14 @@ $(function(){
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
 						<ul>
-							<li><a href="/semi/udetail?userid=<%= loginUser.getUserId() %>">회원정보수정</a></li>
+							<li><a href="#">회원정보수정</a></li>
+							<li><a href="#">운동기록</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
 				</div>
 				<div class="sidebar">
-					<!-- <div class="sidebar_top"></div>
+					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
 						<h3>검색</h3>
 						<form method="post" action="#" id="search_form">
@@ -158,37 +135,17 @@ $(function(){
 							</p>
 						</form>
 					</div>
-					<div class="sidebar_base"></div> -->
+					<div class="sidebar_base"></div>
 				</div>
-			</div>
+			</div> -->
 			<!--내용-->
 			<div id="content">
-  <form action="<%= request.getContextPath() %>/exeinsert" method="post">			
   <div class="billing">
-    <h2>추가 입력사항</h2><br><br><br>
-    <h4>*먼저 추가사항을 입력해주시기 바랍니다</h4>
-    <h4><a href="/semi/html/ij/exercisequestionnaire.jsp">몸 상태 설문조사 하기</a></h4>
-    <input type="hidden" id="userid" name="userid" value="<%= loginUser.getUserId() %>">
-     <p style="padding-bottom:2px;">등급</p>
-    <input type="text" id="usergrade" name="usergrade" value="qw">
-     <p style="padding-bottom:2px;">신장</p>
-    <input type="text" id="userheight" name="userheight" placeholder="cm">
-     <p style="padding-bottom:2px;">체중</p>
-    <input type="text" id="userweight" name="userweight" placeholder="kg">
-     <p style="padding-bottom:2px;">BMI</p>  
-    <input type="text" id="userbmi" name="userbmi">
-     <p style="padding-bottom:2px;">목표체중</p>
-    <input type="text" id="usergoal" name="usergoal" placeholder="kg">
-    <p style="padding-bottom:2px;">시작날짜</p>
-    <input type="date" id="userstartdate" name="userstartdate">
-    <p style="padding-bottom:2px;">목표날짜</p>
-    <input type="date" id="userenddate" name="userenddate">
-    <br><br>
-    <p><input type="submit" value="submit"></p>
+    <h2>아이디 찾기</h2><br><br>
+    <p><h4>회원님의 아이디는 [<%= user.getUserId() %>] 입니다.</h4></p>
+    <a href="/semi/html/yn/userLoginPage.jsp"><h4>로그인 페이지로 이동</h4></a>
   </div>
-  </form>
-				 
-				</div>
+			</div>
 			<!--내용끝-->
 		</div>
 		<div id="content_footer"></div>

@@ -179,4 +179,77 @@ public class UserDao {
 		return idCount;
 	}
 
+	public User findId(Connection con, String userName, String userEmail) {
+		User user = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+		String query = "select * from user_info where user_name=? and user_email=?";
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, userName);
+			pstmt.setString(2, userEmail);
+
+			rset = pstmt.executeQuery();
+
+			if (rset.next()) {
+				user = new User();
+
+				user.setUserId(rset.getString("user_id"));
+				user.setUserPwd(rset.getString("user_pwd"));
+				user.setUserName(rset.getString("user_name"));
+				user.setUserGender(rset.getString("user_gender"));
+				user.setUserAge(rset.getInt("user_age"));
+				user.setUserEmail(rset.getString("user_email"));
+				user.setUserPhone(rset.getString("user_phone"));
+				user.setAdministrator(rset.getString("administrator"));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return user;
+	}
+
+	public User findPwd(Connection con, String userId, String userName, String userEmail) {
+		User user = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+
+		String query = "select * from user_info where user_id=? and user_name=? and user_email=?";
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, userId);
+			pstmt.setString(2, userName);
+			pstmt.setString(3, userEmail);
+
+			rset = pstmt.executeQuery();
+
+			if (rset.next()) {
+				user = new User();
+
+				user.setUserId(rset.getString("user_id"));
+				user.setUserPwd(rset.getString("user_pwd"));
+				user.setUserName(rset.getString("user_name"));
+				user.setUserGender(rset.getString("user_gender"));
+				user.setUserAge(rset.getInt("user_age"));
+				user.setUserEmail(rset.getString("user_email"));
+				user.setUserPhone(rset.getString("user_phone"));
+				user.setAdministrator(rset.getString("administrator"));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return user;
+	}
+
 }
