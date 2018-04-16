@@ -12,6 +12,11 @@
 <style type="text/css">
 </style>
 <script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
 	/*ajax를 통한 게시판 리스트 조회 */
 	$(function() {
@@ -109,8 +114,9 @@
 	});
 </script>
 <script type="text/javascript">
+	//검색창 자동완성기능
 	$(function() {
-		var languages = [ '인클라인푸쉬업', '푸쉬업', '디클라인푸쉬업', '아처푸쉬업', '파이크푸쉬업',
+		var languages = [ "인클라인푸쉬업", '푸쉬업', '디클라인푸쉬업', '아처푸쉬업', '파이크푸쉬업',
 				'흰두푸쉬업', '러시안푸쉬업', '한팔푸쉬업', '플라이푸쉬업', '할로우보디플랭크', '백인스텐션',
 				'시티드로우', '인버티드로우', '마누스그립풀업', '턱걸이', '익스플로시브풀업', '크런치',
 				'사이드크런치', '레그레이즈', '바이시클크런치', '드래곤플래그', '행잉레그레이즈', '스쿼드',
@@ -194,7 +200,6 @@
 					<option value="arm">팔</option>
 				</select>
 				<!--게시판 운동명 검색기능-->
-
 				<input type="text" placeholder="검색어입력" id="sportname"> <input
 					type="submit" value="검색" id="namesearch">
 
