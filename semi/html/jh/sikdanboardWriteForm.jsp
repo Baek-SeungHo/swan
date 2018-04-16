@@ -34,6 +34,7 @@
     			form.board_content.focus();
     			return false;
     		}
+    		else alert('게시글 작성이 완료 되었습니다!');
     		return true;
     	}
 
