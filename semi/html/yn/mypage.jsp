@@ -72,7 +72,7 @@ table tr td
 
 <script type="text/javascript">
 
-function count(){
+(function count(){
 	
 	var startdate= new Date("<%= exeinfo.getUserStartdate() %>");
 	
@@ -106,7 +106,8 @@ function count(){
 	
 	days = Math.ceil(days)+1;
 	
-	alert("총일수 " +(days)+ "일");
+	alert("총일수 " +(days)+ "일");	
+	
 	
 	$(function(){
 		$.ajax({
@@ -119,7 +120,7 @@ function count(){
 			}
 		});
 	});
-}
+}('days'));
 
 function count2(){
 	
@@ -265,35 +266,36 @@ function drawBasic() {
 			</div>
 			<!--내용-->			
 			<div id="content">
-			<div id="myinfo2" class="4u" style="border: 6px solid rgb(242,242,242); width: 250px; height: 350px; padding: 10pt; margin: 10pt; float: left;">
-			<h2>시작세부 정보 및 목표</h2>			
+			<div id="myinfo2" class="4u" style="border: 4px solid rgb(242,242,242); width: 250px; height: 350px; padding: 10pt; margin: 10pt; float: left;">
+			<h2 style="text-align:center; font-weight:bold;">시작세부 정보 및 목표</h2>			
 			<hr>
-			<table>
+			<table style="margin-left:15pt;">
 			<tr><th width="150">시작 날짜</th><th width="80">시작체중</th></tr>
 			<tr><td><font size="5"><%= exeinfo.getUserStartdate() %></font></td><td align="right"><font size="5"><%= exeinfo.getUserWeight() %>kg</font></td></tr>
 			</table>
 			
-			<table style="border: 1px solid #FFF;">
+			<table style="border: 1px solid #FFF; margin-left:15pt;">
 			<tr><th width="150">신장</th><th width="80">BMI</th></tr>
 			<tr><td><font size="5" style="color: rgb(29,182,235);"><%= exeinfo.getUserHeight() %>cm</font></td><td><font size="5" style="color: rgb(29,182,235);"><%= exeinfo.getUserBmi() %></font></td></tr>
 			</table>
 			
-			<table>
+			<table style="margin-left:15pt;">
 			<tr><th width="150">목표체중</th><th width="70">총일수</th></tr>
-			<tr><td><font size="5"><%= exeinfo.getUserGoal() %>kg</font></td><td><font size="5"><button onclick="count()">총일수</button></font></td></tr>
+			<tr><td><font size="5"><%= exeinfo.getUserGoal() %>kg</font></td><%= days %><td id="days">
+			<% out.print("<script>alert('count')</script>"); %></td></tr>
 			</table>
 			
-			<table style="border: 1px solid #FFF;">
+			<table style="border: 1px solid #FFF; margin-left:15pt;">
 			<tr><th width="150">목표날짜</th><th width="80">남은일수</th></tr>
 			<tr><td><font size="5" style="color: rgb(29,182,235);"><%= exeinfo.getUserEnddate() %></font></td><td><font size="5" style="color: rgb(29,182,235);"><button onclick="count2()">남은일수</button></font></td></tr>
 			</table>
 			</div>
 			
 			
-			<div id="myinfo2" class="4u" style="border: 6px solid rgb(242,242,242); width: 200px; height: 350px; padding: 10pt; margin: 10pt; float: left; style:center;">
-			<h2>목표달성 진행상황</h2>
+			<div id="myinfo2" class="4u" style="border: 4px solid rgb(242,242,242); width: 200px; height: 350px; padding: 10pt; margin: 10pt; float: left; style:center;">
+			<h2 style="text-align:center; font-weight:bold;">목표달성 진행상황</h2>
 			<hr>
-			<table style="align:center; margin-left: 18pt;"><tr style="center;"><td style="align:center;"><div class="graph" style="align:center;"></div></td></tr><tr><td><font size="15" style="color: rgb(29,182,235); align: center; margin: 30pt;">48%</font><br>
+			<table style="align:center; margin-left: 18pt;"><tr style="center;"><td style="align:center; padding-bottom:20pt; padding-top:10pt;"><div class="graph" style="align:center;"></div></td></tr><tr><td><font size="15" style="color: rgb(29,182,235); align: center; margin: 30pt;">48%</font><br>
 <font style="align: center; margin: 40pt">진행율</font></td></tr></table>
 				
 			<script type="text/javascript">
@@ -426,8 +428,8 @@ donutGraph('.graph', per);
 
 </div>
 
-<div id="myinfo2" class="4u" style="border: 6px solid rgb(242,242,242); width: 500px; height: 350px; padding: 10pt; margin: 10pt; float: left;">
-<h2>몸무게 변화</h2>
+<div id="myinfo2" class="4u" style="border: 4px solid rgb(242,242,242); width: 513px; height: 250px; padding: 10pt; margin: 10pt; float: left;">
+<h2 style="font-weight:bold; padding-left:15pt;">몸무게 변화</h2>
 <hr>
 			<div id="chart_div"></div>
 </div>			
