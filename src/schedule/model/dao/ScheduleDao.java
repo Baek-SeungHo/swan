@@ -91,33 +91,5 @@ public class ScheduleDao {
 		return list;
 
 	}
-	//유저등급 조회
-	public Schedule usergrade(Connection con, String userid) {
-		Schedule s = null;
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-		
-		String query = "select *  from user_info , exe_info where user_info.user_id = exe_info.user_id "
-				+ "and user_info.user_id = ?";
-		try {
-			pstmt = con.prepareStatement(query);
-			pstmt.setString(1, userid);
-			rset = pstmt.executeQuery();
 
-			if (rset.next()) {
-				s = new Schedule();
-
-				s.setUsergrade(rset.getString("user_grade"));
-
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-
-		return s;
-	}
 }

@@ -11,47 +11,6 @@ public class ExeBoardDao {
 	public ExeBoardDao() {
 	}
 
-	// 게시판전체조회
-	public ArrayList<ExeBoard> selectList(Connection con, int currentPage, int limit) {
-		ArrayList<ExeBoard> list = new ArrayList<ExeBoard>();
-		PreparedStatement pstmt = null;
-		ResultSet rset = null;
-
-		String query = "select * from (select rownum rnum, sport_code,sport_body,sport_name, sport_look, sport_date from exe_recommend) "
-				+ "where rnum >= ? and rnum <= ?";
-
-		int startRow = (currentPage - 1) * limit + 1;
-		int endRow = startRow + limit - 1;
-
-		try {
-			pstmt = con.prepareStatement(query);
-			pstmt.setInt(1, startRow);
-			pstmt.setInt(2, endRow);
-
-			rset = pstmt.executeQuery();
-
-			while (rset.next()) {
-
-				ExeBoard b = new ExeBoard();
-				b.setSportbody(rset.getString("sport_body"));
-				b.setSportname(rset.getString("sport_name"));
-				b.setSportlook(rset.getInt("sport_look"));
-				b.setSportdate(rset.getDate("sport_date"));
-				b.setSportcode(rset.getString("sport_code"));
-
-				list.add(b);
-			}
-			System.out.println(list);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			close(rset);
-			close(pstmt);
-		}
-
-		return list;
-	}
-
 	// 게시판자료넣기
 	public int insertExeBoard(Connection con, ExeBoard b) {
 		int result = 0;
@@ -73,7 +32,7 @@ public class ExeBoardDao {
 		} finally {
 			close(pstmt);
 		}
-		
+
 		return result;
 	}
 
@@ -175,7 +134,7 @@ public class ExeBoardDao {
 
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1,  name);
+			pstmt.setString(1, name);
 			rset = pstmt.executeQuery();
 
 			while (rset.next()) {

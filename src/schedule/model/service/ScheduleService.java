@@ -13,27 +13,21 @@ public class ScheduleService {
 
 	public ScheduleService() {
 	}
-	//운동스케쥴
-	public ArrayList<Schedule> todayschedule(String usergrade ,Date sqlDate) {
+
+	// 운동스케쥴
+	public ArrayList<Schedule> todayschedule(String usergrade, Date sqlDate) {
 		Connection con = getConnection();
 		ArrayList<Schedule> list = new ScheduleDao().todaySchedule(con, usergrade, sqlDate);
 		close(con);
 		return list;
 	}
-	//날짜조회스케쥴
+
+	// 날짜조회스케쥴
 	public ArrayList<Schedule> dateselet(String grade, String selectdate) {
 		Connection con = getConnection();
-		ArrayList<Schedule> list = new ScheduleDao().dateselet(con,grade,selectdate);
+		ArrayList<Schedule> list = new ScheduleDao().dateselet(con, grade, selectdate);
 		close(con);
 		return list;
 	}
-	//유저등급조회
-	public Schedule usergrade(String userid) {
-		Connection con = getConnection();
-		Schedule s = new ScheduleDao().usergrade(con,userid);
-		close(con);
-		return s;
-	}
-	
 
 }

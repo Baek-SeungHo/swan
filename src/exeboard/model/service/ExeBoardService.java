@@ -11,13 +11,6 @@ public class ExeBoardService {
 	public ExeBoardService() {
 	}
 
-	public ArrayList<ExeBoard> selectList(int currentPage, int limit) {
-		Connection con = getConnection();
-		ArrayList<ExeBoard> list = new ExeBoardDao().selectList(con, currentPage, limit);
-		close(con);
-		return list;
-	}
-
 	// 운동정보 입력
 	public int insertBoard(ExeBoard b) {
 		Connection con = getConnection();
