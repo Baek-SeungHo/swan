@@ -266,7 +266,7 @@ function drawBasic() {
 			</div>
 			<!--내용-->			
 			<div id="content">
-			<div id="myinfo2" class="4u" style="border: 4px solid rgb(242,242,242); width: 250px; height: 350px; padding: 10pt; margin: 10pt; float: left;">
+			<div id="myinfo2" class="4u" style="border: 4px solid rgb(242,242,242); width: 250px; height: 350px; padding: 10pt; margin: 4pt; float: left;">
 			<h2 style="text-align:center; font-weight:bold;">시작세부 정보 및 목표</h2>			
 			<hr>
 			<table style="margin-left:15pt;">
@@ -291,7 +291,7 @@ function drawBasic() {
 			</div>
 			
 			
-			<div id="myinfo2" class="4u" style="border: 4px solid rgb(242,242,242); width: 200px; height: 350px; padding: 10pt; margin: 10pt; float: left; style:center;">
+			<div id="myinfo2" class="4u" style="border: 4px solid rgb(242,242,242); width: 200px; height: 350px; padding: 10pt; margin: 4pt; float: left; style:center;">
 			<h2 style="text-align:center; font-weight:bold;">목표달성 진행상황</h2>
 			<hr>
 			<table style="align:center; margin-left: 18pt;"><tr style="center;"><td style="align:center; padding-bottom:20pt; padding-top:10pt;"><div class="graph" style="align:center;"></div></td></tr><tr><td><font size="15" style="color: rgb(29,182,235); align: center; margin: 30pt;">48%</font><br>
@@ -427,7 +427,7 @@ donutGraph('.graph', per);
 
 </div>
 
-<div id="myinfo2" class="4u" style="border: 4px solid rgb(242,242,242); width: 513px; height: 250px; padding: 10pt; margin: 10pt; float: left;">
+<div id="myinfo2" class="4u" style="border: 4px solid rgb(242,242,242); width: 495px; height: 250px; padding: 10pt; margin: 4pt; float: left;">
 <h2 style="font-weight:bold; padding-left:15pt;">몸무게 변화</h2>
 <hr>
 			<div id="chart_div"></div>
