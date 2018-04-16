@@ -169,8 +169,6 @@ $(function(){
     <h4>*먼저 추가사항을 입력해주시기 바랍니다</h4>
     <h4><a href="/semi/html/ij/exercisequestionnaire.jsp">몸 상태 설문조사 하기</a></h4>
     <input type="hidden" id="userid" name="userid" value="<%= loginUser.getUserId() %>">
-     <p style="padding-bottom:2px;">등급</p>
-    <input type="text" id="usergrade" name="usergrade" value="qw">
      <p style="padding-bottom:2px;">신장</p>
     <input type="text" id="userheight" name="userheight" placeholder="cm">
      <p style="padding-bottom:2px;">체중</p>
