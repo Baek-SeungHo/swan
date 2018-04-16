@@ -39,7 +39,8 @@
 											var sport = "";
 
 											for ( var i in json.list) {
-												sport += "<tr><td>	"
+
+												sport += "<tr><td>"
 														+ json.list[i].sportbody
 														+ "</td><td><a href='/semi//edetail?ecode="
 														+ json.list[i].sportcode
@@ -197,7 +198,7 @@ select {
 	box-sizing: border-box;
 	margin: 0px 0px 10px 0px;
 	padding: 8px;
-	width: 90%;
+	width: 30%;
 }
 
 .checkBox {
@@ -260,7 +261,7 @@ select {
 					<div class="sidebar_item">
 						<h3>메뉴</h3>
 						<ul>
-							<li><a href="/semi/html/ij/exercisequestionnaire.jsp">몸상태설문조사</a></li>
+							<!-- <li><a href="/semi/html/ij/exercisequestionnaire.jsp">몸상태설문조사</a></li> -->
 							<li><a href="/semi/html/ij/boardlistview.jsp">운동검색기</a></li>
 							<li><a
 								href="/semi/todayschedule?grade=<%=loginUser.getUsergrade()%>">운동스케쥴</a></li>
@@ -273,8 +274,9 @@ select {
 			<!--내용-->
 			<div id="content">
 				<h2 align="center">운동검색기</h2>
+				<br> <br> <br> <br>
 				<!--게시판 부위별 /  운동명 검색기능-->
-				<select id="bodysearch" class="box">
+				<select id="bodysearch" class="box" style="width: 35%">
 					<option value="">부위선택</option>
 					<option value="chest">가슴</option>
 					<option value="shoulder">등</option>
@@ -286,10 +288,11 @@ select {
 					<option value="arm">팔</option>
 				</select>
 				<!--게시판 운동명 검색기능-->
-				<input type="text" placeholder="검색어입력" id="sportname"> <input
-					type="button" value="검색" id="namesearch">
+				<input type="text" placeholder="검색어입력" id="sportname"
+					style="width: 45%"> <input type="button" value="검색"
+					id="namesearch">
 				<!--게시판 리스트 출력-->
-				<table id="sportlist" border="1">
+				<table id="sportlist" border="1" style="width: 100%">
 				</table>
 				<!--관리자만 업데이트가능-->
 				<%
