@@ -44,12 +44,13 @@
 			</div>
 		</div>
 		<div id="content_header"></div>
-		<div id="site_content">
+		<div id="site_content" style="height: 428px;">
 			<!--       <div id="banner"></div> -->
 			<img id="banner" src="/semi/style/banner.jpg">
 			<div id="sidebar_container">
 				<div class="sidebar">
-					<div class="sidebar_top"></div>
+					<div class="sidebar_top">
+					</div>
 					<div class="sidebar_item">
 						<!-- insert your sidebar items here -->
 						<%
@@ -79,7 +80,8 @@
 					<!--           <div class="sidebar_item">
           </div> -->
 					<!--메뉴바부분끝  -->
-					<div class="sidebar_base"></div>
+					<div class="sidebar_base">
+					</div>
 				</div>
 				<div class="sidebar">
 					<!-- <div class="sidebar_top"></div> -->
@@ -97,37 +99,19 @@
 				<div class="sidebar_base"></div>
 			</div>
 		</div>
-		<<<<<<< HEAD
-		<!--내용시작-->
-		<div id="content"></div>
-		<!--내용끝-->
-	</div>
-	<div id="content_footer"></div>
-	<div id="footer">
-		<p>
-			<a href="/semi/index.jsp">메인</a> | <a
-				href="/semi/html/ij/examples.html">운동정보</a> | <a
-				href="/semi/html/jh/sikdan.html">식단정보</a> | <a
-				href="/semi/html/sh/contact.html">고객센터</a>
-		</p>
-		<p>
-			세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a>
-		</p>
-	</div>
-	=======
-	<div id="content_footer"></div>
-	<div id="footer">
-		<p>
-			<a href="/semi/index.jsp">메인</a> | <a
-				href="/semi/html/ij/examples.html">운동정보</a> | <a
-				href="/semi/html/jh/sikdan.html">식단정보</a> | <a
-				href="/semi/html/sh/contact.html">고객센터</a>
-		</p>
-		<p>
-			세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a>
-		</p>
-	</div>
-	>>>>>>> branch 'master' of https://github.com/Baek-SeungHo/swan.git
+		
+		<div id="content_footer"></div>
+		<div id="footer">
+			<p>
+				<a href="/semi/index.jsp">메인</a> | <a
+					href="/semi/html/ij/examples.html">운동정보</a> | <a
+					href="/semi/html/jh/sikdan.html">식단정보</a> | <a
+					href="/semi/html/sh/contact.html">고객센터</a>
+			</p>
+			<p>
+				세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a>
+			</p>
+		</div>
 	</div>
 </body>
 </html>
