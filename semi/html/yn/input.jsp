@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>운동 기록</title>
+<title>운동기록</title>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"
@@ -174,7 +174,6 @@ select{
 					}
 					
 					$("#insertTable").append(sport);
-					
 					
 					 /* $.each(data.sportTable, function(i){
 						 $("#insertTable").append("<tr><td>"+$("#sportname2 option:selected").text()+"</td><td>"+decodeURIComponent(data.sportTable[i].sportName)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportNum)+"</td></tr>");
