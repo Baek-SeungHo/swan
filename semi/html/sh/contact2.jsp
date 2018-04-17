@@ -27,7 +27,7 @@
 <script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-
+		
 		$(".b_slide").click(function() {
 
 			var currentId = $(this).attr('id');
@@ -285,9 +285,14 @@
 					<% } %>
 					<!-- <a style="float: right; text-decoration: none;" href="">추가</a> -->
 					<!-- Trigger/Open The Modal -->
+					
+					<% if(loginUser !=null ) {%>
+					<% if (loginUser.getAdministrator().equals("Y")) { %>
 					<button id="myBtn1" style="float: right;">제거하기</button>
 					<button id="myBtn" style="float: right; margin-right: 5px;">추가하기</button>
-
+					
+					<% } %>
+					<% } %>
 				</div>
 
 				<!-- The Modal -->
