@@ -252,4 +252,24 @@ public class UserDao {
 		return user;
 	}
 
+	public int pwdchange(Connection con, User user) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+
+		String query = "update user_info set user_pwd = ? where user_id=?";
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, user.getUserPwd());
+			pstmt.setString(2, user.getUserId());
+
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
+
 }

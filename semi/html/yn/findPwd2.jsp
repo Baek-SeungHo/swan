@@ -150,17 +150,48 @@ $(function(){
 			<div id="content">
   <div class="billing">
     <h2>비밀번호 찾기</h2><br><br>
-    <form action="<%= request.getContextPath() %>/mailsend" method="post">			
+    
+    <%
+    String password = "";
+    for(int i = 0; i < 8; i++){
+     //char upperStr = (char)(Math.random() * 26 + 65);
+     char lowerStr = (char)(Math.random() * 26 + 97);
+     if(i%2 == 0){
+      password += (int)(Math.random() * 10);
+     }else{
+      password += lowerStr;
+     }
+    }
+    
+    %>
+    
+  <form name="form1" action="submit()" method="post">			
   <div class="billing">
     <h4>비밀번호 메일로 전송받기</h4><br>
     <input type="hidden" id="userid" name="userid" value="<%= user.getUserId() %>">
-    <input type="hidden" id="userid" name="userpwd" value="<%= user.getUserPwd() %>">
+    <input type="hidden" id="userpwd" name="userpwd" value="<% password %>">
     <input type="hidden" id="useremail" name="useremail" value="<%= user.getUserEmail() %>">
     <input type="hidden" id="subtitle" name="subtitle" value="<%= user.getUserId() %>님의 비밀번호 ">
     <input type="hidden" id="content" name="content" value="<%= user.getUserId() %>님의 비밀번호는 <%= user.getUserPwd() %> 입니다. ">
-    <input type="submit" id="submit" value="click">
+    <input type="submit" id="submit" value="이메일 발송">
   </div>
   </form>
+  
+  <form name="form2" action="submit()" method="post">				
+    <input type="hidden" id="userpwd" name="userpwd" value="<% password %>">
+    <input type="submit" id="submit" value="이메일 발송">
+  </form>
+  
+<script> 
+function submit(){ 
+document.form1.action="<%= request.getContextPath() %>/mailsend" 
+document.form2.action="<%= request.getContextPath() %>/uupdate.me" 
+document.form1.submit(); 
+document.form2.submit(); 
+} 
+</script>
+  
+  
     <!-- <p><h4>회원님의 비밀번호가 이메일로 발송 되었습니다.</h4></p>
     <a href="/semi/html/yn/userLoginPage.jsp"><h4>로그인 페이지로 이동</h4></a> -->
   </div>
