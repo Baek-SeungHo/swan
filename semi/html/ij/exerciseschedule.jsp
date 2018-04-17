@@ -4,6 +4,7 @@
 <%
 	ArrayList<Schedule> list = (ArrayList<Schedule>) request.getAttribute("list");
 	User loginUser = (User) session.getAttribute("loginUser");
+	
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -188,7 +189,8 @@ select {
 						<ul>
 							<!-- <li><a href="/semi/html/ij/exercisequestionnaire.jsp">몸상태설문조사</a></li> -->
 							<li><a href="/semi/html/ij/boardlistview.jsp">운동검색기</a></li>
-							<li><a href="/semi/html/ij/exerciseschedule.jsp">운동스케쥴</a></li>
+							<li><a
+								href="/semi/todayschedule?grade=C">운동스케쥴</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
@@ -200,7 +202,7 @@ select {
 				<h2 align="center">TOday운동스케쥴</h2>
 				<br> <br> <br> <input type="date" id="sportdate"
 					style="width: 100%"> <input type="hidden"
-					value="<%=list.get(0).getGrade()%>" id="grade">
+					value="<%=list.get(0).getGrade() %>" id="grade">
 				<table border="4" id="schedule" style="width: 65%">
 
 					<tr>

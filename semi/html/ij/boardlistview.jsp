@@ -3,6 +3,7 @@
 <%@ page import="user.model.vo.User"%>
 <%
 	User loginUser = (User) session.getAttribute("loginUser");
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -264,7 +265,7 @@ select {
 							<!-- <li><a href="/semi/html/ij/exercisequestionnaire.jsp">몸상태설문조사</a></li> -->
 							<li><a href="/semi/html/ij/boardlistview.jsp">운동검색기</a></li>
 							<li><a
-								href="/semi/todayschedule?grade=<%=loginUser.getUsergrade()%>">운동스케쥴</a></li>
+								href="/semi/todayschedule?grade=C">운동스케쥴</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>

@@ -6,6 +6,7 @@ public class Poll implements Serializable {
 	private static final long serialVersionUID = 10L;
 
 	private String Rating;
+	private String Grade;
 
 	public Poll() {
 	}
@@ -15,16 +16,25 @@ public class Poll implements Serializable {
 	}
 
 	public void setRating(String rating) {
-		Rating = rating;
+		this.Rating = rating;
 	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
-	public Poll(String rating) {
+	public Poll(String rating, String grade) {
 		super();
-		Rating = rating;
+		this.Rating = rating;
+		this.Grade = grade;
+	}
+
+	public String getGrade() {
+		return Grade;
+	}
+
+	public void setGrade(String grade) {
+		this.Grade = grade;
 	}
 
 }

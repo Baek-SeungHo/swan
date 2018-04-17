@@ -27,10 +27,22 @@
 				},
 				success : function(data) {
 					alert("설문조사완료");
+
 				}
 
 			});
+			$.ajax({
+				url : "/semi/grade",
+				type : "post",
+				data : {
+					userid : userid
+				},
+				success : function(data) {
+					alert("등급조회완료");
+				}
+			});
 		});
+
 	});
 </script>
 <style type="text/css">
@@ -167,8 +179,7 @@ select {
 						<ul>
 							<!-- <li><a href="/semi/html/ij/exercisequestionnaire.jsp">몸상태설문조사</a></li> -->
 							<li><a href="/semi/html/ij/boardlistview.jsp">운동검색기</a></li>
-							<li><a
-								href="/semi/todayschedule?grade=<%=loginUser.getUsergrade()%>">운동스케쥴</a></li>
+							<li><a href="/semi/todayschedule?grade=C">운동스케쥴</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
@@ -233,6 +244,7 @@ select {
 					</tr>
 				</table>
 				<input type="button" value="작성완료" id="poll" style="width: 100%">
+
 			</div>
 			<!--내용끝-->
 		</div>

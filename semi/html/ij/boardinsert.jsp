@@ -56,7 +56,6 @@ table tr th, table tr td {
 	padding: 7px 4px;
 	text-align: center;
 	font-size: 14px;
-
 }
 
 table tr td {
@@ -178,8 +177,7 @@ select {
 						<ul>
 							<!-- <li><a href="/semi/html/ij/exercisequestionnaire.jsp">몸상태설문조사</a></li> -->
 							<li><a href="/semi/html/ij/boardlistview.jsp">운동검색기</a></li>
-							<li><a
-								href="/semi/todayschedule?grade=<%=loginUser.getUsergrade()%>">운동스케쥴</a></li>
+							<li><a href="/semi/todayschedule?grade=C">운동스케쥴</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
@@ -189,11 +187,7 @@ select {
 			<!--내용-->
 			<div id="content">
 				<h2 align="center">운동게시물등록</h2>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
+				<br> <br> <br> <br> <br>
 				<table>
 					<tr>
 						<td>운동부위</td>
@@ -210,11 +204,13 @@ select {
 					</tr>
 					<tr>
 						<td>운동이름</td>
-						<td><input type="text" placeholder="운동이름입력" id="sportname" style="width: 100%"></td>
+						<td><input type="text" placeholder="운동이름입력" id="sportname"
+							style="width: 100%"></td>
 					</tr>
 					<tr>
 						<td>운동코드</td>
-						<td><input type="text" placeholder="운동코드입력" id="sportcode"   style="width: 100%"></td>
+						<td><input type="text" placeholder="운동코드입력" id="sportcode"
+							style="width: 100%"></td>
 					</tr>
 					<tr>
 						<td>작성자</td>
@@ -222,11 +218,12 @@ select {
 					</tr>
 					<tr>
 						<td>url코드</td>
-						<td><input type="text" placeholder="URL소스코드입력" id="sporturl"  style="width: 100%"></td>
+						<td><input type="text" placeholder="URL소스코드입력" id="sporturl"
+							style="width: 100%"></td>
 					</tr>
 					<tr>
-						<td colspan="2"  style="text-align: right"><input type="button" value="업데이트"
-							id="sportupdate"></td>
+						<td colspan="2" style="text-align: right"><input
+							type="button" value="업데이트" id="sportupdate"></td>
 					</tr>
 				</table>
 
