@@ -105,7 +105,8 @@
 						<%
 							if (loginUser == null) {
 						%>
-						<a href="/semi/html/yn/userLoginPage.jsp">로그인</a>
+						<a href="/semi/html/yn/userLoginPage.jsp">로그인</a>&nbsp;
+						<a href="/semi/html/yn/userEnroll.jsp">회원가입</a>
 						<%
 							} else {
 						%>
