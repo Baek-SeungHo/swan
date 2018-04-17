@@ -30,8 +30,8 @@
 
 	function initMap() {
 		var pyrmont = {
-			lat : 37.4988994,
-			lng : 127.03257649999998
+			lat : 37.499,
+			lng : 127.03286
 		};
 
 		map = new google.maps.Map(document.getElementById('map'), {
@@ -156,7 +156,10 @@
 				<div class="sidebar_base"></div>
 
 			</div>
-
+			<div id="content">
+					<img id="banner" src="/semi/style/banner.jpg">
+			
+			</div>
 
 
 		</div>

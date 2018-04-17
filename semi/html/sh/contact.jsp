@@ -17,11 +17,19 @@
 <script type="text/javascript">
 function initialize() {
   var mapProp = {
-    center:new google.maps.LatLng(37.4988994, 127.03257649999998),
+    center:new google.maps.LatLng(37.499, 127.03286),
     zoom:18,
     mapTypeId:google.maps.MapTypeId.ROADMAP
   };
+    
   var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+  
+  var uluru = {lat: 37.499, lng: 127.03286};
+  
+  var marker = new google.maps.Marker({
+	  position: uluru,
+	  map: map
+	});
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
@@ -100,6 +108,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 			<div id="content">
 				<!-- insert the page content here -->
 				<h1>Contact to Us</h1>
+				<h5>서울특별시 강남구 테헤란로 14길 6 남도빌딩 2F, 3F, 4F, 5F (T: 1544-9970 / F: 070-8290-2889)</h5>
 				<div>
 					<div id="googleMap" style="width:500px; height:380px;"></div>
 				</div>
