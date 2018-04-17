@@ -295,16 +295,21 @@
        </table>
 
 <!-- 페이징 처리 -->
+					
 						<div style="text-align: center;">
 							<%
 								if (currentPage <= 1) {
 							%>
-							<input type="button" value="처음">
+							<input type="button" value="처음" 
+							style="width: 50px; height: 20px; background: url(/semi/style/buttonbgr_long.png); border: none;"
+							>
 							&nbsp;
 							<%
 								} else {
 							%>
-							<input type="button" value="처음" onclick="clickUrl('/semi/SikdanBoradListServlet?page=1');" /> 
+							<input type="button" value="처음" onclick="clickUrl('/semi/SikdanBoradListServlet?page=1');" 
+							style=" width: 50px; height: 20px; background: url(/semi/style/buttonbgr_long.png);border: none;"
+							/> 
 							&nbsp;
 							<%
 								}
@@ -327,19 +332,19 @@
 									if (p == currentPage) {
 							%>
 									<input type="button" value="<%=p%>"
-										style="width: 22px; height: 22px; background: url(/semi/style/selected_buttonbgr.png); border: none;">
+										style="width: 20px; height: 20px; background: url(/semi/style/selected_buttonbgr.png); border: none;">
 							&nbsp;
 							<%
 									} else {
 							%>
 									<input type="button" value="<%=p%>" onclick="clickUrl('/semi/SikdanBoradListServlet?page=<%=p%>');"
-										style=" width: 22px; height: 22px; background: url(/semi/style/buttonbgr.png);border: none;"> 
+										style=" width: 20px; height: 20px; background: url(/semi/style/buttonbgr.png);border: none;"> 
 							&nbsp;
 							<%
 								}
 								}
 							%>
-<%-- 
+							<%-- 
 							<%
 								if ((currentPage + 10) > endPage && (currentPage + 10) < maxPage) {
 							%>
@@ -351,11 +356,26 @@
 							[next]&nbsp;
 							<% } %> --%>
 
-							<% if(currentPage >= maxPage){ %>
-							<input type="button" value="맨끝">
-							<% }else{ %>
-							<input type="button" value="맨끝" onclick="clickUrl('/semi/SikdanBoradListServlet?page=<%= maxPage %>');" />
-							<% } %>
+							
+							<%
+								if (currentPage >= maxPage) {
+							%>
+							<input type="button" value="맨끝" 
+							style="width: 50px; height: 20px; background: url(/semi/style/buttonbgr_long.png); border: none;"
+							>
+							&nbsp;
+							<%
+								} else {
+							%>
+							<input type="button" value="맨끝" onclick="clickUrl('/semi/SikdanBoradListServlet?page=<%= maxPage %>');" 
+							style=" width: 50px; height: 20px; background: url(/semi/style/buttonbgr_long.png);border: none;"
+							/> 
+							&nbsp;
+							<%
+								}
+							%>
+							
+							
 					 </div>
        <!-- //게시판 목록 영역 -->
 

@@ -179,8 +179,8 @@ $(function(){
     <input type="hidden" id="userid2" name="userid2" value="<%= user.getUserId() %>">
     <input type="hidden" id="userpwd2" name="userpwd2" value="<%= password %>">
     <input type="hidden" id="useremail2" name="useremail2" value="<%= user.getUserEmail() %>">
-    <input type="hidden" id="subtitle2" name="subtitle" value="<%= user.getUserId() %>님의 비밀번호 입니다.">
-    <input type="hidden" id="content2" name="content" value="<%= user.getUserId() %>님의 비밀번호는 <%= password %> 입니다. ">
+    <input type="hidden" id="subtitle2" name="subtitle" value="<%= user.getUserId() %>님의 임시 비밀번호 입니다.">
+    <input type="hidden" id="content2" name="content" value="<%= user.getUserId() %>님의 임시 비밀번호는 <%= password %> 입니다. ">
   </div>
   </form>
   
