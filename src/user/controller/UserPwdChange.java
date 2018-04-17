@@ -48,6 +48,14 @@ public class UserPwdChange extends HttpServlet {
 		response.setContentType("text/html; charset=utf-8");
 		
 		System.out.println(user);
+		
+		RequestDispatcher view = null;
+		if(user != null) {
+			view = request.getRequestDispatcher("index.jsp");
+			request.setAttribute("user", user);
+			view.forward(request, response);
+		}
+		
 	}
 
 	/**

@@ -14,6 +14,7 @@
 <meta http-equiv="content-type"
 	content="text/html; charset=windows-1252" />
 <link rel="stylesheet" type="text/css" href="/semi/style/style.css" />
+<script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
 <style type="text/css">
 
 @import url(https://fonts.googleapis.com/css?family=Oxygen:400,700);
@@ -84,11 +85,18 @@ select{
 </style>
 <script type="text/javascript">
 $(function(){
-	$('#sportbody').click(function(){
-		alert("회원님의 비밀번호가 이메일로 발송 되었습니다.");
+	$('#zzsubmit').click(function(){
+		var formData = $("#form1").serialize();
+		$.ajax({
+			url: "/semi/mailsend",
+			data: formData,
+			type: "get",
+			success: function(data){
+													 
+			} 		
+		}); 	
 	});	//change
-
-}); 
+}); 	
 </script>
 </head>
 <body>
@@ -165,18 +173,18 @@ $(function(){
     
     %>
     
-  <form name="form1" action="<%= request.getContextPath() %>/mailsend" method="post">			
+  <form id="form1" name="form1" action="<%= request.getContextPath() %>/mailsend" method="post">			
   <div class="billing">
     <h4>비밀번호 메일로 전송받기</h4><br>
-    <input type="hidden" id="userid" name="userid" value="<%= user.getUserId() %>">
-    <input type="hidden" id="userpwd" name="userpwd" value="<%= password %>">
-    <input type="hidden" id="useremail" name="useremail" value="<%= user.getUserEmail() %>">
-    <input type="hidden" id="subtitle" name="subtitle" value="<%= user.getUserId() %>님의 비밀번호 입니다.">
-    <input type="hidden" id="content" name="content" value="<%= user.getUserId() %>님의 비밀번호는 <%= password %> 입니다. ">
+    <input type="hidden" id="userid2" name="userid2" value="<%= user.getUserId() %>">
+    <input type="hidden" id="userpwd2" name="userpwd2" value="<%= password %>">
+    <input type="hidden" id="useremail2" name="useremail2" value="<%= user.getUserEmail() %>">
+    <input type="hidden" id="subtitle2" name="subtitle" value="<%= user.getUserId() %>님의 임시 비밀번호 입니다.">
+    <input type="hidden" id="content2" name="content" value="<%= user.getUserId() %>님의 임시 비밀번호는 <%= password %> 입니다. ">
   </div>
   </form>
   
-  <form name="form2" action="<%= request.getContextPath() %>/pwdchange.me" method="post">
+  <form id="form2" name="form2" action="<%= request.getContextPath() %>/pwdchange.me" method="post">
   	<input type="hidden" id="userid" name="userid" value="<%= user.getUserId() %>">			
     <input type="hidden" id="userpwd" name="userpwd" value="<%= password %>">
     <input type="hidden" id="username" name="username" value="<%= user.getUserName() %>">
@@ -185,17 +193,17 @@ $(function(){
     <input type="hidden" id="useremail" name="useremail" value="<%= user.getUserEmail() %>">
     <input type="hidden" id="userphone" name="userphone" value="<%= user.getUserPhone() %>">
     <input type="hidden" id="administrator" name="administrator" value="<%= user.getAdministrator() %>">
-    <input type="submit" value="전송">
+    <input type="submit" id="zzsubmit" value="submit">
   </form>
   
   <% System.out.println(password); %>
   
-<script> 
+<!-- <script> 
 function submit(){ 
 document.form1.submit(); 
 document.form2.submit(); 
 } 
-</script>
+</script> -->
   
     <!-- <p><h4>회원님의 비밀번호가 이메일로 발송 되었습니다.</h4></p>
     <a href="/semi/html/yn/userLoginPage.jsp"><h4>로그인 페이지로 이동</h4></a> -->

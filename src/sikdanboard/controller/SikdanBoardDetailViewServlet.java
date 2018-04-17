@@ -39,7 +39,7 @@ public class SikdanBoardDetailViewServlet extends HttpServlet {
 
 		SikdanBoardService sbs = new SikdanBoardService();
 
-//		sbs.addReadCount(Integer.parseInt(board_num));
+		sbs.addReadCount(Integer.parseInt(board_num));
 		SikdanBorad sb = new SikdanBoardService().selectBoard(Integer.parseInt(board_num));
 
 		response.setContentType("text/html; charset=utf-8");
@@ -53,7 +53,7 @@ public class SikdanBoardDetailViewServlet extends HttpServlet {
 		} else {
 			PrintWriter out = response.getWriter();
 
-			out.println("¤·¤·");
+			out.println("ï¿½ï¿½ï¿½ï¿½");
 			out.close();
 		}
 	}
