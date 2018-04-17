@@ -175,15 +175,15 @@ select{
 				<div id="logo_text">
 					<!-- class="logo_colour", allows you to change the colour of the text -->
 					<h1>
-						<a href="/semi/index.html"><span class="logo_colour">Swan</span></a>
+						<a href="/semi/index.jsp"><span class="logo_colour">Swan</span></a>
 					</h1>
 				</div>
 			</div>
 			<div id="menubar">
 				<ul id="menu">
-					<li><a href="/semi/html/ij/examples.html">운동정보</a></li>
-					<li><a href="/semi/html/jh/page.html">식단정보</a></li>
-					<li><a href="/semi/html/sh/contact.html">고객센터</a></li>
+					<li><a href="/semi/html/ij/boardlistview.jsp">운동정보</a></li>
+					<li><a href="/semi/html/jh/sikdanInfo.jsp">식단정보</a></li>
+					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
 				</ul>
 			</div>
 		</div>
@@ -194,17 +194,18 @@ select{
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
 						<!-- insert your sidebar items here -->
-						<h4>관리자님 환영합니다</h4>
-						<a href="/semi/html/yn/another_page.html">마이페이지</a>
+						<h4><%= loginUser.getUserName() %>님 환영합니다</h4>
+						<a href="/semi/exedetail?userid=<%= loginUser.getUserId() %>">마이페이지</a>
 					</div>
 					<div class="sidebar_base"></div>
 				</div>
 				<div class="sidebar">
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
+						<h3>Memu</h3>
 						<ul>
-							<li><a href="#">회원정보수정</a></li>
-							<li><a href="#">운동기록</a></li>
+							<li><a href="/semi/udetail?userid=<%= loginUser.getUserId() %>">회원정보수정</a></li>
+							<li><a href="/semi/html/yn/input.jsp">운동기록</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
