@@ -69,6 +69,15 @@ table tr td
   color: rgb(127,127,127);
   border: 1px solid rgb(127,127,127);
   border-spacing:0px; padding:0; border:0; border-collapse:collapse;}
+  
+#days {
+  font-size: 23px;
+}  
+
+#days2 {
+  font-size: 23px;
+  color: rgb(29,182,235);
+}
 </style>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -112,7 +121,7 @@ table tr td
 	
 	days = Math.ceil(days)+1;
 	
-	$(document).ready(function(){ $("#days").append(days) });
+	$(document).ready(function(){ $("#days").append(days+"일") });
 	
 }('days'));
 
@@ -144,7 +153,7 @@ table tr td
 	
 	days2 = Math.ceil(days2);
 	
-	$(document).ready(function(){ $("#days2").append(days2) });
+	$(document).ready(function(){ $("#days2").append(days2+"일") });
 	
 }('days2'));
 
@@ -400,7 +409,7 @@ days2 = Math.ceil(days2);
 
 
 
-var per = (days2/days*100).toFixed(0);
+var per = ((days2/days)*100).toFixed(0);
 
 donutGraph('.graph', per);
 
