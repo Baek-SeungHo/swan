@@ -258,25 +258,26 @@
 					<% } else { %>
 					<a href="/semi/qnalist?page=1">[맨처음]</a>
 					<% } %>
-					<% if ((currentPage - 10) < startPage && (currentPage - 10) > 1) { %>
-					<a href="/semi/qnalist?page=<%=startPage - 10%>">[prev]</a>
-					<% } else { %>
-					[prev]&nbsp;
-					<% } %>
+					&nbsp;
+					
 					<!-- 현재 페이지가 포함된 그룹의 페이지 숫자 출력 -->
 					<% for (int p = startPage; p <= endPage; p++) {
 							if (p == currentPage) { %>
-					<font color="red" size="4"><b>[<%=p%>]
-					</b></font>
+					<%-- <font color="red" size="2"><b><%=p%></b>
+					</font> --%>
+					
+					<input type="button" value="<%=p%>" 
+					style="width: 22px; height: 22px; 
+					background: url(/semi/style/selected_buttonbgr.png);					
+					border: none;
+					">
 					<% } else { %>
-					<a href="/semi/qnalist?page=<%=p%>"><%=p%></a>
+					<input type="button" value="<%= p %>" onclick="location.href='/semi/qnalist?page=<%=p%>';"
+					
+					style=" width: 22px; height: 22px; background: url(/semi/style/buttonbgr.png);border: none;"> 
 					<% } } %>
 
-					<% if ((currentPage + 10) > endPage && (currentPage + 10) < maxPage) { %>
-					<a href="/semi/qnalist?page=<%=endPage + 10%>">[next]</a>
-					<% } else { %>
-					[next]&nbsp;
-					<% } %>
+					&nbsp;
 
 					<% if (currentPage >= maxPage) { %>
 					[맨끝]&nbsp;
