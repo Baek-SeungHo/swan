@@ -29,9 +29,8 @@ public class DaysServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String days = request.getParameter("days");
-		String days2 = request.getParameter("days2");
 		
-		System.out.println("총일수:" + days + " 남은일수:" + days2);
+		System.out.println("총일수:" + days);
 		
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();

@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import ="user.model.vo.User, exeinfo.model.vo.ExeInfo" %>
@@ -18,6 +19,8 @@
 <meta http-equiv="content-type"
 	content="text/html; charset=windows-1252" />
 <link rel="stylesheet" type="text/css" href="/semi/style/style.css" />
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 <script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="/semi/html/yn/calendar2/jquery.number.min.js"></script>
@@ -72,6 +75,9 @@ table tr td
 
 <script type="text/javascript">
 
+
+
+
 (function count(){
 	
 	var startdate= new Date("<%= exeinfo.getUserStartdate() %>");
@@ -106,23 +112,11 @@ table tr td
 	
 	days = Math.ceil(days)+1;
 	
-	alert("총일수 " +(days)+ "일");	
+	$(document).ready(function(){ $("#days").append(days) });
 	
-	
-	$(function(){
-		$.ajax({
-			url: "/semi/days",
-			data: {days: days},
-			type: "get",
-			dataType: "json",
-			success: function(data){
-				console.log("제대로 출력됨"+data);
-			}
-		});
-	});
 }('days'));
 
-function count2(){
+(function count2(){
 	
 	var enddate = new Date("<%= exeinfo.getUserEnddate() %>");
 	
@@ -150,20 +144,9 @@ function count2(){
 	
 	days2 = Math.ceil(days2);
 	
-	alert("남은일수 " +(days2)+ "일");
+	$(document).ready(function(){ $("#days2").append(days2) });
 	
-	$(function(){
-		$.ajax({
-			url: "/semi/days",
-			data: {days2: days2},
-			type: "get",
-			dataType: "json",
-			success: function(data){
-				
-			}
-		});
-	});
-}
+}('days2'));
 
 
 
@@ -204,6 +187,8 @@ function drawBasic() {
 
       chart.draw(data, options);
     }
+    
+    
 </script>
 </head>
 <body>
@@ -270,7 +255,7 @@ function drawBasic() {
 			<!--내용-->			
 			<div id="content">
 			<div id="myinfo2" class="4u" style="border: 4px solid rgb(242,242,242); width: 250px; height: 350px; padding: 10pt; margin: 4pt; float: left;">
-			<h2 style="text-align:center; font-weight:bold;">시작세부 정보 및 목표</h2>			
+			<h2 style="text-align:center; font-weight:bold;">시작세부 정보 및 목표</h2>	
 			<hr>
 			<table style="margin-left:15pt;">
 			<tr><th width="150">시작 날짜</th><th width="80">시작체중</th></tr>
@@ -289,7 +274,7 @@ function drawBasic() {
 			
 			<table style="border: 1px solid #FFF; margin-left:15pt;">
 			<tr><th width="150">목표날짜</th><th width="80">남은일수</th></tr>
-			<tr><td><font size="5" style="color: rgb(29,182,235);"><%= exeinfo.getUserEnddate() %></font></td><td><font size="5" style="color: rgb(29,182,235);"><button onclick="count2()">남은일수</button></font></td></tr>
+			<tr><td><font size="5" style="color: rgb(29,182,235);"><%= exeinfo.getUserEnddate() %></font></td><td id="days2"><font size="5" style="color: rgb(29,182,235);"></font></td></tr>
 			</table>
 			</div>
 			
