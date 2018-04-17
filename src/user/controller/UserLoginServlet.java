@@ -39,6 +39,7 @@ public class UserLoginServlet extends HttpServlet {
 		
 		User loginUser = new UserService().loginCheck(userId, userPwd);
 		
+		
 		response.setContentType("text/html; charset=utf-8");
 		if(loginUser != null) {
 			HttpSession session = request.getSession();

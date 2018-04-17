@@ -15,20 +15,21 @@
 		$("#poll").click(function() {
 			var yes = $('input:checkbox[name="yes"]:checked').length;
 			var no = $('input:checkbox[name="no"]:checked').length;
+			var userid = $("#sportid").val();
 
 			$.ajax({
 				url : "/semi/poll",
 				type : "post",
 				data : {
 					yes : yes,
-					no : no
+					no : no,
+					userid : userid
 				},
 				success : function(data) {
 					alert("설문조사완료");
 				}
 
 			});
-
 		});
 	});
 </script>
@@ -178,10 +179,9 @@ select {
 			<!--내용-->
 			<div id="content">
 				<h2>운동설문조사</h2>
-				<br>
-				<br>
-				<br>
-				<table border="3" >
+				<input type="hidden" value="<%=loginUser.getUserId()%>" id="sportid">
+				<br> <br> <br>
+				<table border="3">
 					<tr>
 						<th>질문</th>
 						<th>내용</th>

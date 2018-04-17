@@ -137,7 +137,12 @@ public class pollServlet extends HttpServlet {
 		}
 		System.out.println(result);
 		System.out.println(Rating);
-		int poll = new PollService().pollrating(Rating);
+		
+		String userid = request.getParameter("userid");
+		
+		System.out.println(userid);
+		
+		int poll = new PollService().pollrating(Rating,userid);
 
 	}
 

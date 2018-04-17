@@ -21,8 +21,8 @@
 					$("#schedule").empty();
 					var date = (this.value);
 					var grade = $("#grade").val();
-					alert(grade);
-					alert(date);
+				
+					
 					$.ajax({
 						url : "/semi/dateserach",
 						type : "post",
@@ -35,7 +35,7 @@
 							var jsonstr = JSON.stringify(data);
 							var json = JSON.parse(jsonstr);
 							var sport = "";
-
+							
 							for ( var i in json.list) {
 								sport += "<tr><td>	"
 										+ json.list[i].schedulename
