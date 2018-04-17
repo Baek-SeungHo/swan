@@ -298,10 +298,12 @@
 								if (currentPage <= 1) {
 							%>
 							<input type="button" value="처음">
+							&nbsp;
 							<%
 								} else {
 							%>
 							<input type="button" value="처음" onclick="clickUrl('/semi/SikdanBoradListServlet?page=1');" /> 
+							&nbsp;
 							<%
 								}
 							%>
@@ -322,12 +324,15 @@
 								for (int p = startPage; p <= endPage; p++) {
 									if (p == currentPage) {
 							%>
-							<font color="red" size="4"><b>[<%=p%>]
-							</b></font>
+									<input type="button" value="<%=p%>"
+										style="width: 22px; height: 22px; background: url(/semi/style/selected_buttonbgr.png); border: none;">
+							&nbsp;
 							<%
-								} else {
+									} else {
 							%>
-							<font color="black" size="4"><a href="/semi/SikdanBoradListServlet?page=<%=p%>"><%=p%></a></font>
+									<input type="button" value="<%=p%>" onclick="clickUrl('/semi/SikdanBoradListServlet?page=<%=p%>');"
+										style=" width: 22px; height: 22px; background: url(/semi/style/buttonbgr.png);border: none;"> 
+							&nbsp;
 							<%
 								}
 								}
