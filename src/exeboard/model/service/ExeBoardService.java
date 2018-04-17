@@ -71,4 +71,12 @@ public class ExeBoardService {
 		return result;
 	}
 
+	// top3 조회
+	public ArrayList<ExeBoard> top3() {
+		Connection con = getConnection();
+		ArrayList<ExeBoard> list = new ExeBoardDao().top3(con);
+		return list;
+
+	}
+
 }

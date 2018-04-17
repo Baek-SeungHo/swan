@@ -14,7 +14,7 @@
 <meta http-equiv="content-type"
 	content="text/html; charset=windows-1252" />
 <link rel="stylesheet" type="text/css" href="/semi/style/style.css" />
-
+<script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
 <script
 	src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script
@@ -63,17 +63,47 @@
 			position : place.geometry.location
 		});
 
-		 google.maps.event.addListener(marker, 'click', function() {
+		google.maps.event.addListener(marker, 'click', function() {
 			infowindow.setContent(place.name);
 			infowindow.open(map, this);
-		}); 
+		});
 	}
-	
-	function checkAdmin(flag){
-		if(flag == true){
-			location.href='/semi/html/jh/userManagement.jsp';
+
+	function checkAdmin(flag) {
+		if (flag == true) {
+			location.href = '/semi/html/jh/userManagement.jsp';
 		}
 	}
+	/*운동검색기 top3*/
+	$(function() {
+
+		$.ajax({
+			url : "top3",
+			type : "post",
+			dataType : "json",
+			success : function(data) {
+
+				var jsonStr = JSON.stringify(data);
+				var json = JSON.parse(jsonStr);
+				var values = "";
+				for ( var i in json.list) {
+
+					values += "<tr><td>" + json.list[i].body + "</td><td>"
+							+ json.list[i].name + "</td><td>"
+							+ json.list[i].date + "</td><td>"
+							+ json.list[i].look + "</td></tr>";
+
+				}
+				$("#top3").append(values);
+			},
+			error : function(jqXHR, textStatus, errorThrown) {
+				console.log("error : " + jqXHR + ", " + textStatus + ", "
+						+ errorThrown);
+			}
+
+		});
+
+	});
 </script>
 </head>
 
@@ -94,18 +124,19 @@
 					<li><a href="/semi/html/jh/sikdanInfo.jsp">식단정보</a></li>
 					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
 					<%
-					    if(loginUser != null){
-						if(loginUser.getAdministrator().equals("Y")){
+						if (loginUser != null) {
+							if (loginUser.getAdministrator().equals("Y")) {
 					%>
-							<li><a href="/semi/html/jh/userManagement.jsp">회원관리</a></li>
-					<%	
-						}}
+					<li><a href="/semi/html/jh/userManagement.jsp">회원관리</a></li>
+					<%
+						}
+						}
 					%>
 				</ul>
 			</div>
 		</div>
 		<div id="content_header"></div>
-		<div id="site_content" >
+		<div id="site_content">
 			<!--       <div id="banner"></div> -->
 			<!-- 		<img id="banner" src="/semi/style/banner.jpg"> -->
 			<div id="sidebar_container">
@@ -117,12 +148,11 @@
 
 						<!-- insert your sidebar items here -->
 						<%
-						
 							if (loginUser == null) {
 						%>
-						<a href="/semi/html/yn/userLoginPage.jsp">로그인</a>&nbsp;
-						<a href="/semi/html/yn/userEnroll.jsp">회원가입</a>
-						<%	
+						<a href="/semi/html/yn/userLoginPage.jsp">로그인</a>&nbsp; <a
+							href="/semi/html/yn/userEnroll.jsp">회원가입</a>
+						<%
 							} else {
 						%>
 						<h4><%=loginUser.getUserName()%>님 환영합니다
@@ -170,14 +200,18 @@
 
 			</div>
 			<div id="content">
-					<img id="banner" src="/semi/style/banner.jpg">
-			
+				<img id="banner" src="/semi/style/banner.jpg">
+				<h2>운동검색기 TOP3 조회수</h2>
+				<table border="1" id="top3" style="width: 100%">
+					<tr>
+						<th>운동부위</th>
+						<th>운동명</th>
+						<th>날짜</th>
+						<th>조회수</th>
+					</tr>
+				</table>
 			</div>
-
-
 		</div>
-
-
 		<div id="content_footer"></div>
 
 		<div id="footer">

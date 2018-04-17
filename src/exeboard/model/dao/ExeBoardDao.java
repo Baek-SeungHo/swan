@@ -179,7 +179,38 @@ public class ExeBoardDao {
 			close(pstmt);
 		}
 		return result;
+	}
 
+	// 조회수높은게시판 출력
+	public ArrayList<ExeBoard> top3(Connection con) {
+		ArrayList<ExeBoard> list = new ArrayList<>();
+		Statement stmt = null;
+		ResultSet rset = null;
+
+		String query = "select * from (select ROWNUM rnum, sport_look, sport_body,sport_date,sport_name from(select * from EXE_RECOMMEND ORDER BY SPORT_LOOK desc )) where rnum >=1 and rnum <=3";
+
+		try {
+			stmt = con.createStatement();
+			rset = stmt.executeQuery(query);
+
+			while (rset.next()) {
+				ExeBoard b = new ExeBoard();
+				b.setSportbody(rset.getString("sport_body"));
+				b.setSportdate(rset.getDate("sport_date"));
+				b.setSportname(rset.getString("sport_name"));
+				b.setSportlook(rset.getInt("sport_look"));
+
+				list.add(b);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(stmt);
+			close(rset);
+		}
+
+		return list;
 	}
 
 }
