@@ -15,7 +15,7 @@ import user.model.vo.User;
 /**
  * Servlet implementation class UserPwdChange
  */
-@WebServlet("/pwdchange")
+@WebServlet("/pwdchange.me")
 public class UserPwdChange extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -46,13 +46,8 @@ public class UserPwdChange extends HttpServlet {
 		int result = new UserService().pwdchange(user);
 		
 		response.setContentType("text/html; charset=utf-8");
-		if(result > 0) {
-			response.sendRedirect("/semi/index.jsp");
-		}else {
-			RequestDispatcher view = request.getRequestDispatcher("html/yn/userError.jsp");
-			request.setAttribute("message", "비밀번호 수정처리 실패");
-			view.forward(request, response);
-		}
+		
+		System.out.println(user);
 	}
 
 	/**
