@@ -242,7 +242,7 @@
 
            </thead>
 
-           <tbody>
+           <tbody style="background-color: black">
 
 						<!--     <tr>
 
@@ -282,11 +282,19 @@
 					</tbody>
 
            <tfoot>
-				<tr>
+				<!-- <tr>
 				<td align="center" colspan="5">
 				
 					
-       				<!-- 페이징 처리 -->
+       				
+					</td>
+				</tr> -->
+				
+			</tfoot>
+				
+       </table>
+
+<!-- 페이징 처리 -->
 						<div style="text-align: center;">
 							<%
 								if (currentPage <= 1) {
@@ -349,13 +357,6 @@
 							<input type="button" value="맨끝" onclick="clickUrl('/semi/SikdanBoradListServlet?page=<%= maxPage %>');" />
 							<% } %>
 					 </div>
-					</td>
-				</tr>
-				
-			</tfoot>
-				
-       </table>
-
        <!-- //게시판 목록 영역 -->
 
        <!-- 버튼 영역 -->

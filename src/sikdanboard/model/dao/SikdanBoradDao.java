@@ -185,6 +185,7 @@ public class SikdanBoradDao {
 		//�Խ��� ��ȸ�� ����
 		public int addReadCount(Connection con, int board_num) {
 			int result = 0;
+			SikdanBorad sb = null;
 			PreparedStatement pstmt = null;
 
 			String query = "update FOOD_RECOMMEND set board_look = board_look + 1 where board_num = ?";

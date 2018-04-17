@@ -123,8 +123,8 @@
 							<td><%=sb.getBoard_title()%></td>
 						</tr>
 						<tr>
-							<th align="center">작성자/조회수</th>
-							<td><%=sb.getBoard_write()%> / <%=sb.getBoard_look()%></td>
+							<th align="center">작성자</th>
+							<td><%=sb.getBoard_write()%></td>
 						</tr>
 						<tr>
 							<th align="center">내용</th>
