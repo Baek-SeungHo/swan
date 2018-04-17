@@ -271,7 +271,7 @@ select{
 		<div id="content_footer"></div>
 		<div id="footer">
 			<p>
-				<a href="/semi/index.html">메인</a> | <a href="/semi/html/ij/examples.html">운동정보</a> | <a
+				<a href="/semi/index.html">메인</a> | <a href="/semi/html/ij/boardlistview.jsp">운동정보</a> | <a
 					href="/semi/html/jh/page.html">식단정보</a> | <a href="/semi/html/sh/contact.html">고객센터</a>
 			</p>
 			<p>
