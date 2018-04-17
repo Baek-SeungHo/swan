@@ -1,14 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import ="user.model.vo.User" %>
-<%
-	User user = (User)request.getAttribute("user");
-%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>비밀번호 찾기</title>
+<title>아이디 찾기</title>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"
@@ -26,7 +22,7 @@
 }
 .billing{
   float: left;
-  width: 450px;
+  width: 300px;
 }
 
 h2{
@@ -82,14 +78,6 @@ select{
 }
 
 </style>
-<script type="text/javascript">
-$(function(){
-	$('#sportbody').click(function(){
-		alert("회원님의 비밀번호가 이메일로 발송 되었습니다.");
-	});	//change
-
-}); 
-</script>
 </head>
 <body>
 <div id="main">
@@ -105,7 +93,7 @@ $(function(){
 			<div id="menubar">
 				<ul id="menu">
 					<li><a href="/semi/html/ij/boardlistview.jsp">운동정보</a></li>
-					<li><a href="/semi/html/jh/sikdanInfo.jsp">식단정보</a></li>
+					<li><a href="/semi/html/jh/sikdan.html">식단정보</a></li>
 					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
 				</ul>
 			</div>
@@ -148,53 +136,16 @@ $(function(){
 			</div> -->
 			<!--내용-->
 			<div id="content">
+  <form action="<%= request.getContextPath() %>/findid" method="post">			
   <div class="billing">
-    <h2>비밀번호 찾기</h2><br><br>
-    
-    <%
-    String password = "";
-    for(int i = 0; i < 8; i++){
-     //char upperStr = (char)(Math.random() * 26 + 65);
-     char lowerStr = (char)(Math.random() * 26 + 97);
-     if(i%2 == 0){
-      password += (int)(Math.random() * 10);
-     }else{
-      password += lowerStr;
-     }
-    }
-    
-    %>
-    
-  <form name="form1" action="submit()" method="post">			
-  <div class="billing">
-    <h4>비밀번호 메일로 전송받기</h4><br>
-    <input type="hidden" id="userid" name="userid" value="<%= user.getUserId() %>">
-    <input type="hidden" id="userpwd" name="userpwd" value="<% password %>">
-    <input type="hidden" id="useremail" name="useremail" value="<%= user.getUserEmail() %>">
-    <input type="hidden" id="subtitle" name="subtitle" value="<%= user.getUserId() %>님의 비밀번호 ">
-    <input type="hidden" id="content" name="content" value="<%= user.getUserId() %>님의 비밀번호는 <%= user.getUserPwd() %> 입니다. ">
-    <input type="submit" id="submit" value="이메일 발송">
+    <h2>아이디 찾기</h2><br><br><br><br><br>
+    <p style="text-align:left; float:left">이름</p>
+    <p style="text-align:right"><input type="text" id="username" name="username" style="width:230px; margin-bottom: 0pt;"></p>
+    <p style="text-align:left; float:left">이메일</p>
+    <p style="text-align:right"><input type="text" id="useremail" name="useremail" style="width:230px; margin-bottom: 0pt;"></p>
+    <p style="text-align:right"><input type="submit" value="submit"></p>
   </div>
   </form>
-  
-  <form name="form2" action="submit()" method="post">				
-    <input type="hidden" id="userpwd" name="userpwd" value="<% password %>">
-    <input type="submit" id="submit" value="이메일 발송">
-  </form>
-  
-<script> 
-function submit(){ 
-document.form1.action="<%= request.getContextPath() %>/mailsend" 
-document.form2.action="<%= request.getContextPath() %>/uupdate.me" 
-document.form1.submit(); 
-document.form2.submit(); 
-} 
-</script>
-  
-  
-    <!-- <p><h4>회원님의 비밀번호가 이메일로 발송 되었습니다.</h4></p>
-    <a href="/semi/html/yn/userLoginPage.jsp"><h4>로그인 페이지로 이동</h4></a> -->
-  </div>
 			</div>
 			<!--내용끝-->
 		</div>
@@ -202,7 +153,7 @@ document.form2.submit();
 		<div id="footer">
 			<p>
 				<a href="/semi/index.jsp">메인</a> | <a href="/semi/html/ij/examples.html">운동정보</a> | <a
-					href="/semi/html/jh/sikdanInfo.jsp">식단정보</a> | <a href="/semi/html/sh/contact.jsp">고객센터</a>
+					href="/semi/html/jh/sikdan.html">식단정보</a> | <a href="/semi/html/sh/contact.jsp">고객센터</a>
 			</p>
 			<p>
 				세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a>

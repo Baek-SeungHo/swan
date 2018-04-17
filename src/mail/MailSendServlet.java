@@ -40,6 +40,7 @@ public class MailSendServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			
 			request.setCharacterEncoding("utf-8");
 			
 			String from_email = request.getParameter("useremail");
