@@ -40,23 +40,17 @@
 				<div class="sidebar">
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
-						<%
-							if (loginUser == null) {
-						%>
-						<a href="/semi/html/yn/userLoginPage.jsp">로그인</a>
-						<%
-							} else {
-						%>
+						<%   
+   							if(loginUser == null) {   
+   						 %>
+						<a href="/semi/html/yn/userLoginPage.jsp">로그인</a>&nbsp;
+						<a href="/semi/html/yn/userEnroll.jsp">회원가입</a>
+						<% } else {%>
 						<h4><%=loginUser.getUserName()%>님 환영합니다
 						</h4>
-						<a href="/semi/udetail?userid=<%=loginUser.getUserId()%>">회원정보수정</a>
+						<a href="/semi/exedetail?userid=<%=loginUser.getUserId()%>">마이페이지</a>&nbsp;&nbsp;&nbsp;
 						<a href="/semi/ulogout"><input type="button" value="로그아웃"></a>
-						<a href="/semi/html/yn/input.jsp">운동기록</a> <a
-							href="/semi/html/yn/goal.jsp">추가입력</a> <a
-							href="/semi/exedetail?userid=<%=loginUser.getUserId()%>">마이페이지</a>
-						<%
-							}
-						%>
+						<% } %>
 					</div>
 					<div class="sidebar_base"></div>
 				</div>
@@ -120,7 +114,7 @@
 		<div id="footer">
 			<p>
 				<a href="/semi/index.jsp">메인</a> | <a
-					href="/semi/html/ij/examples.html">운동정보</a> | <a
+					href="/semi/html/ij/boardlistview.jsp">운동정보</a> | <a
 					href="/semi/html/jh/sikdanInfo.jsp">식단정보</a> | <a
 					href="/semi/html/sh/contact.jsp">고객센터</a>
 			</p>

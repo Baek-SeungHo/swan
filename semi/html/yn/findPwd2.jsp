@@ -165,32 +165,37 @@ $(function(){
     
     %>
     
-  <form name="form1" action="submit()" method="post">			
+  <form name="form1" action="<%= request.getContextPath() %>/mailsend" method="post">			
   <div class="billing">
     <h4>비밀번호 메일로 전송받기</h4><br>
     <input type="hidden" id="userid" name="userid" value="<%= user.getUserId() %>">
-    <input type="hidden" id="userpwd" name="userpwd" value="<% password %>">
+    <input type="hidden" id="userpwd" name="userpwd" value="<%= password %>">
     <input type="hidden" id="useremail" name="useremail" value="<%= user.getUserEmail() %>">
-    <input type="hidden" id="subtitle" name="subtitle" value="<%= user.getUserId() %>님의 비밀번호 ">
-    <input type="hidden" id="content" name="content" value="<%= user.getUserId() %>님의 비밀번호는 <%= user.getUserPwd() %> 입니다. ">
-    <input type="submit" id="submit" value="이메일 발송">
+    <input type="hidden" id="subtitle" name="subtitle" value="<%= user.getUserId() %>님의 비밀번호 입니다.">
+    <input type="hidden" id="content" name="content" value="<%= user.getUserId() %>님의 비밀번호는 <%= password %> 입니다. ">
   </div>
   </form>
   
-  <form name="form2" action="submit()" method="post">				
-    <input type="hidden" id="userpwd" name="userpwd" value="<% password %>">
-    <input type="submit" id="submit" value="이메일 발송">
+  <form name="form2" action="<%= request.getContextPath() %>/pwdchange.me" method="post">
+  	<input type="hidden" id="userid" name="userid" value="<%= user.getUserId() %>">			
+    <input type="hidden" id="userpwd" name="userpwd" value="<%= password %>">
+    <input type="hidden" id="username" name="username" value="<%= user.getUserName() %>">
+    <input type="hidden" id="usergender" name="usergender" value="<%= user.getUserGender() %>">
+    <input type="hidden" id="userage" name="userage" value="<%= user.getUserAge() %>">
+    <input type="hidden" id="useremail" name="useremail" value="<%= user.getUserEmail() %>">
+    <input type="hidden" id="userphone" name="userphone" value="<%= user.getUserPhone() %>">
+    <input type="hidden" id="administrator" name="administrator" value="<%= user.getAdministrator() %>">
+    <input type="submit" value="전송">
   </form>
+  
+  <% System.out.println(password); %>
   
 <script> 
 function submit(){ 
-document.form1.action="<%= request.getContextPath() %>/mailsend" 
-document.form2.action="<%= request.getContextPath() %>/uupdate.me" 
 document.form1.submit(); 
 document.form2.submit(); 
 } 
 </script>
-  
   
     <!-- <p><h4>회원님의 비밀번호가 이메일로 발송 되었습니다.</h4></p>
     <a href="/semi/html/yn/userLoginPage.jsp"><h4>로그인 페이지로 이동</h4></a> -->

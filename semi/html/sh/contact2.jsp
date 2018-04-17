@@ -27,7 +27,7 @@
 <script type="text/javascript" src="/semi/source/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-
+		
 		$(".b_slide").click(function() {
 
 			var currentId = $(this).attr('id');
@@ -183,15 +183,13 @@
 						<%   
    							if(loginUser == null) {   
    						 %>
-						<a href="/semi/html/yn/userLoginPage.jsp">로그인</a>
+						<a href="/semi/html/yn/userLoginPage.jsp">로그인</a>&nbsp;
+						<a href="/semi/html/yn/userEnroll.jsp">회원가입</a>
 						<% } else {%>
-						<h4><%= loginUser.getUserName() %>님 환영합니다
+						<h4><%=loginUser.getUserName()%>님 환영합니다
 						</h4>
-						<a href="/semi/udetail?userid=<%= loginUser.getUserId() %>">회원정보수정</a>
+						<a href="/semi/exedetail?userid=<%=loginUser.getUserId()%>">마이페이지</a>&nbsp;&nbsp;&nbsp;
 						<a href="/semi/ulogout"><input type="button" value="로그아웃"></a>
-						<a href="/semi/html/yn/input.jsp">운동기록</a> <a
-							href="/semi/html/yn/goal.jsp">추가입력</a> <a
-							href="/semi/exedetail?userid=<%= loginUser.getUserId() %>">마이페이지</a>
 						<% } %>
 					</div>
 					<div class="sidebar_base"></div>
@@ -258,25 +256,26 @@
 					<% } else { %>
 					<a href="/semi/qnalist?page=1">[맨처음]</a>
 					<% } %>
-					<% if ((currentPage - 10) < startPage && (currentPage - 10) > 1) { %>
-					<a href="/semi/qnalist?page=<%=startPage - 10%>">[prev]</a>
-					<% } else { %>
-					[prev]&nbsp;
-					<% } %>
+					&nbsp;
+					
 					<!-- 현재 페이지가 포함된 그룹의 페이지 숫자 출력 -->
 					<% for (int p = startPage; p <= endPage; p++) {
 							if (p == currentPage) { %>
-					<font color="red" size="4"><b>[<%=p%>]
-					</b></font>
+					<%-- <font color="red" size="2"><b><%=p%></b>
+					</font> --%>
+					
+					<input type="button" value="<%=p%>" 
+					style="width: 22px; height: 22px; 
+					background: url(/semi/style/selected_buttonbgr.png);					
+					border: none;
+					">
 					<% } else { %>
-					<a href="/semi/qnalist?page=<%=p%>"><%=p%></a>
+					<input type="button" value="<%= p %>" onclick="location.href='/semi/qnalist?page=<%=p%>';"
+					
+					style=" width: 22px; height: 22px; background: url(/semi/style/buttonbgr.png);border: none;"> 
 					<% } } %>
 
-					<% if ((currentPage + 10) > endPage && (currentPage + 10) < maxPage) { %>
-					<a href="/semi/qnalist?page=<%=endPage + 10%>">[next]</a>
-					<% } else { %>
-					[next]&nbsp;
-					<% } %>
+					&nbsp;
 
 					<% if (currentPage >= maxPage) { %>
 					[맨끝]&nbsp;
@@ -285,9 +284,14 @@
 					<% } %>
 					<!-- <a style="float: right; text-decoration: none;" href="">추가</a> -->
 					<!-- Trigger/Open The Modal -->
+					
+					<% if(loginUser !=null ) {%>
+					<% if (loginUser.getAdministrator().equals("Y")) { %>
 					<button id="myBtn1" style="float: right;">제거하기</button>
 					<button id="myBtn" style="float: right; margin-right: 5px;">추가하기</button>
-
+					
+					<% } %>
+					<% } %>
 				</div>
 
 				<!-- The Modal -->
@@ -404,7 +408,7 @@
 		<div id="footer">
 			<p>
 				<a href="/semi/index.jsp">메인</a> | <a
-					href="/semi/html/ij/exercise.html">운동정보</a> | <a
+					href="/semi/html/ij/boardlistview.jsp">운동정보</a> | <a
 					href="/semi/html/jh/sikdanInfo.jsp">식단정보</a> | <a
 					href="/semi/html/sh/contact.jsp">고객센터</a>
 			</p>
