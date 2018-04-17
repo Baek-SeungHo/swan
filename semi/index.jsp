@@ -68,6 +68,12 @@
 			infowindow.open(map, this);
 		}); 
 	}
+	
+	function checkAdmin(flag){
+		if(flag == true){
+			location.href='/semi/html/jh/userManagement.jsp';
+		}
+	}
 </script>
 </head>
 
@@ -87,6 +93,14 @@
 					<li><a href="/semi/html/ij/boardlistview.jsp">운동정보</a></li>
 					<li><a href="/semi/html/jh/sikdanInfo.jsp">식단정보</a></li>
 					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
+					<%
+					    if(loginUser != null){
+						if(loginUser.getAdministrator().equals("Y")){
+					%>
+							<li><a href="/semi/html/jh/userManagement.jsp">회원관리</a></li>
+					<%	
+						}}
+					%>
 				</ul>
 			</div>
 		</div>
@@ -103,11 +117,12 @@
 
 						<!-- insert your sidebar items here -->
 						<%
+						
 							if (loginUser == null) {
 						%>
 						<a href="/semi/html/yn/userLoginPage.jsp">로그인</a>&nbsp;
 						<a href="/semi/html/yn/userEnroll.jsp">회원가입</a>
-						<%
+						<%	
 							} else {
 						%>
 						<h4><%=loginUser.getUserName()%>님 환영합니다
