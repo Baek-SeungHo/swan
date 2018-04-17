@@ -282,7 +282,7 @@ function drawBasic() {
 			<div id="myinfo2" class="4u" style="border: 4px solid rgb(242,242,242); width: 200px; height: 350px; padding: 10pt; margin: 4pt; float: left; style:center;">
 			<h2 style="text-align:center; font-weight:bold;">목표달성 진행상황</h2>
 			<hr>
-			<table style="align:center; margin-left: 18pt;"><tr style="center;"><td style="align:center; padding-bottom:20pt; padding-top:10pt;"><div class="graph" style="align:center;"></div></td></tr><tr><td><font size="15" style="color: rgb(29,182,235); align: center; margin: 30pt;">48%</font><br>
+			<table style="align:center; margin-left: 18pt;"><tr style="center;"><td style="align:center; padding-bottom:20pt; padding-top:10pt;"><div class="graph" style="align:center;"></div></td></tr><tr><td id="day3"><font size="15" style="color: rgb(29,182,235); align: center; margin: 30pt;"></font><br>
 <font style="align: center; margin: 40pt">진행율</font></td></tr></table>
 				
 			<script type="text/javascript">
@@ -342,13 +342,11 @@ function donutGraph(selector, percentage){
 
 }
 
+(function count3(){
+
 var startdate= new Date("<%= exeinfo.getUserStartdate() %>");
 
-console.log("출력" + "<%= exeinfo.getUserStartdate() %>");
-
 var enddate = new Date("<%= exeinfo.getUserEnddate() %>");
-
-console.log("출력" + "<%= exeinfo.getUserEnddate() %>");
 
 var syear = startdate.getFullYear();
 var smonth = startdate.getMonth()+1;
@@ -357,10 +355,6 @@ var sday = startdate.getDate();
 var eyear = enddate.getFullYear();
 var emonth = enddate.getMonth()+1;
 var eday = enddate.getDate();
-
-console.log(syear);
-console.log(smonth);
-console.log(sday);
 
 startdate.setMonth(smonth-1);
 startdate.setDate(sday);
@@ -379,8 +373,6 @@ days = Math.ceil(days);
 
 
 var enddate = new Date("<%= exeinfo.getUserEnddate() %>");
-
-console.log("출력" + "<%= exeinfo.getUserEnddate() %>");
 
 var now = new Date();
 
@@ -411,6 +403,12 @@ days2 = Math.ceil(days2);
 var per = (days2/days*100).toFixed(0);
 
 donutGraph('.graph', per);
+
+$(document).ready(function(){ $("#days3").append(per)});
+
+}('per'));
+
+console.log("per임:" + days);
 </script><br>
 
 </div>
