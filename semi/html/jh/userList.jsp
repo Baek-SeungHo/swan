@@ -154,8 +154,10 @@
 							<td align="center"><%=user.getUserPhone()%></td>
 							
 							<td align="center">
+							<form action="/semi/" method="post">
 							<input type="hidden" name="user_id" value="<%=user.getUserId()%>">
 							<input type="submit" value="탈퇴"/>
+							</form>
 							</td>
 							
 
