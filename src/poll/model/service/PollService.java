@@ -12,10 +12,10 @@ public class PollService {
 	public PollService() {
 	}
 
-	public int pollrating(String Rating) {
+	public int pollrating(String Rating ,String userid) {
 		int result = 0;
 		Connection con = getConnection();
-		result = new PollDao().pollrating(con, Rating);
+		result = new PollDao().pollrating(con, Rating, userid);
 		if (result > 0)
 			commit(con);
 		else

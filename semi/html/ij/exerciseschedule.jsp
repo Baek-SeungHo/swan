@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="schedule.model.vo.Schedule, java.util.*"%>
+<%@page import="schedule.model.vo.Schedule, java.util.*,user.model.vo.User"%>
 <%
 	ArrayList<Schedule> list = (ArrayList<Schedule>) request.getAttribute("list");
+	User loginUser = (User) session.getAttribute("loginUser");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -20,8 +21,8 @@
 					$("#schedule").empty();
 					var date = (this.value);
 					var grade = $("#grade").val();
-					alert(grade);
-					alert(date);
+				
+					
 					$.ajax({
 						url : "/semi/dateserach",
 						type : "post",
@@ -34,7 +35,7 @@
 							var jsonstr = JSON.stringify(data);
 							var json = JSON.parse(jsonstr);
 							var sport = "";
-
+							
 							for ( var i in json.list) {
 								sport += "<tr><td>	"
 										+ json.list[i].schedulename
@@ -174,8 +175,9 @@ select {
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
 						<!-- insert your sidebar items here -->
-						<%-- <h4><%= loginUser.getUserName() %>님 환영합니다</h4>
-						<a href="/semi/exedetail?userid=<%= loginUser.getUserId() %>">마이페이지</a> --%>
+						<h4><%=loginUser.getUserName()%>님 환영합니다
+						</h4>
+						<a href="/semi/exedetail?userid=<%=loginUser.getUserId()%>">마이페이지</a>
 					</div>
 					<div class="sidebar_base"></div>
 				</div>
@@ -184,7 +186,7 @@ select {
 					<div class="sidebar_item">
 						<h3>메뉴</h3>
 						<ul>
-							<li><a href="/semi/html/ij/exercisequestionnaire.jsp">몸상태설문조사</a></li>
+							<!-- <li><a href="/semi/html/ij/exercisequestionnaire.jsp">몸상태설문조사</a></li> -->
 							<li><a href="/semi/html/ij/boardlistview.jsp">운동검색기</a></li>
 							<li><a href="/semi/html/ij/exerciseschedule.jsp">운동스케쥴</a></li>
 						</ul>
@@ -195,10 +197,19 @@ select {
 			</div>
 			<!--내용-->
 			<div id="content">
-				<h2 align="center">오늘의운동스케쥴</h2>
-				<input type="date" id="sportdate"> <input type="hidden"
+				<h2 align="center">TOday운동스케쥴</h2>
+				<br> <br> <br> <input type="date" id="sportdate"
+					style="width: 100%"> <input type="hidden"
 					value="<%=list.get(0).getGrade()%>" id="grade">
-				<table border="1" id="schedule">
+				<table border="4" id="schedule" style="width: 65%">
+
+					<tr>
+						<th>운동명</th>
+						<th>운동영상</th>
+						<th>갯수</th>
+
+					</tr>
+
 					<%
 						for (Schedule s : list) {
 					%>

@@ -8,8 +8,9 @@ import user.model.dao.UserDao;
 import user.model.vo.User;
 
 public class UserService {
-	
-	public UserService() {}
+
+	public UserService() {
+	}
 
 	public User loginCheck(String userId, String userPwd) {
 		Connection con = getConnection();
@@ -29,9 +30,9 @@ public class UserService {
 	public int updateUser(User user) {
 		Connection con = getConnection();
 		int result = new UserDao().updateUser(con, user);
-		if(result > 0) {
+		if (result > 0) {
 			commit(con);
-		}else {
+		} else {
 			rollback(con);
 		}
 		close(con);
@@ -42,9 +43,9 @@ public class UserService {
 		Connection con = getConnection();
 		int result = new UserDao().insertUser(con, user);
 		System.out.println("con : " + con);
-		if(result > 0) {
+		if (result > 0) {
 			commit(con);
-		}else {
+		} else {
 			rollback(con);
 		}
 		close(con);
@@ -54,9 +55,9 @@ public class UserService {
 	public int deleteUser(String userId) {
 		Connection con = getConnection();
 		int result = new UserDao().deleteUser(con, userId);
-		if(result > 0) {
+		if (result > 0) {
 			commit(con);
-		}else {
+		} else {
 			rollback(con);
 		}
 		close(con);

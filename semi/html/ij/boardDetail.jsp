@@ -41,6 +41,7 @@ table {
 	margin: 10px 0 30px 0;
 	border-spacing: 0px;
 	border-collapse: collapse;
+	text-align: "left";
 }
 
 table tr th, table tr td {
@@ -168,7 +169,7 @@ select {
 					<div class="sidebar_item">
 						<h3>메뉴</h3>
 						<ul>
-							<li><a href="/semi/html/ij/exercisequestionnaire.jsp">몸상태설문조사</a></li>
+							<!-- <li><a href="/semi/html/ij/exercisequestionnaire.jsp">몸상태설문조사</a></li> -->
 							<li><a href="/semi/html/ij/boardlistview.jsp">운동검색기</a></li>
 							<li><a
 								href="/semi/todayschedule?grade=<%=loginUser.getUsergrade()%>">운동스케쥴</a></li>
@@ -183,10 +184,14 @@ select {
 				<!--게시글 상세보기-->
 				<input type="hidden" value="<%=board.getSportcode()%>"
 					id="sportcode">
-				<table>
+				<table border="1" style="width: 40%;">
 					<tr>
 						<td>운동부위</td>
 						<td><%=board.getSportbody()%></td>
+					</tr>
+					<tr>
+						<td>작성자</td>
+						<td><%=loginUser.getUserId()%></td>
 					</tr>
 					<tr>
 						<td>운동이름</td>
@@ -201,7 +206,7 @@ select {
 					</tr>
 				</table>
 				<!--게시글 삭제 -->
-				<input type="button" value="목록삭제" id="delete">
+				<input type="button" value="목록삭제" id="delete" style="width: 65%">
 			</div>
 			<!--내용끝-->
 		</div>

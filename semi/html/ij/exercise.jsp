@@ -33,7 +33,7 @@
 			</div>
 			<div id="menubar">
 				<ul id="menu">
-					<li><a href="/semi/html/ij/exercise.jsp">운동정보</a></li>
+					<li><a href="/semi/html/ij/boardlistview.jsp">운동정보</a></li>
 					<li><a href="/semi/html/jh/sikdanInfo.jsp">식단정보</a></li>
 					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
 				</ul>
@@ -57,7 +57,7 @@
 					<div class="sidebar_item">
 						<h3>메뉴</h3>
 						<ul>
-							<li><a href="/semi/html/ij/exercisequestionnaire.jsp">몸상태설문조사</a></li>
+							<!-- <li><a href="/semi/html/ij/exercisequestionnaire.jsp">몸상태설문조사</a></li> -->
 							<li><a href="/semi/html/ij/boardlistview.jsp">운동검색기</a></li>
 							<li><a
 								href="/semi/todayschedule?grade=<%=loginUser.getUsergrade()%>">운동스케쥴</a></li>

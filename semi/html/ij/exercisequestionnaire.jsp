@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ page import="user.model.vo.User"%>
+<%@ page import="user.model.vo.User"%>
 <%
 	User loginUser = (User) session.getAttribute("loginUser");
 %>
@@ -15,24 +15,110 @@
 		$("#poll").click(function() {
 			var yes = $('input:checkbox[name="yes"]:checked').length;
 			var no = $('input:checkbox[name="no"]:checked').length;
+			var userid = $("#sportid").val();
 
 			$.ajax({
 				url : "/semi/poll",
 				type : "post",
 				data : {
 					yes : yes,
-					no : no
+					no : no,
+					userid : userid
 				},
 				success : function(data) {
 					alert("설문조사완료");
 				}
 
 			});
-
 		});
 	});
 </script>
 <style type="text/css">
+table {
+	margin: 10px 0 30px 0;
+	border-spacing: 0px;
+	border-collapse: collapse;
+}
+
+table tr th, table tr td {
+	background: #fff;
+	color: #fff;
+	padding: 7px 4px;
+	text-align: left;
+	font-size: 14px;
+}
+
+table tr td {
+	background: #fff;
+	color: #47433F;
+	border: 1px solid #ddd;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Oxygen:400,700);
+
+@import url(https://fonts.googleapis.com/css?family=Knewave);
+
+@import url(https://fonts.googleapis.com/css?family=Luckiest+Guy);
+
+.shipping {
+	float: left;
+	text-align: center;
+	width: 300px;
+}
+
+.billing {
+	float: left;
+	width: 100%;
+}
+
+h2 {
+	color: #0082C5;
+	padding: 0px;
+	float: left;
+}
+
+input {
+	background-color: #f2f2f2;
+	border: 1px solid #c8c8c8;
+	font-family: 'Oxygen', sans-serif;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0px 0px 10px 0px;
+	padding: 8px;
+}
+
+select {
+	background-color: #f2f2f2;
+	border: 1px solid #c8c8c8;
+	font-family: 'Oxygen', sans-serif;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0px 0px 10px 0px;
+	padding: 8px;
+	width: 90%;
+}
+
+.checkBox {
+	clear: left;
+	float: left;
+	height: 13px;
+	margin: 13px 0px 0px 15px;
+	width: 13px;
+}
+
+.checkBoxText {
+	float: left;
+	margin: 10px 0px 10px 15px;
+	padding: 0px;
+}
 </style>
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
@@ -51,7 +137,7 @@
 						<a href="/semi/index.jsp"><span class="logo_colour">Swan</span></a>
 					</h1>
 				</div>
-				
+
 			</div>
 			<div id="menubar">
 				<ul id="menu">
@@ -68,8 +154,9 @@
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
 						<!-- insert your sidebar items here -->
-						<h4><%= loginUser.getUserName() %>님 환영합니다</h4>
-						<a href="/semi/exedetail?userid=<%= loginUser.getUserId() %>">마이페이지</a>
+						<h4><%=loginUser.getUserName()%>님 환영합니다
+						</h4>
+						<a href="/semi/exedetail?userid=<%=loginUser.getUserId()%>">마이페이지</a>
 					</div>
 					<div class="sidebar_base"></div>
 				</div>
@@ -78,7 +165,7 @@
 					<div class="sidebar_item">
 						<h3>메뉴</h3>
 						<ul>
-							<li><a href="/semi/html/ij/exercisequestionnaire.jsp">몸상태설문조사</a></li>
+							<!-- <li><a href="/semi/html/ij/exercisequestionnaire.jsp">몸상태설문조사</a></li> -->
 							<li><a href="/semi/html/ij/boardlistview.jsp">운동검색기</a></li>
 							<li><a
 								href="/semi/todayschedule?grade=<%=loginUser.getUsergrade()%>">운동스케쥴</a></li>
@@ -91,8 +178,10 @@
 
 			<!--내용-->
 			<div id="content">
-				<h2 align="center">운동설문조사</h2>
-				<table>
+				<h2>운동설문조사</h2>
+				<input type="hidden" value="<%=loginUser.getUserId()%>" id="sportid">
+				<br> <br> <br>
+				<table border="3">
 					<tr>
 						<th>질문</th>
 						<th>내용</th>
@@ -143,7 +232,7 @@
 							type="checkbox" name="no" value="아니오">아니오</td>
 					</tr>
 				</table>
-				<input type="button" value="작성완료" id="poll">
+				<input type="button" value="작성완료" id="poll" style="width: 100%">
 			</div>
 			<!--내용끝-->
 		</div>
