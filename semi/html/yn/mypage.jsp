@@ -241,6 +241,7 @@ function drawBasic() {
 				<div class="sidebar">
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
+						<h3>Memu</h3>
 						<ul>
 							<li><a href="/semi/udetail?userid=<%= loginUser.getUserId() %>">회원정보수정</a></li>
 							<li><a href="/semi/html/yn/input.jsp">운동기록</a></li>
