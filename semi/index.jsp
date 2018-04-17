@@ -69,19 +69,6 @@
 		}); 
 	}
 </script>
-<style type="text/css">
-#map {
-	height: 75%;
-	width: 45%
-}
-/* Optional: Makes the sample page fill the window. */
-html, body {
-	height: 100%;
-	margin: 0;
-	padding: 0;
-}
-</style>
-
 </head>
 
 <body>
@@ -104,7 +91,7 @@ html, body {
 			</div>
 		</div>
 		<div id="content_header"></div>
-		<div id="site_content" style="height: 428px;">
+		<div id="site_content" >
 			<!--       <div id="banner"></div> -->
 			<!-- 		<img id="banner" src="/semi/style/banner.jpg"> -->
 			<div id="sidebar_container">
@@ -150,6 +137,8 @@ html, body {
 				</div>
 
 				<div class="sidebar">
+					<h2>주변헬스장검색</h2>
+					<div id="map" style="width: 100%; height: 300px;"></div>
 
 					<!-- <div class="sidebar_top"></div> -->
 					<!-- <div class="sidebar_item">
@@ -162,14 +151,12 @@ html, body {
                            src="style/search.png" alt="Search" title="Search" />
                      </p>
                   </form> -->
-
 				</div>
 
 				<div class="sidebar_base"></div>
 
 			</div>
-			<h2>주변헬스장검색</h2>
-			<div id="map"></div>
+
 
 
 		</div>
@@ -191,3 +178,4 @@ html, body {
 	</div>
 
 </body>
+</html>
