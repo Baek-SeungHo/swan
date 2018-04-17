@@ -252,12 +252,17 @@
 					<%
 						if (currentPage <= 1) {
 					%>
-					[맨처음]&nbsp;
+					<input type="button" value="맨처음" 
+					style="width: 50px; height: 20px; background: url(/semi/style/selected_buttonbgr_long.png); border: none;
+					">
 					<% } else { %>
-					<a href="/semi/qnalist?page=1">[맨처음]</a>
+					
+					<input type="button" value="맨처음" onclick="location.href='/semi/qnalist?page=1';"
+					
+					style=" width: 50px; height: 20px; background: url(/semi/style/buttonbgr_long.png);border: none;"> 
+			
 					<% } %>
 					&nbsp;
-					
 					<!-- 현재 페이지가 포함된 그룹의 페이지 숫자 출력 -->
 					<% for (int p = startPage; p <= endPage; p++) {
 							if (p == currentPage) { %>
@@ -265,23 +270,35 @@
 					</font> --%>
 					
 					<input type="button" value="<%=p%>" 
-					style="width: 22px; height: 22px; 
-					background: url(/semi/style/selected_buttonbgr.png);					
-					border: none;
+					style="width: 20px; height: 20px; background: url(/semi/style/selected_buttonbgr.png); border: none;
 					">
 					<% } else { %>
 					<input type="button" value="<%= p %>" onclick="location.href='/semi/qnalist?page=<%=p%>';"
 					
-					style=" width: 22px; height: 22px; background: url(/semi/style/buttonbgr.png);border: none;"> 
+					style=" width: 20px; height: 20px; background: url(/semi/style/buttonbgr.png);border: none;"> 
 					<% } } %>
 
 					&nbsp;
 
-					<% if (currentPage >= maxPage) { %>
-					[맨끝]&nbsp;
+					<%
+						if (currentPage >= maxPage) {
+					%>
+					<input type="button" value="맨끝" 
+					style="width: 50px; height: 20px; background: url(/semi/style/selected_buttonbgr_long.png); border: none;
+					">
 					<% } else { %>
-					<a href="/semi/qnalist?page=<%=maxPage%>">[맨끝]</a>
+					
+					<input type="button" value="맨끝" onclick="location.href='/semi/qnalist?page=<%=maxPage%>';"
+					
+					style=" width: 50px; height: 20px; background: url(/semi/style/buttonbgr_long.png);border: none;"> 
+			
 					<% } %>
+					
+					
+					
+					
+					
+					
 					<!-- <a style="float: right; text-decoration: none;" href="">추가</a> -->
 					<!-- Trigger/Open The Modal -->
 					
