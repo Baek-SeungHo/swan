@@ -64,7 +64,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
 						<%   
    							if(loginUser == null) {   
    						 %>
-						<a href="/semi/html/yn/userLoginPage.jsp">로그인</a>
+						<a href="/semi/html/yn/userLoginPage.jsp">로그인</a>&nbsp;
+						<a href="/semi/html/yn/userEnroll.jsp">회원가입</a>
 						<% } else {%>
 						<h4><%=loginUser.getUserName()%>님 환영합니다
 						</h4>
