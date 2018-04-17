@@ -20,14 +20,22 @@
 <title>simplestyle_blue_trees - a page</title>
 
 <!-- 자바스크립트 영역 -->
+	<script type="text/javascript">
 
-<script type="text/javascript">
-	function goUrl(url) {
+        function goUrl(url) {
+        	if(<%=loginUser==null%>){
+        		alert('로그인을 해주세요.');
+        		location.href='/semi/html/yn/userLoginPage.jsp';
+        		}
+        	else location.href=url;
 
-		location.href = url;
+        }
+        
+        function clickUrl(url) {
+        	location.href=url;
+        }
 
-	}
-</script>
+    </script>
 
 <!-- //자바스크립트 영역 -->
 
@@ -113,22 +121,22 @@
 			</div>
 			<!--내용-->
 			<div id="content">
-				<!-- Banner -->
+			<!-- Banner -->
 				<section>
-				<p>
-					<b><font size="5" color="red">잠시만!</font> 읽고가세요~</b>
-				</p>
-				건강한 다이어트 식단이란 5대 영양소 섭취를 하면서 지방이 연소할 수있는 몸의 환경을 만들어주는 것이 필요한데요.<br>
-				지방이 연소하기 위한 환경으로 1) 영양소, 2) 열, 3) 산소 이 3가지가 반드시 필요하다는 사실!<br>
-				이 3가지 중에 어느 하나라도 빠지게 되면 지방연소가 아니라, 지방발효가 될 수 있습니다.<br>
-				단순히 굶거나 식사량을 줄이거나 원푸드, 대체식 다이어트를 하게 된다면 체중감량은 될지 모르지만<br>
-				언제들어올지 모르는 영양소에 대비해서 저장하려는 성질의 검약유전자가 발달될 수 있습니다.<br>
-				그래서, 5대 영양소 섭취를 할 수 있는 건강한 다이어트 식단은 바로 한식기반의 형태로 아침, 점심, 저녁 규칙적으로
-				드시는 것입니다. </section>
+					<p>
+						<b><font size="5" color="red">잠시만!</font> 읽고가세요~</b>
+					</p>
+					건강한 다이어트 식단이란 5대 영양소 섭취를 하면서 지방이 연소할 수있는 몸의 환경을 만들어주는 것이 필요한데요.<br>
+					지방이 연소하기 위한 환경으로 1) 영양소, 2) 열, 3) 산소 이 3가지가 반드시 필요하다는 사실!<br>
+					이 3가지 중에 어느 하나라도 빠지게 되면 지방연소가 아니라, 지방발효가 될 수 있습니다.<br> 단순히 굶거나
+					식사량을 줄이거나 원푸드, 대체식 다이어트를 하게 된다면 체중감량은 될지 모르지만<br> 언제들어올지 모르는
+					영양소에 대비해서 저장하려는 성질의 검약유전자가 발달될 수 있습니다.<br> 그래서, 5대 영양소 섭취를 할 수
+					있는 건강한 다이어트 식단은 바로 한식기반의 형태로 아침, 점심, 저녁 규칙적으로 드시는 것입니다.
+				</section>
 				<!-- Section -->
 				<br>
 				<h4>Swan 건강 노하우</h4>
-				<!-- 				<div class="table-wrapper">
+<!-- 				<div class="table-wrapper">
 					<table>
 						<thead>
 							<tr>
@@ -174,9 +182,9 @@
 						</tfoot>
 					</table>
 				</div> -->
-				<!-- 검색 폼 영역 -->
+	   <!-- 검색 폼 영역 -->
 
-				<!--     <form name="searchForm" action="" method="get">
+   <!--     <form name="searchForm" action="" method="get">
 
        <p>
 
@@ -200,47 +208,47 @@
 
        </form> -->
 
-				<!-- //검색 폼 영역 -->
+       <!-- //검색 폼 영역 -->
 
-				<!-- 게시판 목록 영역 -->
+       <!-- 게시판 목록 영역 -->
 
-				<table border="1" summary="게시판 목록">
+       <table border="1" summary="게시판 목록">
 
-					<caption>게시판 목록</caption>
+           <caption>게시판 목록</caption>
 
-					<colgroup>
+           <colgroup>
 
-						<col width="50" />
+               <col width="50" />
 
-						<col width="300" />
+               <col width="300" />
 
-						<col width="80" />
+               <col width="80" />
 
-						<col width="100" />
+               <col width="100" />
 
-						<col width="70" />
+               <col width="70" />
 
-					</colgroup>
+           </colgroup>  
 
-					<thead>
+           <thead>
 
-						<tr>
+               <tr>
 
-							<th>번호</th>
+                    <th>번호</th>
 
-							<th>제목</th>
+                    <th>제목</th>
 
-							<th>작성자</th>
+                    <th>작성자</th>
 
-							<th>등록 일시</th>
+                    <th>등록 일시</th>
 
-							<th>조회수</th>
+                    <th>조회수</th>
 
-						</tr>
+               </tr>
 
-					</thead>
+           </thead>
 
-					<tbody>
+           <tbody>
 
 						<!--     <tr>
 
@@ -279,42 +287,100 @@
 						%>
 					</tbody>
 
-					<tfoot>
+           <tfoot>
+				<tr>
+				<td align="center" colspan="5">
+				
+					
+       				<!-- 페이징 처리 -->
+						<div style="text-align: center;">
+							<%
+								if (currentPage <= 1) {
+							%>
+							<input type="button" value="처음">
+							<%
+								} else {
+							%>
+							<input type="button" value="처음" onclick="clickUrl('/semi/SikdanBoradListServlet?page=1');" /> 
+							<%
+								}
+							%>
+						<%-- 	<%
+								if ((currentPage - 10) < startPage && (currentPage - 10) > 1) {
+							%>
+							<input type="button" value="prev" onclick="clickUrl('/semi/SikdanBoradListServlet?page=<%=startPage - 10%>');" />
+							
+							<%
+								} else {
+							%>
+							 [prev]&nbsp;
+							<%
+								}
+							%> --%>
+							<!-- 현재 페이지가 포함된 그룹의 페이지 숫자 출력 -->
+							<%
+								for (int p = startPage; p <= endPage; p++) {
+									if (p == currentPage) {
+							%>
+							<font color="red" size="4"><b>[<%=p%>]
+							</b></font>
+							<%
+								} else {
+							%>
+							<font color="black" size="4"><a href="/semi/SikdanBoradListServlet?page=<%=p%>"><%=p%></a></font>
+							<%
+								}
+								}
+							%>
+<%-- 
+							<%
+								if ((currentPage + 10) > endPage && (currentPage + 10) < maxPage) {
+							%>
+							
+							<a href="/semi/SikdanBoradListServlet?page=<%=endPage + 10%>">[next]</a>
+							<%
+								} else {
+							%>
+							[next]&nbsp;
+							<% } %> --%>
 
-						<!--      <tr>
+							<% if(currentPage >= maxPage){ %>
+							<input type="button" value="맨끝">
+							<% }else{ %>
+							<input type="button" value="맨끝" onclick="clickUrl('/semi/SikdanBoradListServlet?page=<%= maxPage %>');" />
+							<% } %>
+					 </div>
+					</td>
+				</tr>
+				
+			</tfoot>
+				
+       </table>
 
-                    <td align="center" colspan="5">1</td>
+       <!-- //게시판 목록 영역 -->
 
-               </tr> -->
+       <!-- 버튼 영역 -->
 
-					</tfoot>
+       <p>
 
-				</table>
+          <!--  <input type="button" value="목록" onclick="goUrl('/semi/SikdanBoradListServlet?page=1');" /> -->
+		<%-- <%if(loginUser !=null){ %> --%>
+           <input type="button" value="글쓰기" onclick="goUrl('/semi/html/jh/sikdanboardWriteForm.jsp');" /> 
+		<%-- <%}else{ %>
+		   글쓰기를하시려면 로그인을 해주세요.
+		
+		<%} %> --%>
+       </p>
 
-				<!-- //게시판 목록 영역 -->
-
-				<!-- 버튼 영역 -->
-
-				<p>
-
-					<!--  <input type="button" value="목록" onclick="goUrl('/semi/SikdanBoradListServlet?page=1');" /> -->
-
-					<input type="button" value="글쓰기"
-						onclick="goUrl('/semi/html/jh/sikdanboardWriteForm.jsp');" />
-
-				</p>
-
-				<!-- //버튼 영역 -->
+       <!-- //버튼 영역 -->
 			</div>
 			<!--내용끝-->
 		</div>
 		<div id="content_footer"></div>
 		<div id="footer">
 			<p>
-				<a href="/semi/index.jsp">메인</a> | <a
-					href="/semi/html/ij/examples.html">운동정보</a> | <a
-					href="/semi/html/jh/sikdanInfo.jsp">식단정보</a> | <a
-					href="/semi/html/sh/contact.jsp">고객센터</a>
+				<a href="/semi/index.jsp">메인</a> | <a href="/semi/html/ij/examples.html">운동정보</a> | <a
+					href="/semi/html/jh/sikdanInfo.jsp">식단정보</a> | <a href="/semi/html/sh/contact.jsp">고객센터</a>
 			</p>
 			<p>
 				세미프로젝트 <a>조원:김일중,장유나,백종현,백승호</a>
