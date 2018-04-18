@@ -3,7 +3,6 @@
 <%
 	User loginUser = (User) session.getAttribute("loginUser");
 %>
-
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
@@ -105,6 +104,38 @@
 		});
 
 	});
+	$(function() {
+
+		$.ajax({
+					url : "IndexSikdanTop3Servlet",
+					type : "post",
+					dataType : "json",
+					success : function(data) {
+						var jsonStr = JSON.stringify(data);
+						var json = JSON.parse(jsonStr);
+						var values = "";
+						for ( var i in json.list) {
+
+							values += "<tr><td>"
+									+ json.list[i].board_write
+									+ "</td><td><a href='/SikdanBoardDetailViewServlet?board_num="
+									+ json.list[i].board_num + "'>"
+									+ json.list[i].board_title
+									+ "</a></td></tr>";
+							 + "<td>" + json.list[i].board_date + "</td><td>"
+							+ json.list[i].board_look + "</td></tr>";
+
+						}
+						 $("#sikdan_top3").append(values); 
+					},
+					error : function(jqXHR, textStatus, errorThrown) {
+						console.log("error : " + jqXHR + ", " + textStatus
+								+ ", " + errorThrown);
+					}
+
+				});
+
+	});
 </script>
 </head>
 
@@ -202,15 +233,42 @@
 			</div>
 			<div id="content">
 				<img id="banner" src="/semi/style/banner.jpg">
-				<h2>운동검색기 TOP3 조회수</h2>
-				<table border="1" id="top3" style="width: 100%">
+				<div style="float: left">
+				<table border="1" id="top3">
+					<caption>운동검색기 TOP3</caption>
+
+					<colgroup>
+						<col width="100" />
+
+						<col width="200" />
+					</colgroup>
+
 					<tr>
 						<th>운동부위</th>
 						<th>운동명</th>
-						<th>날짜</th>
-						<th>조회수</th>
 					</tr>
 				</table>
+				</div>
+				<div style="float: right">
+				<table border="1" id="sikdan_top3">
+
+					<caption>건강 노하우 TOP3</caption>
+
+					<colgroup>
+
+						<col width="100" />
+
+						<col width="200" />
+
+					</colgroup>
+
+					<tr>
+						<th>작성자</th>
+						<th>제목</th>
+					</tr>
+
+				</table>
+				</div>
 			</div>
 		</div>
 		<div id="content_footer"></div>

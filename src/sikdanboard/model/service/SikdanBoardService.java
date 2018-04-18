@@ -77,4 +77,11 @@ public class SikdanBoardService {
 		close(con);
 		return;
 	}
+	
+	public ArrayList<SikdanBorad> selectTop3List() {
+		Connection con = getConnection();
+		ArrayList<SikdanBorad> list = new SikdanBoradDao().selectTop3List(con);
+		close(con);
+		return list;
+	}
 }

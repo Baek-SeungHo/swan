@@ -204,4 +204,42 @@ public class SikdanBoradDao {
 
 			return result;
 		}
+		
+		public ArrayList<SikdanBorad> selectTop3List(Connection con) {
+			ArrayList<SikdanBorad> list = new ArrayList<SikdanBorad>();
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			
+			String query = "select * from (select rownum rnum, board_num, board_write, board_title, board_date, board_look "
+					+ "from (select * from food_recommend ORDER BY board_look desc)) "
+					+ "where rnum >= 1 and rnum <= 3";
+	
+
+			try {
+				pstmt = con.prepareStatement(query);
+
+				rset = pstmt.executeQuery();
+				
+				while (rset.next()) {
+
+					SikdanBorad sb = new SikdanBorad();
+					sb.setBoard_num(rset.getInt("board_num"));
+					sb.setBoard_write(rset.getString("board_write"));
+					sb.setBoard_title(rset.getString("board_title"));
+					sb.setBoard_date(rset.getDate("board_date"));
+					sb.setBoard_look(rset.getInt("board_look"));
+					
+
+					list.add(sb);
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+
+			return list;
+		}
 }
