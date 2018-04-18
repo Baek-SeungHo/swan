@@ -84,20 +84,6 @@ table tr td
 
 <script type="text/javascript">
 
-function goUrl(url) {
-	if(<%=exeinfo==null%>){
-		alert('추가입력사항을 먼저 입력해주세요.');
-		location.href='/semi/html/yn/input.jsp';
-		}
-	else location.href=url;
-
-}
-
-function clickUrl(url) {
-	location.href=url;
-}
-
-
 (function count(){
 	
 	var startdate= new Date("<%= exeinfo.getUserStartdate() %>");
