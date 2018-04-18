@@ -102,7 +102,25 @@ select{
   margin: 10px 0px 10px 15px;
   padding: 0px;
 }
-}
+
+/* table
+{ margin: 10px 0 30px 0;
+  border: 1px solid rgb(127,127,127);
+  border-spacing:0px; padding:0; border:0; border-collapse:collapse;
+  }
+
+table tr th, table tr td
+{ background: #FFF;
+  color: rgb(127,127,127);
+  border: 1px solid rgb(127,127,127);
+  border-spacing:0px; padding:0; border:0; border-collapse:collapse;}
+  
+table tr td
+{ background: #FFF;
+  color: rgb(127,127,127);
+  border: 1px solid rgb(127,127,127);
+  border-spacing:0px; padding:0; border:0; border-collapse:collapse;}
+} */
 </style>
 <script type="text/javascript">
 	$(function(){
@@ -145,7 +163,9 @@ select{
 		
 		}); //chuga
 		
-		$("#rere").click(function(){			
+		
+		$("#sportdate").change(function(){	
+			
 			$.ajax({
 				url: "/semi/uesearch",
 				type: "get",
@@ -154,15 +174,44 @@ select{
 				
 				success: function(data){
 					
-					console.log(data.sportTable);
-					 $.each(data.sportTable, function(i){
-						 $("#insertTable").append("<tr><td>"+decodeURIComponent(data.sportTable[i].sportBody)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportName)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportNum)+"</td></tr>");
-										 
-					 });
+					var sport = "";
+					var sport2 = "<tr><td width=95>부위</td><td width=195>이름</td><td width=95>횟수</td></tr>";
+					$("#insertTable").append(sport2);
+					
+					if(data.sportTable.length == 0){
+						 $("#insertTable").append("<tr><td colspan=3>입력된 항목이 없습니다</td></tr>");				
+					}else{
+						for ( var i in data.sportTable) {
+							sport += "<tr><td>"+decodeURIComponent(data.sportTable[i].sportBody)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportName)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportNum)+"</td></tr>";
+					}
+						$("#insertTable").append(sport);
+				} 		
+				}	
+			});						
+			$("#insertTable").empty();
+		});
+		
+		
+		/* $("#rere").click(function(){			
+			$.ajax({
+				url: "/semi/uesearch",
+				type: "get",
+				data: { userid:$("#userid").val(),
+						sportdate:$("#sportdate").val()},
+				
+				success: function(data){
+					if(data.sportTable.length == 0){
+						 $("#insertTable").append("<tr><td colspan=3>입력된 항목이 없습니다</td></tr>");				
+					}else{
+						$.each(data.sportTable, function(i){
+							 $("#insertTable").append("<tr><td>"+decodeURIComponent(data.sportTable[i].sportBody)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportName)+"</td><td>"+decodeURIComponent(data.sportTable[i].sportNum)+"</td></tr>");
+						 
+						});
+					}
 				} 		
 			});						
 		
-		}); //rere	
+		}); //rere	 */
 
 	}); 
 	 
@@ -243,7 +292,7 @@ select{
 <input type="hidden" id="sportname" name="sportname" value="">
 <input type="hidden" id="sportnum" name="sportnum" value="">
 <input type="date" id="sportdate" name="sportdate">
-<div id="sportc">			
+<div id="sportc">
 <select id="sportbody" name="sportbody" style="width:100px;">
    <option value="" style="align:center">- 선택 -</option>
    <option value="01">가슴</option>
@@ -271,7 +320,6 @@ select{
 		<td style="width:95px; background-color: #eee; color: rgb(35,146,173); word-break:break-all;">횟수</td>
 	</tr>
 </table>
-<input type="button" value="갱신" id="rere">
 </div>
 
 			</div>
