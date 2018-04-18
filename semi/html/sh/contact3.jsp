@@ -94,6 +94,7 @@
 				<h5>관리자에게 메일을 보내 상담을 받으실 수 있습니다.</h5>
 				<div>
 					
+					
 					<!-- 제목 -->
 					제목<br>
 					<input type="text" style="width: 400px;"><br><br>
