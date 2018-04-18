@@ -323,14 +323,16 @@
 			form.result.value = Math.round(table[exercise][weight] * time);
 		}
 	}
-	 function logincheck(url) {
-     	if(<%=loginUser==null%>){
-     		alert('로그인을 해주세요.');
-     		location.href='/semi/html/yn/userLoginPage.jsp';
-     		}
-     	else location.href=url;
+	function logincheck(url) {
+		if (
+<%=loginUser == null%>
+	) {
+			alert('로그인을 해주세요.');
+			location.href = '/semi/html/yn/userLoginPage.jsp';
+		} else
+			location.href = url;
 
-     }
+	}
 </script>
 <style type="text/css">
 table {
@@ -435,7 +437,6 @@ A:hover {
 	color: #ff0000;
 	text-decoration: none
 } */
-
 input {
 	font-family: verdana;
 	border-style: ridge;
@@ -477,7 +478,6 @@ td {
 a:hover {
 	color: #ff0000
 } */
-
 td {
 	font-size: 10pt
 }
@@ -506,6 +506,15 @@ td {
 					<li><a href="/semi/html/ij/boardlistview.jsp">운동정보</a></li>
 					<li><a href="/semi/html/jh/sikdanInfo.jsp">식단정보</a></li>
 					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
+					<%
+						if (loginUser != null) {
+							if (loginUser.getAdministrator().equals("Y")) {
+					%>
+					<li><a href="/semi/html/jh/userManagement.jsp">회원관리</a></li>
+					<%
+						}
+						}
+					%>
 				</ul>
 			</div>
 		</div>
@@ -541,7 +550,8 @@ td {
 						<ul>
 							<!-- <li><a href="/semi/html/ij/exercisequestionnaire.jsp">몸상태설문조사</a></li> -->
 							<li><a href="/semi/html/ij/boardlistview.jsp">운동검색기</a></li>
-							<li><a href="#" onclick="logincheck('/semi/todayschedule?grade=C');">운동스케쥴</a></li>
+							<li><a href="#"
+								onclick="logincheck('/semi/todayschedule?grade=C');">운동스케쥴</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
