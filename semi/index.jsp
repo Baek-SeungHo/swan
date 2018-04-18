@@ -122,9 +122,6 @@
 									+ json.list[i].board_num + "'>"
 									+ json.list[i].board_title
 									+ "</a></td></tr>";
-							+"<td>" + json.list[i].board_date + "</td><td>"
-									+ json.list[i].board_look + "</td></tr>";
-
 						}
 						$("#sikdan_top3").append(values);
 					},
