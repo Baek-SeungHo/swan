@@ -90,9 +90,8 @@
 
 					values += "<tr><td>" + json.list[i].body
 							+ "</td><td><a href='/semi//edetail?ecode="
-							+ json.list[i].code + "'>"
-							+ json.list[i].name + "</a></td><td>"
-							+ json.list[i].date + "</td><td>"
+							+ json.list[i].code + "'>" + json.list[i].name
+							+ "</a></td><td>" + json.list[i].date + "</td><td>"
 							+ json.list[i].look + "</td></tr>";
 
 				}
