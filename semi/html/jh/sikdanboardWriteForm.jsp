@@ -130,8 +130,9 @@
 			<div id="content">
 				<form name="boardWriteForm" action="/semi/SikdanBoardInsertServlet" method="post"
 					onsubmit="return boardWriteCheck();">
-					<!-- <input type="hidden" name="mode" value="W" /> -->
-				<!-- 	<input type="hidden" name="board_write" value="user.getUserId()" /> -->
+					
+				<input type="hidden" name="board_write" value=<%=loginUser.getUserId()%> />
+				
 					<table border="1" summary="게시판 등록 폼">
 						<caption>게시판 등록 폼</caption>
 						<colgroup>
@@ -145,7 +146,7 @@
 							</tr>
 							<tr>
 								<th align="center">작성자</th>
-								<td><input type="text" name="board_write" value=<%=loginUser.getUserId()%> readonly /></td> 
+								<td><input type="text" value=<%=loginUser.getUserId()%> disabled="disabled" /></td> 
 							</tr>
 							<tr>
 								<th align="center">내용</th>

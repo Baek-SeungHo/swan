@@ -7,7 +7,7 @@
 	import="sikdanboard.model.vo.SikdanBorad, java.util.ArrayList, java.sql.Date"%>
 <%
 	SikdanBorad sb = (SikdanBorad) request.getAttribute("board");
-	int currentPage = ((Integer) request.getAttribute("currentPage")).intValue();
+	/* int currentPage = ((Integer) request.getAttribute("currentPage")).intValue(); */
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
