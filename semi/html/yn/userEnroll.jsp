@@ -169,6 +169,13 @@ $(function(){
 		}
 	});
 });
+
+<%-- function send(){
+	if(){
+		<%= %>
+	}
+	alert("회원가입이 성공하였습니다");
+} --%>
 </script>
 </head>
 <body>
