@@ -90,10 +90,9 @@
 					values += "<tr><td>" + json.list[i].body
 							+ "</td><td><a href='/semi//edetail?ecode="
 							+ json.list[i].code + "'>" + json.list[i].name
-							+ "</a></td><td>" + json.list[i].date + "</td><td>"
-							+ json.list[i].look + "</td></tr>";
+							+ "</a></td></tr>"
 
-				}
+					}
 				$("#top3").append(values);
 			},
 			error : function(jqXHR, textStatus, errorThrown) {
@@ -106,7 +105,8 @@
 	});
 	$(function() {
 
-		$.ajax({
+		$
+				.ajax({
 					url : "IndexSikdanTop3Servlet",
 					type : "post",
 					dataType : "json",
@@ -122,11 +122,11 @@
 									+ json.list[i].board_num + "'>"
 									+ json.list[i].board_title
 									+ "</a></td></tr>";
-							 + "<td>" + json.list[i].board_date + "</td><td>"
-							+ json.list[i].board_look + "</td></tr>";
+							+"<td>" + json.list[i].board_date + "</td><td>"
+									+ json.list[i].board_look + "</td></tr>";
 
 						}
-						 $("#sikdan_top3").append(values); 
+						$("#sikdan_top3").append(values);
 					},
 					error : function(jqXHR, textStatus, errorThrown) {
 						console.log("error : " + jqXHR + ", " + textStatus
@@ -234,40 +234,40 @@
 			<div id="content">
 				<img id="banner" src="/semi/style/banner.jpg">
 				<div style="float: left">
-				<table border="1" id="top3">
-					<caption>운동검색기 TOP3</caption>
+					<table border="1" id="top3">
+						<caption>운동검색기 TOP3</caption>
 
-					<colgroup>
-						<col width="100" />
+						<colgroup>
+							<col width="100" />
 
-						<col width="200" />
-					</colgroup>
+							<col width="200" />
+						</colgroup>
 
-					<tr>
-						<th>운동부위</th>
-						<th>운동명</th>
-					</tr>
-				</table>
+						<tr>
+							<th>운동부위</th>
+							<th>운동명</th>
+						</tr>
+					</table>
 				</div>
 				<div style="float: right">
-				<table border="1" id="sikdan_top3">
+					<table border="1" id="sikdan_top3">
 
-					<caption>건강 노하우 TOP3</caption>
+						<caption>건강 노하우 TOP3</caption>
 
-					<colgroup>
+						<colgroup>
 
-						<col width="100" />
+							<col width="100" />
 
-						<col width="200" />
+							<col width="200" />
 
-					</colgroup>
+						</colgroup>
 
-					<tr>
-						<th>작성자</th>
-						<th>제목</th>
-					</tr>
+						<tr>
+							<th>작성자</th>
+							<th>제목</th>
+						</tr>
 
-				</table>
+					</table>
 				</div>
 			</div>
 		</div>
