@@ -81,7 +81,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 						<h3>Memu</h3>
 						<ul>
 							<li><a href="/semi/html/sh/contact.jsp">Contact to Us</a></li>
-							<li><a href="/semi/html/sh/contact3.jsp">1:1 문의</a></li>
 							<li><a href="/semi/qnalist?page=1">자주묻는질문</a></li>
 
 							<!-- /semi/html/sh/contact2.html -->
