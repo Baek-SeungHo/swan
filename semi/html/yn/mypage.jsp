@@ -84,9 +84,6 @@ table tr td
 
 <script type="text/javascript">
 
-
-
-
 (function count(){
 	
 	var startdate= new Date("<%= exeinfo.getUserStartdate() %>");
@@ -217,6 +214,15 @@ function drawBasic() {
 					<li><a href="/semi/html/ij/boardlistview.jsp">운동정보</a></li>
 					<li><a href="/semi/html/jh/sikdanInfo.jsp">식단정보</a></li>
 					<li><a href="/semi/html/sh/contact.jsp">고객센터</a></li>
+					<%
+						if (loginUser != null) {
+							if (loginUser.getAdministrator().equals("Y")) {
+					%>
+					<li><a href="/semi/html/jh/userManagement.jsp">회원관리</a></li>
+					<%
+						}
+						}
+					%>
 				</ul>
 			</div>
 		</div>
