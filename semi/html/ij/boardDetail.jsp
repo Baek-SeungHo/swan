@@ -201,10 +201,6 @@ select {
 						<td><%=board.getSportbody()%></td>
 					</tr>
 					<tr>
-						<td>작성자</td>
-						<td><%=loginUser.getUserId()%></td>
-					</tr>
-					<tr>
 						<td>운동이름</td>
 						<td><%=board.getSportname()%></td>
 					</tr>
