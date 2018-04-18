@@ -113,7 +113,7 @@ select{
 				type: "get",
 				dataType: "json",
 				success: function(data){
-					 $("#sportname2").find("option").remove().end().append("<option value=''>- 선택 -</option>");
+					 $("#sportname2").find("option").remove().end().append("<option value=''>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 선택 -</option>");
 					
 					 console.log(data.sportList);
 					 
@@ -276,7 +276,7 @@ select{
 <input type="date" id="sportdate" name="sportdate">
 <div id="sportc">
 <select id="sportbody" name="sportbody" style="width:100px;">
-   <option value="" style="align:center">- 선택 -</option>
+   <option value="" style="align:center">&nbsp;- 선택 -</option>
    <option value="01">가슴</option>
    <option value="02">어깨</option>
    <option value="03">팔</option>
@@ -287,7 +287,7 @@ select{
 </select>
 
 <select id="sportname2" style="width:200px;">
-   <option value="" style="text-align:center">- 선택 -</option>
+   <option value="" style="text-align:center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 선택 -</option>
 </select>
 
 <input type="text" id="sportnum2" name="sportnum2" placeholder="횟수" style="width:100px;">

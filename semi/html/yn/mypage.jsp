@@ -297,7 +297,7 @@ function drawBasic() {
 			<div id="myinfo2" class="4u" style="border: 4px solid rgb(242,242,242); width: 200px; height: 350px; padding: 8pt; margin: 4pt; float: left; style:center;">
 			<h2 style="text-align:center; font-weight:bold;">목표달성 진행상황</h2>
 			<hr>
-			<table style="align:center; margin-left: 18pt;"><tr style="center;"><td style="align:center; padding-bottom:20pt; padding-top:10pt;"><div class="graph" style="align:center;"></div></td></tr><tr><td id="day3"><font size="15" style="color: rgb(29,182,235); align: center; margin: 30pt;"></font><br>
+			<table style="align:center; margin-left: 18pt;"><tr style="center;"><td style="align:center; padding-bottom:20pt; padding-top:10pt;"><div class="graph" style="align:center;"></div></td></tr><tr><td id="day3"><font size="15" style="color: rgb(29,182,235); align: center; margin: 10pt;">53.9%</font><br>
 <font style="align: center; margin: 40pt">진행율</font></td></tr></table>
 				
 			<script type="text/javascript">
