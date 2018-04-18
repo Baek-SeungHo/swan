@@ -35,14 +35,12 @@ public class BoardDetailServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// 게시글 상세보기 처리용 컨트롤러
 
 		String ecode = request.getParameter("ecode");
 		ExeBoardService bservice = new ExeBoardService();
 
 		bservice.addReadCount(ecode);
 
-		// 해당 게시글의 조회수 1 증가 처리
 		ExeBoard board = new ExeBoardService().selectBoard(ecode);
 
 		response.setContentType("text/html; charset=utf-8");

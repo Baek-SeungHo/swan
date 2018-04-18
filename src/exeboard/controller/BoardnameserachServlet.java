@@ -40,7 +40,7 @@ public class BoardnameserachServlet extends HttpServlet {
 
 		String name = request.getParameter("name");
 
-		System.out.println(name);
+	
 
 		ArrayList<ExeBoard> list = new ExeBoardService().namesearch(name);
 

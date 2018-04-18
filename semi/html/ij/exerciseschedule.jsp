@@ -188,7 +188,7 @@ select {
 						<ul>
 							<!-- <li><a href="/semi/html/ij/exercisequestionnaire.jsp">몸상태설문조사</a></li> -->
 							<li><a href="/semi/html/ij/boardlistview.jsp">운동검색기</a></li>
-							<li><a href="/semi/todayschedule?grade=C">운동스케쥴</a></li>
+								<li><a href="#" onclick="logincheck('/semi/todayschedule?grade=C');">운동스케쥴</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>
@@ -201,7 +201,7 @@ select {
 				<br> <br> <br> <input type="date" id="sportdate"
 					style="width: 100%"> <input type="hidden"
 					value="<%=list.get(0).getGrade()%>" id="grade">
-				<table border="4" style="width: 65%" id="schedule">
+				<table border="4" style="width: 70%" id="schedule" >
 
 					<%
 						for (Schedule s : list) {

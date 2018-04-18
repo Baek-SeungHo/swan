@@ -323,6 +323,14 @@
 			form.result.value = Math.round(table[exercise][weight] * time);
 		}
 	}
+	 function logincheck(url) {
+     	if(<%=loginUser==null%>){
+     		alert('로그인을 해주세요.');
+     		location.href='/semi/html/yn/userLoginPage.jsp';
+     		}
+     	else location.href=url;
+
+     }
 </script>
 <style type="text/css">
 table {
@@ -533,7 +541,7 @@ td {
 						<ul>
 							<!-- <li><a href="/semi/html/ij/exercisequestionnaire.jsp">몸상태설문조사</a></li> -->
 							<li><a href="/semi/html/ij/boardlistview.jsp">운동검색기</a></li>
-							<li><a href="/semi/todayschedule?grade=C">운동스케쥴</a></li>
+							<li><a href="#" onclick="logincheck('/semi/todayschedule?grade=C');">운동스케쥴</a></li>
 						</ul>
 					</div>
 					<div class="sidebar_base"></div>

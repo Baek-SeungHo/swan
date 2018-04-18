@@ -40,7 +40,7 @@ public class Boardtop3Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		ArrayList<ExeBoard> list = new ExeBoardService().top3();
 
-		// 전송할 최종 json 객체
+		
 		JSONObject json = new JSONObject();
 		JSONArray jarr = new JSONArray();
 

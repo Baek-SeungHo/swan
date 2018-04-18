@@ -43,7 +43,7 @@ public class BoardserachServlet extends HttpServlet {
 
 		ArrayList<ExeBoard> list = new ExeBoardService().search(body);
 
-		// 운동부위로 검색하는 ajax
+	
 		JSONObject json = new JSONObject();
 		JSONArray jarr = new JSONArray();
 

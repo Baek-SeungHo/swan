@@ -38,7 +38,7 @@ public class BoardInsertServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// 운동목록업데이트
+		
 
 		ExeBoard b = new ExeBoard();
 		b.setSportbody(request.getParameter("select"));
