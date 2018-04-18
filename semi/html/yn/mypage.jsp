@@ -78,6 +78,12 @@ table tr td
   font-size: 23px;
   color: rgb(29,182,235);
 }
+
+#days3 {
+  font-size: 45px;
+  color: rgb(29,182,235);
+  padding-left: 13pt;
+}
 </style>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -297,8 +303,8 @@ function drawBasic() {
 			<div id="myinfo2" class="4u" style="border: 4px solid rgb(242,242,242); width: 200px; height: 350px; padding: 8pt; margin: 4pt; float: left; style:center;">
 			<h2 style="text-align:center; font-weight:bold;">목표달성 진행상황</h2>
 			<hr>
-			<table style="align:center; margin-left: 18pt;"><tr style="center;"><td style="align:center; padding-bottom:20pt; padding-top:10pt;"><div class="graph" style="align:center;"></div></td></tr><tr><td id="day3"><font size="15" style="color: rgb(29,182,235); align: center; margin: 10pt;">53.9%</font><br>
-<font style="align: center; margin: 40pt">진행율</font></td></tr></table>
+			<table style="align:center; margin-left: 18pt;"><tr style="center;"><td style="align:center; padding-bottom:20pt; padding-top:10pt;"><div class="graph" style="align:center;"></div></td></tr><tr><td id="days3"></td></tr>
+<tr><td style="padding-left: 40pt;">진행율</td></tr></table>
 				
 			<script type="text/javascript">
 function donutGraph(selector, percentage){
@@ -419,14 +425,15 @@ var per = (100-(days2/days)*100).toFixed(1);
 
 donutGraph('.graph', per);
 
-$(document).ready(function(){ $("#days3").append(per)});
+$(document).ready(function(){ $("#days3").append(per+"%")});
+
+
 
 }('per'));
 
-
 console.log("days 출력되야함: "+days);
 
-</script><br>
+</script>
 
 </div>
 
