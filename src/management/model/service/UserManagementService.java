@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import management.model.dao.UserManagementDao;
 import management.model.vo.UserManagement;
+import user.model.dao.UserDao;
 
 	public class UserManagementService {
 	
@@ -23,5 +24,17 @@ import management.model.vo.UserManagement;
 			close(con);
 			return list;
 		
+		}
+		
+		public int deleteUser(String userId) {
+			Connection con = getConnection();
+			int result = new UserDao().deleteUser(con, userId);
+			if (result > 0) {
+				commit(con);
+			} else {
+				rollback(con);
+			}
+			close(con);
+			return result;
 		}
 }

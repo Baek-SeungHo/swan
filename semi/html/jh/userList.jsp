@@ -20,6 +20,17 @@
 <meta charset="UTF-8">
 <head>
 <title>simplestyle_blue_trees - a page</title>
+ 
+ <script type="text/javascript">
+
+    	function deleteAlert() {
+    		
+    		alert('회원탈퇴 처리가 완료 되었습니다!');
+    		return true;
+    	}
+
+    </script>
+
 <meta name="description" content="website description" />
 <meta name="keywords" content="website keywords, website keywords" />
 <meta http-equiv="content-type"
@@ -154,7 +165,7 @@
 							<td align="center"><%=user.getUserPhone()%></td>
 							
 							<td align="center">
-							<form action="/semi/" method="post">
+							<form name="deleteFrom" action="/semi/UserDeleteManagementServlet" method="post" onsubmit="return deleteAlert();"> 
 							<input type="hidden" name="user_id" value="<%=user.getUserId()%>">
 							<input type="submit" value="탈퇴"/>
 							</form>

@@ -175,7 +175,7 @@ $(function(){
     
   <form id="form1" name="form1" action="<%= request.getContextPath() %>/mailsend" method="post">			
   <div class="billing">
-    <h4>비밀번호 메일로 전송받기</h4><br>
+    <h4>임시 비밀번호 메일로 전송받기</h4><br>
     <input type="hidden" id="userid2" name="userid2" value="<%= user.getUserId() %>">
     <input type="hidden" id="userpwd2" name="userpwd2" value="<%= password %>">
     <input type="hidden" id="useremail2" name="useremail2" value="<%= user.getUserEmail() %>">
@@ -193,7 +193,7 @@ $(function(){
     <input type="hidden" id="useremail" name="useremail" value="<%= user.getUserEmail() %>">
     <input type="hidden" id="userphone" name="userphone" value="<%= user.getUserPhone() %>">
     <input type="hidden" id="administrator" name="administrator" value="<%= user.getAdministrator() %>">
-    <input type="submit" id="zzsubmit" value="submit">
+    <input type="submit" id="zzsubmit" value="메일 전송">
   </form>
   
   <% System.out.println(password); %>

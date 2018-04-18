@@ -79,4 +79,23 @@ public class UserManagementDao {
 		
 		return list;
 	}
+	
+	public int deleteUser(Connection con, String userId) {
+		int result = 0;
+		PreparedStatement pstmt = null;
+
+		String query = "delete from user_info where user_id = ?";
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, userId);
+
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
 }
