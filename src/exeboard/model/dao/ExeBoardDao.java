@@ -187,7 +187,7 @@ public class ExeBoardDao {
 		Statement stmt = null;
 		ResultSet rset = null;
 
-		String query = "select * from (select ROWNUM rnum, sport_look, sport_body,sport_date,sport_name from(select * from EXE_RECOMMEND ORDER BY SPORT_LOOK desc )) where rnum >=1 and rnum <=3";
+		String query = "select * from (select ROWNUM rnum, sport_look, sport_body,sport_date,sport_name,sport_code from(select * from EXE_RECOMMEND ORDER BY SPORT_LOOK desc )) where rnum >=1 and rnum <=3";
 
 		try {
 			stmt = con.createStatement();
@@ -195,6 +195,7 @@ public class ExeBoardDao {
 
 			while (rset.next()) {
 				ExeBoard b = new ExeBoard();
+				b.setSportcode(rset.getString("sport_code"));
 				b.setSportbody(rset.getString("sport_body"));
 				b.setSportdate(rset.getDate("sport_date"));
 				b.setSportname(rset.getString("sport_name"));

@@ -553,7 +553,6 @@ td {
 					<option value="abs">복근</option>
 					<option value="lowerbody">하체</option>
 					<option value="Thigh">허벅지</option>
-					<option value="Bridge">다리</option>
 					<option value="arm">팔</option>
 				</select>
 				<!--게시판 운동명 검색기능-->
@@ -565,18 +564,18 @@ td {
 				</table>
 				<!--관리자만 업데이트가능-->
 				<%
-					if (loginUser != null && loginUser.getUserId().equals("ganjiplay")) {
+					if (loginUser != null) {
+						if (loginUser.getAdministrator().equals("Y")) {
 				%>
 				<!--게시글 등록-->
 				<input type="button" value="운동검색기업데이트" id="wirte">
 				<%
 					}
-				%>
-				<br> <br>
+					}
+				%>				
 				<h2>운동칼로리계산</h2>
 				<br> <br> <br> <br>
 				<form method="get">
-
 					<select name="weight" style="width: 20%">
 						<option selected>몸무게</option>
 						<option value="0">45 ~ 47</option>
@@ -682,8 +681,9 @@ td {
 						<option value="360">6시간</option>
 					</select> <input type="button" value="측정하기" style="width: 30%"
 						onclick="calculate(this.form, this.form.exercise.options[exercise.selectedIndex].value,this.form.weight.options[weight.selectedIndex].value,this.form.time.options[time.selectedIndex].value)">
-					<span><input type="text" name="result" maxlength="5" size="5"
-						placeholder="kcal" readonly="readonly" style="width: 10%"> kcal</span>
+					<span><input type="text" name="result" maxlength="5"
+						size="5" placeholder="kcal" readonly="readonly" style="width: 10%">
+						kcal</span>
 				</form>
 				</form>
 

@@ -51,6 +51,7 @@ public class Boardtop3Servlet extends HttpServlet {
 			job.put("name", b.getSportname());
 			job.put("date", b.getSportdate().toString());
 			job.put("look", b.getSportlook());
+			job.put("code", b.getSportcode());
 
 			jarr.add(job);
 		}

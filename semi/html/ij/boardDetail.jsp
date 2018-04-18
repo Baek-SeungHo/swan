@@ -205,7 +205,15 @@ select {
 					</tr>
 				</table>
 				<!--게시글 삭제 -->
+				<%
+					if (loginUser != null) {
+						if (loginUser.getAdministrator().equals("Y")) {
+				%>
 				<input type="button" value="목록삭제" id="delete" style="width: 65%">
+				<%
+					}
+					}
+				%>
 			</div>
 			<!--내용끝-->
 		</div>

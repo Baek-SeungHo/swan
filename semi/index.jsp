@@ -88,8 +88,10 @@
 				var values = "";
 				for ( var i in json.list) {
 
-					values += "<tr><td>" + json.list[i].body + "</td><td>"
-							+ json.list[i].name + "</td><td>"
+					values += "<tr><td>" + json.list[i].body
+							+ "</td><td><a href='/semi//edetail?ecode="
+							+ json.list[i].code + "'>"
+							+ json.list[i].name + "</a></td><td>"
 							+ json.list[i].date + "</td><td>"
 							+ json.list[i].look + "</td></tr>";
 
@@ -180,7 +182,7 @@
 				</div>
 
 				<div class="sidebar">
-					<h2>주변헬스장검색</h2>
+					<h2>주변헬스장</h2>
 					<div id="map" style="width: 100%; height: 300px;"></div>
 
 					<!-- <div class="sidebar_top"></div> -->
