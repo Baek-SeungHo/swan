@@ -409,7 +409,7 @@ days2 = Math.ceil(days2);
 
 
 
-var per = ((days2/days)*100).toFixed(0);
+var per = (100-(days2/days)*100).toFixed(1);
 
 donutGraph('.graph', per);
 
@@ -417,7 +417,9 @@ $(document).ready(function(){ $("#days3").append(per)});
 
 }('per'));
 
-console.log("per임:" + days);
+
+console.log("days 출력되야함: "+days);
+
 </script><br>
 
 </div>
