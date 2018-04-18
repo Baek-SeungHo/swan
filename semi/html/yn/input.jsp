@@ -23,11 +23,12 @@ table
 }
 
 table tr th, table tr td
-{ background: #fff;
-  color: #fff;
+{ background: #eee;
+  color: rgb(35,166,173);
   padding: 7px 4px;
   text-align: center;
   font-size: 14px;
+  border: 1px solid #ddd;
 }
   
 table tr td
@@ -102,25 +103,6 @@ select{
   margin: 10px 0px 10px 15px;
   padding: 0px;
 }
-
-/* table
-{ margin: 10px 0 30px 0;
-  border: 1px solid rgb(127,127,127);
-  border-spacing:0px; padding:0; border:0; border-collapse:collapse;
-  }
-
-table tr th, table tr td
-{ background: #FFF;
-  color: rgb(127,127,127);
-  border: 1px solid rgb(127,127,127);
-  border-spacing:0px; padding:0; border:0; border-collapse:collapse;}
-  
-table tr td
-{ background: #FFF;
-  color: rgb(127,127,127);
-  border: 1px solid rgb(127,127,127);
-  border-spacing:0px; padding:0; border:0; border-collapse:collapse;}
-} */
 </style>
 <script type="text/javascript">
 	$(function(){
@@ -175,7 +157,7 @@ table tr td
 				success: function(data){
 					
 					var sport = "";
-					var sport2 = "<tr><td width=95>부위</td><td width=195>이름</td><td width=95>횟수</td></tr>";
+					var sport2 = "<tr><th width=95>부위</th><th width=195>이름</th><th width=95>횟수</th></tr>";
 					$("#insertTable").append(sport2);
 					
 					if(data.sportTable.length == 0){
@@ -314,11 +296,12 @@ table tr td
 
 <div id="sporttable">
 <table id="insertTable">
-	<tr>
-		<td style="width:95px; background-color: #eee; color: rgb(35,146,173);">부위</td>
-		<td style="width:195px; background-color: #eee; color: rgb(35,146,173);">이름</td>
-		<td style="width:95px; background-color: #eee; color: rgb(35,146,173); word-break:break-all;">횟수</td>
-	</tr>
+<tr>
+		<th style="width:95px; background-color: #eee; color: rgb(35,166,173);">부위</th>
+		<th style="width:195px; background-color: #eee; color: rgb(35,166,173);">이름</th>
+		<th style="width:95px; background-color: #eee; color: rgb(35,166,173); word-break:break-all;">횟수</th>		
+</tr>
+<tr><td colspan=3>입력된 항목이 없습니다</td></tr>
 </table>
 </div>
 
