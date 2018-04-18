@@ -13,25 +13,8 @@
 <meta http-equiv="content-type"
 	content="text/html; charset=windows-1252" />
 <link rel="stylesheet" type="text/css" href="/semi/style/style.css" />
-<script src="http://maps.googleapis.com/maps/api/js"></script>
 <script type="text/javascript">
-function initialize() {
-  var mapProp = {
-    center:new google.maps.LatLng(37.499, 127.03286),
-    zoom:18,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
-  };
-    
-  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-  
-  var uluru = {lat: 37.499, lng: 127.03286};
-  
-  var marker = new google.maps.Marker({
-	  position: uluru,
-	  map: map
-	});
-}
-google.maps.event.addDomListener(window, 'load', initialize);
+
 </script>
 </head>
 <body>
@@ -107,10 +90,27 @@ google.maps.event.addDomListener(window, 'load', initialize);
 			</div>
 			<div id="content">
 				<!-- insert the page content here -->
-				<h1>Contact to Us</h1>
-				<h5>서울특별시 강남구 테헤란로 14길 6 남도빌딩 2F, 3F, 4F, 5F (T: 1544-9970 / F: 070-8290-2889)</h5>
+				<h1>1:1 문의</h1>
+				<h5>관리자에게 메일을 보내 상담을 받으실 수 있습니다.</h5>
 				<div>
-					<div id="googleMap" style="width:500px; height:380px;"></div>
+					
+					<!-- 제목 -->
+					제목<br>
+					<input type="text" style="width: 400px;"><br><br>
+					
+					<!-- 보내는사람(비 로그인시 로그인하라고 창뜨고 안보냄) -->
+					<input type="hidden">
+					
+					<!-- 내용 --> 
+					내용<br>
+					<textarea rows="8" cols="61"></textarea><br><br>
+					
+					<!-- 보내기버튼 -->
+					<input type="submit" value="보내기">
+					
+					
+					
+					
 				</div>
 				<!-- <div class="form_settings">
 					<form method=get action="Mailto:hi_back@naver.com" enctype="text/plain">
