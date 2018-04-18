@@ -158,9 +158,21 @@ select {
 					<div class="sidebar_top"></div>
 					<div class="sidebar_item">
 						<!-- insert your sidebar items here -->
+						<%
+							if (loginUser == null) {
+						%>
+						<a href="/semi/html/yn/userLoginPage.jsp">로그인</a>&nbsp; <a
+							href="/semi/html/yn/userEnroll.jsp">회원가입</a>
+						<%
+							} else {
+						%>
 						<h4><%=loginUser.getUserName()%>님 환영합니다
 						</h4>
-						<a href="/semi/exedetail?userid=<%=loginUser.getUserId()%>">마이페이지</a>
+						<a href="/semi/exedetail?userid=<%=loginUser.getUserId()%>">마이페이지</a>&nbsp;&nbsp;&nbsp;
+						<a href="/semi/ulogout"><input type="button" value="로그아웃"></a>
+						<%
+							}
+						%>
 					</div>
 					<div class="sidebar_base"></div>
 				</div>

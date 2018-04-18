@@ -572,7 +572,7 @@ td {
 				<%
 					}
 					}
-				%>				
+				%>
 				<h2>운동칼로리계산</h2>
 				<br> <br> <br> <br>
 				<form method="get">
