@@ -111,13 +111,14 @@ google.maps.event.addDomListener(window, 'load', initialize);
 				<div>
 					<div id="googleMap" style="width:500px; height:380px;"></div>
 				</div>
-				<div class="form_settings">
+				<!-- <div class="form_settings">
 					<form method=get action="Mailto:hi_back@naver.com" enctype="text/plain">
 						<p style="padding-top: 15px">
-							<span>&nbsp;</span><input class="submit" type="submit" name="contact_submitted" value="Mail to Amdin" />
+							<span>&nbsp;</span>
+							<input class="submit" type="submit" name="contact_submitted" value="Mail to Amdin" />
 						</p>
 					</form>
-				</div>
+				</div> -->
 				<p>
 					<br />
 				</p>
