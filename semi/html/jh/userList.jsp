@@ -124,13 +124,13 @@
 
                <col width="100" />
 
-               <col width="50" />
+               <col width="70" />
 
-               <col width="50" />
+               <col width="70" />
 
                <col width="200" />
                
-               <col width="200" />
+               <col width="160" />
                
                <col width="100" />
 
