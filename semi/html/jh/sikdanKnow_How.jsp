@@ -277,7 +277,7 @@
 
 							<td align="center"><%=sb.getBoard_num()%></td>
 							<td align="center"><a
-								href="/semi/SikdanBoardDetailViewServlet?board_num=<%=sb.getBoard_num()%>&page=<%=currentPage%>">
+								href="/semi/SikdanBoardDetailViewServlet?board_num=<%=sb.getBoard_num()%>">
 									<%=sb.getBoard_title()%></a></td>
 							<td align="center"><%=sb.getBoard_write()%></td>
 							<td align="center"><%=sb.getBoard_date()%></td>

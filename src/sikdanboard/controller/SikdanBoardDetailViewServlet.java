@@ -35,7 +35,6 @@ public class SikdanBoardDetailViewServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String board_num = request.getParameter("board_num");
-		int currentPage = Integer.parseInt(request.getParameter("page"));
 
 		SikdanBoardService sbs = new SikdanBoardService();
 
@@ -47,7 +46,6 @@ public class SikdanBoardDetailViewServlet extends HttpServlet {
 		if (sb != null) {
 			view = request.getRequestDispatcher("html/jh/sikdanboardDetailView.jsp");
 			request.setAttribute("board", sb);
-			request.setAttribute("currentPage", currentPage);
 
 			view.forward(request, response);
 		} else {

@@ -44,7 +44,7 @@ public class SikdanBoradDao {
 			PreparedStatement pstmt = null;
 			ResultSet rset = null;
 			
-			String query = "select * from (select rownum rnum, board_num, board_write, board_title, board_date, board_look from food_recommend) "
+			String query = "select * from (select rownum rnum, board_num, board_write, board_title, board_date, board_look from food_recommend ORDER BY board_num desc) "
 					+ "where rnum >= ? and rnum <= ?";
 
 			int startRow = (currentPage - 1) * limit + 1;

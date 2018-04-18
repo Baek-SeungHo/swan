@@ -7,7 +7,7 @@
 	import="sikdanboard.model.vo.SikdanBorad, java.util.ArrayList, java.sql.Date"%>
 <%
 	SikdanBorad sb = (SikdanBorad) request.getAttribute("board");
-	 int currentPage = ((Integer) request.getAttribute("currentPage")).intValue(); 
+	/*  int currentPage = ((Integer) request.getAttribute("currentPage")).intValue();  */
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -143,7 +143,7 @@
 				</table>
 				<p>
 					<input type="button" value="목록" onclick="goUrl('/semi/SikdanBoradListServlet?page=1');" />
-					<input type="button" value="수정" onclick="goUrl('/semi/SikdanBoardModifyViewServlet?board_num=<%=sb.getBoard_num()%>&page=<%=currentPage%>');" /> 
+					<input type="button" value="수정" onclick="goUrl('/semi/SikdanBoardModifyViewServlet?board_num=<%=sb.getBoard_num()%>');" /> 
 					<input type="button" value="삭제" onclick="Delete('/semi/SikdanBoardDeleteServlet?board_num=<%=sb.getBoard_num()%>');"/>
 				</p>
 			</div>

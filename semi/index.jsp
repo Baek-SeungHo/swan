@@ -118,8 +118,8 @@
 
 							values += "<tr><td>"
 									+ json.list[i].board_write
-									+ "</td><td><a href='/SikdanBoardDetailViewServlet?board_num="
-									+ json.list[i].board_num + "'>"
+									+ "</td><td><a href='/semi/SikdanBoardDetailViewServlet?board_num="
+									+ json.list[i].board_num +"'>"
 									+ json.list[i].board_title
 									+ "</a></td></tr>";
 						}

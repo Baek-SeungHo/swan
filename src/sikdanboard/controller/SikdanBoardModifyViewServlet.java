@@ -34,7 +34,7 @@ public class SikdanBoardModifyViewServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String board_num = request.getParameter("board_num");
-		int currentPage = Integer.parseInt(request.getParameter("page"));
+		/*int currentPage = Integer.parseInt(request.getParameter("page"));*/
 
 		SikdanBoardService sbs = new SikdanBoardService();
 
@@ -46,7 +46,7 @@ public class SikdanBoardModifyViewServlet extends HttpServlet {
 		if (sb != null) {
 			view = request.getRequestDispatcher("html/jh/sikdanboardModifyForm.jsp");
 			request.setAttribute("board", sb);
-			request.setAttribute("currentPage", currentPage);
+			/*request.setAttribute("currentPage", currentPage);*/
 
 			view.forward(request, response);
 		} else {
