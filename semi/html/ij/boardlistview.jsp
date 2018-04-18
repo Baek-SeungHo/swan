@@ -418,15 +418,15 @@ body, td {
 	color: #000000;
 	font-family: verdana
 }
-
+/* 
 a {
 	text-decoration: none
-}
-
+} */
+/* 
 A:hover {
 	color: #ff0000;
 	text-decoration: none
-}
+} */
 
 input {
 	font-family: verdana;
@@ -458,17 +458,17 @@ td {
 	font-weight: bold
 }
 
-a {
+/* a {
 	font-family: "굴림";
 	font-size: 10pt;
 	color: #000080;
 	text-decoration: none;
 	line-height: 14pt
-}
-
+} */
+/* 
 a:hover {
 	color: #ff0000
-}
+} */
 
 td {
 	font-size: 10pt
