@@ -166,18 +166,18 @@ function drawBasic() {
       data.addColumn('number', 'kg');
 
       data.addRows([
-        [0, 80],   [1, 80],  [2, 83],  [3, 77],  [4, 78],  [5, 79],
-        [6, 71],  [7, 77],  [8, 73],  [9, 70],  [10, 72], [11, 75],
-        [12, 70], [13, 70], [14, 72], [15, 77], [16, 74], [17, 78],
-        [18, 72], [19, 74], [20, 72], [21, 75], [22, 76], [23, 77],
-        [24, 70], [25, 70], [26, 72], [27, 71], [28, 69], [29, 73],
-        [30, 65], [31, 60], [32, 61], [33, 59], [34, 62], [35, 65],
-        [36, 72], [37, 68], [38, 65], [39, 61], [40, 64], [41, 65],
-        [42, 63], [43, 66], [44, 67], [45, 69], [46, 69], [47, 70],
-        [48, 62], [49, 68], [50, 66], [51, 65], [52, 67], [53, 70],
-        [54, 71], [55, 72], [56, 73], [57, 75], [58, 70], [59, 68],
-        [60, 64], [61, 60], [62, 65], [63, 67], [64, 68], [65, 69],
-        [66, 70], [67, 72], [68, 70], [69, 68]
+        [0, 75],  [1, 75],  [2, 74],  [3, 73],  [4, 72],  [5, 73],
+        [6, 73],  [7, 75],  [8, 74],  [9, 73],  [10, 74], [11, 72],
+        [12, 70], [13, 70], [14, 72], [15, 70], [16, 72], [17, 70],
+        [18, 72], [19, 70], [20, 72], [21, 71], [22, 70], [23, 70],
+        [24, 69], [25, 68], [26, 69], [27, 70], [28, 70], [29, 71],
+        [30, 70], [31, 68], [32, 69], [33, 68], [34, 67], [35, 65],
+        [36, 67], [37, 68], [38, 65], [39, 66], [40, 65], [41, 65],
+        [42, 65], [43, 66], [44, 67], [45, 69], [46, 69], [47, 70],
+        [48, 69], [49, 68], [50, 68], [51, 67], [52, 67], [53, 68],
+        [54, 69], [55, 68], [56, 67], [57, 66], [58, 67], [59, 66],
+        [60, 64], [61, 66], [62, 65], [63, 64], [64, 64], [65, 63],
+        [66, 63], [67, 64], [68, 63], [69, 63]
       ]);
 
       var options = {
@@ -269,7 +269,7 @@ function drawBasic() {
 			</div>
 			<!--내용-->			
 			<div id="content">
-			<div id="myinfo2" class="4u" style="border: 4px solid rgb(242,242,242); width: 250px; height: 350px; padding: 10pt; margin: 4pt; float: left;">
+			<div id="myinfo2" class="4u" style="border: 4px solid rgb(242,242,242); width: 250px; height: 350px; padding: 8pt; margin: 4pt; float: left;">
 			<h2 style="text-align:center; font-weight:bold;">시작세부 정보 및 목표</h2>	
 			<hr>
 			<table style="margin-left:15pt;">
@@ -294,7 +294,7 @@ function drawBasic() {
 			</div>
 			
 			
-			<div id="myinfo2" class="4u" style="border: 4px solid rgb(242,242,242); width: 200px; height: 350px; padding: 10pt; margin: 4pt; float: left; style:center;">
+			<div id="myinfo2" class="4u" style="border: 4px solid rgb(242,242,242); width: 200px; height: 350px; padding: 8pt; margin: 4pt; float: left; style:center;">
 			<h2 style="text-align:center; font-weight:bold;">목표달성 진행상황</h2>
 			<hr>
 			<table style="align:center; margin-left: 18pt;"><tr style="center;"><td style="align:center; padding-bottom:20pt; padding-top:10pt;"><div class="graph" style="align:center;"></div></td></tr><tr><td id="day3"><font size="15" style="color: rgb(29,182,235); align: center; margin: 30pt;"></font><br>
@@ -430,7 +430,7 @@ console.log("days 출력되야함: "+days);
 
 </div>
 
-<div id="myinfo2" class="4u" style="border: 4px solid rgb(242,242,242); width: 495px; height: 250px; padding: 10pt; margin: 4pt; float: left;">
+<div id="myinfo2" class="4u" style="border: 4px solid rgb(242,242,242); width: 490px; height: 250px; padding: 8pt; margin: 4pt; float: left;">
 <h2 style="font-weight:bold; padding-left:15pt;">몸무게 변화</h2>
 <hr>
 			<div id="chart_div"></div>
