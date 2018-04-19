@@ -25,10 +25,52 @@
 
         }
         
-        function Delete(url) {
+        function Modify(url) {
+        	<%   
+				if(loginUser == null) {   
+			%>
+			 	alert('로그인을 해주세요');
+			 	location.href='/semi/html/yn/userLoginPage.jsp';
+		
+        	<%
+				}
+				else if(!loginUser.getUserId().equals(sb.getBoard_write())){
+        	%>
+        		alert('본인 게시물만 수정 할 수 있습니다.');
+        	<%	
+        	}
+        	else {
+        	%>
+        		location.href=url;
+        	<%
+        	}
+        	%>
         	
-        	location.href=url;
-        	alert('게시글 삭제가 완료되었습니다!');
+        }
+        
+        
+        function Delete(url) {
+        	<%   
+				if(loginUser == null) {   
+			%>
+			 	alert('로그인을 해주세요');
+			 	location.href='/semi/html/yn/userLoginPage.jsp';
+		
+        	<%
+				}
+				else if(!loginUser.getUserId().equals(sb.getBoard_write())){
+        	%>
+        		alert('본인 게시물만 삭제 할 수 있습니다.');
+        	<%	
+        	}
+        	else {
+        	%>
+        		location.href=url;
+        		alert('게시글 삭제가 완료되었습니다!');
+        	<%
+        	}
+        	%>
+        	
         }
 
     </script>
@@ -143,7 +185,7 @@
 				</table>
 				<p>
 					<input type="button" value="목록" onclick="goUrl('/semi/SikdanBoradListServlet?page=1');" />
-					<input type="button" value="수정" onclick="goUrl('/semi/SikdanBoardModifyViewServlet?board_num=<%=sb.getBoard_num()%>');" /> 
+					<input type="button" value="수정" onclick="Modify('/semi/SikdanBoardModifyViewServlet?board_num=<%=sb.getBoard_num()%>');" /> 
 					<input type="button" value="삭제" onclick="Delete('/semi/SikdanBoardDeleteServlet?board_num=<%=sb.getBoard_num()%>');"/>
 				</p>
 			</div>
