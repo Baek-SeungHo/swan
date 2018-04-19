@@ -53,7 +53,7 @@ public class ExeInfoInsertServlet extends HttpServlet {
 		if(result > 0) {
 			response.sendRedirect("index.jsp");
 		}else {
-			RequestDispatcher view = request.getRequestDispatcher("html/yn/exeInfoError.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("html/yn/userError.jsp");
 			request.setAttribute("message", "추가정보 입력 실패");
 			view.forward(request, response);
 		}
