@@ -186,7 +186,7 @@ select {
 					<div class="sidebar_item">
 						<h3>메뉴</h3>
 						<ul>
-							 <li><a href="/semi/html/ij/exercisequestionnaire.jsp">몸상태설문조사</a></li> 
+							<li><a href="/semi/html/ij/exercisequestionnaire.jsp">몸상태설문조사</a></li>
 							<li><a href="/semi/html/ij/boardlistview.jsp">운동검색기</a></li>
 							<li><a href="#"
 								onclick="logincheck('/semi/todayschedule?grade=C');">운동스케쥴</a></li>

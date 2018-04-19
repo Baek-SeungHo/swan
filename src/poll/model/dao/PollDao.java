@@ -46,15 +46,14 @@ public class PollDao {
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, userid);
 			rset = pstmt.executeQuery();
-			System.out.println("Hi");
-			if(rset.next()) {
-				
-				poll= new User();
-				
-				poll.setUsergrade(rset.getString("user_grade"));
-				
-			}
 			
+			if (rset.next()) {
+
+				poll = new User();
+
+				poll.setUsergrade(rset.getString("user_grade"));
+
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
