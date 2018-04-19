@@ -71,7 +71,7 @@
 			</div>
 			<!--내용-->
 			<div id="content">
-<h2>에러 발생 : <%= message %></h2>
+<h2><%= message %></h2>
 <a href="/semi/index.jsp">첫페이지로 이동</a>
 </div>
 			<!--내용끝-->
