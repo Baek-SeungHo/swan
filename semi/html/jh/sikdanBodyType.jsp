@@ -102,26 +102,26 @@
 
 				<div class="box alt">
 					<div class="row 50% uniform">
-						<table border="0">
+						<table style="border: none; background-color: white;">
 
 							<tfoot>
 								<tr></tr>
 								<tr>
 
-									<td align="center">
+									<td align="center" style="border: none; background-color: white;">
 										<div class="9u">
 											<a href="jibang.jsp"><span class="image fit"><img
 													src="/semi/source/image/jibang.jpg" width="200" height="200"></span></a>
 										</div>
 									</td>
 
-									<td align="center">
+									<td align="center" style="border: none; background-color: white;">
 										<div class="9u">
 											<a href="gnyuk.jsp"><span class="image fit"><img
 													src="/semi/source/image/gnyuk.jpg" width="200" height="200"></span></a>
 										</div>
 									</td>
-									<td align="center">
+									<td align="center" style="border: none; background-color: white;">
 										<div class="9u">
 											<a href="mareon.jsp"><span class="image fit"><img
 													src="/semi/source/image/mareon.jpg" width="200" height="200"></span></a>
@@ -129,9 +129,9 @@
 									</td>
 								</tr>
 								<tr>
-									<td align="center"><b>1. 지방형</b></td>
-									<td align="center"><b>2. 근육형</b></td>
-									<td align="center"><b>3. 마른형</b></td>
+									<td align="center" style="border: none; background-color: white;"><b>1. 지방형</b></td>
+									<td align="center" style="border: none; background-color: white;"><b>2. 근육형</b></td>
+									<td align="center" style="border: none; background-color: white;"><b>3. 마른형</b></td>
 								</tr>
 							</tfoot>
 						</table>

@@ -31,19 +31,22 @@
 			%>
 			 	alert('로그인을 해주세요');
 			 	location.href='/semi/html/yn/userLoginPage.jsp';
-		
+			
+			<%
+				}else if (loginUser.getAdministrator().equals("Y")) {
+			%>
+					location.href=url;
+			 	
         	<%
-				}
-				else if(!loginUser.getUserId().equals(sb.getBoard_write())){
+				}else if(!loginUser.getUserId().equals(sb.getBoard_write())){
         	%>
         		alert('본인 게시물만 수정 할 수 있습니다.');
         	<%	
-        	}
-        	else {
+        		}else {
         	%>
         		location.href=url;
         	<%
-        	}
+        		}
         	%>
         	
         }
@@ -55,20 +58,23 @@
 			%>
 			 	alert('로그인을 해주세요');
 			 	location.href='/semi/html/yn/userLoginPage.jsp';
-		
+			<%
+				}else if (loginUser.getAdministrator().equals("Y")) {
+			%>
+					location.href=url;
+					alert('게시글 삭제가 완료되었습니다!');
+			 	
         	<%
-				}
-				else if(!loginUser.getUserId().equals(sb.getBoard_write())){
+				}else if(!loginUser.getUserId().equals(sb.getBoard_write())){
         	%>
         		alert('본인 게시물만 삭제 할 수 있습니다.');
         	<%	
-        	}
-        	else {
+        		}else {
         	%>
         		location.href=url;
         		alert('게시글 삭제가 완료되었습니다!');
         	<%
-        	}
+        		}
         	%>
         	
         }
