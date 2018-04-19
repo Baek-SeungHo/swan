@@ -39,19 +39,19 @@
 		<div id="site_content">
 			<div id="sidebar_container">
 				<div class="sidebar">
-					<div class="sidebar_top"></div>
+					<!-- <div class="sidebar_top"></div> -->
 					<div class="sidebar_item">
 						<!-- insert your sidebar items here -->
 					</div>
-					<div class="sidebar_base"></div>
+					<!-- <div class="sidebar_base"></div> -->
 				</div>
 				<div class="sidebar">
-					<div class="sidebar_top"></div>
+					<!-- <div class="sidebar_top"></div> -->
 					<div class="sidebar_item">
 						<ul>
 						</ul>
 					</div>
-					<div class="sidebar_base"></div>
+					<!-- <div class="sidebar_base"></div> -->
 				</div>
 				<div class="sidebar">
 					<!-- <div class="sidebar_top"></div>
