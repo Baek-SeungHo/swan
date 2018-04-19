@@ -48,7 +48,7 @@ public class UserLoginServlet extends HttpServlet {
 			session.setAttribute("loginUser", loginUser);			
 			response.sendRedirect("index.jsp");
 		}else {
-			response.sendRedirect("/semi/html/yn/loginFail.jsp");
+			response.sendRedirect("html/yn/loginFail.jsp");
 		}
 	}
 
