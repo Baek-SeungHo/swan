@@ -141,7 +141,7 @@
 						<tbody>
 							<tr>
 								<th align="center">제목</th>
-								<td><input type="text" name="board_title" size="70" maxlength="100" value=<%=sb.getBoard_title()%> /></td>
+								<td><input type="text" name="board_title" size="70" maxlength="100" value="<%=sb.getBoard_title()%>" /></td>
 							</tr>
 							<tr>
 								<th align="center">작성자</th>
